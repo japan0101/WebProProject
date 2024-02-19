@@ -1,5 +1,9 @@
+<script>
+  import Test from "~/components/Test.vue";
+</script>
+
 <template>
-  <Tutorial/>
+  <Test/>
 </template>
 
 <script>
