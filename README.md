@@ -3,6 +3,9 @@
 ## Build Setup
 
 ```bash
+# install yarn if you dont have
+$ npm install yarn
+
 # install dependencies
 $ yarn install
 
