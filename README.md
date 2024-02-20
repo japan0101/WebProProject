@@ -10,7 +10,8 @@ $ npm install yarn
 $ yarn install
 
 # serve with hot reload at localhost:3000
-$ yarn dev
+$ yarn dev #รันอันนี้
+$ yarn backend #รันอันนี้
 
 # build for production and launch server
 $ yarn build

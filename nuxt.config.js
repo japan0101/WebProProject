@@ -1,4 +1,9 @@
 export default {
+  serverMiddleware: [
+    { path: '/api', handler: '~/server-middleware/proxy.js' }
+  ],
+
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'LaewTaeApp',
@@ -34,8 +39,12 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
+  modules: ['@nuxtjs/axios',
   ],
+  
+  axios: {
+    // Config options
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

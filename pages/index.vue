@@ -1,9 +1,9 @@
 <script>
-  import Test from "~/components/Test.vue";
+  import Navbar from "~/components/Navbar.vue";
 </script>
 
 <template>
-  <Test/>
+  <Navbar/>
 </template>
 
 <script>
