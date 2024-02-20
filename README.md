@@ -3,7 +3,10 @@
 ## Build Setup
 
 ```bash
-# install dependencies
+# install yarn if you dont have
+$ npm install yarn
+
+# install dependencies | เริ่มใช้อันนี้ได้เลยถ้ามี yarn แล้ว
 $ yarn install
 
 # serve with hot reload at localhost:3000
