@@ -3,17 +3,29 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { onMounted } from 'vue';
+import { onMounted, onBeforeUnmount  } from 'vue';
 
 const theme = {
   color:'red'
 }
 
-onMounted(() => {
-  if (window.outerWidth < 1100) {
+const handleResize = () => {
+  if (window.innerWidth < 1100) {
     theme.color = 'blue';
+    theme.textHeight = '300px'; // Update text height based on condition
+  } else {
+    theme.color = 'red';
+    theme.textHeight = '200px'; // Reset text height if condition not met
   }
+};
+
+onMounted(() => {
+  handleResize(); // Call the method on component mount
+  window.addEventListener('resize', handleResize); // Listen for window resize events
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize); // Remove the event listener on component unmount
 });
 </script>
 
