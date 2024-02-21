@@ -48,6 +48,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
+@import "./../../asset/css/style.css";
 .Gridimg {
   width: v-bind('gridimg.width');
   height: v-bind('gridimg.height');

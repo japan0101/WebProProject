@@ -1303,6 +1303,13 @@
   resolved "https://registry.npmjs.org/@gar/promisify/-/promisify-1.1.3.tgz"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
+"@headlessui/vue@^1.0.0":
+  version "1.7.19"
+  resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-1.7.19.tgz#c128504afc14c5a85e2bedd59370a6a461b7c669"
+  integrity sha512-VFjKPybogux/5/QYGSq4zgG/x3RcxId15W8uguAJAjPBxelI23dwjOjTx/mIiMkM/Hd3rzFxcf2aIp56eEWRcA==
+  dependencies:
+    "@tanstack/vue-virtual" "^3.0.0-beta.60"
+
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
   resolved "https://registry.npmjs.org/@isaacs/cliui/-/cliui-8.0.2.tgz"
@@ -1550,7 +1557,7 @@
     node-html-parser "^6.1.12"
     ufo "^1.3.2"
 
-"@nuxt/kit@^3.9.3":
+"@nuxt/kit@^3.8.2", "@nuxt/kit@^3.9.3":
   version "3.10.2"
   resolved "https://registry.npmjs.org/@nuxt/kit/-/kit-3.10.2.tgz"
   integrity sha512-Bua7taY9CIm7HCTpHXqFyM1xlZkrUl6HOqWrkGjLLQg9eeWAdKT7ppT0iEMiGnb9f+5T0uL5Ec3TvuR5J8P9WA==
@@ -1858,6 +1865,18 @@
   version "2.2.1"
   resolved "https://registry.npmjs.org/@sindresorhus/merge-streams/-/merge-streams-2.2.1.tgz"
   integrity sha512-255V7MMIKw6aQ43Wbqp9HZ+VHn6acddERTLiiLnlcPLU9PdTq9Aijl12oklAgUEblLWye+vHLzmqBx6f2TGcZw==
+
+"@tanstack/virtual-core@3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/virtual-core/-/virtual-core-3.1.2.tgz#ca76f28f826fbd3310f88c3cd355d9c4aba80abb"
+  integrity sha512-DATZJs8iejkIUqXZe6ruDAnjFo78BKnIIgqQZrc7CmEFqfLEN/TPD91n4hRfo6hpRB6xC00bwKxv7vdjFNEmOg==
+
+"@tanstack/vue-virtual@^3.0.0-beta.60":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@tanstack/vue-virtual/-/vue-virtual-3.1.2.tgz#828270573d94bef32d13aa90b189ac4bbb1d0dc0"
+  integrity sha512-RmUnhsFtRw9p4Ti/+rG2Hr3y4yFhs8Xdsn7x9tkPoKINbVya/5RSCoNUCCAg2iXNjOI5a55iBNzNV0SVwxMwKA==
+  dependencies:
+    "@tanstack/virtual-core" "3.1.2"
 
 "@trysound/sax@0.2.0":
   version "0.2.0"
@@ -6527,6 +6546,15 @@ nth-check@^2.0.1:
   integrity sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==
   dependencies:
     boolbase "^1.0.0"
+
+nuxt-headlessui@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/nuxt-headlessui/-/nuxt-headlessui-1.1.5.tgz#433d17772f9090b399c54ae8d3e1e149500ab0e6"
+  integrity sha512-BtXnqlyqW0JX2wPDLvu+sG/Zvm3kLMJ2Vifz+1or7IqrCnpQMGcBYCKTLw6KrI1icuaoMdW0fBDcSLIJlKW71Q==
+  dependencies:
+    "@headlessui/vue" "^1.0.0"
+    "@nuxt/kit" "^3.8.2"
+    pathe "^1.1.1"
 
 nuxt@^2.15.8:
   version "2.17.3"
