@@ -1,11 +1,69 @@
+
 <template>
     <header>
+    <style>
+        @keyframes pDrop {
+        from {scale: 0;}
+        to {scale: 1;}
+        }
+
+        @keyframes pFold {
+        from {scale: 1;}
+        to {scale: 0;}
+        }
+        
+        @keyframes mDrop {
+        from {scale: 1 0;}
+        to {scale: 1 1;}
+        }
+
+        @keyframes mFold {
+        from {scale: 1 1;}
+        to {scale: 1 0;}
+        }
+
+        .dropdown a:hover {background-color: #ddd;}
+
+        .show {
+            display: block;
+            transform-origin: 100% 0%;
+            animation-name: pDrop;
+            animation-duration: 0.2s;
+        }
+        
+        .remove {
+            display: block;
+            scale: 0;
+            transform-origin: 100% 0%;
+            animation-name: pFold;
+            animation-duration: 0.2s;
+        }
+
+        .hide {
+            display: none;
+            scale: 0;
+        }
+
+        .showM {
+            display: block;
+            transform-origin: 100% 0%;
+            animation-name: mDrop;
+            animation-duration: 0.2s;
+        }
+        
+        .removeM {
+            scale: 0;
+            transform-origin: 100% 0%;
+            animation-name: mFold;
+            animation-duration: 0.2s;
+        }
+    </style>
         <nav class="bg-gray-800">
             <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div class="relative flex h-16 items-center justify-between">
                     <!-- Mobile menu button-->
                     <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                        <button type="button"
+                        <button type="button" @click="dropMobile()"
                             class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                             aria-controls="mobile-menu" aria-expanded="false">
                             <span class="absolute -inset-0.5"></span>
@@ -60,7 +118,7 @@
                             <div>
                                 <button type="button"
                                     class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                    id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                    id="user-menu-button" aria-expanded="false" aria-haspopup="true" v-on:click="drop()">
                                     <span class="absolute -inset-1.5"></span>
                                     <span class="sr-only">Open user menu</span>
                                     <img class="h-8 w-8 rounded-full"
@@ -78,9 +136,9 @@
                             Leaving: "transition ease-in duration-75"
                             From: "transform opacity-100 scale-100"
                             To: "transform opacity-0 scale-95"
-                        -->
+                            -->
                             <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
-                                role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                                role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1" :class="{show: droped, remove: !droped, hide: pstart}">
                                 <!-- Active: "bg-gray-100", Not Active: "" -->
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1"
                                     id="user-menu-item-0">Your Profile</a>
@@ -90,30 +148,45 @@
                                     id="user-menu-item-2">Sign out</a>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
             <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="hidden" id="mobile-menu">
+            <div class="sm:hidden" id="mobile-menu">
                 <div class="space-y-1 px-2 pb-3 pt-2">
-                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                    <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-                        aria-current="page">Dashboard</a>
-                    <a href="#"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-                    <a href="#"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-                    <a href="#"
-                        class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
+                    <!-- when its current page -->
+                    <NuxtLink to="/" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
+                        aria-current="page" v-if="$route.name == 'index'">Dashboard</NuxtLink>
+                    <!-- when its on other page -->
+                    <NuxtLink to="/" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-mediumm"
+                    aria-current="page" v-else>Dashboard</NuxtLink>
                 </div>
             </div>
         </nav>
     </header>
-    
 </template>
 
 <script>
 export default {
-    name: 'Navbar'
+    name: 'Navbar',
+    data() {
+        return {
+        droped: false,
+        mobileDrop: false,
+        pstart: true,
+        mstart: true,
+        }
+    },
+    methods: {
+        drop: function (){
+            this.pstart = false;
+            this.droped = !this.droped;
+        },
+        dropMobile: function (){
+            this.mstart = false;
+            this. mobileDrop = !this. mobileDrop;
+        }
+    }
 }
 </script>
