@@ -6,12 +6,14 @@ class Database
     private $password;
     private $database;
     private $res;
+    private $conn;
     public function __construct()
     {
         $this->hostname = "localhost";
         $this->username = "bess1123";
         $this->password = "123456789";
-        $this->database = "test";
+        $this->database = "laewtaeapp";
+        $this->conn = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
     }
 
     public function custom(string $sql)
@@ -21,51 +23,48 @@ class Database
 
     public function insert(string $tablename, array $keyvalue)
     {
-        $column = "";
-        $value = "";
+        $column = implode(", ", array_keys($keyvalue));
+        $value = implode("', '", array_values($keyvalue));
 
-        foreach($keyvalue as $key => $value){
-            $column += ", ".$key;
-            $value += ", ".$value;
-        }
-        $column = str_replace(", ", "", $column, 1);
-        $value = str_replace(", ", "", $value, 1);
-        $sql = "INSERT INTO $tablename ($column) VALUE ($value)";
-        echo $sql;
+        $sql = "INSERT INTO $tablename ($column) VALUE ('$value')";
         $this->query($sql);
     }
 
-    public function update(string $tablename, array $keyvalue, array $where)
+    public function update(string $tablename, array $keyvalue, $where = null)
     {
         $data = "";
         $sql = "UPDATE $tablename SET ";
         foreach ($keyvalue as $key => $value) {
-            $data = ", $key = $value";
+            $data = ", $key = '{$value}'";
         }
-        $data = str_replace(", ", "", $data, 1);
-        $sql += $data + " WHERE ";
+        $data = substr($data, 2, strlen($data));
+        $sql .= $data;
 
-        $data = "";
-        foreach($where as $key => $value){
-            $data += ", $key = $value";
+        if (!is_null($where)) {
+            $sql .= " WHERE ";
+            $data = "";
+            foreach ($where as $key => $value) {
+                $data .= ", $key = $value";
+            }
+            $data = substr($data, 2, strlen($data));
+            $sql .= $data;
         }
-        $data = str_replace(", ", "", $data, 1);
-        $sql += $data;
         $this->query($sql);
     }
 
-    public function delete(string $tablename, $col = "", $where)
+    public function delete(string $tablename, $col = null, $where = null)
     {
-        $sql = "DELETE $col FROM $tablename WHERE $where";
+        if (!is_null($col))$sql = "DELETE $col FROM $tablename";
+        else $sql = "DELETE FROM $tablename";
+        if (!is_null($where))$sql .= " WHERE $where";
         $this->query($sql);
     }
 
     private function query(string $sql)
     {
         try {
-            $conn = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
-            $result = $conn->query($sql);
-            $this->res = array("payload"=>[], "result" => 0, "message"=>'');
+            $result = $this->conn->query($sql);
+            $this->res = array("payload" => [], "result" => 0, "message" => 'Default');
 
             if (str_starts_with($sql, "SELECT")) {
                 if ($result->num_rows > 0) {
@@ -77,16 +76,15 @@ class Database
                     $this->res['result'] = 0;
                     $this->res['message'] = "No Data";
                 }
-            }else{
-                if ($result){
+            } else {
+                if ($result) {
                     $this->res['result'] = 1;
                     $this->res['message'] = "Successful";
-                }else{
+                } else {
                     $this->res['result'] = 0;
-                    $this->res['message'] = "Cannot Query: ".$conn->error;
+                    $this->res['message'] = "Cannot Query: " . $this->conn->error;
                 }
             }
-
         } catch (Exception $e) {
             $this->res = array(
                 'result' => -1,

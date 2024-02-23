@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite App</title>
+  <title>LaewTaeApp</title>
 
   <!-- Roboto font -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
@@ -69,7 +69,7 @@
           <!-- Projects link -->
           <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
             <a class="text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-              href="./pages/index.php" data-te-nav-link-ref>TestBackend</a>
+              href="./pages/login.php" data-te-nav-link-ref>TestBackend</a>
           </li>
         </ul>
       </div>
@@ -195,5 +195,25 @@
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+
+<script>
+  // Initialization for ES Users
+  import {
+    Animate,
+    Input,
+    Ripple,
+    Collapse,
+    Dropdown,
+    initTE,
+  } from "tw-elements";
+
+  initTE({
+    Animate,
+    Input,
+    Ripple,
+    Collapse,
+    Dropdown,
+  });
+</script>
 
 </html>
