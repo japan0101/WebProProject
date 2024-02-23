@@ -3,7 +3,8 @@
 import {
   Carousel,
   Animate,
-  initTE,
+  initTE,  
+  Collapse,
+  Dropdown
 } from "tw-elements";
-
-initTE({ Carousel, Animate, Ripple });
+initTE({ Carousel, Animate, Ripple, Collapse, Dropdown });
