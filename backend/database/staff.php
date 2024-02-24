@@ -1,23 +1,54 @@
 <?php
+session_start();
+header('Content-Type: application/json');
+
 include './../connectDatabase.php';
 include './../randomCode.php';
 
-$input = json_decode(file_get_contents("php://input"), true);
+$redirect = "Location: ";
 
-switch ($input["case"]) {
-    case 'randomTableCode': {
-        // ต้องการ ID
-            $database->update("tables", array("code"=>randomCode()), array("tableID" => $input['ID']));
-            echo json_encode($database->getResult());
-            break;
-        }
-    case '': {
-        }
-    default:{
-        echo json_encode(array(
-            "result" => 0,
-            "message" => "No case selected"
-        ));
+if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("STAFF", "MANAGER"))) {
+    switch ($_POST["case"]) {
+        case 'randomTableCode': {
+                // ต้องการ ID
+
+                if (isset($_POST['ID'])) {
+                    $database->update("tables", array("code" => randomCode()), array("tableID" => $_POST['ID']));
+
+                    if ($database->getResult()['result']) $database->customResult(message: "ทำการสุ่มโค้ดเสร็จสิ้น", type: $_POST['case']);
+                    else $database->customResult(type: $_POST['case']);
+                } else {
+
+                    $database->customResult(result: 0, message: "ไม่ได้ใส่ ID", type: $_POST['case']);
+                }
+
+                $redirect .= $_SERVER['HTTP_REFERER'];
+                break;
+            }
+        default: {
+                $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
+                break;
+            }
+    }
+    $_SESSION['result']['result'] = $database->getResult()['result'];
+    $_SESSION['result']['message'] = $database->getResult()['message'];
+    $_SESSION['result']['type'] = $database->getResult()['type'];
+
+    unset($database);
+    header($redirect);
+} else {
+    switch ($_GET["case"]) {
+        case 'table': {
+                $database->custom("SELECT * FROM tables");
+                echo json_encode($database->getResult()['payload']);
+                break;
+            }
+        case 'user': {
+                $database->custom("SELECT * FROM users");
+                break;
+            }
+        default: {
+                break;
+            }
     }
 }
-$database->custom("SELECT * FROM ");

@@ -1,10 +1,14 @@
 <?php
 session_start();
+header('Content-Type: application/json');
 
 include './../connectDatabase.php';
 
+$redirect = "Location: ";
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    switch ($input["case"]) {
+    switch ($_POST["case"]) {
+
         case 'tableCheck': {
                 // ต้องการ code
                 $database->custom("SELECT tableID FROM tables WHERE code='{$_POST['code']}'");
@@ -20,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 ));
             }
     }
+} else {
+    $database->customResult(0, "Error: Wrong Method", "Method");
+    $redirect .= $_SERVER['HTTP_REFERER'];
 }
-
-$database->custom("SELECT * FROM ");

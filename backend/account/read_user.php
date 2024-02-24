@@ -8,7 +8,7 @@ $redirect = "Location: ";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // ต้องการ credential, passwd, token
 
-    $database->custom("SELECT userID, phoneNumber, memberName, email, points, role, passwd FROM users WHERE phoneNumber='{$_POST['credential']}' OR email='{$_POST['credential']}'");
+    $database->custom("SELECT userID, phoneNumber, memberName, email, points, role, passwd FROM users WHERE phoneNumber='{$_POST['credential']}' OR email='{$_POST['credential']}' AND status='ACTIVE'");
 
     if ($database->getResult()['result'] == 1) {
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 } else {
 
     $database->customResult(0, "Error: Wrong Method", "Method");
-    $redirect .= $_SERVER['HTTP_REFERER'];
+    $redirect .= "./../../";;
 }
 
 $_SESSION['result']['result'] = $database->getResult()['result'];

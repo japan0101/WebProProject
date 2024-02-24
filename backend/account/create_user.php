@@ -10,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     $hashedPassword = password_hash($_POST['passwd'], PASSWORD_BCRYPT);
 
-    $database->custom("SELECT email FROM users WHERE email='{$_POST['email']}'");
+    $database->custom("SELECT email FROM users WHERE email='{$_POST['email']}' AND status='ACTIVE'");
     if ($database->getResult()['result'] == 0) {
 
-        $database->custom("SELECT phoneNumber FROM users WHERE phoneNumber='{$_POST['phone']}'");
+        $database->custom("SELECT phoneNumber FROM users WHERE phoneNumber='{$_POST['phone']}' AND status='ACTIVE'");
         if ($database->getResult()['result'] == 0) {
 
             $database->insert("users", array("phoneNumber" => $_POST['phone'], "memberName" => $_POST['name'], "email" => $_POST['email'], "passwd" => $hashedPassword));
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 } else {
 
     $database->customResult(0, "Error: Wrong Method", "Method");
-    $redirect .= $_SERVER['HTTP_REFERER'];
+    $redirect .= "./../../";
 }
 
 $_SESSION['result']['result'] = $database->getResult()['result'];

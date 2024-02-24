@@ -9,7 +9,7 @@
   <?php include("./asset/script/tailwind.php") ?>
 </head>
 
-<body>
+<body class="antialiased">
   <?php include("asset/component/nav.php") ?>
 
 
@@ -46,25 +46,23 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/asset/script/sweetalert.js"></script>
-<script>
-  if (<?php echo isset($_SESSION['result']) ? true : false; ?>) {
-
-    if (<?php echo (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) ? 1 : 0 ?>) {
+<?php if (isset($_SESSION['result'])) { ?>
+  <script>
+    <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
       Toast.fire({
         icon: "success",
-        title: "<?php echo $_SESSION['result']['message'] ?>",
+        title: "<?php echo $_SESSION['result']['message']; ?>",
       });
+    <?php unset($_SESSION['result']);} ?>
 
-    }else if (<?php echo (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) ? 1 : 0 ?>){
+    <?php if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
       Toast.fire({
-        icon: "error",
-        title: "<?php echo $_SESSION['result']['message'] ?>",
+        icon: "success",
+        title: "<?php echo $_SESSION['result']['message']; ?>",
       });
-    }
-
-    <?php unset($_SESSION['result']); ?>
-  }
-</script>
+    <?php unset($_SESSION['result']);} ?>
+  </script>
+<?php } ?>
 
 <script>
   // Initialization for ES Users

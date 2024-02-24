@@ -90,7 +90,6 @@ if (isset($_SESSION['userID'])) header("Location: ./../");
 
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
-
     <script>
         // Initialization for ES Users
         import {
