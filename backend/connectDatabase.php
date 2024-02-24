@@ -12,7 +12,7 @@ class Database
         $this->hostname = "localhost";
         $this->username = "bess1123";
         $this->password = "123456789";
-        $this->database = "laewtaeapp";
+        $this->database = "leawtaeapp";
         $this->conn = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
     }
 
