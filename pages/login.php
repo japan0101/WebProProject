@@ -6,30 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaewTaeApp</title>
 
-    <!-- Roboto font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
-
-    <!-- TW Elements styles-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-
-    <!-- Tailwind CSS config -->
-    <script src="https://cdn.tailwindcss.com/3.3.0"></script>
-
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                fontFamily: {
-                    sans: ["Roboto", "sans-serif"],
-                    body: ["Roboto", "sans-serif"],
-                    mono: ["ui-monospace", "monospace"],
-                },
-            },
-            corePlugins: {
-                preflight: false,
-            },
-        };
-    </script>
+    <?php include("./../asset/script/tailwind.php")?>
 </head>
 
 <body class="m-auto lg:w-3/4 md:3/4 sm:h-4/5">
@@ -92,7 +69,7 @@
 </body>
 
 
-<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+<?php include("./../asset/script/tw_element.php")?>
 
 <script>
     // Initialization for ES Users
