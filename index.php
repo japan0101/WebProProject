@@ -44,27 +44,7 @@
 
 <?php include("./asset/script/tw_element.php") ?>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/asset/script/sweetalert.js"></script>
-<script>
-  if (<?php echo isset($_SESSION['result']) ? true : false; ?>) {
 
-    if (<?php echo (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) ? 1 : 0 ?>) {
-      Toast.fire({
-        icon: "success",
-        title: "<?php echo $_SESSION['result']['message'] ?>",
-      });
-
-    }else if (<?php echo (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) ? 1 : 0 ?>){
-      Toast.fire({
-        icon: "error",
-        title: "<?php echo $_SESSION['result']['message'] ?>",
-      });
-    }
-
-    <?php unset($_SESSION['result']); ?>
-  }
-</script>
 
 <script>
   // Initialization for ES Users
