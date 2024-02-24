@@ -1,5 +1,4 @@
-<?php 
-echo '<!-- Register Modal -->
+<!-- Register Modal -->
 <div data-te-modal-init
   class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
   id="regisModal" tabindex="-1" aria-labelledby="regisConfirmPassTitle" aria-modal="true" role="dialog">
@@ -26,12 +25,12 @@ echo '<!-- Register Modal -->
 
       <!--Modal body-->
       <div class="relative p-4">
-        <form action="" method>
+        <form action="/backend/acount/create_user.php" method="POST">
           <!--Username input-->
           <div class="relative mb-5" data-te-input-wrapper-init>
             <input type="text"
               class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="regisName" aria-describedby="nameHelp" placeholder="Enter Name" />
+              name="name" id="regisName" aria-describedby="nameHelp" placeholder="Enter Name" />
             <label for="regisName"
               class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
               >Username</label>
@@ -41,7 +40,7 @@ echo '<!-- Register Modal -->
           <div class="relative mb-5" data-te-input-wrapper-init>
             <input type="text"
               class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="regisPhone" aria-describedby="Phone Help" placeholder="Enter Phonenumber" />
+              name="phone" id="regisPhone" aria-describedby="Phone Help" placeholder="Enter Phonenumber" />
             <label for="regisPhone"
               class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
               >Phone number</label>
@@ -51,7 +50,7 @@ echo '<!-- Register Modal -->
           <div class="relative mb-5" data-te-input-wrapper-init>
             <input type="email"
               class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="regisEmail" aria-describedby="emailHelp" placeholder="Enter email" />
+              name="email" id="regisEmail" aria-describedby="emailHelp" placeholder="Enter email" />
             <label for="regisEmail"
               class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
               >Email address</label>
@@ -61,7 +60,7 @@ echo '<!-- Register Modal -->
           <div class="relative mb-5" data-te-input-wrapper-init>
             <input type="password"
               class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="regisPass" placeholder="Password" />
+              name="passwd" id="regisPass" placeholder="Password" />
             <label for="regisPass"
               class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
               >Password</label>
@@ -71,7 +70,7 @@ echo '<!-- Register Modal -->
           <div class="relative mb-5" data-te-input-wrapper-init>
             <input type="password"
               class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-              id="regisConfirmPass" placeholder="Confirm Password" />
+              name="confirmPasswd" id="regisConfirmPass" placeholder="Confirm Password" />
             <label for="regisConfirmPass"
               class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
               >Confirm Password</label>
@@ -87,5 +86,4 @@ echo '<!-- Register Modal -->
       </div>
     </div>
   </div>
-</div>';
-?>
+</div>
