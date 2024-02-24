@@ -10,7 +10,7 @@
           class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
           <!--Modal title-->
           <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="loginModalTitle">
-            Login
+            เข้าสู่ระบบ
           </h5>
           <!--Close button-->
           <button type="button"
@@ -45,7 +45,7 @@
                 class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
                 >รหัสผ่าน</label>
             </div>
-            
+
             <!--Checkbox-->
             <div class="mb-6 block min-h-[1.5rem] pl-[1.5rem]">
               <input
