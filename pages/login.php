@@ -72,14 +72,14 @@ if (isset($_SESSION['userID'])) header("Location: ./../");
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/asset/script/sweetalert.js"></script>
     <script>
-        if (<?php echo $_SESSION['result']['result'] == 0 && $_SESSION['result']['type'] == 'login' ?>) {
+        if (<?php echo $_SESSION['result']['result'] == 0 && $_SESSION['result']['type'] == 'login';?>) {
             Toast.fire({
                 icon: "success",
                 title: "<?php echo $_SESSION['result']['message'] ?>",
             });
             <?php unset($_SESSION['result']); ?>
-        } else if (<?php echo $_SESSION['result']['result'] == 0 && $_SESSION['result']['type'] == 'login' ?>) {
-            console.log($_SESSION['result']['result'] == 0 && $_SESSION['result']['type'] == 'login')
+        } else if (<?php echo $_SESSION['result']['result'] == 0 && $_SESSION['result']['type'] == 'login';?>) {
+            console.log(<?php echo $_SESSION['result']['result'] == 0 && $_SESSION['result']['type'] == 'login';?>)
             Toast.fire({
                 icon: "error",
                 title: "<?php echo $_SESSION['result']['message'] ?>",
