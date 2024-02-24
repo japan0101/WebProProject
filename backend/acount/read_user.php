@@ -3,18 +3,44 @@ session_start();
 
 include './../connectDatabase.php';
 
+$redirect = "Location: ";
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // ต้องการ phone, name, email, password
-    $hashedPassword = password_hash($_POST['passwd'], PASSWORD_BCRYPT);
-    $database->insert("users", array("phoneNumber" => $_POST['phone'], "memberName" => $_POST['name'], "email" => $_POST['email'], "passwd" => $hashedPassword));
+    // ต้องการ credential, passwd
+
+    $database->custom("SELECT userID, phoneNumber, email, points, role, passwd FROM users WHERE phoneNumber='{$_POST['credential']}' OR email='{$_POST['credential']}'");
+
+    if ($database->getResult()['result'] == 1) {
+
+        if (password_verify($_POST['passwd'], $database->getResult()['payload'][0]->passwd)) {
+
+            $_SESSION['userID'] = $database->getResult()['payload'][0]->userID;
+            $_SESSION['phoneNumber'] = $database->getResult()['payload'][0]->phoneNumber;
+            $_SESSION['email'] = $database->getResult()['payload'][0]->email;
+            $_SESSION['points'] = $database->getResult()['payload'][0]->points;
+            $_SESSION['role'] = $database->getResult()['payload'][0]->role;
+
+            $database->customResult(type: "login");
+            $redirect .= $_SERVER['HTTP_REFERER'];
+        } else {
+
+            $database->customResult(0, "อีเมล, หมายเลขโทรศัพท์หรือรหัสผ่านผิดพลาด", 'login');
+            $redirect .= $_SERVER['HTTP_REFERER'];
+        }
+    } else {
+
+        $database->customResult(0, "อีเมล, หมายเลขโทรศัพท์หรือรหัสผ่านผิดพลาด", "login");
+        $redirect .= $_SERVER['HTTP_REFERER'];
+    }
 } else {
-    $_SESSION['result'] = 0;
-    $_SESSION['message'] = "Error: Wrong Method";
-    header("Location: " . $_SERVER['HTTP_REFERER']);
+
+    $database->customResult(0, "Error: Wrong Method", "Method");
+    $redirect .= $_SERVER['HTTP_REFERER'];
 }
-$_SESSION['result'] = $database->getResult()['result'];
-$_SESSION['message'] = $database->getResult()['message'];
+
+$_SESSION['result']['result'] = $database->getResult()['result'];
+$_SESSION['result']['message'] = $database->getResult()['message'];
+$_SESSION['result']['type'] = $database->getResult()['type'];
 
 unset($database);
-
-header("Location: " . $_SERVER['HTTP_REFERER']);
+header($redirect);

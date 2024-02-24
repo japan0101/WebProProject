@@ -1,7 +1,8 @@
 <?php
 include 'connectDatabase.php';
 
-echo "a";
+$data['result']['message'] = 'a';
+echo $data['result']['message'];
 // id
 // $database->custom("SELECT * FROM instructor WHERE ID={$input['id']}");
 // $res = $database->getResult();

@@ -64,7 +64,11 @@ class Database
     {
         try {
             $result = $this->conn->query($sql);
-            $this->res = array("payload" => [], "result" => 0, "message" => 'Default');
+            $this->res = array("payload" => array(), "result" => 0, "message" => 'Default', "type" => "");
+            // payload  = ข้อมูลที่เราดึง
+            // result   = บอก true, false
+            // message  = บอกข้อความว่าเกิดอะไรขึ้น
+            // type     = บอกว่าใช้กับอะไร
 
             if (str_starts_with($sql, "SELECT")) {
                 if ($result->num_rows > 0) {
@@ -93,9 +97,16 @@ class Database
         }
     }
 
+    public function customResult(int $result=null, string $message=null, string $type=null){
+        if(!is_null($result))$this->res['result'] = $result;
+        if(!is_null($message))$this->res['message'] = $message;
+        if(!is_null($type))$this->res['type'] = $type;
+    }
+
     public function getResult()
     {
         return $this->res;
     }
 }
+header('Content-Type: text/html; charset=utf-8');
 $database = new Database();
