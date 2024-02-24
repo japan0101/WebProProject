@@ -53,7 +53,7 @@
             <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
               href="/index.php"
               data-te-nav-link-ref
-              >Home</a
+              >หน้าหลัก</a
             >
           </li>
           <!-- Team link -->
@@ -61,15 +61,15 @@
             <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
               href="#"
               data-te-nav-link-ref
-              >Coupon Shop</a
+              >แลกแต้ม</a
             >
           </li>
           <!-- Projects link -->
           <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
             <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-              href="pages/banner/"
+              href="/pages/banner/"
               data-te-nav-link-ref
-              >Gachapon</a
+              >กล่องสุ่ม</a
             >
           </li>
         </ul>
@@ -89,7 +89,7 @@
           data-te-dropdown-toggle-ref
           aria-expanded="false">
           <!-- User avatar -->
-          Profile
+          ผู้ใช้
         </a>
         <!-- Second dropdown menu -->
         <ul
@@ -102,15 +102,7 @@
               class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
               href="/pages/profile"
               data-te-dropdown-item-ref
-              >Profile Settings</a
-            >
-          </li>
-          <li>
-            <a
-              class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-              href="#"
-              data-te-dropdown-item-ref
-              >Points</a
+              >ข้อมูลผู้ใช้</a
             >
           </li>
           <li>
@@ -118,7 +110,7 @@
               class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
               href="/backend/account/logout_user.php"
               data-te-dropdown-item-ref
-              >Logout</a
+              >ออกจากระบบ</a
             >
           </li>
         </ul>
