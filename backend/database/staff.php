@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
 
     unset($database);
     header($redirect);
-} else {
+} else if ($_SERVER['REQUEST_METHOD'] == "GET" && in_array($_SESSION['role'], array("STAFF", "MANAGER"))) {
     switch ($_GET["case"]) {
         case 'table': {
                 $database->custom("SELECT * FROM tables");
@@ -51,4 +51,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
                 break;
             }
     }
+} else {
+    $database->customResult(0, "Error: Wrong Method", "Method");
+    $redirect .= "./../../";
 }
+
+$_SESSION['result']['result'] = $database->getResult()['result'];
+$_SESSION['result']['message'] = $database->getResult()['message'];
+$_SESSION['result']['type'] = $database->getResult()['type'];
+
+unset($database);
+header($redirect);

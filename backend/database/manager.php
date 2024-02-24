@@ -28,6 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
                 break;
             }
     }
+} else if ($_SERVER['REQUEST_METHOD'] == "GET" && $_SESSION['role'] == "MANAGER"){
+
 } else {
     $database->customResult(0, "Error: Wrong Method", "Method");
     $redirect .= "./../../";

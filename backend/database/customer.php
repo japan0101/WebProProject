@@ -24,7 +24,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 ));
             }
     }
+
+} else if ($_SERVER['REQUEST_METHOD'] == "GET"){
+
 } else {
     $database->customResult(0, "Error: Wrong Method", "Method");
     $redirect .= $_SERVER['HTTP_REFERER'];
 }
+
+$_SESSION['result']['result'] = $database->getResult()['result'];
+$_SESSION['result']['message'] = $database->getResult()['message'];
+$_SESSION['result']['type'] = $database->getResult()['type'];
+
+unset($database);
+header($redirect);
