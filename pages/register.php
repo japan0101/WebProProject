@@ -21,7 +21,7 @@
                 <!-- Right column container -->
                 <div class="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
 
-                    <form action="./../backend/acount/create_user.php" method="post" id="formSignup">
+                    <form action="./../backend/account/create_user.php" method="post" id="formSignup">
 
                         <div class="flex flex-col">
                             <div class="flex flex-row gap-3">

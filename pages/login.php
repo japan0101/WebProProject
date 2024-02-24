@@ -1,5 +1,5 @@
-<?php session_start(); 
-    if (isset($_SESSION['userID']))header("Location: ./../");
+<?php session_start();
+if (isset($_SESSION['userID'])) header("Location: ./../");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,7 @@
                 <!-- Right column container -->
                 <div class="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
 
-                    <form method="post" action="./../backend/acount/read_user.php">
+                    <form method="post" action="./../backend/account/read_user.php">
 
                         <!-- Email input -->
                         <div class="relative mb-6 flex-1" id="credentialInput" data-te-input-wrapper-init>
@@ -75,9 +75,16 @@
         if (<?php echo $_SESSION['result']['result'] == 0 && $_SESSION['result']['type'] == 'login' ?>) {
             Toast.fire({
                 icon: "success",
-                title: "<?php echo $_SESSION['result']['message']?>",
+                title: "<?php echo $_SESSION['result']['message'] ?>",
             });
-            <?php unset($_SESSION['result']);?>
+            <?php unset($_SESSION['result']); ?>
+        } else if (<?php echo $_SESSION['result']['result'] == 0 && $_SESSION['result']['type'] == 'login' ?>) {
+            console.log($_SESSION['result']['result'] == 0 && $_SESSION['result']['type'] == 'login')
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message'] ?>",
+            });
+            <?php unset($_SESSION['result']); ?>
         }
     </script>
 

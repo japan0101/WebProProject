@@ -6,7 +6,7 @@ include './../connectDatabase.php';
 $redirect = "Location: ";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // ต้องการ credential, passwd
+    // ต้องการ credential, passwd, token
 
     $database->custom("SELECT userID, phoneNumber, memberName, email, points, role, passwd FROM users WHERE phoneNumber='{$_POST['credential']}' OR email='{$_POST['credential']}'");
 
