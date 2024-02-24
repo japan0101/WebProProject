@@ -22,7 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['role'] = $database->getResult()['payload'][0]->role;
 
             $database->customResult(message:"เข้าสู่ระบบเสร็จสิ้น", type: "login");
-            $redirect .= $_SERVER['HTTP_REFERER'];
+            if($_SESSION['role'] == 'STAFF'){
+                $redirect .= "./../../pages/staff";
+            }else{
+                $redirect .= $_SERVER['HTTP_REFERER'];
+            }
         } else {
 
             $database->customResult(0, "อีเมล, หมายเลขโทรศัพท์หรือรหัสผ่านผิดพลาด", 'login');
@@ -36,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 } else {
 
     $database->customResult(0, "Error: Wrong Method", "Method");
-    $redirect .= "./../../";;
+    $redirect .= "./../../";
 }
 
 $_SESSION['result']['result'] = $database->getResult()['result'];
