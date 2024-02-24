@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start(); 
+    if (isset($_SESSION['userID']))header("Location: ./../");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,12 +70,11 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script src="/asset/script/sweetalert.js"></script>
     <script>
         if (<?php echo $_SESSION['result']['result'] == 0 && $_SESSION['result']['type'] == 'login' ?>) {
             Toast.fire({
-                icon: "error",
+                icon: "success",
                 title: "<?php echo $_SESSION['result']['message']?>",
             });
             <?php unset($_SESSION['result']);?>

@@ -17,7 +17,7 @@
 
             <!--Modal body-->
             <div class="relative p-4">
-                <form action="/backend/acount/create_user.php" method="POST">
+                <form action="/backend/acount/create_user.php" method="post">
                     <div class="grid grid-cols-2 gap-4">
                         <!--First name input-->
                         <div class="relative mb-6" data-te-input-wrapper-init>

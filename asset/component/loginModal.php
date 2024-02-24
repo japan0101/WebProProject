@@ -25,7 +25,7 @@
 
         <!--Modal body-->
         <div class="relative p-4">
-          <form>
+          <form action="/backend/acount/read_user.php" method="post">
             <!--E-mail input-->
             <div class="relative mb-5" data-te-input-wrapper-init>
               <input type="text"
