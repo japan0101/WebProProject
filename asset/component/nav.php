@@ -40,7 +40,7 @@
             loading="lazy" />
         </a>
     <?php
-    $isAuth = true;
+    $isAuth = isset($_SESSION['userID']);
     if($isAuth){
       echo 
       '
