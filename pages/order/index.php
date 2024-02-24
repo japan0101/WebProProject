@@ -7,7 +7,7 @@
 
   <title>Document</title>
 
-  <?php include("./../../asset/script/tailwind.php")?>
+  <?php include($_SERVER['DOCUMENT_ROOT']. "/asset/script/tailwind.php") ?>
 </head>
 
 <body>
@@ -85,7 +85,7 @@
     </div>
   </div>
 
-  <?php include("./../../asset/script/tw_element.php")?>
+  <?php include($_SERVER['DOCUMENT_ROOT']. "/asset/script/tw_element.php") ?>
 </body>
 
 </html>

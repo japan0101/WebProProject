@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaewTaeApp</title>
 
-    <?php include("./../asset/script/tailwind.php")?>
+    <?php include($_SERVER['DOCUMENT_ROOT']. "/asset/script/tailwind.php") ?>
 </head>
 
 <body class="m-auto lg:w-3/4 md:3/4 sm:h-4/5">
@@ -68,8 +68,22 @@
 
 </body>
 
+<script src="/sweetalert2.all.min.js"></script>
 
-<?php include("./../asset/script/tw_element.php")?>
+<script>
+    import Swal from 'sweetalert2/dist/sweetalert2.js'
+    import 'sweetalert2/src/sweetalert2.scss'
+
+    Swal.fire({
+        title: 'Error!',
+        text: 'Do you want to continue',
+        icon: 'error',
+        confirmButtonText: 'Cool'
+    })
+</script>
+
+
+<?php include($_SERVER['DOCUMENT_ROOT']. "/asset/script/tw_element.php") ?>
 
 <script>
     // Initialization for ES Users
