@@ -77,7 +77,7 @@ session_start();
       </div>
       <div class="flex place-self-center">
         <!-- insert logo -->
-        <a class="text-xl font-semibold text-neutral-800 dark:text-neutral-200" href="#">Navbar</a>
+        <a class="text-xl text-center font-semibold text-neutral-800 dark:text-neutral-200" href="#">Navbar</a>
       </div>
       <div class="relative flex items-center">
         <!--cart button -->
