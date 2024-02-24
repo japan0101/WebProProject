@@ -13,9 +13,27 @@
 </head>
 
 <body>
-<script src="/asset/component/nav.js"></script>
+<?php include($_SERVER['DOCUMENT_ROOT']. "/asset/component/nav.php")?>
 
 <?php include($_SERVER['DOCUMENT_ROOT']. "/asset/script/tw_element.php") ?>
 </body>
+<script>
+  // Initialization for ES Users
+  import {
+    Animate,
+    Input,
+    Ripple,
+    Collapse,
+    Dropdown,
+    initTE,
+  } from "tw-elements";
 
+  initTE({
+    Animate,
+    Input,
+    Ripple,
+    Collapse,
+    Dropdown,
+  });
+</script>
 </html>
