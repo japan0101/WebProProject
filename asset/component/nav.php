@@ -22,16 +22,20 @@
           <!-- Left navigation links -->
           <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
             <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-              <!-- Dashboard link -->
+              <!-- Home -->
               <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400" href="/index.php" data-te-nav-link-ref>หน้าหลัก</a>
             </li>
-            <!-- Team link -->
+            <!-- Redeem Points -->
             <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
               <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="/pages/shop/" data-te-nav-link-ref>แลกแต้ม</a>
             </li>
-            <!-- Projects link -->
+            <!-- Banner -->
             <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
               <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="/pages/banner/" data-te-nav-link-ref>กล่องสุ่ม</a>
+            </li>
+            <!-- Stash -->
+            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+              <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="/pages/couponStash/" data-te-nav-link-ref>คูปองของฉัน</a>
             </li>
           </ul>
       </div>
