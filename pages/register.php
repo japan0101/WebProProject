@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaewTaeApp</title>
 
-    <?php include($_SERVER['DOCUMENT_ROOT']. "/asset/script/tailwind.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
 </head>
 
 <body class="m-auto lg:w-3/4 md:3/4 sm:h-4/5">
@@ -26,14 +26,14 @@
                         <div class="flex flex-col">
                             <div class="flex flex-row gap-3">
                                 <!-- Username input -->
-                                <div class="relative mb-6 flex-1" id="userInput" data-te-input-wrapper-init >
+                                <div class="relative mb-6 flex-1" id="userInput" data-te-input-wrapper-init>
                                     <input type="text" pattern=".{4,}" name="name" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="name" placeholder="ชื่อผู้ใช้" title='ต้องมีอักษร 4 ตัวขึ้นไป' required />
                                     <label for="name" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">ชื่อผู้ใช้
                                     </label>
                                 </div>
 
                                 <!-- Email input -->
-                                <div class="relative mb-6 flex-1" id="emailInput" data-te-input-wrapper-init >
+                                <div class="relative mb-6 flex-1" id="emailInput" data-te-input-wrapper-init>
                                     <input type="email" name="email" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="email" placeholder="อีเมล" title='ต้องเป็นอีเมลแอดเดรส' />
                                     <label for="email" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">อีเมล
                                     </label>
@@ -41,14 +41,14 @@
                             </div>
 
                             <!-- Password input -->
-                            <div class="relative mb-6" id="passwdInput" data-te-input-wrapper-init >
+                            <div class="relative mb-6" id="passwdInput" data-te-input-wrapper-init>
                                 <input type="password" name="passwd" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="password" placeholder="รหัสผ่าน" pattern=".{8,}" title='ต้องมีความยาว 8 ตัวอักษรขึ้นไป' required />
                                 <label for="password" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">รหัสผ่าน
                                 </label>
                             </div>
 
                             <!-- Phone input -->
-                            <div class="relative mb-6" id="phoneInput" data-te-input-wrapper-init >
+                            <div class="relative mb-6" id="phoneInput" data-te-input-wrapper-init>
                                 <input type="text" name="phone" pattern="0[0-9]{9}" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="phone" placeholder="หมายเลขโทรศัพท์" title='ต้องมีเลข 0 อยู่ข้างหน้า และมี 10 ตัว' required />
                                 <label for="phone" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์
                                 </label>
@@ -76,7 +76,7 @@
         </div>
     </section>
 
-    <?php include($_SERVER['DOCUMENT_ROOT']. "/asset/script/tw_element.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
 
 </body>
 

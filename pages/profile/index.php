@@ -191,8 +191,8 @@
                             icon: "warning",
                             title: "คำเตือน",
                             text: "คุณยังไม่ได้เข้าสู่ระบบ",
-                        }).then(result=>{
-                            if (result.isConfirmed){
+                        }).then(result => {
+                            if (result.isConfirmed) {
                                 location.href = "/index.php"
                             }
                         });

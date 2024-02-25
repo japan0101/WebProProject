@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))header("Location: /backend/account/read_user.php");
+if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /backend/account/read_user.php");
 ?>
 <!doctype html>
 <html lang="en">
