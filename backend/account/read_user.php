@@ -10,8 +10,8 @@ $isCookie = isset($_COOKIE['token']);
 if ($_SERVER['REQUEST_METHOD'] == "POST" || $isCookie) {
     // ต้องการ credential, passwd, token (OPTIONAL)
     
-    if (!isset($_COOKIE['token']))$database->custom("SELECT userID, phoneNumber, memberName, email, points, role, passwd FROM users WHERE phoneNumber='{$_POST['credential']}' OR email='{$_POST['credential']}' AND status='ACTIVE'");
-    else $database->custom("SELECT userID, phoneNumber, memberName, email, points, role FROM users WHERE passwd='{$_COOKIE['token']}'");
+    if (!isset($_COOKIE['token']))$database->custom("SELECT userID, phoneNumber, memberName, email, points, role, passwd, status FROM users WHERE (phoneNumber='{$_POST['credential']}' OR email='{$_POST['credential']}') AND status='ACTIVE'");
+    else $database->custom("SELECT userID, phoneNumber, memberName, email, points, role FROM users WHERE passwd='{$_COOKIE['token']}' AND status='ACTIVE'");
 
     if ($database->getResult()['result']) {
 
