@@ -51,13 +51,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะ");
                 }
             }
-        case 'bannerGet': {
-                $database->custom("SELECT * FROM gacha_banner;");
-                echo json_encode($database->getResult()['payload']);
-                break;
-            }
-        case '': {
-                }
         default: {
                 $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
                 break;
@@ -74,6 +67,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $database->custom("SELECT categoryID, mc.name AS `categoryName`, menuID, menuName, price, description FROM menus LEFT JOIN menu_category AS `mc` USING (categoryID)");
                 echo json_encode($database->getResult()['payload']);
             }
+        case 'banner': {
+                $database->custom("SELECT * FROM gacha_banner;");
+                echo json_encode($database->getResult()['payload']);
+                break;
+            }
+        case '': {
+                }
         default: {
             }
     }
