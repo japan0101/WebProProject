@@ -12,17 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
         case 'randomTableCode': {
                 // ต้องการ ID
 
-                if (isset($_POST['ID'])) {
-                    $database->update("tables", array("code" => randomCode(), "status" => 2), array("tableID" => $_POST['ID']));
-
-                    if ($database->getResult()['result']) $database->customResult(message: "ทำการสุ่มโค้ดเสร็จสิ้น", type: $_POST['case']);
-                    else $database->customResult(type: $_POST['case']);
-                } else {
-
-                    $database->customResult(result: 0, message: "ไม่ได้ใส่ ID", type: $_POST['case']);
+                while (true) {
+                    $code = randomCode();
+                    $database->custom("SELECT code FROM tables WHERE code='{$code}'");
+                    if ($database->getResult()['result'] == 0) break;
                 }
 
-                $redirect .= $_SERVER['HTTP_REFERER'];
+                // , "status" => 2
+                $database->update("tables", array("code" => $code), "tableID={$_POST['ID']}");
+                if ($database->getResult()['result']) $database->customResult(message: "ทำการสุ่มโค้ดเสร็จสิ้น");
                 break;
             }
 
@@ -36,16 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
                 break;
             }
     }
-    $_SESSION['result']['result'] = $database->getResult()['result'];
-    $_SESSION['result']['message'] = $database->getResult()['message'];
-    $_SESSION['result']['type'] = $database->getResult()['type'];
+    $redirect .= $_SERVER['HTTP_REFERER'];
+    $database->customResult(type: $_POST['case']);
 
-    unset($database);
-    header($redirect);
 } else if ($_SERVER['REQUEST_METHOD'] == "GET" && in_array($_SESSION['role'], array("STAFF", "MANAGER"))) {
     switch ($_GET["case"]) {
         case 'table': {
-                $database->custom("SELECT * FROM tables");
+                $database->custom("SELECT tableID, code, phoneNumber, capacity, tables.status FROM tables LEFT JOIN users USING (userID);");
                 echo json_encode($database->getResult()['payload']);
                 break;
             }
@@ -57,6 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
                 break;
             }
     }
+    return;
+
 } else {
     $database->customResult(0, "Error: Wrong Method", "Method");
     $redirect .= "./../../";

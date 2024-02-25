@@ -5,7 +5,7 @@ class Database
     private $username;
     private $password;
     private $database;
-    private $res;
+    public $res;
     private $conn;
     public function __construct()
     {
@@ -30,7 +30,7 @@ class Database
         $this->query($sql);
     }
 
-    public function update(string $tablename, array $keyvalue, $where = null)
+    public function update(string $tablename, array $keyvalue, string $where = null)
     {
         $data = "";
         $sql = "UPDATE $tablename SET ";
@@ -41,13 +41,7 @@ class Database
         $sql .= $data;
 
         if (!is_null($where)) {
-            $sql .= " WHERE ";
-            $data = "";
-            foreach ($where as $key => $value) {
-                $data .= ", $key = $value";
-            }
-            $data = substr($data, 2, strlen($data));
-            $sql .= $data;
+            $sql .= " WHERE ".$where;
         }
         $this->query($sql);
     }

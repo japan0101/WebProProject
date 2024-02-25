@@ -12,15 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
         case 'insertTable': {
                 // ต้องการ capacity
 
-                if (isset($_POST['capacity'])) {
-                    $database->insert("tables", array("capacity" => $_POST['capacity']));
-                    if ($database->getResult()['result']) $database->customResult(message: "ทำการสร้าง โต๊ะ เสร็จสิ้น", type: $_POST['case']);
-                    else $database->customResult(type: $_POST['case']);
-                } else {
+                $database->insert("tables", array("capacity" => $_POST['capacity']));
+                if ($database->getResult()['result']) $database->customResult(message: "ทำการสร้าง โต๊ะ เสร็จสิ้น");
 
-                    $database->customResult(result: 0, message: "ไม่ได้ใส่ ความจุ", type: $_POST['case']);
-                }
-                $redirect .= $_SERVER['HTTP_REFERER'];
                 break;
             }
         default: {
@@ -28,8 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
                 break;
             }
     }
-} else if ($_SERVER['REQUEST_METHOD'] == "GET" && $_SESSION['role'] == "MANAGER"){
 
+    $redirect .= $_SERVER['HTTP_REFERER'];
+    $database->customResult(type: $_POST['case']);
+} else if ($_SERVER['REQUEST_METHOD'] == "GET" && $_SESSION['role'] == "MANAGER") {
+    
+    return;
 } else {
     $database->customResult(0, "Error: Wrong Method", "Method");
     $redirect .= "./../../";
