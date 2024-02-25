@@ -14,49 +14,21 @@ session_start();
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/loginModal.php") ?>
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/regisModal.php") ?>
+  
+
+  
   <script>
-    let order = {
-      menu: []
-    }
+    import {
+      Modal,
+      Ripple,
+      initTE,
+    } from "tw-elements";
 
-    function addToCart(food_id, name, form_id) {
-      amount = Number(document.getElementById(form_id).value);
-      same = false;
-      if(amount > 0){
-        for(var menu of order.menu){
-          if(food_id == menu.id){
-            menu.amount += Number(amount);
-            same = true;
-          }
-        }
-        if(!same){
-          order.menu.push({id : food_id, "name": name, amount : amount});
-        }
-        localStorage.setItem("menu", JSON.stringify(order.menu));
-      }
-      var menus = JSON.parse(localStorage.getItem("menu"));
-      console.log(menus);
-      let cart = document.getElementById("cart");
-      let item = document.createElement('div');
-      item.setAttribute("class", "block border w-full rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700");
-      for(menu of menus)
-      item.innerHTML = '<div class="my-1 block w-full rounded-lg bg-grey flex flex-row justify-center items-center">'+
-              '<div class="basis-1/4 w-fit m-auto place-content-center">'+
-              '<img class="w-fit m-auto" src="https://media1.tenor.com/m/GT2HEIsGJ0YAAAAd/chad-giga.gif">'+
-              '</div>'+
-              '<div class="p-2 basis-2/4">'+
-              '  <p>'+menu.name+'</p>'+
-              '</div>'+
-              '<div class="basis-1/4  flex place-self-center text-center">'+
-              '  <input class="border rounded w-1/2 m-auto" type="number" id="amount" value="'+menu.amount+'">'+
-              '</div>'+
-            '</div>';
-      cart.appendChild(item);
-    }
-
-    
+    initTE({
+      Modal,
+      Ripple
+    });
   </script>
-
 </head>
 
 <body>
@@ -175,20 +147,6 @@ session_start();
         </div>
         <div class="relative flex flex-col gap-1 p-4" id="cart" data-te-modal-body-ref>
           <!-- in-cart-item -->
-          <div class="block border w-full rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-            <!-- menu item -->
-            <div class="my-1 block w-full rounded-lg bg-grey flex flex-row justify-center items-center">
-              <div class="basis-1/4 w-fit m-auto place-content-center">
-                <img class="w-fit m-auto" src="https://media1.tenor.com/m/GT2HEIsGJ0YAAAAd/chad-giga.gif">
-              </div>
-              <div class="p-2 basis-2/4">
-                <p>How much is the food name?!</p>
-              </div>
-              <div class="basis-1/4  flex place-self-center text-center">
-                <input class="border rounded w-1/2 m-auto" type="number" id="amount">
-              </div>
-            </div>
-          </div>
         </div>
         <div class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
           <button type="button" class="mr-2 inline-block rounded bg-info px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]" data-te-ripple-init data-te-ripple-color="light">
@@ -201,6 +159,82 @@ session_start();
       </div>
     </div>
   </div>
+  <script>
+    let order = {
+      menu: []
+    }
+    if(localStorage.getItem("menu")){
+      menus = JSON.parse(localStorage.getItem("menu"));
+      order.menu = JSON.parse(localStorage.getItem("menu"));
+      let cart = document.getElementById("cart");
+      let item = document.createElement('div');
+      item.setAttribute("class", "block border w-full rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700");
+      menus.forEach(menuItem => {
+        item.innerHTML = '<div class="my-1 block w-full rounded-lg bg-grey flex flex-row justify-center items-center">'+
+                '<div class="basis-1/4 w-fit m-auto place-content-center">'+
+                '<img class="w-fit m-auto" src="https://media1.tenor.com/m/GT2HEIsGJ0YAAAAd/chad-giga.gif">'+
+                '</div>'+
+                '<div class="p-2 basis-2/4">'+
+                '  <p>'+menuItem.name+'</p>'+
+                '</div>'+
+                '<div class="basis-1/4  flex place-self-center text-center">'+
+                '<button class="p-2 place-self-center basis-1/8 mr-auto w-fit text-xl text-success" onclick="addToCart(' + menuItem.id + ',\'' + menuItem.name + '\' ,\'add_' + menuItem.id + '\')"> + </button>' +
+                '  <input hidden value="-1" id="remove_' + menuItem.id + '"><input hidden value="1" id="add_' + menuItem.id + '"><input class="border rounded w-1/2 text-center" type="number" id="amount_' + menuItem.id + '" value="'+menuItem.amount+'" readonly>'+
+                '<button class="p-2 place-self-center basis-1/8 mr-auto ml-1 w-fit text-xl text-danger" onclick="addToCart(' + menuItem.id + ',\'' + menuItem.name + '\' ,\'remove_' + menuItem.id + '\')"> - </button>' +
+                '</div>'+
+              '</div>';
+        cart.appendChild(item);
+      });
+    }
+    function addToCart(food_id, name, form_id) {
+      amount = Number(document.getElementById(form_id).value);
+      same = false;
+      if(amount != 0){
+        for(var menu of order.menu){
+          if(food_id == menu.id){
+            menu.amount += Number(amount);
+            same = true;
+          }
+        }
+        if(!same){
+          order.menu.push({id : food_id, "name": name, amount : amount});
+        }
+        localStorage.setItem("menu", JSON.stringify(order.menu));
+      
+        var menus = JSON.parse(localStorage.getItem("menu"));
+        let cart = document.getElementById("cart");
+        if(!same){
+          let item = document.createElement('div');
+          item.setAttribute("class", "block border w-full rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700");
+          menus.forEach(menuItem => {
+            if(menuItem.id == food_id){
+              item.innerHTML = '<div class="my-1 block w-full rounded-lg bg-grey flex flex-row justify-center items-center">'+
+                      '<div class="basis-1/4 w-fit m-auto place-content-center">'+
+                      '<img class="w-fit m-auto" src="https://media1.tenor.com/m/GT2HEIsGJ0YAAAAd/chad-giga.gif">'+
+                      '</div>'+
+                      '<div class="p-2 basis-2/4">'+
+                      '  <p>'+menuItem.name+'</p>'+
+                      '</div>'+
+                      '<div class="basis-1/4  flex place-self-center text-center">'+
+                      '  <input class="border rounded w-1/2 m-auto" type="number" id="amount_' + food_id + '" value="'+menuItem.amount+'" readonly/>'+
+                      '  <button class="place-self-center basis-1/8 m-auto w-fit" onclick("remove("amount' + menuItem.id + '",' + menuItem.id + ')")>' +
+                      '</div>'+
+                    '</div>';
+              cart.appendChild(item);
+            }
+          });
+        }else{
+          let oldAmount = document.getElementById('amount_' + food_id);
+          menus.forEach(menuItem => {
+            if(menuItem.id == food_id){
+              oldAmount.value = menuItem.amount;
+            }
+          });
+        }
+      }
+    }
+    
+  </script>
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
 </body>
 

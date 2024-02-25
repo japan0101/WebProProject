@@ -8,6 +8,9 @@
     <title>LeawTaeApp</title>
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
+    </script>
+
+    <script src="main.js"></script>
 </head>
 
 <body>
@@ -91,101 +94,36 @@
                                                 </button>
                                             </div>
 
-                                            <!--Modal body-->
-                                            <div class="relative flex-auto p-4" data-te-modal-body-ref>
-                                                <h1 class="mb-6 text-5xl font-bold text-center text-danger">
-                                                    !!!ระวัง!!!
-                                                </h1>
-                                                <p class="mb-6 text-xl font-bold text-center text-danger">
-                                                    การลบบัญชีจะลบข้อมูลทั้งหมดของคุณ<br>
-                                                    ข้อมูลแต้มและส่วนลดในบัญชีจะหายไป
-                                                </p>
-                                            </div>
+                                <!--Modal body-->
+                                <div class="relative flex-auto p-4" data-te-modal-body-ref>
+                                    <h1 class="mb-6 text-5xl font-bold text-center text-danger">
+                                        !!!ระวัง!!!
+                                    </h1>
+                                    <p class="mb-6 text-xl font-bold text-center text-danger">
+                                        การลบบัญชีจะลบข้อมูลทั้งหมดของคุณ<br>
+                                        ข้อมูลแต้มและส่วนลดในบัญชีจะหายไป
+                                    </p>
+                                </div>
 
                                             <!--Modal footer-->
                                             <div class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                                                <form action="/backend/account/cancelMem_user.php" method="post">
-                                                    <button type="submit" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
-                                                        ยืนยัน
+                                                <form>
+                                                    <button formaction="/backend/account/logout_user.php" type="submit" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+                                                        ลบบัญชี
                                                     </button>
                                                     <button type="button" class="ml-1 inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
-                                                        ยกเลิก
+                                                        ไม่ลบบัญชี
                                                     </button>
                                                 </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
-                            <!-- edit -->
-                            <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-edit" role="tabpanel" aria-labelledby="tabs-edit-tab">
-                                <form>
-                                    <!-- detail -->
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <!--Email-->
-                                        <div class="relative mb-6" data-te-input-wrapper-init>
-                                            <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="email" value="<?php echo $_SESSION['email'] ?>" aria-label="readonly input example" readonly />
-                                            <label for="email" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">อีเมล
-                                            </label>
-                                        </div>
-
-                                        <!--Telephone-->
-                                        <div class="relative mb-6" data-te-input-wrapper-init>
-                                            <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="phoneNumber" value="<?php echo $_SESSION['phoneNumber'] ?>" aria-label="readonly input example" readonly />
-                                            <label for="phoneNumber" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <!-- MemberName -->
-                                    <div class="relative mb-6" data-te-input-wrapper-init>
-                                        <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="name" name="name" aria-describedby="name" placeholder="ชื่อสมาชิก" value="<?php echo $_SESSION['memberName'] ?>" pattern=".{4,}" title='ต้องมีอักษร 4 ตัวขึ้นไป' required />
-                                        <label for="name" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">ชื่อสมาชิก
-                                        </label>
-                                    </div>
-
-                                    <button type="submit" class="inline-block rounded bg-primary px-4 py-2 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-ripple-color="light">
-                                        ยืนยันแก้ไขข้อมูล
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-changePass" role="tabpanel" aria-labelledby="tabs-changePass-tab">
-                                <!-- Change Password -->
-                                <form>
-                                    <!-- Old Password -->
-                                    <div class="relative mb-6" data-te-input-wrapper-init>
-                                        <input type="password" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="passwd" name="oldpasswd" aria-describedby="password" placeholder="รหัสผ่านเดิม" pattern=".{8,}" title='กรุณาใส่รหัสผ่านเดิม' required />
-                                        <label for="password" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">รหัสผ่านเดิม
-                                        </label>
-                                    </div>
-
-                                    <!-- New Password -->
-                                    <div class="relative mb-6" data-te-input-wrapper-init>
-                                        <input type="password" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="passwd" name="oldpasswd" aria-describedby="password" placeholder="รหัสผ่านใหม่" pattern=".{8,}" title='ต้องมีความยาว 8 ตัวอักษรขึ้นไป' required />
-                                        <label for="password" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">รหัสผ่านใหม่
-                                        </label>
-                                    </div>
-
-                                    <!-- Confirm Password -->
-                                    <div class="relative mb-6" data-te-input-wrapper-init>
-                                        <input type="password" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="passwd" name="oldpasswd" aria-describedby="password" placeholder="ยืนยันรหัสผ่านใหม่" pattern=".{8,}" title='ต้องมีความยาว 8 ตัวอักษรขึ้นไป' required />
-                                        <label for="password" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">ยืนยันรหัสผ่านใหม่
-                                        </label>
-                                    </div>
-
-                                    <button type="submit" class="inline-block rounded bg-primary px-4 py-2 text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-ripple-color="light">
-                                        ยืนยันเปลี่ยนรหัสผ่าน
-                                    </button>
-                                </form>
-                            </div>
-
                         </div>
                     </div>
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <script src="/asset/script/sweetalert.js"></script>
-                <?php } else { ?>
                     <script>
                         Warning.fire({
                             icon: "warning",
@@ -193,13 +131,32 @@
                             text: "คุณยังไม่ได้เข้าสู่ระบบ"
                         });
                     </script>
-                <?php } ?>
-                </div>
+                <?php }?>
             </div>
-        </span>
+        </div>
+    </span>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
+    <script>
+        // Initialization for ES Users
+        import {
+            Animate,
+            Input,
+            Ripple,
+            Collapse,
+            Dropdown,
+            Tab,
+            initTE,
+        } from "tw-elements";
 
-        <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
-
+        initTE({
+            Animate,
+            Input,
+            Ripple,
+            Collapse,
+            Dropdown,
+            Tab,
+        });
+    </script>
 </body>
 
 </html>

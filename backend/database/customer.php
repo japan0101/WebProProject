@@ -37,16 +37,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                     $database->custom("SELECT tableID FROM tables WHERE tableID={$_SESSION['tableID']} AND code='{$_SESSION['tablecode']}'");
                     if ($database->getResult()['result']) {
-
-                        $checkInvalid = false;
+                        
                         foreach ($_POST['menu'] as $key => $value) {
-                            $database->insert("menus", array("tableID" => $_SESSION['tableID'], "menuID" => $key, "amount" => $value));
-                            if ($database->getResult()['result'] == 0) {
-                                $checkInvalid = true;
-                                break;
-                            }
+                            $database->insert("menus", array("tableID" => $_SESSION['tableID'], "menuID" => $key, ));
+
                         }
-                    } else {
+                    }else{
 
                         $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะใหม่อีกครั้ง");
                     }
@@ -54,8 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                     $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะ");
                 }
-            }
-        case '': {
             }
         default: {
                 $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
@@ -79,14 +73,23 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 break;
             }
         case '': {
-            }
+                }
         default: {
-                $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
-                break;
             }
     }
     return;
-
+    switch ($_GET["case"]) {
+        case 'banner': {
+            $database->custom("SELECT * FROM gacha_banner");
+            echo json_encode($database->getResult()['payload']);
+            break;
+        }
+    case '': {}
+    default: {
+            $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
+            break;
+        }
+    }
 } else {
     $database->customResult(0, "Error: Wrong Method", "Method");
     $redirect .= './../../';

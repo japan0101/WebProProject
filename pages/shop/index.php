@@ -8,7 +8,27 @@
   <title>LeawTaeApp</title>
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
+  <script>
+    // Initialization for ES Users
+    import {
+      Animate,
+      Input,
+      Ripple,
+      Collapse,
+      Dropdown,
+      Tab,
+      initTE,
+    } from "tw-elements";
 
+    initTE({
+      Animate,
+      Input,
+      Ripple,
+      Collapse,
+      Dropdown,
+      Tab,
+    });
+  </script>
 </head>
 
 <body>
