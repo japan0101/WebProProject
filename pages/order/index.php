@@ -22,57 +22,39 @@ session_start();
     function addToCart(food_id, name, form_id) {
       amount = Number(document.getElementById(form_id).value);
       same = false;
-      if (amount > 0) {
-        for (var menu of order.menu) {
-          if (food_id == menu.id) {
+      if(amount > 0){
+        for(var menu of order.menu){
+          if(food_id == menu.id){
             menu.amount += Number(amount);
             same = true;
           }
         }
-        if (!same) {
-          order.menu.push({
-            id: food_id,
-            "name": name,
-            amount: amount
-          });
+        if(!same){
+          order.menu.push({id : food_id, "name": name, amount : amount});
         }
+        localStorage.setItem("menu", JSON.stringify(order.menu));
       }
       var menus = JSON.parse(localStorage.getItem("menu"));
-      console.log(menus.length);
+      console.log(menus);
       let cart = document.getElementById("cart");
       let item = document.createElement('div');
       item.setAttribute("class", "block border w-full rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700");
-      item.setAttribute("id", food_id);
-      item.innerHTML = 
-              '<div class="my-1 block w-full rounded-lg bg-grey flex flex-row justify-center items-center">'+
+      for(menu of menus)
+      item.innerHTML = '<div class="my-1 block w-full rounded-lg bg-grey flex flex-row justify-center items-center">'+
               '<div class="basis-1/4 w-fit m-auto place-content-center">'+
-              '  <img class="w-fit m-auto" src="https://media1.tenor.com/m/GT2HEIsGJ0YAAAAd/chad-giga.gif">'+
+              '<img class="w-fit m-auto" src="https://media1.tenor.com/m/GT2HEIsGJ0YAAAAd/chad-giga.gif">'+
               '</div>'+
               '<div class="p-2 basis-2/4">'+
-              '  <p>'+menus[menus.length-1].name+'</p>'+
+              '  <p>'+menu.name+'</p>'+
               '</div>'+
-              '<div class="basis-1/6  flex place-self-center text-center">'+
-              '  <input class="border rounded w-1/2 m-auto" type="number" id="amount'+menus[menus.length-1].id+'" value="'+menus[menus.length-1].amount+'">'+
+              '<div class="basis-1/4  flex place-self-center text-center">'+
+              '  <input class="border rounded w-1/2 m-auto" type="number" id="amount" value="'+menu.amount+'">'+
               '</div>'+
-              '<button class="place-self-center basis-1/8 m-auto w-fit" onclick("remove("amount'+menus[menus.length-1].id+'",'+menus[menus.length-1].id+')")>'+
-              '  <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ff0000">'+
-              '    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>'+
-              '    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>'+
-              '    <g id="SVGRepo_iconCarrier">'+
-              '      <path d="M6 12L18 12" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>'+
-              '    </g>'+
-              '  </svg>'+
-              '</button>'+
-              '</div>';
+            '</div>';
       cart.appendChild(item);
-      localStorage.setItem("menu", JSON.stringify(order.menu));
     }
 
-    function remove( id){
-
-    }
     
-
   </script>
   <script>
     import {
@@ -213,18 +195,9 @@ session_start();
               <div class="p-2 basis-2/4">
                 <p>How much is the food name?!</p>
               </div>
-              <div class="basis-1/6  flex place-self-center text-center">
+              <div class="basis-1/4  flex place-self-center text-center">
                 <input class="border rounded w-1/2 m-auto" type="number" id="amount">
               </div>
-              <button class="place-self-center basis-1/8 m-auto w-fit">
-                <svg width="16px" height="16px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ff0000">
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <path d="M6 12L18 12" stroke="#ff0000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                  </g>
-                </svg>
-              </button>
             </div>
           </div>
         </div>
