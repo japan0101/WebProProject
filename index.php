@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))header("Location: /backend/account/read_user.php");
+if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /backend/account/read_user.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -9,7 +9,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))header("Location: /b
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LaewTaeApp</title>
-  <?php include("./asset/script/tailwind.php") ?>
+  <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
 </head>
 
 <body class="antialiased">
@@ -46,70 +46,48 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))header("Location: /b
     </div>
   </div>
 
+  <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="/asset/script/sweetalert.js"></script>
+  <?php if (isset($_SESSION['result'])) { ?>
+    <script>
+      <?php $fire = false; ?>
+      <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
+        Toast.fire({
+          icon: "success",
+          title: "<?php echo $_SESSION['result']['message']; ?>",
+        });
+        <?php $fire = true; ?>
+
+      <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
+        Toast.fire({
+          icon: "error",
+          title: "<?php echo $_SESSION['result']['message']; ?>",
+        });
+      <?php $fire = true;
+      } ?>
+
+
+      <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
+        Toast.fire({
+          icon: "success",
+          title: "<?php echo $_SESSION['result']['message']; ?>",
+        });
+        <?php $fire = true; ?>
+
+      <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "register")) { ?>
+        Toast.fire({
+          icon: "error",
+          title: "<?php echo $_SESSION['result']['message']; ?>",
+        });
+      <?php $fire = true;
+      } ?>
+
+      <?php if ($fire) unset($_SESSION['result']) ?>
+    </script>
+  <?php } ?>
 
 </body>
-
-<?php include("./asset/script/tw_element.php") ?>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/asset/script/sweetalert.js"></script>
-<?php if (isset($_SESSION['result'])) { ?>
-  <script>
-    <?php $fire = false; ?>
-    <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
-      Toast.fire({
-        icon: "success",
-        title: "<?php echo $_SESSION['result']['message']; ?>",
-      });
-      <?php $fire = true; ?>
-
-    <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
-      Toast.fire({
-        icon: "error",
-        title: "<?php echo $_SESSION['result']['message']; ?>",
-      });
-    <?php $fire = true;
-    } ?>
-
-
-    <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
-      Toast.fire({
-        icon: "success",
-        title: "<?php echo $_SESSION['result']['message']; ?>",
-      });
-      <?php $fire = true; ?>
-
-    <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "register")) { ?>
-      Toast.fire({
-        icon: "error",
-        title: "<?php echo $_SESSION['result']['message']; ?>",
-      });
-    <?php $fire = true;
-    } ?>
-
-    <?php if ($fire) unset($_SESSION['result']) ?>
-  </script>
-<?php } ?>
-
-<script>
-  // Initialization for ES Users
-  import {
-    Animate,
-    Input,
-    Ripple,
-    Collapse,
-    Dropdown,
-    initTE,
-  } from "tw-elements";
-
-  initTE({
-    Animate,
-    Input,
-    Ripple,
-    Collapse,
-    Dropdown,
-  });
-</script>
 
 </html>

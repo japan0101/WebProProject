@@ -216,21 +216,6 @@
     <?php } ?>
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
-    <script>
-        // Initialization for ES Users
-        import {
-            Animate,
-            Input,
-            Ripple,
-            initTE,
-        } from "tw-elements";
-
-        initTE({
-            Animate,
-            Input,
-            Ripple
-        });
-    </script>
 
 </body>
 
