@@ -41,9 +41,7 @@
         </a>
     <?php
     $isAuth = isset($_SESSION['userID']);
-    if($isAuth){
-      echo 
-      '
+    if($isAuth){?>
         <!-- Left navigation links -->
         <ul
           class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
@@ -115,9 +113,7 @@
           </li>
         </ul>
       </div>
-';
-    }else{
-      echo '
+      <?php }else{ ?>
       </div>
       <div
         class="relative"
@@ -140,10 +136,6 @@
         เข้าสู่ระบบ
       </button>
       </div>
-      ';
-    }
-    ?>
+    <?php } ?>
   </div>
 </nav>
-
-  
