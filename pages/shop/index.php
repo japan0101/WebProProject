@@ -32,7 +32,7 @@
 </head>
 
 <body>
-    <script>
+    <!-- <script>
         fetch("/backend/database/customer.php?case=banner").then(e => e.json()).then(payload => {
           selectorContainer = document.getElementById('bannerSel');
           contentContainer = document.getElementById('contentHolder');
@@ -94,7 +94,7 @@
               contentContainer.appendChild(contentBody);
             });
         });
-  </script>
+  </script> -->
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/nav.php") ?>
   <?php if(isset($_SESSION['userID'])) {?>
   <span class="my-5">
