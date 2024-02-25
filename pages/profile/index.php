@@ -124,6 +124,7 @@
                     </div>
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <script src="/asset/script/sweetalert.js"></script>
+                <?php }else {?>
                     <script>
                         Warning.fire({
                             icon: "warning",
@@ -131,7 +132,7 @@
                             text: "คุณยังไม่ได้เข้าสู่ระบบ"
                         });
                     </script>
-                <?php }?>
+                <?php } ?>
             </div>
         </div>
     </span>
