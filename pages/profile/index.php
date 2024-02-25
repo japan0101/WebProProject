@@ -121,24 +121,25 @@
 
                             <!-- edit -->
                             <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-edit" role="tabpanel" aria-labelledby="tabs-edit-tab">
-                                <form>
-                                    <!-- detail -->
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <!--Email-->
-                                        <div class="relative mb-6" data-te-input-wrapper-init>
-                                            <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="email" value="<?php echo $_SESSION['email'] ?>" aria-label="readonly input example" readonly />
-                                            <label for="email" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">อีเมล
-                                            </label>
-                                        </div>
 
-                                        <!--Telephone-->
-                                        <div class="relative mb-6" data-te-input-wrapper-init>
-                                            <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="phoneNumber" value="<?php echo $_SESSION['phoneNumber'] ?>" aria-label="readonly input example" readonly />
-                                            <label for="phoneNumber" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์
-                                            </label>
-                                        </div>
+                                <!-- detail -->
+                                <div class="grid grid-cols-2 gap-4">
+                                    <!--Email-->
+                                    <div class="relative mb-6" data-te-input-wrapper-init>
+                                        <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="email" value="<?php echo $_SESSION['email'] ?>" aria-label="readonly input example" readonly />
+                                        <label for="email" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">อีเมล
+                                        </label>
                                     </div>
 
+                                    <!--Telephone-->
+                                    <div class="relative mb-6" data-te-input-wrapper-init>
+                                        <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="phoneNumber" value="<?php echo $_SESSION['phoneNumber'] ?>" aria-label="readonly input example" readonly />
+                                        <label for="phoneNumber" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <form action="/backend/account/update_user.php" method="post">
                                     <!-- MemberName -->
                                     <div class="relative mb-6" data-te-input-wrapper-init>
                                         <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="name" name="name" aria-describedby="name" placeholder="ชื่อสมาชิก" value="<?php echo $_SESSION['memberName'] ?>" pattern=".{4,}" title='ต้องมีอักษร 4 ตัวขึ้นไป' required />
@@ -163,14 +164,14 @@
 
                                     <!-- New Password -->
                                     <div class="relative mb-6" data-te-input-wrapper-init>
-                                        <input type="password" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="passwd" name="oldpasswd" aria-describedby="password" placeholder="รหัสผ่านใหม่" pattern=".{8,}" title='ต้องมีความยาว 8 ตัวอักษรขึ้นไป' required />
+                                        <input type="password" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="passwd" name="newpasswd" aria-describedby="password" placeholder="รหัสผ่านใหม่" pattern=".{8,}" title='ต้องมีความยาว 8 ตัวอักษรขึ้นไป' required />
                                         <label for="password" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">รหัสผ่านใหม่
                                         </label>
                                     </div>
 
                                     <!-- Confirm Password -->
                                     <div class="relative mb-6" data-te-input-wrapper-init>
-                                        <input type="password" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="passwd" name="oldpasswd" aria-describedby="password" placeholder="ยืนยันรหัสผ่านใหม่" pattern=".{8,}" title='ต้องมีความยาว 8 ตัวอักษรขึ้นไป' required />
+                                        <input type="password" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="passwd" name="confirmpasswd" aria-describedby="password" placeholder="ยืนยันรหัสผ่านใหม่" pattern=".{8,}" title='กรุณาใส่รหัสผ่านอีกครั้ง' required />
                                         <label for="password" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">ยืนยันรหัสผ่านใหม่
                                         </label>
                                     </div>
@@ -203,6 +204,31 @@
         </span>
 
         <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/asset/script/sweetalert.js"></script>
+
+        <?php if (isset($_SESSION['result'])) { ?>
+            <script>
+                <?php $fire = false; ?>
+                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "update_user")) { ?>
+                    Toast.fire({
+                        icon: "success",
+                        title: "<?php echo $_SESSION['result']['message']; ?>",
+                    });
+                    <?php $fire = true; ?>
+
+                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "update_user")) { ?>
+                    Toast.fire({
+                        icon: "error",
+                        title: "<?php echo $_SESSION['result']['message']; ?>",
+                    });
+                <?php $fire = true;
+                } ?>
+
+                <?php if ($fire) unset($_SESSION['result']) ?>
+            </script>
+        <?php } ?>
 
 </body>
 

@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" || $isCookie) {
             $_SESSION['email'] = $database->getResult()['payload'][0]->email;
             $_SESSION['points'] = $database->getResult()['payload'][0]->points;
             $_SESSION['role'] = $database->getResult()['payload'][0]->role;
+            $_SESSION['passwd'] = $database->getResult()['payload'][0]->passwd;
 
             if (isset($_POST['token']) || $isCookie)setcookie("token", $database->getResult()['payload'][0]->passwd, time() + (24 * 60 * 60), '/');
 

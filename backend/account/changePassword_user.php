@@ -1,0 +1,30 @@
+<?php
+session_start();
+
+include './../connectDatabase.php';
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+
+    // ต้องการ oldpasswd, newpasswd, confirmpasswd
+    
+    if (isset($_POST['oldpasswd'])){
+
+        if (isset($_POST['newpasswd']) == isset($_POST['confirmpasswd']) && password_verify($_POST['oldpasswd'], )){
+
+
+        }
+
+        $database->update("users", array("memberName" => $_POST['name']), "userID={$_SESSION['userID']}");
+        $_SESSION['memberName'] = $_POST['name'];        
+
+        $database->customResult(message: "แก้ไขข้อมูลเสร็จสิ้น");
+    }
+}
+$database->customResult(type:"chapass_user");
+
+$_SESSION['result']['result'] = $database->getResult()['result'];
+$_SESSION['result']['message'] = $database->getResult()['message'];
+$_SESSION['result']['type'] = $database->getResult()['type'];
+
+unset($database);
+header("Location: ".$_SERVER['HTTP_REFERER']);

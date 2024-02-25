@@ -72,7 +72,6 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
     <?php $fire = true;
     } ?>
 
-
     <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
       Toast.fire({
         icon: "success",
