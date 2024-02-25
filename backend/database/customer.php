@@ -39,8 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     if ($database->getResult()['result']) {
 
                         foreach ($_POST['menu'] as $key => $value) {
-                            $database->insert("menus", array("tableID" => $_SESSION['tableID'], "menuID" => $key,));
+                            $database->insert("orders", array("tableID" => $_SESSION['tableID'], "menuID" => $key, "amount" => $value));
                         }
+                        $database->customResult(message: "สั่งอาหารสำเร็จ");
                     } else {
 
                         $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะใหม่อีกครั้ง");
