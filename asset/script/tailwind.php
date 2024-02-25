@@ -16,6 +16,7 @@ echo 'sans: ["Roboto", "sans-serif"],';
 echo 'body: ["Roboto", "sans-serif"],';
 echo 'mono: ["ui-monospace", "monospace"],';
 echo '},';
+echo 'safelist: ["[fade-in-down_0.5s_ease-out]"]';
 echo '},';
 echo 'corePlugins: {';
 echo 'preflight: false,';
