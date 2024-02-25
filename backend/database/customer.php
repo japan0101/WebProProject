@@ -84,6 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             echo json_encode($database->getResult()['payload']);
             break;
         }
+        case 'category': {
+            $database->custom("SELECT * FROM menu_category");
+            echo json_encode($database->getResult()['payload']);
+            break;
+        }
     case '': {}
     default: {
             $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
