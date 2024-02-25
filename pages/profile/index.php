@@ -15,7 +15,7 @@
 
 <body>
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/nav.php") ?>
-
+<?php if(isset($_SESSION['userID'])) {?>
     <span class="my-5">
         <div class="rounded-lg border dark:border-neutral-600">
             <div class="p-4">
@@ -127,7 +127,17 @@
                         </div>
                     </div>
                 </div>
-
+                <?php } else{?>
+                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                    <script src="/asset/script/sweetalert.js"></script>
+                    <script>
+                        Warning.fire({
+                            icon: "warning",
+                            title: "คำเตือน",
+                            text: "คุณยังไม่ได้เข้าสู่ระบบ"
+                        });
+                    </script>
+                <?php }?>
             </div>
         </div>
     </span>

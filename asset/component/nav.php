@@ -139,3 +139,5 @@
     <?php } ?>
   </div>
 </nav>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/loginModal.php") ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/regisModal.php") ?>
