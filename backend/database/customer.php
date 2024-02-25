@@ -80,7 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             }
     }
     return;
-
 } else {
     $database->customResult(0, "Error: Wrong Method", "Method");
     $redirect .= './../../';
