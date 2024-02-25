@@ -36,9 +36,49 @@
             </li>
           </ul>
           <!-- Banner Showcase -->
-          <div class="my-2">
+          <div class="my-2 grow">
             <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-home03" role="tabpanel" aria-labelledby="tabs-home-tab03" data-te-tab-active="">
-              Tab 1 content
+              <div class="flex justify-center items-center">
+                <h2 class="text-2xl font-bold">Banner Name</h2>
+              </div>
+              <div class="flex justify-center items-center">
+                <p class="text-xl">Banner Description</p>
+              </div>
+              <!-- rate table -->
+              <div class="flex flex-col justify-center items-center">
+                <p>Rates</p>
+                <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                  <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                    <div class="overflow-hidden">
+                      <table class="min-w-1/2 text-center text-sm font-light">
+                        <thead
+                          class="border-b bg-neutral-800 font-medium text-white dark:border-neutral-500 dark:bg-neutral-900">
+                          <tr>
+                            <th scope="col" class=" px-6 py-4">#</th>
+                            <th scope="col" class=" px-6 py-4">First</th>
+                            <th scope="col" class=" px-6 py-4">Last</th>
+                            <th scope="col" class=" px-6 py-4">Handle</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="border-b dark:border-neutral-500">
+                            <td class="whitespace-nowrap  px-6 py-4 font-medium">1</td>
+                            <td class="whitespace-nowrap  px-6 py-4">Mark</td>
+                            <td class="whitespace-nowrap  px-6 py-4">Otto</td>
+                            <td class="whitespace-nowrap  px-6 py-4">@mdo</td>
+                          </tr>
+                          <tr class="border-b dark:border-neutral-500">
+                            <td class="whitespace-nowrap  px-6 py-4 font-medium">2</td>
+                            <td class="whitespace-nowrap  px-6 py-4 ">Jacob</td>
+                            <td class="whitespace-nowrap  px-6 py-4">Thornton</td>
+                            <td class="whitespace-nowrap  px-6 py-4">@fat</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-profile03" role="tabpanel" aria-labelledby="tabs-profile-tab03">
               Tab 2 content
