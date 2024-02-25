@@ -12,69 +12,6 @@
 </head>
 
 <body>
-  <script>
-    fetch("/backend/database/customer.php?case=banner").then(e => e.json()).then(payload => {
-      selectorContainer = document.getElementById('bannerSel');
-      contentContainer = document.getElementById('contentHolder');
-      payload.forEach(bannerObj => {
-        selList = document.createElement('li');
-        selList.setAttribute('role', 'presentation');
-        selList.className = 'flex-grow text-center'
-
-        selector = document.createElement('a');
-        selector.className = "my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-        selector.setAttribute('href', bannerObj['name'].concat('-tab'));
-        selector.setAttribute('data-te-toggle', 'pill');
-        selector.setAttribute('data-te-target', '#' + 'tab-' + bannerObj['gachaID']);
-        selector.setAttribute('role', 'tab');
-        selector.setAttribute('aria-controls', 'tab-' + bannerObj['gachaID']);
-        selector.setAttribute('aria-selected', 'true');
-        selector.innerHTML = bannerObj['name']
-        selList.appendChild(selector);
-        selectorContainer.appendChild(selList);
-
-        contentBody = document.createElement('div');
-        contentBody.className = "hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block";
-        contentBody.id = 'tab-' + bannerObj['gachaID'];
-        contentBody.setAttribute('role', 'tabpanel');
-        contentBody.setAttribute('aria-labelledby', 'tab-' + bannerObj['gachaID']);
-
-        titleNode = document.createElement('div');
-        titleNode.className = "flex justify-center items-center text-2xl font-bold";
-        titleNode.innerHTML = bannerObj['name'];
-        contentBody.appendChild(titleNode);
-
-        imageNode = document.createElement('div');
-        imageNode.className = "flex justify-center items-center"
-        image = '';
-        imageNode.innerHTML = `<img src="${image}">`
-        contentBody.appendChild(imageNode);
-
-        desNode = document.createElement('div')
-        desNode.className = 'text-xl flex justify-center items-center text-center';
-        desNode.innerHTML = bannerObj['description'] + '<br>ใช้แต้ม: ' + bannerObj['cost']
-        contentBody.appendChild(desNode)
-
-        buttonsNode = document.createElement('div');
-        buttonsNode.className = "flex justify-center items-center"
-        randButton = document.createElement('button');
-        randButton.setAttribute('type', 'button');
-        randButton.className = "inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-        randButton.setAttribute("data-te-ripple-init", "");
-        randButton.innerHTML = "สุ่มบัตรลด"
-        probButton = document.createElement('button');
-        probButton.setAttribute('type', 'button');
-        probButton.className = "inline-block rounded-full border-2 border-dark-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-dark-50 transition duration-150 ease-in-out hover:border-dark-100 hover:bg-dark-500 hover:bg-opacity-10 hover:text-dark-100 focus:border-dark-100 focus:text-dark-100 focus:outline-none focus:ring-0 active:border-dark-200 active:text-dark-200 dark:hover:bg-dark-100 dark:hover:bg-opacity-10"
-        probButton.setAttribute("data-te-ripple-init", "");
-        probButton.innerHTML = "ดูความหน้าจะเป็น";
-        buttonsNode.appendChild(randButton);
-        buttonsNode.appendChild(probButton);
-        contentBody.appendChild(buttonsNode);
-
-        contentContainer.appendChild(contentBody);
-      });
-    });
-  </script>
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/nav.php") ?>
   <?php if (isset($_SESSION['userID'])) { ?>
@@ -116,6 +53,69 @@
         </div>
       </div>
     </span>
+    <script>
+      fetch("/backend/database/customer.php?case=banner").then(e => e.json()).then(payload => {
+        selectorContainer = document.getElementById('bannerSel');
+        contentContainer = document.getElementById('contentHolder');
+        payload.forEach(bannerObj => {
+          selList = document.createElement('li');
+          selList.setAttribute('role', 'presentation');
+          selList.className = 'flex-grow text-center'
+
+          selector = document.createElement('a');
+          selector.className = "my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+          selector.setAttribute('href', bannerObj['name'].concat('-tab'));
+          selector.setAttribute('data-te-toggle', 'pill');
+          selector.setAttribute('data-te-target', '#' + 'tab-' + bannerObj['gachaID']);
+          selector.setAttribute('role', 'tab');
+          selector.setAttribute('aria-controls', 'tab-' + bannerObj['gachaID']);
+          selector.setAttribute('aria-selected', 'true');
+          selector.innerHTML = bannerObj['name']
+          selList.appendChild(selector);
+          selectorContainer.appendChild(selList);
+
+          contentBody = document.createElement('div');
+          contentBody.className = "hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block";
+          contentBody.id = 'tab-' + bannerObj['gachaID'];
+          contentBody.setAttribute('role', 'tabpanel');
+          contentBody.setAttribute('aria-labelledby', 'tab-' + bannerObj['gachaID']);
+
+          titleNode = document.createElement('div');
+          titleNode.className = "flex justify-center items-center text-2xl font-bold";
+          titleNode.innerHTML = bannerObj['name'];
+          contentBody.appendChild(titleNode);
+
+          imageNode = document.createElement('div');
+          imageNode.className = "flex justify-center items-center"
+          image = '';
+          imageNode.innerHTML = `<img src="${image}">`
+          contentBody.appendChild(imageNode);
+
+          desNode = document.createElement('div')
+          desNode.className = 'text-xl flex justify-center items-center text-center';
+          desNode.innerHTML = bannerObj['description'] + '<br>ใช้แต้ม: ' + bannerObj['cost']
+          contentBody.appendChild(desNode)
+
+          buttonsNode = document.createElement('div');
+          buttonsNode.className = "flex justify-center items-center"
+          randButton = document.createElement('button');
+          randButton.setAttribute('type', 'button');
+          randButton.className = "inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          randButton.setAttribute("data-te-ripple-init", "");
+          randButton.innerHTML = "สุ่มบัตรลด"
+          probButton = document.createElement('button');
+          probButton.setAttribute('type', 'button');
+          probButton.className = "inline-block rounded-full border-2 border-dark-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-dark-50 transition duration-150 ease-in-out hover:border-dark-100 hover:bg-dark-500 hover:bg-opacity-10 hover:text-dark-100 focus:border-dark-100 focus:text-dark-100 focus:outline-none focus:ring-0 active:border-dark-200 active:text-dark-200 dark:hover:bg-dark-100 dark:hover:bg-opacity-10"
+          probButton.setAttribute("data-te-ripple-init", "");
+          probButton.innerHTML = "ดูความหน้าจะเป็น";
+          buttonsNode.appendChild(randButton);
+          buttonsNode.appendChild(probButton);
+          contentBody.appendChild(buttonsNode);
+
+          contentContainer.appendChild(contentBody);
+        });
+      });
+    </script>
   <?php } else { ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/asset/script/sweetalert.js"></script>
