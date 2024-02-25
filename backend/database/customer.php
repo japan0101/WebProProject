@@ -37,12 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                     $database->custom("SELECT tableID FROM tables WHERE tableID={$_SESSION['tableID']} AND code='{$_SESSION['tablecode']}'");
                     if ($database->getResult()['result']) {
-                        
-                        foreach ($_POST['menu'] as $key => $value) {
-                            $database->insert("menus", array("tableID" => $_SESSION['tableID'], "menuID" => $key, ));
 
+                        $checkInvalid = false;
+                        foreach ($_POST['menu'] as $key => $value) {
+                            $database->insert("menus", array("tableID" => $_SESSION['tableID'], "menuID" => $key, "amount" => $value));
+                            if ($database->getResult()['result'] == 0) {
+                                $checkInvalid = true;
+                                break;
+                            }
                         }
-                    }else{
+                    } else {
 
                         $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะใหม่อีกครั้ง");
                     }
@@ -51,13 +55,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะ");
                 }
             }
-        case 'bannerGet': {
-                $database->custom("SELECT * FROM gacha_banner;");
-                echo json_encode($database->getResult()['payload']);
-                break;
-            }
         case '': {
-                }
+            }
         default: {
                 $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
                 break;
@@ -73,23 +72,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 // ดึงข้อมูลเมนู
                 $database->custom("SELECT categoryID, mc.name AS `categoryName`, menuID, menuName, price, description FROM menus LEFT JOIN menu_category AS `mc` USING (categoryID)");
                 echo json_encode($database->getResult()['payload']);
+                break;
+            }
+        case 'banner': {
+                $database->custom("SELECT * FROM gacha_banner");
+                echo json_encode($database->getResult()['payload']);
+                break;
+            }
+        case '': {
             }
         default: {
+                $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
+                break;
             }
     }
     return;
-    switch ($_GET["case"]) {
-        case 'banner': {
-            $database->custom("SELECT * FROM gacha_banner");
-            echo json_encode($database->getResult()['payload']);
-            break;
-        }
-    case '': {}
-    default: {
-            $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
-            break;
-        }
-    }
+
 } else {
     $database->customResult(0, "Error: Wrong Method", "Method");
     $redirect .= './../../';

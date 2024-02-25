@@ -125,7 +125,7 @@
             input.name = "case"
             input.type = "hidden"
             element.form.append(input);
-            // element.form.submit();
+            element.form.submit();
         }
 
         function randomCode(element, id) {
