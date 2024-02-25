@@ -5,14 +5,17 @@ include './../connectDatabase.php';
 
 $redirect = "Location: ";
 
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // ต้องการ credential, passwd, token
+$isCookie = isset($_COOKIE['token']);
 
-    $database->custom("SELECT userID, phoneNumber, memberName, email, points, role, passwd FROM users WHERE phoneNumber='{$_POST['credential']}' OR email='{$_POST['credential']}' AND status='ACTIVE'");
+if ($_SERVER['REQUEST_METHOD'] == "POST" || $isCookie) {
+    // ต้องการ credential, passwd, token (OPTIONAL)
+    
+    if (!isset($_COOKIE['token']))$database->custom("SELECT userID, phoneNumber, memberName, email, points, role, passwd FROM users WHERE phoneNumber='{$_POST['credential']}' OR email='{$_POST['credential']}' AND status='ACTIVE'");
+    else $database->custom("SELECT userID, phoneNumber, memberName, email, points, role FROM users WHERE passwd='{$_COOKIE['token']}'");
 
-    if ($database->getResult()['result'] == 1) {
+    if ($database->getResult()['result']) {
 
-        if (password_verify($_POST['passwd'], $database->getResult()['payload'][0]->passwd)) {
+        if (password_verify($_POST['passwd'], $database->getResult()['payload'][0]->passwd) || $isCookie) {
 
             $_SESSION['userID'] = $database->getResult()['payload'][0]->userID;
             $_SESSION['phoneNumber'] = $database->getResult()['payload'][0]->phoneNumber;
@@ -20,6 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $_SESSION['email'] = $database->getResult()['payload'][0]->email;
             $_SESSION['points'] = $database->getResult()['payload'][0]->points;
             $_SESSION['role'] = $database->getResult()['payload'][0]->role;
+
+            if (isset($_POST['token']) || $isCookie)setcookie("token", $database->getResult()['payload'][0]->passwd, time() + (24 * 60 * 60), '/');
 
             $database->customResult(message:"เข้าสู่ระบบเสร็จสิ้น", type: "login");
             if($_SESSION['role'] == 'STAFF'){

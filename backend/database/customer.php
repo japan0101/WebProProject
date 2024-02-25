@@ -16,19 +16,40 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($database->getResult()['result']) {
 
                     $id = $database->getResult()['payload'][0]->tableID;
-                    $uesrID = $database->getResult()['payload'][0]->userID;
-                    $database->update("tables", array("userID" => $_SESSION['userID']), "code='{$_POST['code']}'");
-                    if ($database->getResult()['result']) $database->customResult(message: "คุณอยู่ที่โต๊ะ $id, userID=" . is_null($uesrID));
 
-                    $redirect .= $_SERVER['HTTP_REFERER'];
+                    // เช็คว่ามีคนแล้วหรือยัง
+                    if (is_null($database->getResult()['payload'][0]->userID)) $database->update("tables", array("userID" => $_SESSION['userID']), "code='{$_POST['code']}'");
+
+                    // เช็คว่าทำงานได้หรือไม่
+                    if ($database->getResult()['result']) $database->customResult(message: "คุณอยู่ที่โต๊ะ $id");
+
+                    $_SESSION['tableID'] = $id;
+                    $_SESSION['tablecode'] = $_POST['code'];
                 } else {
 
                     $database->customResult(message: "ใส่โค้ดไม่ถูกต้อง");
-                    $redirect .= $_SERVER['HTTP_REFERER'];
                 }
                 break;
             }
-        case '': {
+        case 'orderFood': {
+                // ต้อง menu(array keyvalue)
+                if (isset($_SESSION['tableID']) && isset($_SESSION['tablecode'])) {
+
+                    $database->custom("SELECT tableID FROM tables WHERE tableID={$_SESSION['tableID']} AND code='{$_SESSION['tablecode']}'");
+                    if ($database->getResult()['result']) {
+                        
+                        foreach ($_POST['menu'] as $key => $value) {
+                            $database->insert("menus", array("tableID" => $_SESSION['tableID'], "menuID" => $key, ));
+
+                        }
+                    }else{
+
+                        $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะใหม่อีกครั้ง");
+                    }
+                } else {
+
+                    $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะ");
+                }
             }
         default: {
                 $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
@@ -39,7 +60,36 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $redirect .= $_SERVER['HTTP_REFERER'];
     $database->customResult(type: $_POST['case']);
 } else if ($_SERVER['REQUEST_METHOD'] == "GET") {
+    switch ($_GET['case']) {
 
+        case 'allmenus': {
+                // ดึงข้อมูลเมนู
+                $database->custom("SELECT categoryID, mc.name AS `categoryName`, menuID, menuName, price, description FROM menus LEFT JOIN menu_category AS `mc` USING (categoryID)");
+                echo json_encode($database->getResult()['payload']);
+            }
+        case 'banner': {
+                $database->custom("SELECT * FROM gacha_banner;");
+                echo json_encode($database->getResult()['payload']);
+                break;
+            }
+        case '': {
+                }
+        default: {
+            }
+    }
+    return;
+    switch ($_GET["case"]) {
+        case 'banner': {
+            $database->custom("SELECT * FROM gacha_banner");
+            echo json_encode($database->getResult()['payload']);
+            break;
+        }
+    case '': {}
+    default: {
+            $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
+            break;
+        }
+    }
 } else {
     $database->customResult(0, "Error: Wrong Method", "Method");
     $redirect .= './../../';

@@ -35,7 +35,7 @@ class Database
         $data = "";
         $sql = "UPDATE $tablename SET ";
         foreach ($keyvalue as $key => $value) {
-            $data = ", $key = '{$value}'";
+            $data .= ", $key = '{$value}'";
         }
         $data = substr($data, 2, strlen($data));
         $sql .= $data;
@@ -92,9 +92,9 @@ class Database
     }
 
     public function customResult(int $result=null, string $message=null, string $type=null){
-        if(!is_null($result))$this->res['result'] = $result;
-        if(!is_null($message))$this->res['message'] = $message;
-        if(!is_null($type))$this->res['type'] = $type;
+        if(!is_null($result) || !isset($this->res['result']))$this->res['result'] = is_null($result) ? 0 : $result;
+        if(!is_null($message) || !isset($this->res['message']))$this->res['message'] = is_null($message) ? "Default" : $message;
+        if(!is_null($type) || !isset($this->res['type']))$this->res['type'] = is_null($type) ? "" : $type;
     }
 
     public function getResult()

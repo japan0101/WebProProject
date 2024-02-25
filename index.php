@@ -1,4 +1,7 @@
-<?php session_start() ?>
+<?php
+session_start();
+if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))header("Location: /backend/account/read_user.php");
+?>
 <!doctype html>
 <html lang="en">
 
@@ -53,21 +56,39 @@
 <script src="/asset/script/sweetalert.js"></script>
 <?php if (isset($_SESSION['result'])) { ?>
   <script>
+    <?php $fire = false; ?>
     <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
       Toast.fire({
         icon: "success",
         title: "<?php echo $_SESSION['result']['message']; ?>",
       });
-    <?php unset($_SESSION['result']);
+      <?php $fire = true; ?>
+
+    <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
+      Toast.fire({
+        icon: "error",
+        title: "<?php echo $_SESSION['result']['message']; ?>",
+      });
+    <?php $fire = true;
     } ?>
 
-    <?php if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
+
+    <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
       Toast.fire({
         icon: "success",
         title: "<?php echo $_SESSION['result']['message']; ?>",
       });
-    <?php unset($_SESSION['result']);
+      <?php $fire = true; ?>
+
+    <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "register")) { ?>
+      Toast.fire({
+        icon: "error",
+        title: "<?php echo $_SESSION['result']['message']; ?>",
+      });
+    <?php $fire = true;
     } ?>
+
+    <?php if ($fire) unset($_SESSION['result']) ?>
   </script>
 <?php } ?>
 
