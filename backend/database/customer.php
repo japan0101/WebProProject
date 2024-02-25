@@ -51,6 +51,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะ");
                 }
             }
+        case 'bannerGet': {
+                $database->custom("SELECT * FROM gacha_banner;");
+                echo json_encode($database->getResult()['payload']);
+                break;
+            }
+        case '': {
+                }
         default: {
                 $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
                 break;
@@ -71,6 +78,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             }
     }
     return;
+    switch ($_GET["case"]) {
+        case 'banner': {
+            $database->custom("SELECT * FROM gacha_banner");
+            echo json_encode($database->getResult()['payload']);
+            break;
+        }
+    case '': {}
+    default: {
+            $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
+            break;
+        }
+    }
 } else {
     $database->customResult(0, "Error: Wrong Method", "Method");
     $redirect .= './../../';
