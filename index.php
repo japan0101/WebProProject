@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))header("Location: /backend/account/read_user.php");
+if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /backend/account/read_user.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -91,25 +91,5 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))header("Location: /b
     <?php if ($fire) unset($_SESSION['result']) ?>
   </script>
 <?php } ?>
-
-<script>
-  // Initialization for ES Users
-  import {
-    Animate,
-    Input,
-    Ripple,
-    Collapse,
-    Dropdown,
-    initTE,
-  } from "tw-elements";
-
-  initTE({
-    Animate,
-    Input,
-    Ripple,
-    Collapse,
-    Dropdown,
-  });
-</script>
 
 </html>

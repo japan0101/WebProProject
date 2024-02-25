@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -8,27 +8,7 @@
   <title>LeawTaeApp</title>
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
-  <script>
-    // Initialization for ES Users
-    import {
-      Animate,
-      Input,
-      Ripple,
-      Collapse,
-      Dropdown,
-      Tab,
-      initTE,
-    } from "tw-elements";
 
-    initTE({
-      Animate,
-      Input,
-      Ripple,
-      Collapse,
-      Dropdown,
-      Tab,
-    });
-  </script>
 </head>
 
 <body>
@@ -135,20 +115,20 @@
           </div>
         </div>
 
+        </div>
       </div>
-    </div>
-  </span>
-  <?php } else{?>
-                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                    <script src="/asset/script/sweetalert.js"></script>
-                    <script>
-                        Warning.fire({
-                            icon: "warning",
-                            title: "คำเตือน",
-                            text: "คุณยังไม่ได้เข้าสู่ระบบ"
-                        });
-                    </script>
-                <?php }?>
+    </span>
+  <?php } else { ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/asset/script/sweetalert.js"></script>
+    <script>
+      Warning.fire({
+        icon: "warning",
+        title: "คำเตือน",
+        text: "คุณยังไม่ได้เข้าสู่ระบบ"
+      });
+    </script>
+  <?php } ?>
 
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
 

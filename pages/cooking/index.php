@@ -8,19 +8,7 @@
     <title>Document</title>
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
-    <script>
-        import {
-            Modal,
-            Ripple,
-            initTE,
-        } from "tw-elements";
 
-        initTE({
-            Modal,
-            Ripple
-        });
-        // Initialization for ES Users
-    </script>
 </head>
 
 <body>
@@ -82,16 +70,7 @@
             ?>
         <?php } ?>
         <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
-        <script>
-            import {
-                Tab,
-                initTE,
-            } from "tw-elements";
 
-            initTE({
-                Tab
-            });
-        </script>
 </body>
 
 </html>

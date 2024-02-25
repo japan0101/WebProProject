@@ -190,7 +190,11 @@
                         Warning.fire({
                             icon: "warning",
                             title: "คำเตือน",
-                            text: "คุณยังไม่ได้เข้าสู่ระบบ"
+                            text: "คุณยังไม่ได้เข้าสู่ระบบ",
+                        }).then(result => {
+                            if (result.isConfirmed) {
+                                location.href = "/index.php"
+                            }
                         });
                     </script>
                 <?php } ?>
