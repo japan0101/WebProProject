@@ -86,7 +86,7 @@
 
         <?php if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
           Toast.fire({
-            icon: "success",
+            icon: "error",
             title: "<?php echo $_SESSION['result']['message']; ?>",
           });
         <?php unset($_SESSION['result']);
