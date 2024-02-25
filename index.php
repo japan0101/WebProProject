@@ -92,24 +92,4 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))header("Location: /b
   </script>
 <?php } ?>
 
-<script>
-  // Initialization for ES Users
-  import {
-    Animate,
-    Input,
-    Ripple,
-    Collapse,
-    Dropdown,
-    initTE,
-  } from "tw-elements";
-
-  initTE({
-    Animate,
-    Input,
-    Ripple,
-    Collapse,
-    Dropdown,
-  });
-</script>
-
 </html>

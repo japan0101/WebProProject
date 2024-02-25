@@ -8,18 +8,7 @@
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/loginModal.php") ?>
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/regisModal.php") ?>
-    <script>
-        import {
-            Modal,
-            Ripple,
-            initTE,
-        } from "tw-elements";
 
-        initTE({
-            Modal,
-            Ripple
-        });
-    </script>
 </head>
 
 <body>
