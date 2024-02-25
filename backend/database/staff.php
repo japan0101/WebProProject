@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
                 // ต้องการ ID
 
                 if (isset($_POST['ID'])) {
-                    $database->update("tables", array("code" => randomCode()), array("tableID" => $_POST['ID']));
+                    $database->update("tables", array("code" => randomCode(), "status" => 2), array("tableID" => $_POST['ID']));
 
                     if ($database->getResult()['result']) $database->customResult(message: "ทำการสุ่มโค้ดเสร็จสิ้น", type: $_POST['case']);
                     else $database->customResult(type: $_POST['case']);
@@ -23,6 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
                 }
 
                 $redirect .= $_SERVER['HTTP_REFERER'];
+                break;
+            }
+
+        case 'payBill': {
+                if (true) {
+                }
                 break;
             }
         default: {

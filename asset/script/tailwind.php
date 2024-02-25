@@ -9,20 +9,18 @@ echo '<script src="https://cdn.tailwindcss.com/3.3.0"></script>';
 
 echo '<script>';
 echo 'tailwind.config = {';
-echo <<<EOF
-darkMode: "class",
-    theme: {
-      fontFamily: {
-        sans: ["Roboto", "sans-serif"],
-        body: ["Roboto", "sans-serif"],
-        mono: ["ui-monospace", "monospace"],
-      },
-    },
-    corePlugins: {
-      preflight: false,
-    },
-  };
-  ;
-EOF;
+echo 'darkMode: "class",';
+echo 'theme: {';
+echo 'fontFamily: {';
+echo 'sans: ["Roboto", "sans-serif"],';
+echo 'body: ["Roboto", "sans-serif"],';
+echo 'mono: ["ui-monospace", "monospace"],';
+echo '},';
+echo '},';
+echo 'corePlugins: {';
+echo 'preflight: false,';
+echo '},';
+echo '};';
+echo ';';
 echo '</script>';
 ?>
