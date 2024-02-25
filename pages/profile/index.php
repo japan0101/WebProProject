@@ -154,7 +154,7 @@
                             </div>
                             <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-changePass" role="tabpanel" aria-labelledby="tabs-changePass-tab">
                                 <!-- Change Password -->
-                                <form>
+                                <form action="/backend/account/changePassword_user.php" method="post">
                                     <!-- Old Password -->
                                     <div class="relative mb-6" data-te-input-wrapper-init>
                                         <input type="password" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="passwd" name="oldpasswd" aria-describedby="password" placeholder="รหัสผ่านเดิม" pattern=".{8,}" title='กรุณาใส่รหัสผ่านเดิม' required />
@@ -219,6 +219,22 @@
                     <?php $fire = true; ?>
 
                 <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "update_user")) { ?>
+                    Toast.fire({
+                        icon: "error",
+                        title: "<?php echo $_SESSION['result']['message']; ?>",
+                    });
+                <?php $fire = true;
+                } ?>
+
+
+                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "chapass_user")) { ?>
+                    Toast.fire({
+                        icon: "success",
+                        title: "<?php echo $_SESSION['result']['message']; ?>",
+                    });
+                    <?php $fire = true; ?>
+
+                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "chapass_user")) { ?>
                     Toast.fire({
                         icon: "error",
                         title: "<?php echo $_SESSION['result']['message']; ?>",
