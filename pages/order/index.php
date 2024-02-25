@@ -14,6 +14,49 @@ session_start();
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/loginModal.php") ?>
   <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/regisModal.php") ?>
+  <script>
+    let order = {
+      menu: []
+    }
+
+    function addToCart(food_id, name, form_id) {
+      amount = Number(document.getElementById(form_id).value);
+      same = false;
+      if(amount > 0){
+        for(var menu of order.menu){
+          if(food_id == menu.id){
+            menu.amount += Number(amount);
+            same = true;
+          }
+        }
+        if(!same){
+          order.menu.push({id : food_id, "name": name, amount : amount});
+        }
+        localStorage.setItem("menu", JSON.stringify(order.menu));
+      }
+      var menus = JSON.parse(localStorage.getItem("menu"));
+      console.log(menus);
+      let cart = document.getElementById("cart");
+      let item = document.createElement('div');
+      item.setAttribute("class", "block border w-full rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700");
+      for(menu of menus)
+      item.innerHTML = '<div class="my-1 block w-full rounded-lg bg-grey flex flex-row justify-center items-center">'+
+              '<div class="basis-1/4 w-fit m-auto place-content-center">'+
+              '<img class="w-fit m-auto" src="https://media1.tenor.com/m/GT2HEIsGJ0YAAAAd/chad-giga.gif">'+
+              '</div>'+
+              '<div class="p-2 basis-2/4">'+
+              '  <p>'+menu.name+'</p>'+
+              '</div>'+
+              '<div class="basis-1/4  flex place-self-center text-center">'+
+              '  <input class="border rounded w-1/2 m-auto" type="number" id="amount" value="'+menu.amount+'">'+
+              '</div>'+
+            '</div>';
+      cart.appendChild(item);
+    }
+
+    
+  </script>
+
   
   <script>
     import {

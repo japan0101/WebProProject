@@ -114,21 +114,7 @@
 
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
-    <script>
-      // Initialization for ES Users
-      import {
-        Animate,
-        Input,
-        Ripple,
-        initTE,
-      } from "tw-elements";
 
-      initTE({
-        Animate,
-        Input,
-        Ripple
-      });
-    </script>;
   <?php } ?>
 
   <?php if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
@@ -182,20 +168,7 @@
       </div>
     <?php } ?>
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
-    <script>
-      import {
-        Modal,
-        Ripple,
-        Tab,
-        initTE,
-      } from "tw-elements";
 
-      initTE({
-        Modal,
-        Ripple,
-        Tab
-      });
-    </script>
 </body>
 
 </html>
