@@ -77,6 +77,24 @@
     </section>
 
     <?php include($_SERVER['DOCUMENT_ROOT']. "/asset/script/tw_element.php") ?>
+    <script>
+        import {
+            Validation,
+            Input,
+            Datepicker,
+            Timepicker,
+            Ripple,
+            initTE,
+        } from "tw-elements";
+
+        initTE({
+            Validation,
+            Input,
+            Datepicker,
+            Timepicker,
+            Ripple,
+        });
+    </script>
 </body>
 
 </html>

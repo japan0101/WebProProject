@@ -125,7 +125,7 @@
             input.name = "case"
             input.type = "hidden"
             element.form.append(input);
-            element.form.submit();
+            // element.form.submit();
         }
 
         function randomCode(element, id) {
@@ -216,6 +216,21 @@
     <?php } ?>
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
+    <script>
+        // Initialization for ES Users
+        import {
+            Animate,
+            Input,
+            Ripple,
+            initTE,
+        } from "tw-elements";
+
+        initTE({
+            Animate,
+            Input,
+            Ripple
+        });
+    </script>
 
 </body>
 
