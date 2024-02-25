@@ -32,7 +32,58 @@
 </head>
 
 <body>
-    <script>
+    
+  <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/nav.php") ?>
+  <?php if(isset($_SESSION['userID'])) {?>
+  <span class="my-5">
+    <div class="rounded-lg border dark:border-neutral-600">
+      <div class="p-4">
+        <div class="sm:flex sm:items-start">
+          <ul class="mr-4 flex list-none sm:flex-col overflow-x-auto pl-0 sm:overflow-y-suto max-h-64" id="bannerSel" role="tablist" data-te-nav-ref="">
+            <!-- Selector -->
+            <li role="presentation" class="flex-grow text-center">
+              <a href="#tabs-home03" 
+              class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+              data-te-toggle="pill"
+              data-te-target="#tabs-home03"
+              data-te-nav-active
+              role="tab"
+              aria-controls="tabs-home03"
+              aria-selected="true"
+              >Home</a>
+            </li>
+          </ul>
+          <!-- Banner Showcase -->
+          <div class="my-2 grow" id="contentHolder">
+            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-home03" role="tab" aria-labelledby="tabs-home-tab03" data-te-tab-active="">
+              <div class="flex justify-center items-center text-2xl font-bold">
+                Banner Name
+              </div>
+              <div class="flex justify-center items-center">
+                <img src="">
+              </div>
+              <div class="text-xl flex justify-center items-center">
+                Banner Description
+              </div>
+              <!-- buttons -->
+              <div class="flex justify-center items-center">
+                  <button type="button" class="inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                  data-te-ripple-init data-te-toggle="modal" data-te-target="#regisModal">
+                    สุ่มบัตรลด
+                  </button>
+                  <button type="button" class="inline-block rounded-full border-2 border-dark-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-dark-50 transition duration-150 ease-in-out hover:border-dark-100 hover:bg-dark-500 hover:bg-opacity-10 hover:text-dark-100 focus:border-dark-100 focus:text-dark-100 focus:outline-none focus:ring-0 active:border-dark-200 active:text-dark-200 dark:hover:bg-dark-100 dark:hover:bg-opacity-10"
+                  data-te-ripple-init data-te-toggle="modal" data-te-target="#loginModal">
+                    ดูความหน้าจะเป็น
+                  </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </span>
+  <script>
         fetch("/backend/database/customer.php?case=banner").then(e => e.json()).then(payload => {
           selectorContainer = document.getElementById('bannerSel');
           contentContainer = document.getElementById('contentHolder');
@@ -95,56 +146,6 @@
             });
         });
   </script>
-  <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/nav.php") ?>
-  <?php if(isset($_SESSION['userID'])) {?>
-  <span class="my-5">
-    <div class="rounded-lg border dark:border-neutral-600">
-      <div class="p-4">
-        <div class="sm:flex sm:items-start">
-          <ul class="mr-4 flex list-none sm:flex-col overflow-x-auto pl-0 sm:overflow-y-suto max-h-64" id="bannerSel" role="tablist" data-te-nav-ref="">
-            <!-- Selector -->
-            <li role="presentation" class="flex-grow text-center">
-              <a href="#tabs-home03" 
-              class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-              data-te-toggle="pill"
-              data-te-target="#tabs-home03"
-              data-te-nav-active
-              role="tab"
-              aria-controls="tabs-home03"
-              aria-selected="true"
-              >Home</a>
-            </li>
-          </ul>
-          <!-- Banner Showcase -->
-          <div class="my-2 grow" id="contentHolder">
-            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-home03" role="tab" aria-labelledby="tabs-home-tab03" data-te-tab-active="">
-              <div class="flex justify-center items-center text-2xl font-bold">
-                Banner Name
-              </div>
-              <div class="flex justify-center items-center">
-                <img src="">
-              </div>
-              <div class="text-xl flex justify-center items-center">
-                Banner Description
-              </div>
-              <!-- buttons -->
-              <div class="flex justify-center items-center">
-                  <button type="button" class="inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                  data-te-ripple-init data-te-toggle="modal" data-te-target="#regisModal">
-                    สุ่มบัตรลด
-                  </button>
-                  <button type="button" class="inline-block rounded-full border-2 border-dark-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-dark-50 transition duration-150 ease-in-out hover:border-dark-100 hover:bg-dark-500 hover:bg-opacity-10 hover:text-dark-100 focus:border-dark-100 focus:text-dark-100 focus:outline-none focus:ring-0 active:border-dark-200 active:text-dark-200 dark:hover:bg-dark-100 dark:hover:bg-opacity-10"
-                  data-te-ripple-init data-te-toggle="modal" data-te-target="#loginModal">
-                    ดูความหน้าจะเป็น
-                  </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </span>
   <?php } else{?>
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <script src="/asset/script/sweetalert.js"></script>
