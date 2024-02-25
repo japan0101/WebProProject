@@ -35,7 +35,7 @@ if (isset($_SESSION['userID'])) header("Location: ./../");
 
                         <!-- Password input -->
                         <div class="relative mb-6" id="passwdInput" data-te-input-wrapper-init>
-                            <input type="password" name="passwd" pattern=".{8,}" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="password" placeholder="รหัสผ่าน" required title='ต้องมีความยาว 8 ตัวอักษรขึ้นไป' />
+                            <input type="password" name="passwd" pattern=".{8,}" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="password" placeholder="รหัสผ่าน" title='ต้องมีความยาว 8 ตัวอักษรขึ้นไป' required />
                             <label for="password" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">รหัสผ่าน
                             </label>
                         </div>
@@ -73,21 +73,39 @@ if (isset($_SESSION['userID'])) header("Location: ./../");
     <script src="/asset/script/sweetalert.js"></script>
     <?php if (isset($_SESSION['result'])) { ?>
         <script>
+            <?php $fire = false; ?>
             <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
                 Toast.fire({
                     icon: "success",
                     title: "<?php echo $_SESSION['result']['message']; ?>",
                 });
-            <?php unset($_SESSION['result']);
+                <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
+                Toast.fire({
+                    icon: "error",
+                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                });
+            <?php $fire = true;
             } ?>
 
-            <?php if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
                 Toast.fire({
                     icon: "success",
                     title: "<?php echo $_SESSION['result']['message']; ?>",
                 });
-            <?php unset($_SESSION['result']);
+                <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "register")) { ?>
+                Toast.fire({
+                    icon: "error",
+                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                });
+            <?php $fire = true;
             } ?>
+
+            <?php if ($fire) unset($_SESSION['result']) ?>
         </script>
     <?php } ?>
 

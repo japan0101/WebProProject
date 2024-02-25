@@ -18,8 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
                     if ($database->getResult()['result'] == 0) break;
                 }
 
-                // , "status" => 2
-                $database->update("tables", array("code" => $code), "tableID={$_POST['ID']}");
+                $database->update("tables", array("code" => $code, "status" => 2), "tableID={$_POST['ID']}");
                 if ($database->getResult()['result']) $database->customResult(message: "ทำการสุ่มโค้ดเสร็จสิ้น");
                 break;
             }

@@ -28,7 +28,7 @@
         <h1 class="text-3xl">Staff</h1>
         <form class="m-3" action='/backend/database/staff.php' method='post'>
             <h1 class="text-2xl">List Tables</h1>
-            <table class="min-w-full text-left text-sm font-light" id="display">
+            <table class="min-w-full text-left text-sm font-light" id="display1">
                 <tr class="border-b font-medium dark:border-neutral-500">
                     <th scope="col" class="px-6 py-4">เลขโต๊ะ</th>
                     <th scope="col" class="px-6 py-4">โค้ด</th>
@@ -51,6 +51,20 @@
             <input type="hidden" name="case" value="tableCheck">
             <button class="bg-black text-white rounded p-2">ยืนยัน</button>
         </form>
+
+        <div class="m-3">
+            <h1 class="text-2xl">Menu</h1>
+            <table class="min-w-full text-left text-sm font-light" id="display2">
+                <tr class="border-b font-medium dark:border-neutral-500">
+                    <th scope="col" class="px-6 py-4">เลขประเภทเมนู</th>
+                    <th scope="col" class="px-6 py-4">ชื่อประเภท</th>
+                    <th scope="col" class="px-6 py-4">เลขเมนู</th>
+                    <th scope="col" class="px-6 py-4">ชื่อเมนู</th>
+                    <th scope="col" class="px-6 py-4">ราคา</th>
+                    <th scope="col" class="px-6 py-4">คำอธิบาย</th>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <!-- Need tobe included, if not the ripple is not working -->
@@ -59,7 +73,7 @@
     </button>
 
     <script>
-        const TBDisplay = document.getElementById("display")
+        const TBDisplay = document.getElementById("display1")
         // ดึงข้อมูลจาก Database ผ่าน GET
         fetch("./database/staff.php?case=table").then(e => e.json()).then(payload => {
             console.log(payload)
@@ -86,6 +100,21 @@
                 }
             })
         });
+    </script>
+
+    <script>
+        const TBDisplay2 = document.getElementById("display2")
+        fetch("./database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
+            console.log(payload)
+            payload.forEach(item => {
+                let row = TBDisplay2.insertRow(-1)
+                Object.keys(item).forEach(item2 => {
+                    let col = row.insertCell(-1)
+                    col.className = "whitespace-nowrap px-6 py-4"
+                    col.innerHTML = item[item2]
+                })
+            })
+        })
     </script>
 
     <script>
@@ -134,7 +163,7 @@
     <script src="/asset/script/sweetalert.js"></script>
     <?php if (isset($_SESSION['result'])) { ?>
         <script>
-            <?php $fire = false;?>
+            <?php $fire = false; ?>
             <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "insertTable")) { ?>
                 Toast.fire({
                     icon: "success",
@@ -181,8 +210,8 @@
                 });
             <?php $fire = true;
             } ?>
-            
-            <?php if($fire)unset($_SESSION['result'])?>
+
+            <?php if ($fire) unset($_SESSION['result']) ?>
         </script>
     <?php } ?>
 
