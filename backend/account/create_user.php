@@ -6,8 +6,9 @@ include './../connectDatabase.php';
 $redirect = "Location: ";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    // ต้องการ phone, name, email, password
+    // ต้องการ phone, name, email, passwd, confirmPasswd
 
+    if (isset($_POST['passwd']) && isset($_POST['confirmPasswd']))
     $hashedPassword = password_hash($_POST['passwd'], PASSWORD_BCRYPT);
 
     $database->custom("SELECT email FROM users WHERE email='{$_POST['email']}' AND status='ACTIVE'");
