@@ -9,8 +9,8 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LaewTaeApp</title>
-    <link rel="stylesheet" href="/assets/stylesheets/global.css">
-    <link rel="stylesheet" href="/assets/stylesheets/developers.css">
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/developers.css">
     <?php include("./assets/script/tailwind.php") ?>
 </head>
 
