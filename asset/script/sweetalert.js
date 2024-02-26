@@ -15,7 +15,7 @@ const Warning = Swal.mixin({
     showConfirmButton: true,
     timerProgressBar: false,
     didOpen: (toast) => {
-      toast.onmouseenter = Swal.stopTimer;
-      toast.onmouseleave = Swal.resumeTimer;
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
     }
-  });
+});

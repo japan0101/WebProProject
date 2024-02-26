@@ -9,47 +9,53 @@ $redirect = "Location: ";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("STAFF", "MANAGER"))) {
     switch ($_POST["case"]) {
-        case 'randomTableCode': {
-                // ต้องการ ID
+        case 'randomTableCode':
+        {
+            // ต้องการ ID
 
-                while (true) {
-                    $code = randomCode();
-                    $database->custom("SELECT code FROM tables WHERE code='{$code}'");
-                    if ($database->getResult()['result'] == 0) break;
-                }
-
-                $database->update("tables", array("code" => $code, "status" => 2), "tableID={$_POST['ID']}");
-                if ($database->getResult()['result']) $database->customResult(message: "ทำการสุ่มโค้ดเสร็จสิ้น");
-                break;
+            while (true) {
+                $code = randomCode();
+                $database->custom("SELECT code FROM tables WHERE code='{$code}'");
+                if ($database->getResult()['result'] == 0) break;
             }
 
-        case 'payBill': {
-                if (true) {
-                }
-                break;
+            $database->update("tables", array("code" => $code, "status" => 2), "tableID={$_POST['ID']}");
+            if ($database->getResult()['result']) $database->customResult(message: "ทำการสุ่มโค้ดเสร็จสิ้น");
+            break;
+        }
+
+        case 'payBill':
+        {
+            if (true) {
             }
-        default: {
-                $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
-                break;
-            }
+            break;
+        }
+        default:
+        {
+            $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
+            break;
+        }
     }
     $redirect .= $_SERVER['HTTP_REFERER'];
     $database->customResult(type: $_POST['case']);
 
 } else if ($_SERVER['REQUEST_METHOD'] == "GET" && in_array($_SESSION['role'], array("STAFF", "MANAGER"))) {
     switch ($_GET["case"]) {
-        case 'table': {
-                $database->custom("SELECT tableID, code, phoneNumber, capacity, tables.status FROM tables LEFT JOIN users USING (userID);");
-                echo json_encode($database->getResult()['payload']);
-                break;
-            }
-        case 'user': {
-                $database->custom("SELECT * FROM users");
-                break;
-            }
-        default: {
-                break;
-            }
+        case 'table':
+        {
+            $database->custom("SELECT tableID, code, phoneNumber, capacity, tables.status FROM tables LEFT JOIN users USING (userID);");
+            echo json_encode($database->getResult()['payload']);
+            break;
+        }
+        case 'user':
+        {
+            $database->custom("SELECT * FROM users");
+            break;
+        }
+        default:
+        {
+            break;
+        }
     }
     return;
 

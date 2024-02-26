@@ -1,0 +1,23 @@
+[
+  {
+    "name": "order",
+    "path": "/order",
+    "component": "/Users/tae/Projects/WebProProject/pages/order/index.vue",
+    "chunkName": "pages/order/index",
+    "_name": "_8577811e"
+  },
+  {
+    "name": "testBackEnd",
+    "path": "/testBackEnd",
+    "component": "/Users/tae/Projects/WebProProject/pages/testBackEnd/index.vue",
+    "chunkName": "pages/testBackEnd/index",
+    "_name": "_66090ab6"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/tae/Projects/WebProProject/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_0f6dc2f2"
+  }
+]
