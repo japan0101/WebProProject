@@ -12,7 +12,8 @@
 </head>
 
 <body>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/asset/script/sweetalert.js"></script>
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/nav.php") ?>
     <?php if (isset($_SESSION['userID'])) { ?>
         <span class="my-5">
@@ -22,19 +23,19 @@
                         <ul class="mr-4 flex list-none sm:flex-col overflow-x-auto pl-0" id="bannerSel" role="tablist" data-te-nav-ref="">
                             <!-- Selector -->
                             <li role="presentation" class="flex-grow text-center">
-                                <a href="#allMenu" 
+                                <a href="#allCoupon" 
                                 class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" 
                                 data-te-toggle="pill" 
-                                data-te-target="#allMenu" 
+                                data-te-target="#allCoupon" 
                                 data-te-nav-active role="tab" 
-                                aria-controls="allMenu" 
+                                aria-controls="allCoupon" 
                                 aria-selected="true">All</a>
                             </li>
                         </ul>
                         <!-- Coupon Container -->
                         <div class="my-2 grow" id="contentHolder">
-                            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="allMenu" role="tab" aria-labelledby="allMenu" data-te-tab-active="">
-                                <div class="flex flex-wrap justify-center items-center max-w-[110rem]" id="allMenuContainer">
+                            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="allCoupon" role="tab" aria-labelledby="allCoupon" data-te-tab-active="">
+                                <div class="flex flex-wrap justify-center items-center max-w-[110rem]" id="allCouponContainer">
 
                                 </div>
                             </div>
@@ -44,9 +45,9 @@
                 </div>
             </div>
         </span>
+
     <?php } else { ?>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="/asset/script/sweetalert.js"></script>
+
         <script>
             Warning.fire({
                 icon: "warning",
@@ -56,10 +57,10 @@
         </script>
     <?php } ?>
     <script>
-        fetch("/backend/database/customer.php?case=category").then(e => e.json()).then(payload => {
+        fetch("/backend/database/customer.php?case=mycoupon").then(e => e.json()).then(payload => {
             selectorContainer = document.getElementById('bannerSel');
             contentContainer = document.getElementById('contentHolder');
-            allContainer = document.getElementById('allMenuContainer');
+            allContainer = document.getElementById('allCouponContainer');
             console.log(payload);
             category = []
             payload.forEach(couponObj => {
@@ -132,7 +133,8 @@
                 button.className = "inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                 button.setAttribute('data-te-ripple-init', '');
                 button.setAttribute('data-te-ripple-color', 'light');
-                button.innerHTML = couponObj['cost'] + " แต้ม"
+                button.setAttribute('onclick', 'showCode(\'' + couponObj['expire'] + '\', \'' + couponObj['couponCode'] + '\')');
+                button.innerHTML = "แสดงรหัสคูปอง"
 
                 imageSection.appendChild(imagePart);
                 imageSection.appendChild(imageFunction);
@@ -146,6 +148,12 @@
                 currentHolder.appendChild(card);
             });
         });
+        function showCode(expire, code){
+            Code.fire({
+                title: "<div class='font-bold text-xl text-center'>รหัสส่วนลดของคุณ<div>",
+                html: "<div class='border border-sky-500 text-center'>" + code + "</div>"
+            });
+        }
     </script>
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
 
