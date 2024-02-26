@@ -21,14 +21,14 @@ if (!$isAuth) { ?>
             <!-- Left column container with background-->
             <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
                 <div class="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-                    <img src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                    <img src="/assets/images/account/draw2.webp"
                          class="w-full" alt="Sample image"/>
                 </div>
 
                 <!-- Right column container -->
                 <div class="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12">
 
-                    <form method="post" action="./../backend/account/read_user.php">
+                    <form method="post" action="/backend/account/read_user.php">
 
                         <!-- Email input -->
                         <div class="relative mb-6 flex-1" id="credentialInput" data-te-input-wrapper-init>
@@ -74,7 +74,7 @@ if (!$isAuth) { ?>
                             <!-- Register link -->
                             <p class="mb-0 mt-2 pt-1 text-sm font-semibold">
                                 ไม่มีบัญชี?
-                                <a href="register.php"
+                                <a href="/pages/register.php"
                                    class="text-danger transition duration-150 ease-in-out hover:text-danger-600 focus:text-danger-600 active:text-danger-700">สมัครสมาชิก</a>
                             </p>
                         </div>
