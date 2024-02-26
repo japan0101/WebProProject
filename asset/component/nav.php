@@ -1,6 +1,9 @@
+<link rel="stylesheet" href="/asset/css/navbar.css">
+<link rel="stylesheet" href="/asset/css/global.css">
 <header>
-    <nav class="flex-no-wrap relative flex w-full items-center justify-between bg-[#FBFBFB] py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-lg">
-        <div class="flex w-full flex-wrap items-center justify-between px-3">
+    <nav id="navbar" style="position: fixed !important"
+         class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-lg">
+        <div id="navbar-body" class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
             <!-- Hamburger button for mobile view -->
             <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
                     type="button" data-te-collapse-init data-te-target="#navbarSupportedContent1"
@@ -19,7 +22,7 @@
                  id="navbarSupportedContent1" data-te-collapse-item>
                 <!-- Logo -->
                 <a class="mb-4 ml-2 mr-5 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
-                   href="/index.php">
+                   href="/">
                     <img src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp" style="height: 15px"
                          alt="TE Logo" loading="lazy"/>
                 </a>
@@ -31,7 +34,7 @@
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                         <!-- Home -->
                         <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-                           href="/index.php" data-te-nav-link-ref>หน้าหลัก</a>
+                           href="/" data-te-nav-link-ref>หน้าหลัก</a>
                     </li>
                     <!-- Redeem Points -->
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>

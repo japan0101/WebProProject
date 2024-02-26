@@ -9,17 +9,18 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LaewTaeApp</title>
+    <link rel="stylesheet" href="/asset/css/global.css">
     <?php include("./asset/script/tailwind.php") ?>
 </head>
 
 <body class="antialiased">
-<?php include("asset/component/nav.php") ?>
+<?php include("./asset/component/nav.php") ?>
 
 
 <!-- Jumbotron -->
-<div data-te-animation-init data-te-animation-start="onLoad" data-te-animation-reset="true"
-     data-te-animation="[fade-in-down_1s_ease-out]"
-     class="relative mb-16 flex items-center justify-center bg-gray-50 py-16 sm:py-24 lg:py-32">
+<main data-te-animation-init data-te-animation-start="onLoad" data-te-animation-reset="true"
+      data-te-animation="[fade-in-down_1s_ease-out]"
+      class="relative mb-16 flex items-center justify-center bg-gray-50 py-16 sm:py-24 lg:py-32">
     <div class="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 dark:from-neutral-700 dark:to-neutral-800"
          aria-hidden="true"></div>
     <div class="relative px-4 sm:px-6 lg:px-8">
@@ -51,7 +52,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
             <?php } ?>
         </div>
     </div>
-</div>
+</main>
 
 
 </body>
