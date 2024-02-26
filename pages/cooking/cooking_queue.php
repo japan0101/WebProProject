@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/loginModal.php") ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/regisModal.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>
 
 </head>
 
@@ -51,7 +51,7 @@
 
 
 </div>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 </body>
 
 </html>

@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
 </head>
 
 <body>
@@ -86,7 +86,7 @@ if (!$isAuth) { ?>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/asset/script/sweetalert.js"></script>
+    <script src="/assets/script/sweetalert.js"></script>
 <?php if (isset($_SESSION['result'])) { ?>
     <script>
         <?php $fire = false; ?>
@@ -126,7 +126,7 @@ if (!$isAuth) { ?>
 <?php } ?>
 
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 
 <?php } ?>
 
@@ -192,7 +192,7 @@ if (!$isAuth) { ?>
         insert here
     </div>
     <?php } ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 
 </body>
 

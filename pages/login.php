@@ -9,7 +9,7 @@ if (isset($_SESSION['userID'])) header("Location: ./../");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaewTaeApp</title>
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
 </head>
 
 <body class="m-auto lg:w-3/4 md:3/4 sm:h-4/5">
@@ -82,7 +82,7 @@ if (isset($_SESSION['userID'])) header("Location: ./../");
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/asset/script/sweetalert.js"></script>
+<script src="/assets/script/sweetalert.js"></script>
 <?php if (isset($_SESSION['result'])) { ?>
     <script>
         <?php $fire = false; ?>
@@ -122,7 +122,7 @@ if (isset($_SESSION['userID'])) header("Location: ./../");
 <?php } ?>
 
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 
 </body>
 

@@ -9,13 +9,13 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LaewTaeApp</title>
-    <link rel="stylesheet" href="/asset/css/global.css">
-    <link rel="stylesheet" href="/asset/css/developers.css">
-    <?php include("./asset/script/tailwind.php") ?>
+    <link rel="stylesheet" href="/assets/css/global.css">
+    <link rel="stylesheet" href="/assets/css/developers.css">
+    <?php include("./assets/script/tailwind.php") ?>
 </head>
 
 <body class="antialiased">
-<?php include("./asset/component/nav.php") ?>
+<?php include("./assets/component/nav.php") ?>
 
 
 <!-- Jumbotron -->
@@ -69,6 +69,24 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
                         nemo nobis, nulla qui ratione sint tempore voluptatem? Aspernatur consectetur laborum magni
                         perferendis quasi repellat!
                     </p>
+                    <div class="d-flex flex-row gap-3 justify-content-between">
+                        <div class="d-flex flex-column html-small-box">
+                            <img alt="" src="assets/icon/learning.png">
+                            <h5>เรียนรู้ได้ง่าย</h5>
+                        </div>
+                        <div class="d-flex flex-column html-small-box">
+                            <img alt="" src="assets/icon/tips-and-tricks.png">
+                            <h5>มีประสิทธิภาพ</h5>
+                        </div>
+                        <div class="d-flex flex-column html-small-box">
+                            <img alt="" src="assets/icon/teaching.png">
+                            <h5>เข้าถึงได้ง่าย</h5>
+                        </div>
+                        <div class="d-flex flex-column html-small-box">
+                            <img alt="" src="assets/icon/microsoft-edge.webp">
+                            <h5>ทำงานได้บนทุกเบราว์เซอร์</h5>
+                        </div>
+                    </div>
                 </div>
                 <div class="object-contain flex flex-column items-center" style="width: 90%;">
                     <img alt="" src="https://www.it.kmitl.ac.th/~it65070089/assets/images/tae_prepro.webp" width="">
@@ -81,10 +99,10 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
 
 </body>
 
-<?php include("./asset/script/tw_element.php") ?>
+<?php include("./assets/script/tw_element.php") ?>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/asset/script/sweetalert.js"></script>
+<script src="/assets/script/sweetalert.js"></script>
 <?php if (isset($_SESSION['result'])) { ?>
     <script>
         <?php $fire = false; ?>

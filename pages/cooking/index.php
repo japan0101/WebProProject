@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
 
 </head>
 
@@ -100,7 +100,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
 
     ?>
     <?php } ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 
 </body>
 

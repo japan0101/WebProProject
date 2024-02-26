@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/asset/css/navbar.css">
-<link rel="stylesheet" href="/asset/css/global.css">
+<link rel="stylesheet" href="/assets/css/navbar.css">
+<link rel="stylesheet" href="/assets/css/global.css">
 <header>
     <nav id="navbar" style="position: fixed !important"
          class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-lg">
@@ -95,5 +95,5 @@
     </nav>
 </header>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/loginModal.php") ?>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/component/regisModal.php") ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>

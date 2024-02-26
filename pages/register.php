@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaewTaeApp</title>
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tailwind.php") ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
 </head>
 
 <body class="m-auto lg:w-3/4 md:3/4 sm:h-4/5">
@@ -94,7 +94,7 @@
     </div>
 </section>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/asset/script/tw_element.php") ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 
 </body>
 
