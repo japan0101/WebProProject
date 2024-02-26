@@ -1,0 +1,28 @@
+#developers img {
+    border-radius: 12px;
+}
+
+.dev-box {
+    column-gap: 52px;
+}
+
+.dev-box img {
+    border-radius: 6px;
+}
+
+.dev-box h1 {
+    font-size: 52px;
+    font-weight: 500;
+}
+
+.dev-box p {
+    font-weight: 300;
+    font-size: 15px;
+    text-align: justify;
+}
+
+@media screen and (max-width: 768px) {
+    .dev-box {
+        flex-wrap: wrap;
+    }
+}
