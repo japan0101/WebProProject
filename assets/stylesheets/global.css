@@ -78,7 +78,8 @@ h2 {
 
 main {
     /*margin-top: 52px !important;*/
-    background-color: rgb(245, 245, 247) !important;
+    background-color: #f0f3f8;
+    /*background-color: rgb(245, 245, 247) !important;*/
     /*min-height: 100vh;*/
 }
 

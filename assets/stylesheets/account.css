@@ -1,0 +1,16 @@
+.grey-background {
+    background-color: #f0f3f8;
+}
+
+.account-container {
+    background-color: white;
+    margin: auto 0;
+    padding: 36px;
+    border-radius: 22px;
+}
+
+button {
+    background-color: #0e55d3 !important;
+    color: #f5fdff !important;
+    border-radius: 20px !important;
+}
