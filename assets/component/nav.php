@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/assets/stylesheets/global.css">
 <header>
     <nav id="navbar" style=""
-         class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-lg">
+         class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
         <div id="navbar-body" class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
             <!-- Hamburger button for mobile view -->
             <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
