@@ -31,7 +31,7 @@
                                 aria-selected="true">All</a>
                             </li>
                         </ul>
-                        <!-- Banner Showcase -->
+                        <!-- Coupon Container -->
                         <div class="my-2 grow" id="contentHolder">
                             <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="allMenu" role="tab" aria-labelledby="allMenu" data-te-tab-active="">
                                 <div class="flex flex-wrap justify-center items-center max-w-[110rem]" id="allMenuContainer">
