@@ -1,14 +1,15 @@
 <?php
+
 class Database
 {
+    public $res;
     private $hostname;
     private $username;
     private $password;
     private $database;
-    public $res;
     private $conn;
-    public function __construct()
-    {
+
+    public function __construct() {
         $this->hostname = "localhost";
         $this->username = "bess1123";
         $this->password = "123456789";
@@ -16,46 +17,11 @@ class Database
         $this->conn = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
     }
 
-    public function custom(string $sql)
-    {
+    public function custom(string $sql) {
         $this->query($sql);
     }
 
-    public function insert(string $tablename, array $keyvalue)
-    {
-        $column = implode(", ", array_keys($keyvalue));
-        $value = implode("', '", array_values($keyvalue));
-
-        $sql = "INSERT INTO $tablename ($column) VALUE ('$value')";
-        $this->query($sql);
-    }
-
-    public function update(string $tablename, array $keyvalue, string $where = null)
-    {
-        $data = "";
-        $sql = "UPDATE $tablename SET ";
-        foreach ($keyvalue as $key => $value) {
-            $data .= ", $key = '{$value}'";
-        }
-        $data = substr($data, 2, strlen($data));
-        $sql .= $data;
-
-        if (!is_null($where)) {
-            $sql .= " WHERE ".$where;
-        }
-        $this->query($sql);
-    }
-
-    public function delete(string $tablename, $col = null, $where = null)
-    {
-        if (!is_null($col))$sql = "DELETE $col FROM $tablename";
-        else $sql = "DELETE FROM $tablename";
-        if (!is_null($where))$sql .= " WHERE $where";
-        $this->query($sql);
-    }
-
-    private function query(string $sql)
-    {
+    private function query(string $sql) {
         try {
             $result = $this->conn->query($sql);
             $this->res = array("payload" => array(), "result" => 0, "message" => 'Default', "type" => "");
@@ -91,16 +57,46 @@ class Database
         }
     }
 
-    public function customResult(int $result=null, string $message=null, string $type=null){
-        if(!is_null($result) || !isset($this->res['result']))$this->res['result'] = is_null($result) ? 0 : $result;
-        if(!is_null($message) || !isset($this->res['message']))$this->res['message'] = is_null($message) ? "Default" : $message;
-        if(!is_null($type) || !isset($this->res['type']))$this->res['type'] = is_null($type) ? "" : $type;
+    public function insert(string $tablename, array $keyvalue) {
+        $column = implode(", ", array_keys($keyvalue));
+        $value = implode("', '", array_values($keyvalue));
+
+        $sql = "INSERT INTO $tablename ($column) VALUE ('$value')";
+        $this->query($sql);
     }
 
-    public function getResult()
-    {
+    public function update(string $tablename, array $keyvalue, string $where = null) {
+        $data = "";
+        $sql = "UPDATE $tablename SET ";
+        foreach ($keyvalue as $key => $value) {
+            $data .= ", $key = '{$value}'";
+        }
+        $data = substr($data, 2, strlen($data));
+        $sql .= $data;
+
+        if (!is_null($where)) {
+            $sql .= " WHERE " . $where;
+        }
+        $this->query($sql);
+    }
+
+    public function delete(string $tablename, $col = null, $where = null) {
+        if (!is_null($col)) $sql = "DELETE $col FROM $tablename";
+        else $sql = "DELETE FROM $tablename";
+        if (!is_null($where)) $sql .= " WHERE $where";
+        $this->query($sql);
+    }
+
+    public function customResult(int $result = null, string $message = null, string $type = null) {
+        if (!is_null($result) || !isset($this->res['result'])) $this->res['result'] = is_null($result) ? 0 : $result;
+        if (!is_null($message) || !isset($this->res['message'])) $this->res['message'] = is_null($message) ? "Default" : $message;
+        if (!is_null($type) || !isset($this->res['type'])) $this->res['type'] = is_null($type) ? "" : $type;
+    }
+
+    public function getResult() {
         return $this->res;
     }
 }
+
 header('Content-Type: text/html; charset=utf-8');
 $database = new Database();

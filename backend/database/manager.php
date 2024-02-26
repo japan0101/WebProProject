@@ -9,8 +9,9 @@ $redirect = "Location: ";
 
 if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
     switch ($_POST["case"]) {
-        case 'insertTable': {
-                // ต้องการ capacity
+        case 'insertTable':
+        {
+            // ต้องการ capacity
 
                 $database->insert("tables", array("capacity" => $_POST['capacity']));
                 if ($database->getResult()['result']) $database->customResult(message: "ทำการสร้าง โต๊ะ เสร็จสิ้น");
