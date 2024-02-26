@@ -1,17 +1,19 @@
-#developers img {
-    border-radius: 12px;
-}
-
 .dev-box {
     column-gap: 52px;
+    /*padding: 22px 12px;*/
 }
 
 .dev-box img {
-    border-radius: 6px;
+    border-radius: 18px;
 }
 
 .dev-box h1 {
     font-size: 52px;
+    font-weight: 500;
+}
+
+.dev-box h3 {
+    font-size: 24px;
     font-weight: 500;
 }
 
@@ -25,4 +27,8 @@
     .dev-box {
         flex-wrap: wrap;
     }
+}
+
+.object-contain {
+    object-fit: contain;
 }

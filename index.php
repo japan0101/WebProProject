@@ -70,7 +70,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
                         perferendis quasi repellat!
                     </p>
                 </div>
-                <div class="object-contain" style="width: 90%;">
+                <div class="object-contain flex flex-column items-center" style="width: 90%;">
                     <img alt="" src="https://www.it.kmitl.ac.th/~it65070089/assets/images/tae_prepro.webp" width="">
                 </div>
             </div>
