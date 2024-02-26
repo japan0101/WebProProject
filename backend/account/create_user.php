@@ -23,24 +23,25 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                     $database->insert("users", array("phoneNumber" => $_POST['phone'], "memberName" => $_POST['name'], "email" => $_POST['email'], "passwd" => $hashedPassword));
 
-                    $database->customResult(type: "register");
+                    $database->customResult(message: "สมัครสมาชิกเสร็จสิ้น");
                 } else {
 
-                    $database->customResult(0, "มีคนใช้หมายเลขโทรศัพท์นี้แล้ว", "register");
+                    $database->customResult(0, "มีคนใช้หมายเลขโทรศัพท์นี้แล้ว");
                 }
             } else {
 
-                $database->customResult(0, "มีคนใช้อีเมลนี้แล้ว", "register");
+                $database->customResult(0, "มีคนใช้อีเมลนี้แล้ว");
             }
         } else {
 
-            $database->customResult(0, "รหัสผ่านไม่ตรงกัน", "register");
+            $database->customResult(0, "รหัสผ่านไม่ตรงกัน");
         }
     } else {
 
         // ไม่ได้ใส่ password
         // $database->customResult(0, "รหัสผ่านไม่ตรงกัน", "register");
     }
+    $database->customResult(type: "register");
     $redirect .= $_SERVER['HTTP_REFERER'];
 } else {
 

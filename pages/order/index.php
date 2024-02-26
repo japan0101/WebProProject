@@ -74,7 +74,8 @@ session_start();
 
           <!-- end of cart button -->
           <div class="relative inline-flex w-fit">
-            <div class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-1/4 rotate-0 skew-x-0 skew-y-0 scale-x-100 rounded-full bg-pink-700 text-white px-1 py-0.5 text-xs">1</div>
+            
+            <div class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/4 translate-x-1/4 rotate-0 skew-x-0 skew-y-0 scale-x-100 rounded-full bg-pink-700 text-white px-1 py-0.5 text-xs">1</div>
             <div class="flex items-center justify-center rounded-lg text-center dark:text-white shadow-lg dark:text-gray-200">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
                 <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />

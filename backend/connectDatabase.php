@@ -85,7 +85,7 @@ class Database
             }
         } catch (Exception $e) {
             $this->res = array(
-                'result' => -1,
+                'result' => 0,
                 'message' => 'Connection failed: ' . $e->getMessage()
             );
         }
