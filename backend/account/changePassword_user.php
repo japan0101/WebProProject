@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $hashedPassword = password_hash($_POST['newpasswd'], PASSWORD_BCRYPT);
 
             $_SESSION['passwd'] = $hashedPassword;
-            if ($isCookie)setcookie("token", $hashedPassword, time() + (24 * 60 * 60), '/');
+            if ($isCookie) setcookie("token", $hashedPassword, time() + (24 * 60 * 60), '/');
 
             $database->update("users", array("passwd" => $hashedPassword), "userID={$_SESSION['userID']}");
             $database->customResult(message: "เปลี่ยนรหัสผ่านเสร็จสิ้น");
@@ -37,4 +37,4 @@ $_SESSION['result']['message'] = $database->getResult()['message'];
 $_SESSION['result']['type'] = $database->getResult()['type'];
 
 unset($database);
-header("Location: ".$_SERVER['HTTP_REFERER']);
+header("Location: " . $_SERVER['HTTP_REFERER']);
