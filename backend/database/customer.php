@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 break;
             }
         case 'category': {
-                $database->custom("SELECT * FROM menu_category");
+                $database->custom("SELECT menu_category.categoryID, menus.menuID, menu_category.name as `category`, menus.menuName, coupon.discount, coupon.cost FROM menu_category INNER JOIN menus ON menu_category.categoryID = menus.categoryID INNER JOIN coupon ON menus.menuID = coupon.menuID");
                 echo json_encode($database->getResult()['payload']);
                 break;
             }
