@@ -69,26 +69,26 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
                         nemo nobis, nulla qui ratione sint tempore voluptatem? Aspernatur consectetur laborum magni
                         perferendis quasi repellat!
                     </p>
-                    <div class="d-flex flex-row gap-3 justify-content-between">
-                        <div class="d-flex flex-column html-small-box">
-                            <img alt="" src="assets/icon/learning.png">
-                            <h5>เรียนรู้ได้ง่าย</h5>
+                    <div class="flex flex-row gap-3 justify-between mt-5">
+                        <div class="flex flex-col social-media-small-box">
+                            <img alt="" src="/assets/icon/learning.png">
+                            <h5>Facebook</h5>
                         </div>
-                        <div class="d-flex flex-column html-small-box">
-                            <img alt="" src="assets/icon/tips-and-tricks.png">
-                            <h5>มีประสิทธิภาพ</h5>
+                        <div class="flex flex-col social-media-small-box">
+                            <img alt="" src="/assets/icon/tips-and-tricks.png">
+                            <h5>GitHub</h5>
                         </div>
-                        <div class="d-flex flex-column html-small-box">
-                            <img alt="" src="assets/icon/teaching.png">
-                            <h5>เข้าถึงได้ง่าย</h5>
+                        <div class="flex flex-col social-media-small-box">
+                            <img alt="" src="/assets/icon/teaching.png">
+                            <h5>Discord</h5>
                         </div>
-                        <div class="d-flex flex-column html-small-box">
-                            <img alt="" src="assets/icon/microsoft-edge.webp">
-                            <h5>ทำงานได้บนทุกเบราว์เซอร์</h5>
+                        <div class="flex flex-col social-media-small-box">
+                            <img alt="" src="/assets/icon/microsoft-edge.webp">
+                            <h5>Something else...</h5>
                         </div>
                     </div>
                 </div>
-                <div class="object-contain flex flex-column items-center" style="width: 90%;">
+                <div class="object-contain flex flex-col self-center" style="width: 90%;">
                     <img alt="" src="https://www.it.kmitl.ac.th/~it65070089/assets/images/tae_prepro.webp" width="">
                 </div>
             </div>
