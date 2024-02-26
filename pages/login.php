@@ -7,7 +7,7 @@ if (isset($_SESSION['userID'])) header("Location: ./../");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaewTaeApp</title>
+    <title>Laew Tae App</title>
 
     <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
 </head>

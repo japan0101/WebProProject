@@ -8,7 +8,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>LaewTaeApp</title>
+    <title>Laew Tae App</title>
     <link rel="stylesheet" href="/assets/stylesheets/global.css">
     <link rel="stylesheet" href="/assets/stylesheets/developers.css">
     <?php include("./assets/script/tailwind.php") ?>
@@ -70,19 +70,19 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
                         perferendis quasi repellat!
                     </p>
                     <div class="flex flex-row gap-3 justify-between mt-5">
-                        <div class="flex flex-col social-media-small-box">
-                            <img alt="" src="/assets/icon/learning.png">
-                            <h5>Facebook</h5>
+                        <div id="tae-facebook" class="flex flex-col social-media-small-box facebook text-white">
+                            <img src="/assets/icon/facebook.svg" alt="Facebook">
+                            <h5 class="text-white">Facebook</h5>
                         </div>
-                        <div class="flex flex-col social-media-small-box">
-                            <img alt="" src="/assets/icon/tips-and-tricks.png">
-                            <h5>GitHub</h5>
+                        <div id="tae-dis" class="flex flex-col social-media-small-box discord">
+                            <img src="/assets/icon/discord.svg" alt="Discord">
+                            <h5 class="text-white">Discord</h5>
                         </div>
-                        <div class="flex flex-col social-media-small-box">
-                            <img alt="" src="/assets/icon/teaching.png">
-                            <h5>Discord</h5>
+                        <div id="tae-git" class="flex flex-col social-media-small-box github">
+                            <img src="/assets/icon/github.svg" alt="Github">
+                            <h5 class="">GitHub</h5>
                         </div>
-                        <div class="flex flex-col social-media-small-box">
+                        <div id="tae-none" class="flex flex-col social-media-small-box">
                             <img alt="" src="/assets/icon/microsoft-edge.webp">
                             <h5>Something else...</h5>
                         </div>
@@ -92,6 +92,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
                     <img alt="" src="https://www.it.kmitl.ac.th/~it65070089/assets/images/tae_prepro.webp" width="">
                 </div>
             </div>
+            <script src="/assets/script/developer.js"></script>
         </section>
     </section>
 

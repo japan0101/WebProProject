@@ -44,14 +44,20 @@
 
 
 .social-media-small-box {
-    /*border: 1px solid black;*/
     border-radius: 12px;
     padding: 12px;
-    /*box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0, rgba(60, 64, 67, 0.15) 0 1px 3px 1px;*/
-    border: 1px solid rgba(0, 0, 0, 0.6);
     width: 24%;
-    min-height: 192px;
+    min-height: 142px;
     justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px, rgba(0, 0, 0, 0.24) 0 1px 2px;
+
+    /* Enable smooth transition on hover */
+    transition: transform 0.15s ease-in-out;
+    cursor: pointer; /* Change the cursor to "pointer" on hover */
+}
+
+.social-media-small-box:hover {
+    transform: scale(1.05); /* Increase size by 20% */
 }
 
 .social-media-small-box img {
@@ -62,4 +68,19 @@
 
 .social-media-small-box h5 {
     text-align: center;
+}
+
+.facebook {
+    background: rgb(24, 54, 242);
+    background: linear-gradient(32deg, rgba(24, 54, 242, 1) 0%, rgba(24, 119, 242, 1) 0%, rgb(60, 176, 255) 100%);
+}
+
+.github {
+    background: rgb(255, 255, 255);
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 50%, rgb(247, 247, 249) 100%);
+}
+
+.discord {
+    background: rgb(120, 128, 249);
+    background: linear-gradient(90deg, rgba(120, 128, 249, 1) 0%, rgba(104, 114, 248, 1) 50%, rgba(87, 99, 246, 1) 100%);
 }
