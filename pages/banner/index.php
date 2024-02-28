@@ -16,7 +16,7 @@
 <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/nav.php") ?>
 <?php if (isset($_SESSION['userID'])) { ?>
     <span class="my-5">
-      <div class="rounded-lg border dark:border-neutral-600">
+      <div class="rounded-lg border dark:border-neutral-600 mt-7">
         <div class="p-4">
           <div class="sm:flex sm:items-start">
             <ul class="mr-4 flex list-none sm:flex-col overflow-x-auto pl-0 sm:overflow-y-suto max-h-64" id="bannerSel"

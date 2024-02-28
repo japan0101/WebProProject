@@ -15,7 +15,7 @@
 
 <?php if (isset($_SESSION['userID'])) { ?>
 <span class="my-5">
-            <div class="border dark:border-neutral-600 shadow">
+            <div class="border dark:border-neutral-600 shadow mt-7">
                 <div class="m-4">
                     <div class="sm:flex sm:items-start ">
                         <ul class="pr-2 flex list-none flex-col flex-wrap pl-0" role="tablist" data-te-nav-ref>

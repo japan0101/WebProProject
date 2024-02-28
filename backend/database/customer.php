@@ -70,10 +70,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             // ดึงข้อมูลเมนู
             $database->custom("SELECT categoryID, mc.name AS `categoryName`, menuID, menuName, price, description FROM menus LEFT JOIN menu_category AS `mc` USING (categoryID)");
             echo json_encode($database->getResult()['payload']);
+            break;
         }
         case 'banner':
         {
-            $database->custom("SELECT * FROM gacha_banner;");
+            $database->custom("SELECT * FROM gacha_banner");
             echo json_encode($database->getResult()['payload']);
             break;
         }
