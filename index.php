@@ -60,7 +60,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
     <section class="body_container">
         <section id="developers">
             <h1 class="headline text-center">Developers</h1>
-            <div id="japan" class="dev-box mt-6 flex flex-row container_rounded justify-center">
+            <div id="mark" class="dev-box mt-6 flex flex-row-re container_rounded justify-center">
                 <div class="flex flex-col" style="width: 100%">
                     <h3 class="blue-text">65070005 - Mr.Kanokpol Poykham</h3>
                     <h1 class="mt-3">Mark</h1>
@@ -92,7 +92,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
                     <img alt="" src="/assets/images/developers/Japan.webp" width="">
                 </div>
             </div>
-            <div id="tae" class="dev-box mt-6 flex flex-row container_rounded justify-center">
+            <div id="best" class="dev-box mt-6 flex flex-row container_rounded justify-center">
                 <div class="flex flex-col" style="width: 100%">
                     <h3 class="blue-text">65070028 - Mr.Kanisorn Somsriagsornsang</h3>
                     <h1 class="mt-3">Best</h1>
