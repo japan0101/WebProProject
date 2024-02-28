@@ -60,7 +60,103 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
     <section class="body_container">
         <section id="developers">
             <h1 class="headline text-center">Developers</h1>
-            <div class="dev-box mt-6 flex flex-row container_rounded justify-center" id="prepro">
+            <div id="japan" class="dev-box mt-6 flex flex-row container_rounded justify-center">
+                <div class="flex flex-col" style="width: 100%">
+                    <h3 class="blue-text">65070005 - Mr.Kanokpol Poykham</h3>
+                    <h1 class="mt-3">Mark</h1>
+                    <p class="">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut, ea illo laboriosam nam natus
+                        nemo nobis, nulla qui ratione sint tempore voluptatem? Aspernatur consectetur laborum magni
+                        perferendis quasi repellat!
+                    </p>
+                    <div class="flex flex-row gap-3 justify-between mt-5">
+                        <div id="tae-facebook" class="flex flex-col social-media-small-box facebook text-white">
+                            <img src="/assets/icon/facebook.svg" alt="Facebook">
+                            <h5 class="text-white">Facebook</h5>
+                        </div>
+                        <div id="tae-dis" class="flex flex-col social-media-small-box discord">
+                            <img src="/assets/icon/discord.svg" alt="Discord">
+                            <h5 class="text-white">Discord</h5>
+                        </div>
+                        <div id="tae-git" class="flex flex-col social-media-small-box github">
+                            <img src="/assets/icon/github.svg" alt="Github">
+                            <h5 class="">GitHub</h5>
+                        </div>
+                        <div id="tae-none" class="flex flex-col social-media-small-box">
+                            <img alt="" src="/assets/icon/microsoft-edge.webp">
+                            <h5>Something else...</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="object-contain flex flex-col self-center" style="width: 90%;">
+                    <img alt="" src="/assets/images/developers/Japan.webp" width="">
+                </div>
+            </div>
+            <div id="tae" class="dev-box mt-6 flex flex-row container_rounded justify-center">
+                <div class="flex flex-col" style="width: 100%">
+                    <h3 class="blue-text">65070028 - Mr.Kanisorn Somsriagsornsang</h3>
+                    <h1 class="mt-3">Best</h1>
+                    <p class="">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut, ea illo laboriosam nam natus
+                        nemo nobis, nulla qui ratione sint tempore voluptatem? Aspernatur consectetur laborum magni
+                        perferendis quasi repellat!
+                    </p>
+                    <div class="flex flex-row gap-3 justify-between mt-5">
+                        <div id="tae-facebook" class="flex flex-col social-media-small-box facebook text-white">
+                            <img src="/assets/icon/facebook.svg" alt="Facebook">
+                            <h5 class="text-white">Facebook</h5>
+                        </div>
+                        <div id="tae-dis" class="flex flex-col social-media-small-box discord">
+                            <img src="/assets/icon/discord.svg" alt="Discord">
+                            <h5 class="text-white">Discord</h5>
+                        </div>
+                        <div id="tae-git" class="flex flex-col social-media-small-box github">
+                            <img src="/assets/icon/github.svg" alt="Github">
+                            <h5 class="">GitHub</h5>
+                        </div>
+                        <div id="tae-none" class="flex flex-col social-media-small-box">
+                            <img alt="" src="/assets/icon/microsoft-edge.webp">
+                            <h5>Something else...</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="object-contain flex flex-col self-center" style="width: 90%;">
+                    <img alt="" src="/assets/images/developers/tae_prepro.webp" width="">
+                </div>
+            </div>
+            <div id="japan" class="dev-box mt-6 flex flex-row container_rounded justify-center">
+                <div class="flex flex-col" style="width: 100%">
+                    <h3 class="blue-text">65070064 - Mr.Napat Wetchapun</h3>
+                    <h1 class="mt-3">Japan</h1>
+                    <p class="">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut, ea illo laboriosam nam natus
+                        nemo nobis, nulla qui ratione sint tempore voluptatem? Aspernatur consectetur laborum magni
+                        perferendis quasi repellat!
+                    </p>
+                    <div class="flex flex-row gap-3 justify-between mt-5">
+                        <div id="tae-facebook" class="flex flex-col social-media-small-box facebook text-white">
+                            <img src="/assets/icon/facebook.svg" alt="Facebook">
+                            <h5 class="text-white">Facebook</h5>
+                        </div>
+                        <div id="tae-dis" class="flex flex-col social-media-small-box discord">
+                            <img src="/assets/icon/discord.svg" alt="Discord">
+                            <h5 class="text-white">Discord</h5>
+                        </div>
+                        <div id="tae-git" class="flex flex-col social-media-small-box github">
+                            <img src="/assets/icon/github.svg" alt="Github">
+                            <h5 class="">GitHub</h5>
+                        </div>
+                        <div id="tae-none" class="flex flex-col social-media-small-box">
+                            <img alt="" src="/assets/icon/microsoft-edge.webp">
+                            <h5>Something else...</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="object-contain flex flex-col self-center" style="width: 90%;">
+                    <img alt="" src="/assets/images/developers/Japan.webp" width="">
+                </div>
+            </div>
+            <div id="tae" class="dev-box mt-6 flex flex-row container_rounded justify-center">
                 <div class="flex flex-col" style="width: 100%">
                     <h3 class="blue-text">65070089 - Mr.Tanakrit Supprasit</h3>
                     <h1 class="mt-3">Tae</h1>
@@ -89,7 +185,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
                     </div>
                 </div>
                 <div class="object-contain flex flex-col self-center" style="width: 90%;">
-                    <img alt="" src="https://www.it.kmitl.ac.th/~it65070089/assets/images/tae_prepro.webp" width="">
+                    <img alt="" src="/assets/images/developers/tae_prepro.webp" width="">
                 </div>
             </div>
             <script src="/assets/script/developer.js"></script>
