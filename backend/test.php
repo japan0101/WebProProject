@@ -16,7 +16,7 @@
     <!-- เพิ่มโต๊ะ Manager -->
     <h1 class="text-3xl">Manager</h1>
     <form class="m-3" action="/backend/database/manager.php" method="post">
-        <h1 class="">Create Table</h1>
+        <h2 class="">Create Table</h2>
         <label for="">Capacity: </label>
         <input class="bg-slate-300 p-2" type="number" name="capacity" id="" min="1" value="1" required>
         <button class="bg-black text-white rounded p-2" type="button" onclick="insertTable(this)">กดสร้าง</button>
@@ -24,7 +24,7 @@
 
     <!--  -->
     <form class="m-3" action="/backend/database/manager.php" method="post">
-        <h1 class="text-2xl">List Users</h1>
+        <h2 class="text-2xl">List Users</h2>
         <!-- data-te-datatable-init -->
         <!-- ตาราง Users -->
         <div id="divdp3"></div>
@@ -37,7 +37,7 @@
 <div class="m-5">
     <h1 class="text-3xl">Staff</h1>
     <form class="m-3" action='/backend/database/staff.php' method='post'>
-        <h1 class="text-2xl">List Tables</h1>
+        <h2 class="text-2xl">List Tables</h2>
         <table class="min-w-full text-left text-sm font-light" id="display1">
             <tr class="border-b font-medium dark:border-neutral-500">
                 <th scope="col" class="px-6 py-4">เลขโต๊ะ</th>
@@ -55,7 +55,7 @@
 <div class="m-5">
     <h1 class="text-3xl">Customer</h1>
     <form class="m-3" action="/backend/database/customer.php" method="post">
-        <h1 class="text-2xl">Reservation Table</h1>
+        <h2 class="text-2xl">Reservation Table</h2>
         <label for="">Table Code: </label>
         <input type="text" class="bg-slate-300 p-2 rounded" name="code">
         <input type="hidden" name="case" value="tableCheck">
@@ -63,7 +63,7 @@
     </form>
 
     <div class="m-3">
-        <h1 class="text-2xl">Menu</h1>
+        <h2 class="text-2xl">Menu</h2>
         <table class="min-w-full text-left text-sm font-light" id="display2">
             <tr class="border-b font-medium dark:border-neutral-500">
                 <th scope="col" class="px-6 py-4">เลขประเภทเมนู</th>
