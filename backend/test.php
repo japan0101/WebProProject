@@ -16,7 +16,7 @@
     <!-- เพิ่มโต๊ะ Manager -->
     <h1 class="text-3xl">Manager</h1>
     <form class="m-3" action="/backend/database/manager.php" method="post">
-        <h1 class="text-2xl">Create Table</h1>
+        <h1 class="">Create Table</h1>
         <label for="">Capacity: </label>
         <input class="bg-slate-300 p-2" type="number" name="capacity" id="" min="1" value="1" required>
         <button class="bg-black text-white rounded p-2" type="button" onclick="insertTable(this)">กดสร้าง</button>
@@ -87,7 +87,6 @@
     const TBDisplay = document.getElementById("display1")
     // ดึงข้อมูลจาก Database ผ่าน GET
     fetch("/backend/database/staff.php?case=table").then(e => e.json()).then(payload => {
-        console.log(payload)
         payload.forEach(item => {
             let isAvaliable = true
             let row = TBDisplay.insertRow(-1)
