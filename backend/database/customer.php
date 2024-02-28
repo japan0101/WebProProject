@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
         case 'banner':
         {
-            $database->custom("SELECT * FROM gacha_banner;");
+            $database->custom("SELECT * FROM gacha_banner");
             echo json_encode($database->getResult()['payload']);
             break;
         }
