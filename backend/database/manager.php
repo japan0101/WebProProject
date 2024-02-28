@@ -44,6 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
 
                 break;
             }
+        case 'create_category': {
+                // name
+
+                $database->insert("menu_category", array('name'=> $_POST['name']));
+                if ($database->getResult()['result'])$database->customResult(message:"เพิ่มประเภทเมนูเสร็จสิ้น");
+                break;
+            }
         default: {
                 $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
             }
@@ -81,4 +88,4 @@ $_SESSION['result']['message'] = $database->getResult()['message'];
 $_SESSION['result']['type'] = $database->getResult()['type'];
 
 unset($database);
-// header($redirect);
+header($redirect);
