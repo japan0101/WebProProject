@@ -47,8 +47,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
         case 'create_category': {
                 // name
 
-                $database->insert("menu_category", array('name'=> $_POST['name']));
-                if ($database->getResult()['result'])$database->customResult(message:"เพิ่มประเภทเมนูเสร็จสิ้น");
+                $database->insert("menu_category", array('name' => $_POST['name']));
+                if ($database->getResult()['result']) $database->customResult(message: "เพิ่มประเภทเมนูเสร็จสิ้น");
+                break;
+            }
+        case 'create_menu': {
+                // name, category, price, description(Optional), image(Optional)
+
+                $insert = array('menuName'=>$_POST['name'], 'price' => $_POST['price'], 'categoryID' => $_POST['category']);
+                if (isset($_POST['description']))$insert['description'] = $_POST['description'];
+                if (isset($_POST['image']))$insert['image'] = $_POST['image'];
+
+                $database->insert("menus", $insert);
+                if ($database->getResult()['result']) $database->customResult(message: "เพิ่มเมนูเสร็จสิ้น");
                 break;
             }
         default: {
@@ -67,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
             }
 
         case 'menu_category': {
-                $database->custom("SELECT name FROM menu_category");
+                $database->custom("SELECT categoryID, name FROM menu_category");
                 echo json_encode($database->getResult()['payload']);
                 break;
             }
