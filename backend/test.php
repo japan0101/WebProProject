@@ -22,17 +22,9 @@
             <button class="bg-black text-white rounded p-2" type="button" onclick="insertTable(this)">กดสร้าง</button>
         </form>
 
-        <!-- ตาราง Users -->
-        <form class="m-3" action="/backend/database/manager.php" method="post">
-            <h2 class="text-2xl">List Users</h2>
-            <!-- data-te-datatable-init -->
-            <!-- ตาราง Users -->
-            <div id="divdp3"></div>
-        </form>
-
         <!-- ตาราง Create -->
         <div class="flex flex-row">
-            <!-- Menu -->
+            <!-- Create Menu -->
             <div class="flex-1">
                 <form class="" action="/backend/database/manager.php" method="post">
                     <h2 class="text-2xl">Create Menu</h2>
@@ -73,7 +65,7 @@
             </div>
 
 
-            <!-- Category Menu -->
+            <!-- Create Category Menu -->
             <div class="flex-1">
                 <form class="m-3" action="/backend/database/manager.php" method="post">
                     <h2 class="text-2xl">Create Category Menu</h2>
@@ -100,6 +92,22 @@
 
             </div>
 
+        </div>
+
+        <!-- Modify Menu -->
+        <div>
+            <form class="m-3" action='/backend/database/manager.php' method='post'>
+                <h2 class="text-2xl">Modify Menus</h2>
+                <table class="min-w-full text-left text-sm font-light" id="modify_menu">
+                    <tr class="border-b font-medium dark:border-neutral-500">
+                        <th scope="col" class="px-6 py-4">ชื่อเมนู</th>
+                        <th scope="col" class="px-6 py-4">ประเภทเมนู</th>
+                        <th scope="col" class="px-6 py-4">ราคา</th>
+                        <th scope="col" class="px-6 py-4">คำอธิบาย</th>
+                        <th scope="col" class="px-6 py-4">รูป (Url ไปก่อน)</th>
+                    </tr>
+                </table>
+            </form>
         </div>
 
     </div>
@@ -137,10 +145,8 @@
             <h2 class="text-2xl">Menu</h2>
             <table class="min-w-full text-left text-sm font-light" id="display2">
                 <tr class="border-b font-medium dark:border-neutral-500">
-                    <th scope="col" class="px-6 py-4">เลขประเภทเมนู</th>
-                    <th scope="col" class="px-6 py-4">ชื่อประเภท</th>
-                    <th scope="col" class="px-6 py-4">เลขเมนู</th>
                     <th scope="col" class="px-6 py-4">ชื่อเมนู</th>
+                    <th scope="col" class="px-6 py-4">ประเภทเมนู</th>
                     <th scope="col" class="px-6 py-4">ราคา</th>
                     <th scope="col" class="px-6 py-4">คำอธิบาย</th>
                 </tr>
@@ -185,21 +191,44 @@
 
     <!-- Fetch Menus -->
     <script>
+        // Manager
+        const TBModifymenu = document.getElementById("modify_menu")
+        // Customer
         const TBDisplay2 = document.getElementById("display2")
         fetch("/backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
             payload.forEach(item => {
                 let row = TBDisplay2.insertRow(-1)
+
+                let row2 = TBModifymenu.insertRow(-1)
                 Object.keys(item).forEach(item2 => {
-                    let col = row.insertCell(-1)
-                    col.className = "whitespace-nowrap px-6 py-4"
-                    col.innerHTML = item[item2]
+                    if (item2 != "categoryID" && item2 != "menuID") {
+                        let col = row.insertCell(-1)
+                        col.className = "whitespace-nowrap px-6 py-4"
+                        col.innerHTML = item[item2]
+
+                        let col2 = row2.insertCell(-1)
+                        col2.className = "whitespace-nowrap px-6 py-4"
+                        col2.innerHTML = item[item2]
+                    }
                 })
+
+                let col2 = row2.insertCell(-1)
+                col2.className = "whitespace-nowrap px-6 py-4"
+                col2.innerHTML = `<button type='button' data-te-ripple-init data-te-ripple-color="light" onclick="delete_menu(this, ${item['menuID']})" class="inline-block rounded bg-danger px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)]">ลบเมนู<button>`
             })
         })
     </script>
 
+    <!-- ตาราง Users -->
+    <form class="m-3" action="/backend/database/manager.php" method="post">
+        <h2 class="text-2xl">List Users</h2>
+        <!-- data-te-datatable-init -->
+        <!-- ตาราง Users -->
+        <div id="divdp3"></div>
+    </form>
+
     <!-- Fetch Users -->
-    <script>
+    <!-- <script>
         const Div3 = document.getElementById("divdp3")
         if (localStorage.getItem("content-users") == undefined) {
             fetch("/backend/database/manager.php?case=alluser").then(e => e.json()).then(payload => {
@@ -246,7 +275,7 @@
             Div3.innerHTML = localStorage.getItem("content-users")
             localStorage.removeItem("content-users")
         }
-    </script>
+    </script> -->
 
     <script>
         // Select Category
@@ -333,6 +362,18 @@
 
             element.form.submit()
         }
+
+        function delete_menu(element, id) {
+            let input = document.createElement("input")
+            inp_case(input, 'delete_menu', 'case')
+            element.form.appendChild(input)
+
+            input = document.createElement("input")
+            inp_case(input, id, "ID")
+            element.form.appendChild(input)
+
+            element.form.submit()
+        }
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -387,6 +428,7 @@
             <?php $fire = true;
             } ?>
 
+
             <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "change_passwd")) { ?>
                 Toast.fire({
                     icon: "success",
@@ -401,6 +443,23 @@
                 });
             <?php $fire = true;
             } ?>
+
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "create_category")) { ?>
+                Toast.fire({
+                    icon: "success",
+                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                });
+                <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "create_category")) { ?>
+                Toast.fire({
+                    icon: "error",
+                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                });
+            <?php $fire = true;
+            } ?>
+
 
             <?php if ($fire) unset($_SESSION['result']) ?>
         </script>

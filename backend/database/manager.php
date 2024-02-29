@@ -54,12 +54,29 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
         case 'create_menu': {
                 // name, category, price, description(Optional), image(Optional)
 
-                $insert = array('menuName'=>$_POST['name'], 'price' => $_POST['price'], 'categoryID' => $_POST['category']);
-                if (isset($_POST['description']))$insert['description'] = $_POST['description'];
-                if (isset($_POST['image']))$insert['image'] = $_POST['image'];
+                $insert = array('menuName' => $_POST['name'], 'price' => $_POST['price'], 'categoryID' => $_POST['category']);
+                if (isset($_POST['description'])) $insert['description'] = $_POST['description'];
+                if (isset($_POST['image'])) $insert['image'] = $_POST['image'];
 
                 $database->insert("menus", $insert);
                 if ($database->getResult()['result']) $database->customResult(message: "เพิ่มเมนูเสร็จสิ้น");
+                break;
+            }
+        case 'modify_menu': {
+                //ID, name, category, price, description(Optional), image(Optional)
+
+                $update = array('menuName' => $_POST['name'], 'price' => $_POST['price'], 'categoryID' => $_POST['category'], 'description' => $_POST['description'], 'image' => $_POST['image']);
+
+                $database->update("menus", $update, "menuID={$_POST['ID']}");
+                if ($database->getResult()['result']) $database->customResult(message: "แก้ไขเมนูเสร็จสิ้น");
+
+                break;
+            }
+        case 'delete_menu': {
+                // ID
+
+                $database->delete(tablename: "menus", where: "menuID={$_POST['ID']}");
+                if ($database->getResult()['result']) $database->customResult(message: "ลบเมนูเสร็จสิ้น");
                 break;
             }
         default: {
