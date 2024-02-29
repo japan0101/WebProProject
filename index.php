@@ -13,7 +13,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))
     <link rel="stylesheet" href="/assets/stylesheets/global.css">
     <link rel="stylesheet" href="/assets/stylesheets/developers.css">
     <?php
-    include("./assets/script/tailwind.php") ?>
+    include("./assets/scripts/tailwind.php") ?>
 </head>
 
 <body class="antialiased">
@@ -50,7 +50,7 @@ include("./assets/component/nav.php") ?>
                             data-te-ripple-init data-te-toggle="modal" data-te-target="#loginModal">
                         เข้าสู่ระบบ
                     </button>
-                <?php
+                    <?php
                 } else { ?>
                     <p class="mt-6 max-w-3xl text-xl text-teal-50">
                         <span class="block text-3xl"><?php
@@ -58,7 +58,7 @@ include("./assets/component/nav.php") ?>
                         <span class="block text-2xl"><?php
                             echo 'คุณมีแต้มอยู่: ' . $_SESSION['points'] . ' แต้ม' ?></span>
                     </p>
-                <?php
+                    <?php
                 } ?>
             </div>
         </div>
@@ -78,26 +78,26 @@ include("./assets/component/nav.php") ?>
                         perferendis quasi repellat!
                     </p>
                     <div class="flex flex-row gap-3 justify-between mt-5">
-                        <div id="tae-facebook" class="flex flex-col social-media-small-box facebook text-white">
+                        <div id="mark-facebook" class="flex flex-col social-media-small-box facebook text-white">
                             <img src="/assets/icon/facebook.svg" alt="Facebook">
                             <h5 class="text-white">Facebook</h5>
                         </div>
-                        <div id="tae-dis" class="flex flex-col social-media-small-box discord">
+                        <div id="mark-dis" class="flex flex-col social-media-small-box discord">
                             <img src="/assets/icon/discord.svg" alt="Discord">
                             <h5 class="text-white">Discord</h5>
                         </div>
-                        <div id="tae-git" class="flex flex-col social-media-small-box github">
+                        <div id="mark-git" class="flex flex-col social-media-small-box github">
                             <img src="/assets/icon/github.svg" alt="Github">
                             <h5 class="">GitHub</h5>
                         </div>
-                        <div id="tae-none" class="flex flex-col social-media-small-box">
+                        <div id="mark-none" class="flex flex-col social-media-small-box">
                             <img alt="" src="/assets/icon/microsoft-edge.webp">
                             <h5>Something else...</h5>
                         </div>
                     </div>
                 </div>
                 <div class="object-contain flex flex-col self-center" style="width: 90%;">
-                    <img alt="" src="/assets/images/developers/Japan.webp" width="">
+                    <img alt="" src="/assets/images/developers/mark.webp" width="">
                 </div>
             </div>
             <div id="best" class="dev-box mt-6 flex flex-row container_rounded justify-center">
@@ -110,26 +110,26 @@ include("./assets/component/nav.php") ?>
                         perferendis quasi repellat!
                     </p>
                     <div class="flex flex-row gap-3 justify-between mt-5">
-                        <div id="tae-facebook" class="flex flex-col social-media-small-box facebook text-white">
+                        <div id="best-facebook" class="flex flex-col social-media-small-box facebook text-white">
                             <img src="/assets/icon/facebook.svg" alt="Facebook">
                             <h5 class="text-white">Facebook</h5>
                         </div>
-                        <div id="tae-dis" class="flex flex-col social-media-small-box discord">
+                        <div id="best-dis" class="flex flex-col social-media-small-box discord">
                             <img src="/assets/icon/discord.svg" alt="Discord">
                             <h5 class="text-white">Discord</h5>
                         </div>
-                        <div id="tae-git" class="flex flex-col social-media-small-box github">
+                        <div id="best-git" class="flex flex-col social-media-small-box github">
                             <img src="/assets/icon/github.svg" alt="Github">
                             <h5 class="">GitHub</h5>
                         </div>
-                        <div id="tae-none" class="flex flex-col social-media-small-box">
+                        <div id="best-none" class="flex flex-col social-media-small-box">
                             <img alt="" src="/assets/icon/microsoft-edge.webp">
                             <h5>Something else...</h5>
                         </div>
                     </div>
                 </div>
                 <div class="object-contain flex flex-col self-center" style="width: 90%;">
-                    <img alt="" src="/assets/images/developers/tae_prepro.webp" width="">
+                    <img alt="" src="/assets/images/developers/best.webp" width="">
                 </div>
             </div>
             <div id="japan" class="dev-box mt-6 flex flex-row container_rounded justify-center">
@@ -142,19 +142,19 @@ include("./assets/component/nav.php") ?>
                         perferendis quasi repellat!
                     </p>
                     <div class="flex flex-row gap-3 justify-between mt-5">
-                        <div id="tae-facebook" class="flex flex-col social-media-small-box facebook text-white">
+                        <div id="japan-facebook" class="flex flex-col social-media-small-box facebook text-white">
                             <img src="/assets/icon/facebook.svg" alt="Facebook">
                             <h5 class="text-white">Facebook</h5>
                         </div>
-                        <div id="tae-dis" class="flex flex-col social-media-small-box discord">
+                        <div id="japan-dis" class="flex flex-col social-media-small-box discord">
                             <img src="/assets/icon/discord.svg" alt="Discord">
                             <h5 class="text-white">Discord</h5>
                         </div>
-                        <div id="tae-git" class="flex flex-col social-media-small-box github">
+                        <div id="japan-git" class="flex flex-col social-media-small-box github">
                             <img src="/assets/icon/github.svg" alt="Github">
                             <h5 class="">GitHub</h5>
                         </div>
-                        <div id="tae-none" class="flex flex-col social-media-small-box">
+                        <div id="japan-none" class="flex flex-col social-media-small-box">
                             <img alt="" src="/assets/icon/microsoft-edge.webp">
                             <h5>Something else...</h5>
                         </div>
@@ -196,7 +196,7 @@ include("./assets/component/nav.php") ?>
                     <img alt="" src="/assets/images/developers/tae_prepro.webp" width="">
                 </div>
             </div>
-            <script src="/assets/script/developer.js"></script>
+            <script src="/assets/scripts/developer.js"></script>
         </section>
     </section>
 
@@ -205,10 +205,10 @@ include("./assets/component/nav.php") ?>
 </body>
 
 <?php
-include("./assets/script/tw_element.php") ?>
+include("./assets/scripts/tw_element.php") ?>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/script/sweetalert.js"></script>
+<script src="/assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>
@@ -246,7 +246,7 @@ if (isset($_SESSION['result'])) { ?>
         <?php if ($fire)
             unset($_SESSION['result']) ?>
     </script>
-<?php
+    <?php
 } ?>
 
 </html>

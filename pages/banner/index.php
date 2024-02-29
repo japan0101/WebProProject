@@ -9,7 +9,7 @@ session_start() ?>
     <title>LeawTaeApp</title>
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 
 </head>
 
@@ -132,7 +132,7 @@ if (isset($_SESSION['userID'])) { ?>
 <?php
 } else { ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/assets/script/sweetalert.js"></script>
+    <script src="/assets/scripts/sweetalert.js"></script>
     <script>
         Warning.fire({
             icon: "warning",
@@ -140,11 +140,11 @@ if (isset($_SESSION['userID'])) { ?>
             text: "คุณยังไม่ได้เข้าสู่ระบบ"
         });
     </script>
-<?php
+    <?php
 } ?>
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 </body>
 

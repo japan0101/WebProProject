@@ -12,7 +12,7 @@ session_start();
     <title>Document</title>
     <link link="stylesheet" href="style.css">
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
     <?php
@@ -253,7 +253,7 @@ session_start();
     }
 </script>
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 </body>
 
 </html>

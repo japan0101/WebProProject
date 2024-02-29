@@ -9,7 +9,7 @@ session_start(); ?>
     <title>Document</title>
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 </head>
 
 <body>
@@ -358,7 +358,7 @@ session_start(); ?>
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/script/sweetalert.js"></script>
+<script src="/assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>
@@ -428,11 +428,11 @@ if (isset($_SESSION['result'])) { ?>
         <?php if ($fire)
             unset($_SESSION['result']) ?>
     </script>
-<?php
+    <?php
 } ?>
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 </body>
 

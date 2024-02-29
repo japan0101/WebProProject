@@ -67,7 +67,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/script/sweetalert.js"></script>
+<script src="/assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>
@@ -106,5 +106,5 @@ if (isset($_SESSION['result'])) { ?>
         <?php if ($fire)
             unset($_SESSION['result']) ?>
     </script>
-<?php
+    <?php
 } ?>

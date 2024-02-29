@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="/assets/stylesheets/account.css">
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 </head>
 
 <body class="m-auto lg:w-3/4 md:3/4 sm:h-4/5 grey-background">
@@ -97,7 +97,7 @@
 </section>
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 </body>
 

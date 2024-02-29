@@ -9,7 +9,7 @@
     <title>Document</title>
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 
 </head>
 
@@ -62,7 +62,7 @@ if (!$isAuth) { ?>
             จดจำบัญชีนี้ไว้
         </label>
     </div>';
-<?php
+    <?php
 }
 if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
 <div class="w-full bg-gray py-2 mx-1">
@@ -106,7 +106,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
     <?php
     } ?>
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 </body>
 
