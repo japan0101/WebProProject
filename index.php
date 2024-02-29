@@ -1,6 +1,7 @@
 <?php
 session_start();
-if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /backend/account/read_user.php");
+if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))
+    header("Location: /backend/account/read_user.php");
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,11 +12,13 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
     <title>Laew Tae App</title>
     <link rel="stylesheet" href="/assets/stylesheets/global.css">
     <link rel="stylesheet" href="/assets/stylesheets/developers.css">
-    <?php include("./assets/script/tailwind.php") ?>
+    <?php
+    include("./assets/script/tailwind.php") ?>
 </head>
 
 <body class="antialiased">
-<?php include("./assets/component/nav.php") ?>
+<?php
+include("./assets/component/nav.php") ?>
 
 
 <!-- Jumbotron -->
@@ -32,7 +35,8 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
                     <span class="block text-3xl">ยินดีต้อนรับ</span>
                 </h1>
 
-                <?php if (!isset($_SESSION['userID'])) { ?>
+                <?php
+                if (!isset($_SESSION['userID'])) { ?>
                     <p class="mb-6 mt-6 max-w-3xl text-xl text-teal-50">
                         สะสมแต้ม แลกส่วนลดด้วยแต้ม ลุ้นรับส่วนลดพิเศษ
                     </p>
@@ -46,12 +50,16 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
                             data-te-ripple-init data-te-toggle="modal" data-te-target="#loginModal">
                         เข้าสู่ระบบ
                     </button>
-                <?php } else { ?>
+                <?php
+                } else { ?>
                     <p class="mt-6 max-w-3xl text-xl text-teal-50">
-                        <span class="block text-3xl"><?php echo $_SESSION['memberName'] ?></span>
-                        <span class="block text-2xl"><?php echo 'คุณมีแต้มอยู่: ' . $_SESSION['points'] . ' แต้ม' ?></span>
+                        <span class="block text-3xl"><?php
+                            echo $_SESSION['memberName'] ?></span>
+                        <span class="block text-2xl"><?php
+                            echo 'คุณมีแต้มอยู่: ' . $_SESSION['points'] . ' แต้ม' ?></span>
                     </p>
-                <?php } ?>
+                <?php
+                } ?>
             </div>
         </div>
     </div>
@@ -196,11 +204,13 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
 
 </body>
 
-<?php include("./assets/script/tw_element.php") ?>
+<?php
+include("./assets/script/tw_element.php") ?>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/assets/script/sweetalert.js"></script>
-<?php if (isset($_SESSION['result'])) { ?>
+<?php
+if (isset($_SESSION['result'])) { ?>
     <script>
         <?php $fire = false; ?>
         <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
@@ -233,8 +243,10 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID'])) header("Location: /
         <?php $fire = true;
         } ?>
 
-        <?php if ($fire) unset($_SESSION['result']) ?>
+        <?php if ($fire)
+            unset($_SESSION['result']) ?>
     </script>
-<?php } ?>
+<?php
+} ?>
 
 </html>

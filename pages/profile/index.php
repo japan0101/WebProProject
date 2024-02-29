@@ -1,4 +1,5 @@
-<?php session_start() ?>
+<?php
+session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -7,13 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LeawTaeApp</title>
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
 </head>
 
 <body>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/nav.php") ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/nav.php") ?>
 
-<?php if (isset($_SESSION['userID'])) { ?>
+<?php
+if (isset($_SESSION['userID'])) { ?>
 <span class="my-5">
             <div class="border dark:border-neutral-600 shadow mt-7">
                 <div class="m-4">
@@ -56,7 +60,8 @@
                                     <div class="relative mb-6" data-te-input-wrapper-init>
                                         <input type="text"
                                                class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                               id="email" value="<?php echo $_SESSION['email'] ?>"
+                                               id="email" value="<?php
+                                        echo $_SESSION['email'] ?>"
                                                aria-label="readonly input example" readonly/>
                                         <label for="email"
                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">อีเมล
@@ -67,7 +72,8 @@
                                     <div class="relative mb-6" data-te-input-wrapper-init>
                                         <input type="text"
                                                class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                               id="phoneNumber" value="<?php echo $_SESSION['phoneNumber'] ?>"
+                                               id="phoneNumber" value="<?php
+                                        echo $_SESSION['phoneNumber'] ?>"
                                                aria-label="readonly input example" readonly/>
                                         <label for="phoneNumber"
                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์
@@ -79,7 +85,8 @@
                                 <div class="relative mb-6" data-te-input-wrapper-init>
                                     <input type="text"
                                            class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                           id="memberName" value="<?php echo $_SESSION['memberName'] ?>"
+                                           id="memberName" value="<?php
+                                    echo $_SESSION['memberName'] ?>"
                                            aria-label="readonly input example" readonly/>
                                     <label for="memberName"
                                            class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">ชื่อสมาชิก
@@ -90,7 +97,8 @@
                                 <div class="relative mb-6" data-te-input-wrapper-init>
                                     <input type="text"
                                            class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                           id="points" value="<?php echo $_SESSION['points'] ?>"
+                                           id="points" value="<?php
+                                    echo $_SESSION['points'] ?>"
                                            aria-label="readonly input example" readonly/>
                                     <label for="points"
                                            class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">แต้มสะสม
@@ -175,7 +183,8 @@
                                     <div class="relative mb-6" data-te-input-wrapper-init>
                                         <input type="text"
                                                class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                               id="email" value="<?php echo $_SESSION['email'] ?>"
+                                               id="email" value="<?php
+                                        echo $_SESSION['email'] ?>"
                                                aria-label="readonly input example" readonly/>
                                         <label for="email"
                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">อีเมล
@@ -186,7 +195,8 @@
                                     <div class="relative mb-6" data-te-input-wrapper-init>
                                         <input type="text"
                                                class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                                               id="phoneNumber" value="<?php echo $_SESSION['phoneNumber'] ?>"
+                                               id="phoneNumber" value="<?php
+                                        echo $_SESSION['phoneNumber'] ?>"
                                                aria-label="readonly input example" readonly/>
                                         <label for="phoneNumber"
                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์
@@ -200,7 +210,8 @@
                                         <input type="text"
                                                class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                id="name" name="name" aria-describedby="name" placeholder="ชื่อสมาชิก"
-                                               value="<?php echo $_SESSION['memberName'] ?>" pattern=".{4,}"
+                                               value="<?php
+                                               echo $_SESSION['memberName'] ?>" pattern=".{4,}"
                                                title='ต้องมีอักษร 4 ตัวขึ้นไป' required/>
                                         <label for="name"
                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">ชื่อสมาชิก
@@ -266,7 +277,8 @@
                     </div>
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <script src="/assets/script/sweetalert.js"></script>
-                <?php } else { ?>
+                <?php
+                } else { ?>
                     <script>
                         Warning.fire({
                             icon: "warning",
@@ -278,17 +290,20 @@
                             }
                         });
                     </script>
-                <?php } ?>
+                <?php
+                } ?>
                 </div>
             </div>
         </span>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/assets/script/sweetalert.js"></script>
 
-<?php if (isset($_SESSION['result'])) { ?>
+<?php
+if (isset($_SESSION['result'])) { ?>
     <script>
         <?php $fire = false; ?>
         <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "update_user")) { ?>
@@ -322,9 +337,11 @@
         <?php $fire = true;
         } ?>
 
-        <?php if ($fire) unset($_SESSION['result']) ?>
+        <?php if ($fire)
+            unset($_SESSION['result']) ?>
     </script>
-<?php } ?>
+<?php
+} ?>
 
 </body>
 

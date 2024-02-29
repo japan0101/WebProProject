@@ -1,4 +1,5 @@
-<?php session_start() ?>
+<?php
+session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -7,15 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LeawTaeApp</title>
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
 
 </head>
 
 <body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/assets/script/sweetalert.js"></script>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/nav.php") ?>
-<?php if (isset($_SESSION['userID'])) { ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/nav.php") ?>
+<?php
+if (isset($_SESSION['userID'])) { ?>
     <span class="my-5">
             <div class="rounded-lg border dark:border-neutral-600 mt-7">
                 <div class="p-4">
@@ -49,7 +53,8 @@
             </div>
         </span>
 
-<?php } else { ?>
+<?php
+} else { ?>
 
     <script>
         Warning.fire({
@@ -58,7 +63,8 @@
             text: "คุณยังไม่ได้เข้าสู่ระบบ"
         });
     </script>
-<?php } ?>
+<?php
+} ?>
 <script>
     fetch("/backend/database/customer.php?case=mycoupon").then(e => e.json()).then(payload => {
         selectorContainer = document.getElementById('bannerSel');
@@ -159,7 +165,8 @@
         });
     }
 </script>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 
 </body>
 

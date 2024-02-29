@@ -5,15 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>
 
 </head>
 
 <body>
 <div class="w-full bg-gray py-2 mx-1">
-    <p class="text-4xl font-bold">Current order: <?php $value ?></p>
+    <p class="text-4xl font-bold">Current order: <?php
+        $value ?></p>
 </div>
 <div class="flex flex-row snap-x scroll-smooth overflow-x-auto relative">
     <div class="h-full w-1/4 border bg-gray m-1 px-1 scroll-ml-6 flex-none">
@@ -51,7 +55,8 @@
 
 
 </div>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 </body>
 
 </html>

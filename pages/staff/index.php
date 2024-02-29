@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php
+session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
 </head>
 
 <body>
@@ -87,7 +89,8 @@ if (!$isAuth) { ?>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/assets/script/sweetalert.js"></script>
-<?php if (isset($_SESSION['result'])) { ?>
+<?php
+if (isset($_SESSION['result'])) { ?>
     <script>
         <?php $fire = false; ?>
         <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
@@ -121,16 +124,21 @@ if (!$isAuth) { ?>
         <?php $fire = true;
         } ?>
 
-        <?php if ($fire) unset($_SESSION['result']) ?>
+        <?php if ($fire)
+            unset($_SESSION['result']) ?>
     </script>
-<?php } ?>
+<?php
+} ?>
 
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 
-<?php } ?>
+<?php
+} ?>
 
-<?php if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
+<?php
+if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
 <!--Tabs navigation-->
 <ul class="place-content-center mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0" role="tablist" data-te-nav-ref>
     <li role="presentation">
@@ -164,7 +172,8 @@ if (!$isAuth) { ?>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php for ($i = 0; $i < 5; $i++) { ?>
+                            <?php
+                            for ($i = 0; $i < 5; $i++) { ?>
                                 <tr class="border-b dark:border-neutral-500">
                                     <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
                                     <td class="whitespace-nowrap px-6 py-4">Mark</td>
@@ -179,7 +188,8 @@ if (!$isAuth) { ?>
                                         </button>
                                     </td>
                                 </tr>
-                            <?php } ?>
+                            <?php
+                            } ?>
                             </tbody>
                         </table>
                     </div>
@@ -191,8 +201,10 @@ if (!$isAuth) { ?>
          id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
         insert here
     </div>
-    <?php } ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+    <?php
+    } ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 
 </body>
 

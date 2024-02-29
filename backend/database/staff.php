@@ -16,11 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             while (true) {
                 $code = randomCode();
                 $database->custom("SELECT code FROM tables WHERE code='{$code}'");
-                if ($database->getResult()['result'] == 0) break;
+                if ($database->getResult()['result'] == 0)
+                    break;
             }
 
             $database->update("tables", array("code" => $code, "status" => 2), "tableID={$_POST['ID']}");
-            if ($database->getResult()['result']) $database->customResult(message: "ทำการสุ่มโค้ดเสร็จสิ้น");
+            if ($database->getResult()['result'])
+                $database->customResult(message: "ทำการสุ่มโค้ดเสร็จสิ้น");
             break;
         }
 

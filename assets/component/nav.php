@@ -76,7 +76,8 @@
                     </li>
                 </ul>
             </div>
-            <?php } else { ?>
+            <?php
+            } else { ?>
         </div>
         <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
             <button type="button"
@@ -90,9 +91,12 @@
                 เข้าสู่ระบบ
             </button>
         </div>
-        <?php } ?>
+        <?php
+        } ?>
     </nav>
 </header>
 
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>

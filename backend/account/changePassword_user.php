@@ -16,13 +16,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $hashedPassword = password_hash($_POST['newpasswd'], PASSWORD_BCRYPT);
 
             $_SESSION['passwd'] = $hashedPassword;
-            if ($isCookie) setcookie("token", $hashedPassword, time() + (24 * 60 * 60), '/');
+            if ($isCookie)
+                setcookie("token", $hashedPassword, time() + (24 * 60 * 60), '/');
 
             $database->update("users", array("passwd" => $hashedPassword), "userID={$_SESSION['userID']}");
             $database->customResult(message: "เปลี่ยนรหัสผ่านเสร็จสิ้น");
         } else {
 
-            if ($_POST['newpasswd'] != $_POST['confirmpasswd']) $database->customResult(0, "รหัสผ่านใหม่ กับยืนยันรหัสผ่านใหม่ไม่เหมือนกัน");
+            if ($_POST['newpasswd'] != $_POST['confirmpasswd'])
+                $database->customResult(0, "รหัสผ่านใหม่ กับยืนยันรหัสผ่านใหม่ไม่เหมือนกัน");
             else $database->customResult(0, "ใส่รหัสผ่านเก่า ไม่ถูกต้อง");
         }
     } else {

@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
-    <?php session_start(); ?>
+    <?php
+    session_start(); ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
 
 </head>
 
@@ -60,10 +62,12 @@ if (!$isAuth) { ?>
             จดจำบัญชีนี้ไว้
         </label>
     </div>';
-<?php }
+<?php
+}
 if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
 <div class="w-full bg-gray py-2 mx-1">
-    <p class="text-4xl font-bold">จำนวน Order ทั้งหมด: <?php $value ?></p>
+    <p class="text-4xl font-bold">จำนวน Order ทั้งหมด: <?php
+        $value ?></p>
 </div>
 <div class="flex flex-row snap-x scroll-smooth overflow-x-auto relative">
     <!-- 1 order element -->
@@ -99,8 +103,10 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
     <?php
 
     ?>
-    <?php } ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+    <?php
+    } ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 
 </body>
 
