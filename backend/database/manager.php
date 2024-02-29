@@ -56,6 +56,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
                     $database->customResult(message: "เพิ่มประเภทเมนูเสร็จสิ้น");
                 break;
             }
+        case 'delete_category': {
+                // ID
+                
+                $database->delete(tablename:"menu_category", where:"categoryID={$_POST['ID']}");
+                if ($database->getResult()['result']) $database->customResult(message:"ลบประเภทเมนูเสร็จสิ้น");
+                break;
+            }
         case 'create_menu': {
                 // name, category, price, description(Optional), image(Optional)
 
