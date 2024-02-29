@@ -19,10 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $id = $database->getResult()['payload'][0]->tableID;
 
                 // เช็คว่ามีคนแล้วหรือยัง
-                if (is_null($database->getResult()['payload'][0]->userID)) $database->update("tables", array("userID" => $_SESSION['userID']), "code='{$_POST['code']}'");
+                if (is_null($database->getResult()['payload'][0]->userID))
+                    $database->update("tables", array("userID" => $_SESSION['userID']), "code='{$_POST['code']}'");
 
                 // เช็คว่าทำงานได้หรือไม่
-                if ($database->getResult()['result']) $database->customResult(message: "คุณอยู่ที่โต๊ะ $id");
+                if ($database->getResult()['result'])
+                    $database->customResult(message: "คุณอยู่ที่โต๊ะ $id");
 
                 $_SESSION['tableID'] = $id;
                 $_SESSION['tablecode'] = $_POST['code'];

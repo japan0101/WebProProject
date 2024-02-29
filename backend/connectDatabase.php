@@ -1,7 +1,6 @@
 <?php
 
-class Database
-{
+class Database {
     public $res;
     private $hostname;
     private $username;
@@ -49,7 +48,8 @@ class Database
                     $this->res['message'] = "Cannot Query: " . $this->conn->error;
                 }
             }
-        } catch (Exception $e) {
+        }
+        catch (Exception $e) {
             $this->res = array(
                 'result' => 0,
                 'message' => 'Connection failed: ' . $e->getMessage()
@@ -81,16 +81,21 @@ class Database
     }
 
     public function delete(string $tablename, $col = null, $where = null) {
-        if (!is_null($col)) $sql = "DELETE $col FROM $tablename";
+        if (!is_null($col))
+            $sql = "DELETE $col FROM $tablename";
         else $sql = "DELETE FROM $tablename";
-        if (!is_null($where)) $sql .= " WHERE $where";
+        if (!is_null($where))
+            $sql .= " WHERE $where";
         $this->query($sql);
     }
 
     public function customResult(int $result = null, string $message = null, string $type = null) {
-        if (!is_null($result) || !isset($this->res['result'])) $this->res['result'] = is_null($result) ? 0 : $result;
-        if (!is_null($message) || !isset($this->res['message'])) $this->res['message'] = is_null($message) ? "Default" : $message;
-        if (!is_null($type) || !isset($this->res['type'])) $this->res['type'] = is_null($type) ? "" : $type;
+        if (!is_null($result) || !isset($this->res['result']))
+            $this->res['result'] = is_null($result) ? 0 : $result;
+        if (!is_null($message) || !isset($this->res['message']))
+            $this->res['message'] = is_null($message) ? "Default" : $message;
+        if (!is_null($type) || !isset($this->res['type']))
+            $this->res['type'] = is_null($type) ? "" : $type;
     }
 
     public function getResult() {

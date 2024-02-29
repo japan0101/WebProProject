@@ -68,7 +68,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/assets/script/sweetalert.js"></script>
-<?php if (isset($_SESSION['result'])) { ?>
+<?php
+if (isset($_SESSION['result'])) { ?>
     <script>
         <?php $fire = false; ?>
         <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
@@ -102,6 +103,8 @@
         <?php $fire = true;
         } ?>
 
-        <?php if ($fire) unset($_SESSION['result']) ?>
+        <?php if ($fire)
+            unset($_SESSION['result']) ?>
     </script>
-<?php } ?>
+<?php
+} ?>

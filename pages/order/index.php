@@ -11,9 +11,12 @@ session_start();
 
     <title>Document</title>
     <link link="stylesheet" href="style.css">
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
-    <?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>
 
 </head>
 
@@ -249,7 +252,8 @@ session_start();
         }
     }
 </script>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
 </body>
 
 </html>
