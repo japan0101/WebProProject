@@ -26,10 +26,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             break;
         }
 
+        case 'orderComplete':{
+            // tableID, menuID, menuName, amount
+
+            $database->update("orders", array("status" => 2), "tableID={$_POST['tableID']} AND menuID={$_POST['menuID']}");
+            if ($database->getResult()['result']) $database->customResult("Order โต๊ะ {$_POST['tableID']} เมนู: {$_POST['menuName']} จำนวน: {$_POST['amount']} เสร็จสิ้น");
+
+            break;
+        }
+
         case 'payBill':
         {
-            if (true) {
-            }
+            // tableID
             break;
         }
         default:
