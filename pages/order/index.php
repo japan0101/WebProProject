@@ -215,8 +215,16 @@ session_start();
                 infoPart.appendChild(remBtn);
                 infoPart.appendChild(ordBtn);
                 card.appendChild(infoPart);
-                allContainer.appendChild(card.cloneNode(true));
                 currentHolder.appendChild(card);
+                addBtn.setAttribute('onclick', "addAmount(menu_all_amount_" + menuObj['menuName'] + ")");
+                amountOrd.setAttribute('id', 'menu_all_amount_' + menuObj['menuName']);
+                remBtn.setAttribute('onclick', "removeAmount(menu_all_amount_" + menuObj['menuName'] + ")");
+                ordBtn.setAttribute('onclick', 'orderFood(\'menu_all_amount_' + menuObj['menuName'] + '\', \'' + menuObj['menuName'] + '\')');
+                allContainer.appendChild(card.cloneNode(true));
+                addBtn.setAttribute('onclick', "addAmount(menu_amount_" + menuObj['menuName'] + ")");
+                amountOrd.setAttribute('id', 'menu_amount_' + menuObj['menuName']);
+                remBtn.setAttribute('onclick', "removeAmount(menu_amount_" + menuObj['menuName'] + ")");
+                ordBtn.setAttribute('onclick', 'orderFood(\'menu_amount_' + menuObj['menuName'] + '\', \'' + menuObj['menuName'] + '\')');
             });
         });
     </script>
@@ -242,10 +250,10 @@ session_start();
                     </button>
                 </div>
 
-                <!--Modal body-->
-                <div class="relative flex-auto p-4 overflow-y-auto max-h-50" data-te-modal-body-ref>
-                    Modal body text goes here.
-                </div>
+            <!--Modal body-->
+            <div class="relative flex-auto p-4 overflow-y-auto max-h-50" data-te-modal-body-ref id="order_show">
+                Modal body text goes here.
+            </div>
 
                 <!--Modal footer-->
                 <div class="justify-center flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
@@ -259,20 +267,25 @@ session_start();
             </div>
         </div>
     </div>
-
     <script>
-        function addAmount(id){
-            let inp = document.getElementById(id)
-            value = Number(inp.value)
-            if (value < 99)value += 1
-            inp.value = value
+        function orderFood(amountId, menuName){
+
         }
 
-        function removeAmount(id){
-            let inp = document.getElementById(id)
-            value = Number(inp.value)
-            if (value > 0)value -= 1
-            inp.value = value
+        function addAmount(input){
+            if (Number(input.value) < 99)input.value = Number(input.value) + 1;
+        }
+
+        function removeAmount(input){
+            if(Number(input.value) > 0)input.value = Number(input.value) - 1;
+        }
+
+        function addOrderAmount(){
+            
+        }
+
+        function removeOrderAmount(){
+            
         }
     </script>
 </body>
