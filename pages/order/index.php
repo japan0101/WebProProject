@@ -76,7 +76,7 @@ session_start();
             </div>
         </div>
     </nav>
-    
+
     <!-- end of nav bar -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/assets/scripts/sweetalert.js"></script>
@@ -98,7 +98,7 @@ session_start();
                         <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="allCoupon" role="tab" aria-labelledby="allCoupon" data-te-tab-active="">
                             <div class="flex flex-wrap justify-center items-center max-w-[110rem]" id="allCouponContainer">
 
-                            <!-- rendered here -->
+                                <!-- rendered here -->
 
                             </div>
                         </div>
@@ -165,8 +165,8 @@ session_start();
 
                 imagePart = document.createElement('img');
                 imagePart.className = "rounded-t-lg"
-                imagePart.setAttribute('src', '/assets/images/menus/kaijaew.webp')
-                imagePart.setAttribute('alt', 'picture_of_' + menuObj['menuName'])
+                imagePart.setAttribute('src', '/assets/images/menus/' + menuObj['image'])
+                imagePart.setAttribute('alt', 'picture_of_' + menuObj['menuID'])
 
                 infoPart = document.createElement('div');
                 infoPart.className = "p-6"
@@ -181,17 +181,19 @@ session_start();
 
                 addBtn = document.createElement('button');
                 addBtn.className = "p-2 place-self-center basis-1/8 mr-auto w-fit text-xl text-success"
-                addBtn.setAttribute('onclick', "addAmount(menu_amount_" + menuObj['menuName'] + ")");
+                addBtn.setAttribute('onclick', "addAmount('menu_amount_" + menuObj['menuID'] + "')");
                 addBtn.innerHTML = "+";
 
                 amountOrd = document.createElement('input');
                 amountOrd.className = "m-auto border rounded w-1/2 m-auto text-center"
-                amountOrd.setAttribute('id', 'menu_amount_' + menuObj['menuName']);
+                amountOrd.setAttribute('id', 'menu_amount_' + menuObj['menuID']);
                 amountOrd.setAttribute('value', 0);
+                amountOrd.setAttribute('min', 0);
+                amountOrd.setAttribute('readonly', "");
 
                 remBtn = document.createElement('button');
                 remBtn.className = "p-2 place-self-center basis-1/8 mr-auto w-fit text-xl text-danger"
-                remBtn.setAttribute('onclick', "removeAmount(menu_amount_" + menuObj['menuName'] + ")");
+                remBtn.setAttribute('onclick', "removeAmount('menu_amount_" + menuObj['menuID'] + "')");
                 remBtn.innerHTML = "-";
 
                 ordBtn = document.createElement('button');
@@ -199,7 +201,7 @@ session_start();
                 ordBtn.className = "inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                 ordBtn.setAttribute('data-te-ripple-init', '');
                 ordBtn.setAttribute('data-te-ripple-color', 'light');
-                ordBtn.setAttribute('onclick', 'orderFood(\'menu_amount_' + menuObj['menuName'] + '\', \'' + menuObj['menuName'] + '\')');
+                ordBtn.setAttribute('onclick', 'orderFood(\'menu_amount_' + menuObj['menuID'] + '\', \'' + menuObj['menuID'] + '\')');
                 ordBtn.innerHTML = "สั่งอาหาร"
 
                 imageSection.appendChild(imagePart);
@@ -224,74 +226,55 @@ session_start();
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>
-    <div
-        data-te-modal-init
-        class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
-        id="incart"
-        tabindex="-1"
-        aria-labelledby="incartLabel"
-        aria-hidden="true">
-        <div
-            data-te-modal-dialog-ref
-            class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
-            <div
-            class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
-            <div
-                class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                <!--Modal title-->
-                <h5
-                class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
-                id="incartLabel">
-                รายการอาหาร
-                </h5>
-                <!--Close button-->
-                <button
-                type="button"
-                class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
-                data-te-modal-dismiss
-                aria-label="Close">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-6 w-6">
-                    <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12" />
-                </svg>
-                </button>
-            </div>
+    <div data-te-modal-init class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none" id="incart" tabindex="-1" aria-labelledby="incartLabel" aria-hidden="true">
+        <div data-te-modal-dialog-ref class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+            <div class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                <div class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <!--Modal title-->
+                    <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="incartLabel">
+                        รายการอาหาร
+                    </h5>
+                    <!--Close button-->
+                    <button type="button" class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none" data-te-modal-dismiss aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
 
-            <!--Modal body-->
-            <div class="relative flex-auto p-4 overflow-y-auto max-h-50" data-te-modal-body-ref>
-                Modal body text goes here.
-            </div>
+                <!--Modal body-->
+                <div class="relative flex-auto p-4 overflow-y-auto max-h-50" data-te-modal-body-ref>
+                    Modal body text goes here.
+                </div>
 
-            <!--Modal footer-->
-            <div
-                class="justify-center flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                <button
-                type="button"
-                class="mx-auto inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                data-te-ripple-init
-                data-te-ripple-color="light">
-                สั่งเลย
-                </button>
-                <button
-                type="button"
-                class="mx-auto inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
-                data-te-modal-dismiss
-                data-te-ripple-init
-                data-te-ripple-color="light">
-                ปิด
-                </button>
-            </div>
+                <!--Modal footer-->
+                <div class="justify-center flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                    <button type="button" class="mx-auto inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-ripple-color="light">
+                        สั่งเลย
+                    </button>
+                    <button type="button" class="mx-auto inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+                        ปิด
+                    </button>
+                </div>
             </div>
         </div>
-        </div>
+    </div>
+
+    <script>
+        function addAmount(id){
+            let inp = document.getElementById(id)
+            value = Number(inp.value)
+            if (value < 99)value += 1
+            inp.value = value
+        }
+
+        function removeAmount(id){
+            let inp = document.getElementById(id)
+            value = Number(inp.value)
+            if (value > 0)value -= 1
+            inp.value = value
+        }
+    </script>
 </body>
 
 </html>

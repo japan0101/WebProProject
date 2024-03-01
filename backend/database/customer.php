@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         case 'allmenus':
         {
             // ดึงข้อมูลเมนู
-            $database->custom("SELECT menuName, mc.name AS `categoryName`, price, description, image, menuID,categoryID FROM menus LEFT JOIN menu_category AS `mc` USING (categoryID)");
+            $database->custom("SELECT menuName, mc.name AS `categoryName`, price, description, image, menuID, categoryID FROM menus LEFT JOIN menu_category AS `mc` USING (categoryID)");
             echo json_encode($database->getResult()['payload']);
             break;
         }
