@@ -219,12 +219,12 @@ session_start();
                 addBtn.setAttribute('onclick', "addAmount(menu_all_amount_" + menuObj['menuID'] + ")");
                 amountOrd.setAttribute('id', 'menu_all_amount_' + menuObj['menuID']);
                 remBtn.setAttribute('onclick', "removeAmount(menu_all_amount_" + menuObj['menuID'] + ")");
-                ordBtn.setAttribute('onclick', 'orderFood(\'menu_all_amount_' + menuObj['menuID'] + '\', \'' + menuObj['menuID'] + '\')');
+                ordBtn.setAttribute('onclick', 'orderFood(menu_all_amount_' + menuObj['menuID'] + '.value, \'' + menuObj['menuID'] + '\')');
                 allContainer.appendChild(card.cloneNode(true));
                 addBtn.setAttribute('onclick', "addAmount(menu_amount_" + menuObj['menuID'] + ")");
                 amountOrd.setAttribute('id', 'menu_amount_' + menuObj['menuID']);
                 remBtn.setAttribute('onclick', "removeAmount(menu_amount_" + menuObj['menuID'] + ")");
-                ordBtn.setAttribute('onclick', 'orderFood(\'menu_amount_' + menuObj['menuID'] + '\', \'' + menuObj['menuID'] + '\')');
+                ordBtn.setAttribute('onclick', 'orderFood(menu_amount_' + menuObj['menuID'] + '.value, \'' + menuObj['menuID'] + '\')');
             });
         });
     </script>
@@ -268,8 +268,9 @@ session_start();
         </div>
     </div>
     <script>
-        function orderFood(amountId, menuName){
-
+        function orderFood(amount, menuName){
+            console.log(amount)
+            console.log(menuName)
         }
 
         function addAmount(input){
