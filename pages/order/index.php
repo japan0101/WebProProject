@@ -251,8 +251,63 @@ session_start();
                 </div>
 
             <!--Modal body-->
-            <div class="relative flex-auto p-4 overflow-y-auto max-h-50" data-te-modal-body-ref id="order_show">
-                Modal body text goes here.
+            <div class="relative flex-auto p-4 max-h-72 overscroll-contain overflow-y-auto" data-te-modal-body-ref id="order_show">
+                <ul class="">
+                    <li class="my-1 w-full rounded-lg bg-primary-100 p-4 text-primary-600 inline-flex">
+                        <div class="self-center">{menu.name}</div>
+                        <div class="self-center">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-success" onclick="addOrderAmount(`order_amount_{menuId}`)">+</button>
+                            <input class="m-auto border rounded w-1/5 text-center" id="order_amount_1" value="0" min="0" readonly="">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-danger" onclick="removeOrderAmount(`order_amount_{menuId}`)">-</button>
+                        </div>
+                        <div class="self-center">{menu.price} บาท</div>
+                    </li>
+                    <li class="my-1 w-full rounded-lg bg-primary-100 p-4 text-primary-600 inline-flex">
+                        <div class="self-center">{menu.name}</div>
+                        <div class="self-center">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-success" onclick="addOrderAmount(`order_amount_{menuId}`)">+</button>
+                            <input class="m-auto border rounded w-1/5 text-center" id="order_amount_1" value="0" min="0" readonly="">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-danger" onclick="removeOrderAmount(`order_amount_{menuId}`)">-</button>
+                        </div>
+                        <div class="self-center">{menu.price} บาท</div>
+                    </li>
+                    <li class="my-1 w-full rounded-lg bg-primary-100 p-4 text-primary-600 inline-flex">
+                        <div class="self-center">{menu.name}</div>
+                        <div class="self-center">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-success" onclick="addOrderAmount(`order_amount_{menuId}`)">+</button>
+                            <input class="m-auto border rounded w-1/5 text-center" id="order_amount_1" value="0" min="0" readonly="">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-danger" onclick="removeOrderAmount(`order_amount_{menuId}`)">-</button>
+                        </div>
+                        <div class="self-center">{menu.price} บาท</div>
+                    </li>
+                    <li class="my-1 w-full rounded-lg bg-primary-100 p-4 text-primary-600 inline-flex">
+                        <div class="self-center">{menu.name}</div>
+                        <div class="self-center">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-success" onclick="addOrderAmount(`order_amount_{menuId}`)">+</button>
+                            <input class="m-auto border rounded w-1/5 text-center" id="order_amount_1" value="0" min="0" readonly="">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-danger" onclick="removeOrderAmount(`order_amount_{menuId}`)">-</button>
+                        </div>
+                        <div class="self-center">{menu.price} บาท</div>
+                    </li>
+                    <li class="my-1 w-full rounded-lg bg-primary-100 p-4 text-primary-600 inline-flex">
+                        <div class="self-center">{menu.name}</div>
+                        <div class="self-center">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-success" onclick="addOrderAmount(`order_amount_{menuId}`)">+</button>
+                            <input class="m-auto border rounded w-1/5 text-center" id="order_amount_1" value="0" min="0" readonly="">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-danger" onclick="removeOrderAmount(`order_amount_{menuId}`)">-</button>
+                        </div>
+                        <div class="self-center">{menu.price} บาท</div>
+                    </li>
+                    <li class="my-1 w-full rounded-lg bg-primary-100 p-4 text-primary-600 inline-flex">
+                        <div class="self-center">{menu.name}</div>
+                        <div class="self-center">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-success" onclick="addOrderAmount(`order_amount_{menuId}`)">+</button>
+                            <input class="m-auto border rounded w-1/5 text-center" id="order_amount_1" value="0" min="0" readonly="">
+                            <button class="p-2 basis-1/8 mx-auto w-fit text-xl text-danger" onclick="removeOrderAmount(`order_amount_{menuId}`)">-</button>
+                        </div>
+                        <div class="self-center">{menu.price} บาท</div>
+                    </li>
+                </ul>
             </div>
 
                 <!--Modal footer-->
