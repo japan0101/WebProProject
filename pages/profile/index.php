@@ -9,7 +9,7 @@ session_start() ?>
     <title>LeawTaeApp</title>
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 </head>
 
 <body>
@@ -276,7 +276,7 @@ if (isset($_SESSION['userID'])) { ?>
                         </div>
                     </div>
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                    <script src="/assets/script/sweetalert.js"></script>
+                    <script src="/assets/scripts/sweetalert.js"></script>
                 <?php
                 } else { ?>
                     <script>
@@ -290,17 +290,17 @@ if (isset($_SESSION['userID'])) { ?>
                             }
                         });
                     </script>
-                <?php
+                    <?php
                 } ?>
                 </div>
             </div>
         </span>
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/script/sweetalert.js"></script>
+<script src="/assets/scripts/sweetalert.js"></script>
 
 <?php
 if (isset($_SESSION['result'])) { ?>
@@ -340,7 +340,7 @@ if (isset($_SESSION['result'])) { ?>
         <?php if ($fire)
             unset($_SESSION['result']) ?>
     </script>
-<?php
+    <?php
 } ?>
 
 </body>

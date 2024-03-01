@@ -9,13 +9,13 @@ session_start() ?>
     <title>LeawTaeApp</title>
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 
 </head>
 
 <body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/script/sweetalert.js"></script>
+<script src="/assets/scripts/sweetalert.js"></script>
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/nav.php") ?>
 <?php
@@ -63,7 +63,7 @@ if (isset($_SESSION['userID'])) { ?>
             text: "คุณยังไม่ได้เข้าสู่ระบบ"
         });
     </script>
-<?php
+    <?php
 } ?>
 <script>
     fetch("/backend/database/customer.php?case=mycoupon").then(e => e.json()).then(payload => {
@@ -166,7 +166,7 @@ if (isset($_SESSION['userID'])) { ?>
     }
 </script>
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 </body>
 
