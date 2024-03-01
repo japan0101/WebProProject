@@ -266,7 +266,7 @@ session_start();
             </div>
 
             <!--Modal body-->
-            <div class="relative flex-auto p-4 overflow-y-auto max-h-50" data-te-modal-body-ref>
+            <div class="relative flex-auto p-4 overflow-y-auto max-h-50" data-te-modal-body-ref id="order_show">
                 Modal body text goes here.
             </div>
 

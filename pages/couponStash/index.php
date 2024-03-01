@@ -70,7 +70,7 @@ if (isset($_SESSION['userID'])) { ?>
         selectorContainer = document.getElementById('bannerSel');
         contentContainer = document.getElementById('contentHolder');
         allContainer = document.getElementById('allCouponContainer');
-        console.log(payload);
+        // console.log(payload);
         category = []
         payload.forEach(couponObj => {
             if (!category.includes(couponObj.category)) {
