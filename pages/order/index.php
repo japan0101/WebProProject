@@ -13,10 +13,6 @@ session_start();
     <link link="stylesheet" href="style.css">
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
-    <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
-    <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>
 
 </head>
 
@@ -30,16 +26,7 @@ session_start();
                 $isAuth = isset($_SESSION['userID']);
                 if ($isAuth) {
                     echo '<button class="text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" 
-          >
-          <svg width="32px" height="32px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-            <g id="SVGRepo_iconCarrier">
-              <path d="M4 18L20 18" stroke="#000000" stroke-width="2" stroke-linecap="round"></path>
-              <path d="M4 12L20 12" stroke="#000000" stroke-width="2" stroke-linecap="round"></path>
-              <path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round"></path>
-            </g>
-          </svg>';
+          >';
                 } else {
                     echo '
           <div
@@ -65,11 +52,10 @@ session_start();
           </div>';
                 }
                 ?>
-
             </div>
             <div class="flex place-self-center">
                 <!-- insert logo -->
-                <a class="text-xl text-center font-semibold text-neutral-800 dark:text-neutral-200" href="#">Navbar</a>
+                <a class="text-xl text-center font-semibold text-neutral-800 dark:text-neutral-200" href="#">Table #{number}</a>
             </div>
             <div class="relative flex items-center">
                 <!--cart button -->
@@ -87,223 +73,225 @@ session_start();
                         </div>
                     </div>
 
-                    <!-- <div class="relative inline-flex w-fit">
-                        <div class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-1/4 rotate-0 skew-x-0 skew-y-0 scale-x-100 rounded-full bg-pink-700 text-white px-1 py-0.5 text-xs">
-                            1
-                        </div>
-                        <div class="flex items-center justify-center rounded-lg text-center dark:text-white shadow-lg dark:text-gray-200">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-                                <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />
-                            </svg>
-                        </div>
-                    </div> -->
-
             </div>
         </div>
     </nav>
+    
     <!-- end of nav bar -->
-    <!-- seach bar -->
-    <div class="m-3">
-        <div class="relative mb-4 flex w-full flex-wrap items-stretch">
-            <input type="search" class="relative m-0 -mr-0.5 block min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" placeholder="Search" aria-label="Search" aria-describedby="button-addon1" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/assets/scripts/sweetalert.js"></script>
+    <link rel="stylesheet" href="/assets/stylesheets/navbar.css">
+    <link rel="stylesheet" href="/assets/stylesheets/global.css">
 
-            <!--Search button-->
-            <button class="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg" type="button" id="button-addon1" data-te-ripple-init data-te-ripple-color="light">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-                    <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd" />
-                </svg>
-            </button>
-        </div>
-    </div>
-    <!-- menu order -->
-    <div class="flex-col flex-wrap md:flex-row flex p-auto m-auto">
-        <!-- element per menu -->
-        <div class="sm:basis-full md:basis-1/4 lg:basis-1/5 p-1 basis-1/5 flex justify-center gap-3" id="menus">
+    <span class="my-5">
+        <div class="rounded-lg border dark:border-neutral-600 mt-7">
+            <div class="p-4">
+                <div class="sm:flex sm:items-start">
+                    <ul class="mr-4 flex list-none sm:flex-col overflow-x-auto pl-0" id="bannerSel" role="tablist" data-te-nav-ref="">
+                        <!-- Selector -->
+                        <li role="presentation" class="flex-grow text-center">
+                            <a href="#allCoupon" class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" data-te-toggle="pill" data-te-target="#allCoupon" data-te-nav-active role="tab" aria-controls="allCoupon" aria-selected="true">All</a>
+                        </li>
+                    </ul>
+                    <!-- Coupon Container -->
+                    <div class="my-2 grow" id="contentHolder">
+                        <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="allCoupon" role="tab" aria-labelledby="allCoupon" data-te-tab-active="">
+                            <div class="flex flex-wrap justify-center items-center max-w-[110rem]" id="allCouponContainer">
 
-            <!-- <div class="block border rounded-lg">
-                <img class="rounded-lg w-fit m-auto" src="https://i.imgflip.com/20vcet.jpg">
-                <h2 class="text-xl w-fit m-auto">Mamamia</h2>
-                <h2 class="text-sm w-fit m-auto">Test bobo gagola</h2>
-                <div class="w-fit m-auto flex flex-col justify-center items-center">
-                    <input class="m-auto border rounded w-1/2 m-auto" type="number" id="amount" value="0">
-                    <button class="my-1 px-3 py-1 rounded-lg bg-primary text-white" onclick="addToCart(1,'Mamamia', 'amount')">order!
-                    </button>
-                </div>
-            </div>
+                            <!-- rendered here -->
 
-            <div class="block border rounded-lg">
-                <img class="rounded-lg w-fit m-auto" src="https://i.imgflip.com/20vcet.jpg">
-                <h2 class="text-xl w-fit m-auto">Mamamia</h2>
-                <h2 class="text-sm w-fit m-auto">20 บาท</h2>
-                <div class="w-fit m-auto flex flex-col justify-center items-center">
-                    <input class="m-auto border rounded w-1/2 m-auto" type="number" id="amount" value="0">
-                    <button class="my-1 px-3 py-1 rounded-lg bg-primary text-white" onclick="addToCart(1,'Mamamia', 'amount')">order!
-                    </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div> -->
-        </div>
-        <!-- element per menu -->
-    </div>
 
-
-    <!--Vertically centered modal-->
-    <!--Vertically centered modal-->
-    <div data-te-modal-init class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none" id="incart" tabindex="-1" aria-labelledby="incartTitle" aria-hidden="true">
-        <div data-te-modal-dialog-ref class="pointer-events-none absolute right-7 h-auto w-full translate-x-[100%] opacity-0 transition-all duration-300 ease-in-out max-[576px]:right-auto min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
-            <div class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
-                <div class="flex flex-shrink-0 items-center justify-between rounded-t-md bg-info-600 p-4 dark:border-b dark:border-neutral-500 dark:bg-transparent">
-                    <h5 class="text-xl font-medium leading-normal text-white" id="rightTopModalLabel">
-                        รายการอาหารที่สั่ง
-                    </h5>
-                    <button type="button" class="box-content rounded-none border-none text-white hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none" data-te-modal-dismiss aria-label="Close">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="relative flex flex-col gap-1 p-4" id="cart" data-te-modal-body-ref>
-                    <!-- in-cart-item -->
-                </div>
-                <div class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                    <button type="button" class="mr-2 inline-block rounded bg-info px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]" data-te-ripple-init data-te-ripple-color="light">
-                        สั่งอาหาร
-                    </button>
-                    <button type="button" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
-                        ปิด
-                    </button>
-                </div>
             </div>
         </div>
-    </div>
+    </span>
     <script>
-        let order = {
-            menu: []
-        }
-        if (localStorage.getItem("menu")) {
-            menus = JSON.parse(localStorage.getItem("menu"));
-            order.menu = JSON.parse(localStorage.getItem("menu"));
-            let cart = document.getElementById("cart");
-            let item = document.createElement('div');
-            item.setAttribute("class", "block border w-full rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700");
-            menus.forEach(menuItem => {
-                item.innerHTML = '<div class="my-1 block w-full rounded-lg bg-grey flex flex-row justify-center items-center">' +
-                    '<div class="basis-1/4 w-fit m-auto place-content-center">' +
-                    '<img class="w-fit m-auto" src="https://media1.tenor.com/m/GT2HEIsGJ0YAAAAd/chad-giga.gif">' +
-                    '</div>' +
-                    '<div class="p-2 basis-2/4">' +
-                    '  <p>' + menuItem.name + '</p>' +
-                    '</div>' +
-                    '<div class="basis-1/4  flex place-self-center text-center">' +
-                    '<button class="p-2 place-self-center basis-1/8 mr-auto w-fit text-xl text-success" onclick="addToCart(' + menuItem.id + ',\'' + menuItem.name + '\' ,\'add_' + menuItem.id + '\')"> + </button>' +
-                    '  <input hidden value="-1" id="remove_' + menuItem.id + '"><input hidden value="1" id="add_' + menuItem.id + '"><input class="border rounded w-1/2 text-center" type="number" id="amount_' + menuItem.id + '" value="' + menuItem.amount + '" readonly>' +
-                    '<button class="p-2 place-self-center basis-1/8 mr-auto ml-1 w-fit text-xl text-danger" onclick="addToCart(' + menuItem.id + ',\'' + menuItem.name + '\' ,\'remove_' + menuItem.id + '\')"> - </button>' +
-                    '</div>' +
-                    '</div>';
-                cart.appendChild(item);
-            });
-        }
-
-        function addToCart(food_id, name, form_id) {
-            amount = Number(document.getElementById(form_id).value);
-            same = false;
-            if (amount != 0) {
-                for (var menu of order.menu) {
-                    if (food_id == menu.id) {
-                        menu.amount += Number(amount);
-                        same = true;
-                    }
-                }
-                if (!same) {
-                    order.menu.push({
-                        id: food_id,
-                        "name": name,
-                        amount: amount
-                    });
-                }
-                localStorage.setItem("menu", JSON.stringify(order.menu));
-
-                var menus = JSON.parse(localStorage.getItem("menu"));
-                let cart = document.getElementById("cart");
-                if (!same) {
-                    let item = document.createElement('div');
-                    item.setAttribute("class", "block border w-full rounded-lg bg-white text-left shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700");
-                    menus.forEach(menuItem => {
-                        if (menuItem.id == food_id) {
-                            item.innerHTML = '<div class="my-1 block w-full rounded-lg bg-grey flex flex-row justify-center items-center">' +
-                                '<div class="basis-1/4 w-fit m-auto place-content-center">' +
-                                '<img class="w-fit m-auto" src="https://media1.tenor.com/m/GT2HEIsGJ0YAAAAd/chad-giga.gif">' +
-                                '</div>' +
-                                '<div class="p-2 basis-2/4">' +
-                                '  <p>' + menuItem.name + '</p>' +
-                                '</div>' +
-                                '<div class="basis-1/4  flex place-self-center text-center">' +
-                                '  <input class="border rounded w-1/2 m-auto" type="number" id="amount_' + food_id + '" value="' + menuItem.amount + '" readonly/>' +
-                                '  <button class="place-self-center basis-1/8 m-auto w-fit" onclick("remove("amount' + menuItem.id + '",' + menuItem.id + ')")>' +
-                                '</div>' +
-                                '</div>';
-                            cart.appendChild(item);
-                        }
-                    });
-                } else {
-                    let oldAmount = document.getElementById('amount_' + food_id);
-                    menus.forEach(menuItem => {
-                        if (menuItem.id == food_id) {
-                            oldAmount.value = menuItem.amount;
-                        }
-                    });
-                }
-            }
-        }
-    </script>
-
-    <script>
-        const menus = document.getElementById("menus")
         fetch("/backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
-            console.log(payload)
-            // <div class="block border rounded-lg">
-            //     <img class="rounded-lg w-fit m-auto" src="https://i.imgflip.com/20vcet.jpg">
-            //     <h2 class="text-xl w-fit m-auto">Mamamia</h2>
-            //     <h2 class="text-sm w-fit m-auto">Test bobo gagola</h2>
-            //     <div class="w-fit m-auto flex flex-col justify-center items-center">
-            //         <input class="m-auto border rounded w-1/2 m-auto" type="number" id="amount" value="0">
-            //         <button class="my-1 px-3 py-1 rounded-lg bg-primary text-white" onclick="addToCart(1,'Mamamia', 'amount')">order!
-            //         </button>
-            //     </div>
-            // </div>
-            for (let i = 0; i < 1; i++) {
-                payload.forEach(item => {
-                    let div = document.createElement("div");
-                    div.className = "block border rounded-lg flex-none"
+            selectorContainer = document.getElementById('bannerSel');
+            contentContainer = document.getElementById('contentHolder');
+            allContainer = document.getElementById('allCouponContainer');
+            console.log(payload);
+            category = []
+            payload.forEach(menuObj => {
+                if (!category.includes(menuObj.category)) {
+                    //Rendering tabs for each new category
+                    category.push(menuObj['categoryName']);
+                    selList = document.createElement('li');
+                    selList.setAttribute('role', 'presentation');
+                    selList.className = 'flex-grow text-center'
 
-                    let image = document.createElement("img");
-                    image.className = "rounded-lg w-fit m-auto"
-                    image.src = `/assets/images/menus/${item['image']}`
+                    selector = document.createElement('a');
+                    selector.className = "my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+                    selector.setAttribute('href', 'tab-' + menuObj['categoryID']);
+                    selector.setAttribute('data-te-toggle', 'pill');
+                    selector.setAttribute('data-te-target', '#' + 'tab-' + menuObj['categoryID']);
+                    selector.setAttribute('role', 'tab');
+                    selector.setAttribute('aria-controls', 'tab-' + menuObj['categoryID']);
+                    selector.setAttribute('aria-selected', 'false');
+                    selector.innerHTML = menuObj['categoryName'];
+                    selList.appendChild(selector);
+                    selectorContainer.appendChild(selList);
 
-                    let menuname = document.createElement("h2")
-                    menuname.className = "text-xl w-fit m-auto"
-                    menuname.innerHTML = item['menuName']
+                    contentBody = document.createElement('div');
+                    contentBody.className = "hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block";
+                    contentBody.id = 'tab-' + menuObj['categoryID'];
+                    contentBody.setAttribute('role', 'tabpanel');
+                    contentBody.setAttribute('aria-labelledby', 'tab-' + menuObj['categoryID']);
 
-                    let price = document.createElement("h2")
-                    price.className = "text-sm w-fit m-auto"
-                    price.innerHTML = `${item['price']} บาท`
+                    menuHolder = document.createElement('div');
+                    menuHolder.className = "flex flex-wrap justify-center items-center max-w-[110rem]"
+                    menuHolder.id = 'tab-' + menuObj['categoryID'] + '-holder';
+                    contentBody.appendChild(menuHolder);
+                    contentContainer.appendChild(contentBody);
+                }
+                //Redering menu card
+                currentHolder = document.getElementById('tab-' + menuObj['categoryID'] + '-holder');
 
-                    let subdiv = document.createElement("div");
-                    subdiv.className = "w-fit m-auto flex flex-col justify-center items-center"
-                    subdiv.innerHTML = `
-                <input class="m-auto border rounded w-1/2 m-auto" type="number" id="amount" value="0">
-                <button class="my-1 px-3 py-1 rounded-lg bg-primary text-white" onclick="addToCart(1,'Mamamia', 'amount')">order!</button>
-                `
-                    div.append(image);
-                    div.append(menuname);
-                    div.append(price);
-                    div.append(subdiv);
-                    menus.append(div)
-                })
-            }
-        })
+                card = document.createElement('div');
+                card.className = "my-3 mx-1 block max-w-[12rem] rounded-lg bg-white text-center shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700";
+
+                imageSection = document.createElement('div')
+                imageSection.className = "relative overflow-hidden bg-cover bg-no-repeat"
+                imageSection.setAttribute('data-te-ripple-init', '');
+                imageSection.setAttribute('data-te-ripple-color', 'light');
+
+                imageFunction = document.createElement('a');
+                imageFunction.setAttribute('href', '#!');
+                imageFunctionIn = document.createElement('div');
+                imageFunctionIn.className = "absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100";
+
+                imagePart = document.createElement('img');
+                imagePart.className = "rounded-t-lg"
+                imagePart.setAttribute('src', '/assets/images/menus/kaijaew.webp')
+                imagePart.setAttribute('alt', 'picture_of_' + menuObj['menuName'])
+
+                infoPart = document.createElement('div');
+                infoPart.className = "p-6"
+
+                title = document.createElement('h5');
+                title.className = "mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50"
+                title.innerHTML = menuObj['menuName']
+
+                price = document.createElement('p');
+                price.className = "mb-4 text-base text-neutral-600 dark:text-neutral-200"
+                price.innerHTML = menuObj['price'] + " บาท"
+
+                addBtn = document.createElement('button');
+                addBtn.className = "p-2 place-self-center basis-1/8 mr-auto w-fit text-xl text-success"
+                addBtn.setAttribute('onclick', "addAmount(menu_amount_" + menuObj['menuName'] + ")");
+                addBtn.innerHTML = "+";
+
+                amountOrd = document.createElement('input');
+                amountOrd.className = "m-auto border rounded w-1/2 m-auto text-center"
+                amountOrd.setAttribute('id', 'menu_amount_' + menuObj['menuName']);
+                amountOrd.setAttribute('value', 0);
+
+                remBtn = document.createElement('button');
+                remBtn.className = "p-2 place-self-center basis-1/8 mr-auto w-fit text-xl text-danger"
+                remBtn.setAttribute('onclick', "removeAmount(menu_amount_" + menuObj['menuName'] + ")");
+                remBtn.innerHTML = "-";
+
+                ordBtn = document.createElement('button');
+                ordBtn.setAttribute('type', 'button');
+                ordBtn.className = "inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                ordBtn.setAttribute('data-te-ripple-init', '');
+                ordBtn.setAttribute('data-te-ripple-color', 'light');
+                ordBtn.setAttribute('onclick', 'orderFood(\'menu_amount_' + menuObj['menuName'] + '\', \'' + menuObj['menuName'] + '\')');
+                ordBtn.innerHTML = "สั่งอาหาร"
+
+                imageSection.appendChild(imagePart);
+                imageSection.appendChild(imageFunction);
+                imageFunction.appendChild(imageFunctionIn);
+                card.appendChild(imageSection);
+                infoPart.appendChild(title);
+                infoPart.appendChild(price);
+                infoPart.appendChild(addBtn);
+                infoPart.appendChild(amountOrd);
+                infoPart.appendChild(remBtn);
+                infoPart.appendChild(ordBtn);
+                card.appendChild(infoPart);
+                allContainer.appendChild(card.cloneNode(true));
+                currentHolder.appendChild(card);
+            });
+        });
     </script>
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/script/tw_element.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>
+    <div
+        data-te-modal-init
+        class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
+        id="incart"
+        tabindex="-1"
+        aria-labelledby="incartLabel"
+        aria-hidden="true">
+        <div
+            data-te-modal-dialog-ref
+            class="pointer-events-none relative w-auto translate-y-[-50px] opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:max-w-[500px]">
+            <div
+            class="min-[576px]:shadow-[0_0.5rem_1rem_rgba(#000, 0.15)] pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+            <div
+                class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                <!--Modal title-->
+                <h5
+                class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200"
+                id="incartLabel">
+                รายการอาหาร
+                </h5>
+                <!--Close button-->
+                <button
+                type="button"
+                class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none"
+                data-te-modal-dismiss
+                aria-label="Close">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="h-6 w-6">
+                    <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                </button>
+            </div>
+
+            <!--Modal body-->
+            <div class="relative flex-auto p-4 overflow-y-auto max-h-50" data-te-modal-body-ref>
+                Modal body text goes here.
+            </div>
+
+            <!--Modal footer-->
+            <div
+                class="justify-center flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                <button
+                type="button"
+                class="mx-auto inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                data-te-ripple-init
+                data-te-ripple-color="light">
+                สั่งเลย
+                </button>
+                <button
+                type="button"
+                class="mx-auto inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200"
+                data-te-modal-dismiss
+                data-te-ripple-init
+                data-te-ripple-color="light">
+                ปิด
+                </button>
+            </div>
+            </div>
+        </div>
+        </div>
 </body>
 
 </html>
