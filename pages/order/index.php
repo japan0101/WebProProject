@@ -213,8 +213,16 @@ session_start();
                 infoPart.appendChild(remBtn);
                 infoPart.appendChild(ordBtn);
                 card.appendChild(infoPart);
-                allContainer.appendChild(card.cloneNode(true));
                 currentHolder.appendChild(card);
+                addBtn.setAttribute('onclick', "addAmount(menu_all_amount_" + menuObj['menuName'] + ")");
+                amountOrd.setAttribute('id', 'menu_all_amount_' + menuObj['menuName']);
+                remBtn.setAttribute('onclick', "removeAmount(menu_all_amount_" + menuObj['menuName'] + ")");
+                ordBtn.setAttribute('onclick', 'orderFood(\'menu_all_amount_' + menuObj['menuName'] + '\', \'' + menuObj['menuName'] + '\')');
+                allContainer.appendChild(card.cloneNode(true));
+                addBtn.setAttribute('onclick', "addAmount(menu_amount_" + menuObj['menuName'] + ")");
+                amountOrd.setAttribute('id', 'menu_amount_' + menuObj['menuName']);
+                remBtn.setAttribute('onclick', "removeAmount(menu_amount_" + menuObj['menuName'] + ")");
+                ordBtn.setAttribute('onclick', 'orderFood(\'menu_amount_' + menuObj['menuName'] + '\', \'' + menuObj['menuName'] + '\')');
             });
         });
     </script>
@@ -291,7 +299,30 @@ session_start();
             </div>
             </div>
         </div>
-        </div>
+    </div>
+    <script>
+        function orderFood(amountId, menuName){
+
+        }
+
+        function addAmount(input){
+            input.value = Number(input.value) + 1;
+        }
+
+        function removeAmount(input){
+            if(Number(input.value) > 0){
+                input.value = Number(input.value) - 1;
+            }
+        }
+
+        function addOrderAmount(){
+            
+        }
+
+        function removeOrderAmount(){
+            
+        }
+    </script>
 </body>
 
 </html>
