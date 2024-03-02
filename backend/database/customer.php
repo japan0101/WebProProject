@@ -29,6 +29,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 setcookie("tableID", $id, time()+60*60*6, '/pages/order');
                 setcookie("tablecode", $_POST['code'], time()+60*60*6, '/pages/order');
+
+                setcookie("tableID", $id, time()+60*60*6, '/backend/database/customer.php');
+                setcookie("tablecode", $_POST['code'], time()+60*60*6, '/backend/database/customer.php');
             } else {
 
                 $database->customResult(message: "ใส่โค้ดไม่ถูกต้อง");
@@ -38,13 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         case 'orderFood':
         {
             // ต้อง menu(array keyvalue)
+            $_POST['menu'] = json_decode($_POST['menu']);
+
             if (isset($_COOKIE['tableID']) && isset($_COOKIE['tablecode'])) {
 
                 $database->custom("SELECT tableID FROM tables WHERE tableID={$_COOKIE['tableID']} AND code='{$_COOKIE['tablecode']}'");
                 if ($database->getResult()['result']) {
 
-                    foreach ($_POST['menu'] as $menuID => $amount) {
-                        $database->insert("orders", array("tableID" => $_COOKIE['tableID'], "menuID" => $menuID, "amount" => $amount));
+                    foreach ($_POST['menu'] as $item) {
+                        $database->insert("orders", array("tableID" => $_COOKIE['tableID'], "menuID" => $item->menuId, "amount" => $item->amount));
                     }
                     $database->customResult(message: "สั่งอาหารสำเร็จ");
                 } else {
@@ -89,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
         case 'mycoupon' :
         {
-            if (isset($_SESSION['userID'])) {
+            if (isset($_SESSION['memberName'])) {
                 $database->custom("SELECT menu_category.categoryID, menus.menuID, menu_category.name as `category`, menus.menuName, coupon.discount, user_coupon.couponCode, user_coupon.expire FROM menu_category INNER JOIN menus ON menu_category.categoryID = menus.categoryID INNER JOIN coupon ON menus.menuID = coupon.menuID INNER JOIN user_coupon ON user_coupon.couponID = coupon.couponID WHERE user_coupon.userID = {$_SESSION['userID']}");
                 echo json_encode($database->getResult()['payload']);
                 break;

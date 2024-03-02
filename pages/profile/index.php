@@ -17,7 +17,7 @@ session_start() ?>
 include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navCustomer.php") ?>
 
 <?php
-if (isset($_SESSION['userID'])) { ?>
+if (isset($_SESSION['memberName'])) { ?>
 <span class="my-5">
             <div class="border dark:border-neutral-600 shadow mt-7">
                 <div class="m-4">

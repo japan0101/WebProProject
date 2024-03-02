@@ -17,7 +17,7 @@
 <body>
     <?php
 
-    $isAuth = isset($_SESSION['userID']);
+    $isAuth = isset($_SESSION['memberName']);
     if (!$isAuth) { ?>
         echo '
         <div class="relative mb-5" data-te-input-wrapper-init>

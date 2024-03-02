@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))
+if (isset($_COOKIE['token']) && !isset($_SESSION['memberName']))
     header("Location: /backend/account/read_user.php");
 ?>
 <!doctype html>
@@ -36,7 +36,7 @@ include($_SERVER['DOCUMENT_ROOT'] ."/assets/component/navCustomer.php") ?>
                 </h1>
 
                 <?php
-                if (!isset($_SESSION['userID'])) { ?>
+                if (!isset($_SESSION['memberName'])) { ?>
                     <p class="mb-6 mt-6 max-w-3xl text-xl text-teal-50">
                         สะสมแต้ม แลกส่วนลดด้วยแต้ม ลุ้นรับส่วนลดพิเศษ
                     </p>

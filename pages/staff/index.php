@@ -16,7 +16,7 @@ session_start(); ?>
 <body>
 <?php
 
-$isAuth = isset($_SESSION['userID']);
+$isAuth = isset($_SESSION['memberName']);
 if (!$isAuth) { ?>
     <section class="h-screen">
         <div class="h-full">

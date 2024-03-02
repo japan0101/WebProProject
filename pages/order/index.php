@@ -24,7 +24,7 @@ session_start();
                 <!-- menu -->
                 <div class="relative flex items-center">
                     <?php
-                    $isAuth = isset($_SESSION['userID']);
+                    $isAuth = isset($_SESSION['memberName']);
                     if ($isAuth) {
                         echo '<button class="text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" 
           >';
@@ -56,7 +56,7 @@ session_start();
                 </div>
                 <div class="flex place-self-center">
                     <!-- insert logo -->
-                    <a class="text-xl text-center font-semibold text-neutral-800 dark:text-neutral-200" href="#">Table #<?php echo $_COOKIE['tableID']?></a>
+                    <a class="text-xl text-center font-semibold text-neutral-800 dark:text-neutral-200" href="#">Table #<?php echo $_COOKIE['tableID'] ?></a>
                 </div>
                 <div class="relative flex items-center">
                     <!--cart button -->
@@ -64,8 +64,7 @@ session_start();
 
                         <!-- end of cart button -->
                         <div class="relative inline-flex w-fit">
-                            <div class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 skew-x-0 mr-5 skew-y-0 scale-x-100 scale-y-100 whitespace-nowrap rounded-full bg-indigo-700 px-2 py-1 text-center align-baseline text-xs font-bold leading-none text-white font-mono"
-                            id="cart_menu">
+                            <div class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 skew-x-0 mr-5 skew-y-0 scale-x-100 scale-y-100 whitespace-nowrap rounded-full bg-indigo-700 px-2 py-1 text-center align-baseline text-xs font-bold leading-none text-white font-mono" id="cart_menu">
                                 0
                             </div>
                             <div class="flex items-center justify-center rounded-lg bg-pink-500 text-center text-white shadow-lg dark:text-gray-200 mr-5">
@@ -245,28 +244,39 @@ session_start();
                         <ul class="" id="order_show">
 
                         </ul>
-                        <div class="self-center">ราคาทั้งหมด: <input class="m-auto border rounded w-1/5 text-center" id="total_price" value="0" min="0" readonly=""> บาท</div>
+                        <div class="self-center mt-3">ราคาทั้งหมด: <input class="m-auto border rounded w-1/5 text-center" id="total_price" value="0" min="0" readonly=""> บาท</div>
                     </div>
 
                     <!--Modal footer-->
-                    <div class="justify-center flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                        <button type="button" class="mx-auto inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-ripple-color="light">
-                            สั่งเลย
-                        </button>
-                        <button type="button" class="mx-auto inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
-                            ปิด
-                        </button>
-                    </div>
+                    <form action="/backend/database/customer.php" method="post">
+                        <div class="justify-center flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                            <button type="button" onclick="orderMenus(this)" class="mx-auto inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-ripple-color="light">
+                                สั่งเลย
+                            </button>
+                            <button type="button" class="mx-auto inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+                                ปิด
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
         <script>
             const cart_m = document.getElementById("cart_menu");
 
+            localStorage.removeItem("orderList")
+
             order_container = document.getElementById('order_show');
             menu_order = JSON.parse(localStorage.getItem("orderList"));
             if (menu_order == null) menu_order = [];
             buildOrder(menu_order);
+
+
+            function inp_case(input, value, name) {
+                input.value = value
+                input.type = 'hidden'
+                input.name = name
+            }
 
             function orderFood(menuName, amount, price, menuId) {
                 menu_order = JSON.parse(localStorage.getItem("orderList"));
@@ -393,6 +403,18 @@ session_start();
                 });
                 document.getElementById('total_price').value = totalPrice;
             }
+
+            function orderMenus(element) {
+                let case_ = document.createElement("input");
+                inp_case(case_, "orderFood", "case");
+
+                let menu_list = document.createElement("input");
+                inp_case(menu_list, localStorage.getItem("orderList"), "menu")
+
+                element.form.append(menu_list)
+                element.form.append(case_)
+                element.form.submit();
+            }
         </script>
 
     <?php } ?>
@@ -403,7 +425,7 @@ session_start();
     <?php if (!isset($_COOKIE['tableID'])) { ?>
 
 
-        <?php if (!isset($_SESSION['userID'])) { ?>
+        <?php if (!isset($_SESSION['memberName'])) { ?>
             <!-- Login Modal -->
             <div data-te-modal-init data-te-backdrop="false" class="fixed left-0 top-0 z-[1055] block h-full w-full overflow-y-auto overflow-x-hidden outline-none" id="loginModal" tabindex="-1" aria-labelledby="loginModalTitle" aria-hidden="true">
                 <div data-te-modal-dialog-ref class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
@@ -490,7 +512,7 @@ session_start();
                         confirmButtonText: 'ตกลง'
                     });
                     if (code) {
-                        let inp =document.createElement("input")
+                        let inp = document.createElement("input")
                         inp.name = "code"
                         inp.value = code
                         form1.append(inp)
@@ -505,7 +527,7 @@ session_start();
     <?php } ?>
 
     <?php
-        include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 </body>
 
 </html>

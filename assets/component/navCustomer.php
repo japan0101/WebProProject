@@ -27,7 +27,7 @@
                          alt="TE Logo" loading="lazy"/>
                 </a>
                 <?php
-                $isAuth = isset($_SESSION['userID']);
+                $isAuth = isset($_SESSION['memberName']);
                 if ($isAuth) { ?>
                 <!-- Left navigation links -->
                 <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
