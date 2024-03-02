@@ -52,11 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         $database->customResult(message: "สั่งอาหารสำเร็จ");
                     } else {
 
-                        setcookie("tableID", $id, time() - 60 * 60 * 6, '/pages/order');
-                        setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/pages/order');
+                        setcookie("tableID", $id, time() - 60 * 60 * 4, '/pages/order');
+                        setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/pages/order');
 
                         setcookie("tableID", $id, time() - 60 * 60 * 6, '/backend/database/customer.php');
-                        setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/backend/database/customer.php');
+                        setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/backend/database/customer.php');
 
                         $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะใหม่อีกครั้ง");
                     }
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         case 'mycoupon' :
         {
             if (isset($_SESSION['memberName'])) {
-                $database->custom("SELECT menu_category.categoryID, menus.menuID, menu_category.name as `category`, menus.menuName, coupon.discount, user_coupon.couponCode, user_coupon.expire FROM menu_category INNER JOIN menus ON menu_category.categoryID = menus.categoryID INNER JOIN coupon ON menus.menuID = coupon.menuID INNER JOIN user_coupon ON user_coupon.couponID = coupon.couponID WHERE user_coupon.userID = {$_SESSION['userID']}");
+                $database->custom("SELECT menu_category.categoryID, menus.menuID, menus.menuName, menu_category.name, user_discount.code, user_discount.discount, user_discount.expire FROM menu_category INNER JOIN menus ON menu_category.categoryID = menus.categoryID INNER JOIN user_discount ON user_discount.menuID = menus.menuID WHERE userID = {$_SESSION['userID']}");
                 echo json_encode($database->getResult()['payload']);
                 break;
             }

@@ -75,7 +75,7 @@ if (isset($_SESSION['memberName'])) { ?>
         payload.forEach(couponObj => {
             if (!category.includes(couponObj.category)) {
                 //Rendering tabs for each new category
-                category.push(couponObj['category']);
+                category.push(couponObj['name']);
                 selList = document.createElement('li');
                 selList.setAttribute('role', 'presentation');
                 selList.className = 'flex-grow text-center'
@@ -88,7 +88,7 @@ if (isset($_SESSION['memberName'])) { ?>
                 selector.setAttribute('role', 'tab');
                 selector.setAttribute('aria-controls', 'tab-' + couponObj['categoryID']);
                 selector.setAttribute('aria-selected', 'false');
-                selector.innerHTML = couponObj['category'];
+                selector.innerHTML = couponObj['name'];
                 selList.appendChild(selector);
                 selectorContainer.appendChild(selList);
 
@@ -142,7 +142,7 @@ if (isset($_SESSION['memberName'])) { ?>
             button.className = "inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
             button.setAttribute('data-te-ripple-init', '');
             button.setAttribute('data-te-ripple-color', 'light');
-            button.setAttribute('onclick', 'showCode(\'' + couponObj['expire'] + '\', \'' + couponObj['couponCode'] + '\')');
+            button.setAttribute('onclick', 'showCode(\'' + couponObj['expire'] + '\', \'' + couponObj['code'] + '\')');
             button.innerHTML = "แสดงรหัสคูปอง"
 
             imageSection.appendChild(imagePart);

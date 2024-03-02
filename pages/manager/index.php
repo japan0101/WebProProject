@@ -17,7 +17,7 @@ if (isset($_SESSION['role'])) {
     <link rel="stylesheet" href="/assets/stylesheets/developers.css">
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/WebProProject/assets/scripts/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 </head>
 
 <body style="background-color: red">
