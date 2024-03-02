@@ -14,7 +14,7 @@ session_start() ?>
 
 <body>
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/nav.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navCustomer.php") ?>
 
 <?php
 if (isset($_SESSION['userID'])) { ?>
