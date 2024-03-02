@@ -191,8 +191,8 @@ if (isset($_SESSION['role'])) {
                 col.className += item['description'] == "" ? " opacity-50" : ""
 
             col = row.insertCell(-1)
-            col.className = "whitespace-nowrap px-6 py-4"
-            col.innerHTML = `<img class="w-36" src="../../assets/images/menus/${item['image']}" alt="">`
+            col.className = "whitespace-nowrap px-6 py-4 m-4"
+            col.innerHTML = `<img class="w-full" src="../../assets/images/menus/${item['image']}" alt="">`
         })
     })
 </script>
