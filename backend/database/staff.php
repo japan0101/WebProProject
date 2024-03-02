@@ -101,6 +101,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             echo json_encode($database->getResult()['payload']);
             break;
         }
+        case 'cooking_order':
+        {
+            
+        }
         case '':
         {
 

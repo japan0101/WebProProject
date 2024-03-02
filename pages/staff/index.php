@@ -8,7 +8,7 @@ session_start(); ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="styles.css">
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 </head>
@@ -137,77 +137,67 @@ if (isset($_SESSION['result'])) { ?>
     <?php
 } ?>
 
-<?php
-if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
-<!--Tabs navigation-->
-<ul class="place-content-center mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0" role="tablist" data-te-nav-ref>
-    <li role="presentation">
-        <a href="#tabs-home"
-           class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700"
-           data-te-toggle="pill" data-te-target="#tabs-home" data-te-nav-active role="tab" aria-controls="tabs-home"
-           aria-selected="true">โต๊ะ</a>
-    </li>
-    <li role="presentation">
-        <a href="#tabs-profile"
-           class="my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-           data-te-toggle="pill" data-te-target="#tabs-profile" role="tab" aria-controls="tabs-profile"
-           aria-selected="false">คิวการรอ</a>
-    </li>
-</ul>
-<!--Tabs content-->
-<div class="mb-6">
-    <div class="place-content-center hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-         id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab" data-te-tab-active>
-        <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                    <div class="overflow-hidden">
-                        <table class="min-w-full text-left text-sm font-light">
-                            <thead class="border-b font-medium dark:border-neutral-500">
-                            <tr>
-                                <th scope="col" class="px-6 py-4">เลขที่นั้ง</th>
-                                <th scope="col" class="px-6 py-4">จำนวนที่นั้ง</th>
-                                <th scope="col" class="px-6 py-4">รหัสเเข้าถึงเมนู</th>
-                                <th scope="col" class="px-6 py-4">ว่างหรือไม่</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            for ($i = 0; $i < 5; $i++) { ?>
-                                <tr class="border-b dark:border-neutral-500">
-                                    <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                                    <td class="whitespace-nowrap px-6 py-4">Mark</td>
-                                    <td class="whitespace-nowrap px-6 py-4">Otto</td>
-                                    <td class="whitespace-nowrap px-6 py-4">@mdo</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-center grid grid-cols-2 gap-4">
-                                        <button data-te-ripple-init data-te-ripple-color="light"
-                                                class="px-3 py-2 rounded-lg bg-primary text-white">คิดเงิน
-                                        </button>
-                                        <button data-te-ripple-init data-te-ripple-color="light"
-                                                class="px-3 py-2 rounded-lg bg-primary text-white">สร้างรหัสเมนู
-                                        </button>
-                                    </td>
-                                </tr>
-                                <?php
-                            } ?>
-                            </tbody>
-                        </table>
+    <?php
+    if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
+        <!--Tabs navigation-->
+        <ul class="place-content-center mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0" role="tablist" data-te-nav-ref>
+            <li role="presentation">
+                <a href="#tabs-home" class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700" data-te-toggle="pill" data-te-target="#tabs-home" data-te-nav-active role="tab" aria-controls="tabs-home" aria-selected="true">โต๊ะ</a>
+            </li>
+            <li role="presentation">
+                <a href="#tabs-profile" class="my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" data-te-toggle="pill" data-te-target="#tabs-profile" role="tab" aria-controls="tabs-profile" aria-selected="false">คิวการรอ</a>
+            </li>
+        </ul>
+        <!--Tabs content-->
+        <div class="mb-6">
+            <div class="bg-white rounded p-3 w-fit m-auto place-content-center hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab" data-te-tab-active>
+                <div class="flex flex-col">
+                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                            <div class="overflow-hidden">
+                                <table class="min-w-full text-left text-sm font-light">
+                                    <thead class="border-b font-medium dark:border-neutral-500">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-4">เลขที่นั้ง</th>
+                                            <th scope="col" class="px-6 py-4">จำนวนที่นั้ง</th>
+                                            <th scope="col" class="px-6 py-4">รหัสเเข้าถึงเมนู</th>
+                                            <th scope="col" class="px-6 py-4">ว่างหรือไม่</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        for ($i = 0; $i < 5; $i++) { ?>
+                                            <tr class="border-b dark:border-neutral-500">
+                                                <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                                                <td class="whitespace-nowrap px-6 py-4">Mark</td>
+                                                <td class="whitespace-nowrap px-6 py-4">Otto</td>
+                                                <td class="whitespace-nowrap px-6 py-4">@mdo</td>
+                                                <td class="whitespace-nowrap px-6 py-4 text-center grid grid-cols-2 gap-4">
+                                                    <button data-te-ripple-init data-te-ripple-color="light" class="px-3 py-2 rounded-lg bg-primary text-white">คิดเงิน
+                                                    </button>
+                                                    <button data-te-ripple-init data-te-ripple-color="light" class="px-3 py-2 rounded-lg bg-primary text-white">สร้างรหัสเมนู
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        <?php
+                                        } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-         id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
-        <div class="flex flex-col">
-            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                    <div class="overflow-hidden">
-                        <div class="justify-center w-fit m-auto">
-                            <form>
-                                <label for="que">จำนวนลูกค้า</label>
-                                <input name="que" id="que" class="bg-white border mx-1 " type="text" value="">
+            <div class="bg-white rounded p-3 w-fit m-auto hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
+                <div class="flex flex-col">
+                    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                            <div class="overflow-hidden">
+                                <div class="justify-center w-fit m-auto">
+                                    <form>
+                                        <label for="que">จำนวนลูกค้า</label>
+                                        <input name="que" id="que" class="bg-white border mx-1 rounded-md" type="number" value="">
 
                                 <button data-te-ripple-init data-te-ripple-color="light"
                                         class="px-3 rounded-lg bg-primary text-white" type="submit" onclick="addque()">
@@ -238,44 +228,40 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
     <script>
         var current_queue;
 
-        if (localStorage.getItem('queue_table') == null) {
-            var queue_table = {
-                current_queue: 1,
-                queue: []
-            };
-            current_queue = 1;
-            localStorage.setItem('queue_table', JSON.stringify(queue_table));
-        } else {
-            var queue_table = JSON.parse(localStorage.getItem('queue_table'));
-            console.log(queue_table.current_queue);
-            console.log(queue_table.queue);
-            current_queue = queue_table.current_queue;
-        }
-        queue_table.queue.forEach(function (queueItem) {
-            let tbody = document.getElementById('that_table');
-            console.log(tbody);
-            let col3 = document.createElement('td');
-            let col2 = document.createElement('td');
-            let col1 = document.createElement('td');
-            col3.innerHTML = '<form><button data-te-ripple-init data-te-ripple-color="light" class="px-3 py-2 rounded-lg bg-primary text-white" onclick="delque(' + queueItem.queue_number + ')">เรียกคิวแล้ว</button></form>'
-            col1.innerHTML = '<p scope="col" class="px-6 py-4">' + queueItem.queue_number + '</p>';
-            col2.innerHTML = '<p scope="col" class="px-6 py-4">' + queueItem.customer_amount + '</p>';
-            let row = document.createElement('tr');
-            row.append(col1);
-            row.append(col2);
-            row.append(col3);
-            tbody.append(row);
-        });
-
-        function delque(number) {
-            var indexToRemove = queue_table.queue.findIndex(function (item) {
-                return item.queue_number === number;
-            });
-            if (indexToRemove !== -1) {
-                queue_table.queue.splice(indexToRemove, 1);
+            if (localStorage.getItem('queue_table') == null) {
+                var queue_table = {
+                    current_queue: 1,
+                    queue: []
+                };
+                current_queue = 1;
+                localStorage.setItem('queue_table', JSON.stringify(queue_table));
+            } else {
+                var queue_table = JSON.parse(localStorage.getItem('queue_table'));
+                current_queue = queue_table.current_queue;
             }
-            localStorage.setItem('queue_table', JSON.stringify(queue_table));
-        }
+            queue_table.queue.forEach(function(queueItem) {
+                let tbody = document.getElementById('that_table');
+                let col3 = document.createElement('td');
+                let col2 = document.createElement('td');
+                let col1 = document.createElement('td');
+                col3.innerHTML = '<form><button data-te-ripple-init data-te-ripple-color="light" class="px-3 py-2 rounded-lg bg-primary text-white" onclick="delque('+queueItem.queue_number+')">เรียกคิวแล้ว</button></form>'
+                col1.innerHTML = '<p scope="col" class="px-6 py-4">'+queueItem.queue_number+'</p>';
+                col2.innerHTML = '<p scope="col" class="px-6 py-4">'+queueItem.customer_amount+'</p>';
+                let row = document.createElement('tr');
+                row.append(col1);
+                row.append(col2);
+                row.append(col3);
+                tbody.append(row);
+            });
+            function delque(number){
+                var indexToRemove = queue_table.queue.findIndex(function(item) {
+                    return item.queue_number === number;
+                });
+                if (indexToRemove !== -1) {
+                    queue_table.queue.splice(indexToRemove, 1);
+                }
+                localStorage.setItem('queue_table', JSON.stringify(queue_table));
+            }
 
         function addque() {
             let customer_amount = document.getElementById('que').value;

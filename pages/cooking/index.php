@@ -87,8 +87,11 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
     <div class="mb-6">
         <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
              id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab" data-te-tab-active>
-            <p class="text-5xl mb-2 bold">จำนวนออเดอร์</p>
-            <div class="flex flex-row overflow-x-auto">
+             <div class="block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <p class="text-5xl my-auto w-fit bold">จำนวนออเดอร์: <?php echo 5;?></p>
+             </div>
+            <div class="flex flex-row overflow-x-auto block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                
                 <!-- Order element -->
                 <?php
                 $order_id = 0;
@@ -116,9 +119,9 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
                         </div>
                         <hr>
                         <div class="flex justify-center p-1">
-                            <button class="text-xl flex bg-green-400 rounded-md" name="<?php
+                            <button class="inline-block rounded bg-success px-10 pb-1 pt-1 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]" name="<?php
                             echo $order_id; ?>">
-                                <svg fill="#000000" width="32px" height="32px" viewBox="-2.4 -2.4 28.80 28.80"
+                                <svg fill="#FFFFFF" width="32px" height="32px" viewBox="-2.4 -2.4 28.80 28.80"
                                      id="check-mark-square-2" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg"
                                      class="icon flat-line place-self-center"
                                      transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">
@@ -126,13 +129,13 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
                                         <polyline id="primary" points="21 5 12 14 8 10"
-                                                  style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline>
+                                                  style="fill: none; stroke: #FFFFFF; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline>
                                         <path id="primary-2" data-name="primary"
                                               d="M21,11v9a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V4A1,1,0,0,1,4,3H16"
-                                              style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
+                                              style="fill: none; stroke: #FFFFFF; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
                                     </g>
                                 </svg>
-                                <p class="text-center">Done</p>
+                                <p class="text-center w-fit m-auto">Done</p>
                             </button>
                         </div>
 
@@ -143,7 +146,10 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
         </div>
         <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
              id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
-            <div class="flex flex-row overflow-x-auto">
+             <div class="block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
+                <p class="text-5xl my-auto w-fit bold">จำนวนออเดอร์: <?php echo 5;?></p>
+             </div>
+            <div class="flex flex-row overflow-x-auto block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                 <!-- Order element -->
                 <?php
                 $order_id = 0;
@@ -170,7 +176,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
                         </div>
                         <hr>
                         <div class="flex justify-center p-1">
-                            <button class="text-xl flex bg-green-400 rounded-md" name="<?php
+                            <button class="inline-block rounded bg-success px-10 pb-1 pt-1 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]" name="<?php
                             echo $order_id; ?>">
                                 <svg fill="#000000" width="32px" height="32px" viewBox="-2.4 -2.4 28.80 28.80"
                                      id="check-mark-square-2" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg"
@@ -180,10 +186,10 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
                                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                     <g id="SVGRepo_iconCarrier">
                                         <polyline id="primary" points="21 5 12 14 8 10"
-                                                  style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline>
+                                                  style="fill: none; stroke: #FFFFFF; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></polyline>
                                         <path id="primary-2" data-name="primary"
                                               d="M21,11v9a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V4A1,1,0,0,1,4,3H16"
-                                              style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
+                                              style="fill: none; stroke: #FFFFFF; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
                                     </g>
                                 </svg>
                                 <p class="text-center">Done</p>
