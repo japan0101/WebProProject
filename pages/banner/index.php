@@ -26,7 +26,7 @@ session_start() ?>
             <ul class="mr-4 flex list-none sm:flex-col overflow-x-auto pl-0 sm:overflow-y-suto max-h-64" id="bannerSel" role="tablist" data-te-nav-ref>
               <!-- Selector -->
               <li role="presentation" class="flex-grow text-center">
-                <a href="#tabs-home03" class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700" data-te-toggle="pill" data-te-target="#tabs-home03" data-te-nav-active role="tab" aria-controls="tabs-home03" aria-selected="true">แต้มของคุณ</a>
+                <a href="#tabs-home03" class="my-2 block border-x-0 border-b-2 border-t-0  px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" data-te-toggle="pill" data-te-target="#tabs-home03" data-te-nav-active role="tab" aria-controls="tabs-home03" aria-selected="true">แต้มของคุณ</a>
               </li>
 
             </ul>
@@ -180,7 +180,7 @@ session_start() ?>
           randButton.setAttribute('type', 'button');
           randButton.className = "inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
           randButton.setAttribute("data-te-ripple-init", "");
-          randButton.setAttribute('onclick', '')
+          randButton.setAttribute('onclick', 'randomCoupon(' + bannerObj['gachaID'] + ')')
           randButton.innerHTML = "สุ่มบัตรลด"
 
           probButton = document.createElement('button');
@@ -334,6 +334,45 @@ session_start() ?>
           });
         });
       });
+
+      function randomRarity(){
+        number = Math.random();
+        if(number < 1 && number > 0.3){
+          return 'COMMON'
+        }else if(number > 0.15){
+          return 'UNCOMMON';
+        }else if(number > 0.04){
+          return 'RARE';
+        }else if(number > 0.006){
+          return 'EPIC';
+        }else if(number > 0.001){
+          return 'LEGENDARY';
+        }else{
+          return 'MYTHIC';
+        }
+      }
+      function randomCoupon(banner_id){
+        rarity = randomRarity();
+        Swal.fire({
+          title: "คุณได้รับ",
+          text: "คูปองระดับ " + rarity,
+          confirmButtonColor: "#3085d6",
+          confirmButtonText: "ดูเมนูที่ได้รับ"
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch("/backend/database/customer.php?case=getgachaitem&banner_id=" + banner_id + "&rarity='" + rarity + "'").then(e => e.json()).then(payload => {
+              recieved = payload[Math.floor(Math.random() * payload.length)];
+              Swal.fire({
+                title: "คูปองของคุณ",
+                text: "ใช้ลดราคา " + recieved['menuName'] + " " + recieved['discount'] * 100 + " %",
+                icon: "info",
+                confirmButtonColor: "#3085d6",
+                confirmButtonText: "รับคูปอง"
+              });
+            });
+          }
+        });
+      }
     </script>
   <?php
   } else { ?>

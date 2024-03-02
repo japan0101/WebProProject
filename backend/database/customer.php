@@ -120,6 +120,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             }
             break;
         }
+        case 'getgachaitem':
+            if (isset($_SESSION['userID'])) {
+                $database->custom("SELECT gachaID, gacha_item.menuID, rarity, discount, menus.menuName FROM gacha_item INNER JOIN menus ON gacha_item.menuID = menus.menuID WHERE gacha_item.gachaID = " . $_GET['banner_id'] . " AND gacha_item.rarity = " . $_GET['rarity']);
+                echo json_encode($database->getResult()['payload']);
+                break;
+            }
+            break;
         default:
         {
         }
