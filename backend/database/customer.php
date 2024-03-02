@@ -83,32 +83,46 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 } else if ($_SERVER['REQUEST_METHOD'] == "GET") {
     switch ($_GET['case']) {
 
-        case 'allmenus': {
-                // ดึงข้อมูลเมนู
-                $database->custom("SELECT menuName, mc.name AS `categoryName`, price, description, image, menuID, categoryID FROM menus LEFT JOIN menu_category AS `mc` USING (categoryID)");
+        case 'allmenus':
+        {
+            // ดึงข้อมูลเมนู
+            $database->custom("SELECT menuName, mc.name AS `categoryName`, price, description, image, menuID, categoryID FROM menus LEFT JOIN menu_category AS `mc` USING (categoryID)");
+            echo json_encode($database->getResult()['payload']);
+            break;
+        }
+        case 'banner':
+        {
+            $database->custom("SELECT * FROM gacha_banner");
+            echo json_encode($database->getResult()['payload']);
+            break;
+        }
+        case 'category':
+        {
+            $database->custom("SELECT menu_category.categoryID, menus.menuID, menu_category.name as `category`, menus.menuName, coupon.discount, coupon.cost FROM menu_category INNER JOIN menus ON menu_category.categoryID = menus.categoryID INNER JOIN coupon ON menus.menuID = coupon.menuID");
+            echo json_encode($database->getResult()['payload']);
+            break;
+        }
+        case 'mycoupon' :
+        {
+            if (isset($_SESSION['memberName'])) {
+                $database->custom("SELECT menu_category.categoryID, menus.menuID, menu_category.name as `category`, menus.menuName, coupon.discount, user_coupon.couponCode, user_coupon.expire FROM menu_category INNER JOIN menus ON menu_category.categoryID = menus.categoryID INNER JOIN coupon ON menus.menuID = coupon.menuID INNER JOIN user_coupon ON user_coupon.couponID = coupon.couponID WHERE user_coupon.userID = {$_SESSION['userID']}");
                 echo json_encode($database->getResult()['payload']);
                 break;
             }
-        case 'banner': {
-                $database->custom("SELECT * FROM gacha_banner");
+            break;
+        }
+        case 'getrate':
+        {
+            if (isset($_SESSION['userID'])) {
+                $database->custom("SELECT gacha_item.gachaID, menus.menuName, gacha_item.rarity, gacha_item.discount FROM gacha_item INNER JOIN menus ON gacha_item.menuID = menus.menuID ORDER BY  gachaID ASC, rarity DESC");
                 echo json_encode($database->getResult()['payload']);
                 break;
             }
-        case 'category': {
-                $database->custom("SELECT menu_category.categoryID, menus.menuID, menu_category.name as `category`, menus.menuName, coupon.discount, coupon.cost FROM menu_category INNER JOIN menus ON menu_category.categoryID = menus.categoryID INNER JOIN coupon ON menus.menuID = coupon.menuID");
-                echo json_encode($database->getResult()['payload']);
-                break;
-            }
-        case 'mycoupon': {
-                if (isset($_SESSION['memberName'])) {
-                    $database->custom("SELECT menu_category.categoryID, menus.menuID, menu_category.name as `category`, menus.menuName, coupon.discount, user_coupon.couponCode, user_coupon.expire FROM menu_category INNER JOIN menus ON menu_category.categoryID = menus.categoryID INNER JOIN coupon ON menus.menuID = coupon.menuID INNER JOIN user_coupon ON user_coupon.couponID = coupon.couponID WHERE user_coupon.userID = {$_SESSION['userID']}");
-                    echo json_encode($database->getResult()['payload']);
-                    break;
-                }
-                break;
-            }
-        default: {
-            }
+            break;
+        }
+        default:
+        {
+        }
     }
     return;
 } else {
