@@ -92,7 +92,7 @@ session_start();
                 allContainer = document.getElementById('allCouponContainer');
                 category = []
                 payload.forEach(menuObj => {
-                    if (!category.includes(menuObj.category)) {
+                    if (!category.includes(menuObj['categoryName'])) {
                         //Rendering tabs for each new category
                         category.push(menuObj['categoryName']);
                         selList = document.createElement('li');
