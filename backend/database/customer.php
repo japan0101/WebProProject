@@ -89,8 +89,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 date_modify($date,"+1 years");
                 $expire = date_format($date,"Y-m-d H:i:s");
                 $database->custom("INSERT INTO `user_discount`(`userID`, `menuID`, `discount`, `code`, `expire`) VALUES ('{$_SESSION["userID"]}','{$_POST["menuID"]}','{$_POST["discount"]}','{$code}','{$expire}')");
-                $database->customResult(message: "คูปองได้ถูกเพิ่มเข้าครังของคุณแล้ว");
+                $database->customResult(message: "คูปองได้ถูกเพิ่มเข้าคลังของคุณแล้ว");
 
+                break;
+            }
+            case 'buycoupon': {
+                while (true) {
+                    $code = randomCode(7);
+                    $database->custom("SELECT code FROM `user_discount` WHERE code = '{$code}'");
+                    if ($database->getResult()['result'] == 0){
+                        $database->customResult(result: 1);
+                        break;
+                    }
+                }
+                date_default_timezone_set("Asia/Bangkok");
+                $date=date_create();
+                date_modify($date,"+1 years");
+                $expire = date_format($date,"Y-m-d H:i:s");
+                $database->custom("INSERT INTO `user_discount`(`userID`, `menuID`, `discount`, `code`, `expire`) VALUES ('{$_SESSION["userID"]}','{$_POST["menuID"]}','{$_POST["discount"]}','{$code}','{$expire}')");
+                $_SESSION['points'] = $_SESSION['points'] - (int)$_POST['cost'];
+                $database->custom("UPDATE `users` SET `points`= {$_SESSION['points']}");
+                $database->customResult(message: "คูปองได้ถูกเพิ่มเข้าคลังของคุณแล้ว");
                 break;
             }
         default: {
