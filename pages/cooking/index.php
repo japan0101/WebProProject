@@ -78,77 +78,21 @@
                     <!-- Order element -->
                     <?php
                     $order_id = 0;
-                    // Loop through list of orders
+                    for($i = 0; $i < 5; $i++){
                     ?>
                     <div class="w-1/4 border bg-gray m-1 px-1 flex-none">
-                        <p class="text-2xl">จากโต๊ะที่: <?php $order_table ?></p>
+                        <p class="text-2xl">จากโต๊ะที่: <?php echo $i ?></p>
                         <p class="text-2xl">รายการอาหารที่สั่ง: </p>
                         <hr>
                         <div class="max-h-96 overflow-y-auto menu-content px-3">
                             <div class="menu-content overflow-y-auto">
-                                <?php // Loop through each menu item in this order 
+                                <?php for($j = 0; $j < 5; $j++){ 
                                 ?> 
                                 <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 1</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 2</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 3</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 4</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 5</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 6</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 7</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 8</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 9</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 10</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 11</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 12</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 13</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 14</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 15</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 16</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 17</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 18</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 19</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 20</p>
+                                    <p class="text-xl">Menu item <?php echo $j;?></p>
                                 </div>
                                 <!-- Add more menu items here -->
+                                <?php } ?>
                             </div>
                             <!-- More menu items -->
                         </div>
@@ -166,7 +110,9 @@
                                 <p class="text-center">Done</p>
                             </button>
                         </div>
+                        
                     </div>
+                    <?php } ?>
                 </div>
             </div>
             <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
@@ -174,76 +120,19 @@
                     <!-- Order element -->
                     <?php
                     $order_id = 0;
-                    // Loop through list of orders
-                    ?>
+                    for($i = 0; $i < 5; $i++){?>
                     <div class="w-1/4 border bg-gray m-1 px-1 flex-none">
                         <p class="text-2xl">จากโต๊ะที่: <?php $order_table ?></p>
                         <p class="text-2xl">รายการอาหารที่สั่ง: </p>
                         <hr>
                         <div class="max-h-96 overflow-y-auto menu-content px-3">
                             <div class="menu-content overflow-y-auto">
-                                <?php // Loop through each menu item in this order 
+                                <?php for($j = 0; $j<5; $j++){ 
                                 ?> 
                                 <div class="snap-start mt-3">
                                     <p class="text-xl">Menu item 1</p>
                                 </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 2</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 3</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 4</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 5</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 6</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 7</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 8</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 9</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 10</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 11</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 12</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 13</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 14</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 15</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 16</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 17</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 18</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 19</p>
-                                </div>
-                                <div class="snap-start mt-3">
-                                    <p class="text-xl">Menu item 20</p>
-                                </div>
+                                <?php } ?>
                                 <!-- Add more menu items here -->
                             </div>
                             <!-- More menu items -->
@@ -263,6 +152,8 @@
                             </button>
                         </div>
                     </div>
+                    <?php } ?>
+                    
                 </div>
             </div>
         </div>
