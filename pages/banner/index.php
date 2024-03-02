@@ -27,10 +27,7 @@ if (isset($_SESSION['memberName'])) { ?>
                 role="tablist" data-te-nav-ref>
               <!-- Selector -->
               <li role="presentation" class="flex-grow text-center">
-                <a href="#tabs-home03"
-                   class="my-2 block border-x-0 border-b-2 border-t-0  px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-                   data-te-toggle="pill" data-te-target="#tabs-home03" data-te-nav-active role="tab"
-                   aria-controls="tabs-home03" aria-selected="true">แต้มของคุณ</a>
+                <a href="#tabs-home03" class="my-2 block border-x-0 data-[te-nav-active]:border-b-2 border-t-0  px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" data-te-toggle="pill" data-te-target="#tabs-home03" data-te-nav-active role="tab" aria-controls="tabs-home03" aria-selected="true">แต้มของคุณ</a>
               </li>
 
             </ul>
@@ -146,7 +143,9 @@ if (isset($_SESSION['memberName'])) { ?>
             </div>
         </div>
     </div>
-
+    <form action="/backend/database/customer.php" method="post" id="getCoupon">
+      <input type="hidden" name="case" value="generateCoupon">
+    </form>
     <script>
         fetch("/backend/database/customer.php?case=banner").then(e => e.json()).then(payload => {
             selectorContainer = document.getElementById('bannerSel');
@@ -156,17 +155,17 @@ if (isset($_SESSION['memberName'])) { ?>
                 selList.setAttribute('role', 'presentation');
                 selList.className = 'flex-grow text-center'
 
-                selector = document.createElement('a');
-                selector.className = "my-2 block border-x-0 border-b-2 border-t-0  px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-                selector.setAttribute('href', bannerObj['name'].concat('-tab'));
-                selector.setAttribute('data-te-toggle', 'pill');
-                selector.setAttribute('data-te-target', '#' + 'tab-' + bannerObj['gachaID']);
-                selector.setAttribute('role', 'tab');
-                selector.setAttribute('aria-controls', 'tab-' + bannerObj['gachaID']);
-                selector.setAttribute('aria-selected', 'true');
-                selector.innerHTML = bannerObj['name']
-                selList.appendChild(selector);
-                selectorContainer.appendChild(selList);
+          selector = document.createElement('a');
+          selector.className = "my-2 block border-x-0 data-[te-nav-active]:border-b-2 border-t-0  px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+          selector.setAttribute('href', bannerObj['name'].concat('-tab'));
+          selector.setAttribute('data-te-toggle', 'pill');
+          selector.setAttribute('data-te-target', '#' + 'tab-' + bannerObj['gachaID']);
+          selector.setAttribute('role', 'tab');
+          selector.setAttribute('aria-controls', 'tab-' + bannerObj['gachaID']);
+          selector.setAttribute('aria-selected', 'true');
+          selector.innerHTML = bannerObj['name']
+          selList.appendChild(selector);
+          selectorContainer.appendChild(selList);
 
                 contentBody = document.createElement('div');
                 contentBody.className = "hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block";
@@ -193,12 +192,12 @@ if (isset($_SESSION['memberName'])) { ?>
                 buttonsNode = document.createElement('div');
                 buttonsNode.className = "flex justify-center items-center"
 
-                randButton = document.createElement('button');
-                randButton.setAttribute('type', 'button');
-                randButton.className = "inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                randButton.setAttribute("data-te-ripple-init", "");
-                randButton.setAttribute('onclick', 'randomCoupon(' + bannerObj['gachaID'] + ')')
-                randButton.innerHTML = "สุ่มบัตรลด"
+          randButton = document.createElement('button');
+          randButton.setAttribute('type', 'button');
+          randButton.className = "inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+          randButton.setAttribute("data-te-ripple-init", "");
+          randButton.setAttribute('onclick', 'randomCoupon(' + bannerObj['gachaID'] + ', ' + bannerObj['cost'] + ')')
+          randButton.innerHTML = "สุ่มบัตรลด"
 
                 probButton = document.createElement('button');
                 probButton.setAttribute('type', 'button');
@@ -298,31 +297,30 @@ if (isset($_SESSION['memberName'])) { ?>
                 tableBody = document.createElement('tbody');
                 tableBody.id = "table_body_" + bannerObj['gachaID']
 
-                modalContainer1.appendChild(modalContainer2);
-                modalContainer2.appendChild(modalContainer3);
-                modalContainer3.appendChild(modalTitleCon);
-                modalTitleCon.appendChild(modalTitle);
-                modalTitleCon.appendChild(exitModalBtn);
-                modalContainer3.appendChild(modalBodyCon1);
-                modalBodyCon1.appendChild(modalBodyCon2);
-                modalBodyCon2.appendChild(modalBodyCon3);
-                modalBodyCon3.appendChild(modalBodyCon4);
-                modalBodyCon4.appendChild(modalBodyCon5);
-                modalBodyCon5.appendChild(rates);
-                modalBodyCon5.appendChild(table);
-                table.appendChild(tableHead);
-                tableHead.appendChild(headRow);
-                headRow.appendChild(headId);
-                headRow.appendChild(headRa);
-                headRow.appendChild(headMe);
-                headRow.appendChild(headDi);
-                table.appendChild(tableBody);
-                document.body.appendChild(modalContainer1)
-            });
-            fetch("/backend/database/customer.php?case=getrate").then(e => e.json()).then(payload => {
-                payload.forEach(itemObj => {
-                    console.log(itemObj)
-                    table = document.getElementById("table_body_" + itemObj['gachaID']);
+          modalContainer1.appendChild(modalContainer2);
+          modalContainer2.appendChild(modalContainer3);
+          modalContainer3.appendChild(modalTitleCon);
+          modalTitleCon.appendChild(modalTitle);
+          modalTitleCon.appendChild(exitModalBtn);
+          modalContainer3.appendChild(modalBodyCon1);
+          modalBodyCon1.appendChild(modalBodyCon2);
+          modalBodyCon2.appendChild(modalBodyCon3);
+          modalBodyCon3.appendChild(modalBodyCon4);
+          modalBodyCon4.appendChild(modalBodyCon5);
+          modalBodyCon5.appendChild(rates);
+          modalBodyCon5.appendChild(table);
+          table.appendChild(tableHead);
+          tableHead.appendChild(headRow);
+          headRow.appendChild(headId);
+          headRow.appendChild(headRa);
+          headRow.appendChild(headMe);
+          headRow.appendChild(headDi);
+          table.appendChild(tableBody);
+          document.body.appendChild(modalContainer1)
+        });
+        fetch("/backend/database/customer.php?case=getrate").then(e => e.json()).then(payload => {
+          payload.forEach(itemObj => {
+            table = document.getElementById("table_body_" + itemObj['gachaID']);
 
                     row = document.createElement('tr');
                     row.className = "border-b dark:border-neutral-500"
@@ -369,35 +367,80 @@ if (isset($_SESSION['memberName'])) { ?>
             }
         }
 
-        function randomCoupon(banner_id) {
-            rarity = randomRarity();
-            Swal.fire({
-                title: "คุณได้รับ",
-                text: "คูปองระดับ " + rarity,
-                confirmButtonColor: "#3085d6",
-                confirmButtonText: "ดูเมนูที่ได้รับ"
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    fetch("/backend/database/customer.php?case=getgachaitem&banner_id=" + banner_id + "&rarity='" + rarity + "'").then(e => e.json()).then(payload => {
-                        recieved = payload[Math.floor(Math.random() * payload.length)];
-                        Swal.fire({
-                            title: "คูปองของคุณ",
-                            text: "ใช้ลดราคา " + recieved['menuName'] + " " + recieved['discount'] * 100 + " %",
-                            icon: "info",
-                            confirmButtonColor: "#3085d6",
-                            confirmButtonText: "รับคูปอง"
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-
-                            }
-                        })
-                    });
-                }
-            });
+      function randomCoupon(banner_id, cost) {
+        if (<?php echo $_SESSION['points'] ?> >= cost) {
+          rarity = randomRarity();
+          Swal.fire({
+            title: "คุณได้รับ",
+            text: "คูปองระดับ " + rarity,
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "ดูเมนูที่ได้รับ",
+            allowOutsideClick: false
+          }).then((result) => {
+            if (result.isConfirmed) {
+              fetch("/backend/database/customer.php?case=getgachaitem&banner_id=" + banner_id + "&rarity='" + rarity + "'").then(e => e.json()).then(payload => {
+                recieved = payload[Math.floor(Math.random() * payload.length)];
+                Swal.fire({
+                  title: "คูปองของคุณ",
+                  text: "ใช้ลดราคา " + recieved['menuName'] + " " + recieved['discount'] * 100 + " %",
+                  icon: "info",
+                  confirmButtonColor: "#3085d6",
+                  confirmButtonText: "รับคูปอง",
+                  allowOutsideClick: false
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    const form = document.getElementById('getCoupon');
+                    let disc = document.createElement("input")
+                    disc.name = "discount"
+                    disc.value = recieved['discount']
+                    disc.className = "hidden"
+                    let menu = document.createElement("input")
+                    menu.name = "menuID"
+                    menu.value = recieved['menuID']
+                    menu.className = "hidden"
+                    let costInput = document.createElement("input")
+                    costInput.name = "cost"
+                    costInput.value = cost
+                    costInput.className = "hidden"
+                    form.append(disc)
+                    form.append(menu)
+                    form.append(costInput)
+                    form.submit()
+                  }
+                })
+              });
+            }
+          });
         }
+
+      }
     </script>
-<?php
-} else { ?>
+    <?php
+    if (isset($_SESSION['result'])) { ?>
+      <script>
+        <?php $fire = false; ?>
+        <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "generateCoupon")) { ?>
+          Toast.fire({
+            icon: "success",
+            title: "<?php echo $_SESSION['result']['message']; ?>",
+          });
+          <?php $fire = true; ?>
+
+        <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "generateCoupon")) { ?>
+          Toast.fire({
+            icon: "error",
+            title: "<?php echo $_SESSION['result']['message']; ?>",
+          })
+        <?php $fire = true;
+        } ?>
+
+        <?php if ($fire)
+          unset($_SESSION['result']); ?>
+      </script>
+    <?php
+    } ?>
+  <?php
+  } else { ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/assets/scripts/sweetalert.js"></script>
     <script>
@@ -407,11 +450,12 @@ if (isset($_SESSION['memberName'])) { ?>
             text: "คุณยังไม่ได้เข้าสู่ระบบ"
         });
     </script>
-    <?php
-} ?>
 
-<?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+
+  <?php
+  } ?>
+  <?php
+  include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 </body>
 
