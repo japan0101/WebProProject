@@ -17,13 +17,16 @@
 <body>
 <?php
 
-    $isAuth = isset($_SESSION['memberName']);
-    if (!$isAuth) { ?>
-        echo '
-        <div class="relative mb-5" data-te-input-wrapper-init>
-            <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" name="credential" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email" />
-            <label for="loginEmail" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์</label>
-        </div>
+$isAuth = isset($_SESSION['memberName']);
+if (!$isAuth) { ?>
+    echo '
+    <div class="relative mb-5" data-te-input-wrapper-init>
+        <input type="text"
+               class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+               name="credential" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
+        <label for="loginEmail"
+               class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์</label>
+    </div>
 
     <!--Password input-->
     <div class="relative mb-2" data-te-input-wrapper-init>
@@ -106,7 +109,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
                                             echo $j; ?></p>
                                     </div>
                                     <!-- Add more menu items here -->
-                                <?php
+                                    <?php
                                 } ?>
                             </div>
                             <!-- More menu items -->
@@ -134,7 +137,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
                         </div>
 
                     </div>
-                <?php
+                    <?php
                 } ?>
             </div>
         </div>
@@ -159,7 +162,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
                                     <div class="snap-start mt-3">
                                         <p class="text-xl">Menu item 1</p>
                                     </div>
-                                <?php
+                                    <?php
                                 } ?>
                                 <!-- Add more menu items here -->
                             </div>
@@ -187,7 +190,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
                             </button>
                         </div>
                     </div>
-                <?php
+                    <?php
                 } ?>
 
             </div>

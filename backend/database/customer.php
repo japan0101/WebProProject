@@ -9,73 +9,76 @@ $redirect = "Location: ";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     switch ($_POST["case"]) {
 
-        case 'tableCheck': {
-                // ต้องการ code
+        case 'tableCheck':
+        {
+            // ต้องการ code
 
-                $database->custom("SELECT tableID, userID FROM tables WHERE code='{$_POST['code']}' LIMIT 1");
+            $database->custom("SELECT tableID, userID FROM tables WHERE code='{$_POST['code']}' LIMIT 1");
+            if ($database->getResult()['result']) {
+
+                $id = $database->getResult()['payload'][0]->tableID;
+
+                // เช็คว่ามีคนแล้วหรือยัง
+                if (is_null($database->getResult()['payload'][0]->userID) && $_SESSION['userID'] != 'null') {
+                    $database->update("tables", array("userID" => $_SESSION['userID']), "code='{$_POST['code']}'");
+                }
+
+                // เช็คว่าทำงานได้หรือไม่
+                if ($database->getResult()['result'])
+                    $database->customResult(message: "คุณอยู่ที่โต๊ะ $id");
+
+                setcookie("tableID", $id, time() + 60 * 60 * 6, '/pages/order');
+                setcookie("tablecode", $_POST['code'], time() + 60 * 60 * 6, '/pages/order');
+
+                setcookie("tableID", $id, time() + 60 * 60 * 6, '/backend/database/customer.php');
+                setcookie("tablecode", $_POST['code'], time() + 60 * 60 * 6, '/backend/database/customer.php');
+            } else {
+
+                $database->customResult(message: "ใส่โค้ดไม่ถูกต้อง");
+            }
+            break;
+        }
+        case 'orderFood':
+        {
+            // ต้อง menu(array keyvalue)
+            $_POST['menu'] = json_decode($_POST['menu']);
+
+            if (isset($_COOKIE['tableID']) && isset($_COOKIE['tablecode'])) {
+
+                $database->custom("SELECT tableID FROM tables WHERE tableID={$_COOKIE['tableID']} AND code='{$_COOKIE['tablecode']}'");
                 if ($database->getResult()['result']) {
 
-                    $id = $database->getResult()['payload'][0]->tableID;
-
-                    // เช็คว่ามีคนแล้วหรือยัง
-                    if (is_null($database->getResult()['payload'][0]->userID) && $_SESSION['userID'] != 'null') {
-                        $database->update("tables", array("userID" => $_SESSION['userID']), "code='{$_POST['code']}'");
+                    foreach ($_POST['menu'] as $item) {
+                        $database->insert("orders", array("tableID" => $_COOKIE['tableID'], "menuID" => $item->menuId, "amount" => $item->amount));
                     }
-
-                    // เช็คว่าทำงานได้หรือไม่
-                    if ($database->getResult()['result'])
-                        $database->customResult(message: "คุณอยู่ที่โต๊ะ $id");
-
-                    setcookie("tableID", $id, time() + 60 * 60 * 6, '/pages/order');
-                    setcookie("tablecode", $_POST['code'], time() + 60 * 60 * 6, '/pages/order');
-
-                    setcookie("tableID", $id, time() + 60 * 60 * 6, '/backend/database/customer.php');
-                    setcookie("tablecode", $_POST['code'], time() + 60 * 60 * 6, '/backend/database/customer.php');
+                    $database->customResult(message: "สั่งอาหารสำเร็จ");
                 } else {
 
-                    $database->customResult(message: "ใส่โค้ดไม่ถูกต้อง");
-                }
-                break;
-            }
-        case 'orderFood': {
-                // ต้อง menu(array keyvalue)
-                $_POST['menu'] = json_decode($_POST['menu']);
-
-                if (isset($_COOKIE['tableID']) && isset($_COOKIE['tablecode'])) {
-
-                    $database->custom("SELECT tableID FROM tables WHERE tableID={$_COOKIE['tableID']} AND code='{$_COOKIE['tablecode']}'");
-                    if ($database->getResult()['result']) {
-
-                        foreach ($_POST['menu'] as $item) {
-                            $database->insert("orders", array("tableID" => $_COOKIE['tableID'], "menuID" => $item->menuId, "amount" => $item->amount));
-                        }
-                        $database->customResult(message: "สั่งอาหารสำเร็จ");
-                    } else {
-
-                        setcookie("tableID", $id, time() - 60 * 60 * 4, '/pages/order');
-                        setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/pages/order');
-
-                        setcookie("tableID", $id, time() - 60 * 60 * 6, '/backend/database/customer.php');
-                        setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/backend/database/customer.php');
-
-                        $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะใหม่อีกครั้ง");
-                    }
-                } else {
-                    
-                    setcookie("tableID", $id, time() - 60 * 60 * 6, '/pages/order');
-                    setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/pages/order');
+                    setcookie("tableID", $id, time() - 60 * 60 * 4, '/pages/order');
+                    setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/pages/order');
 
                     setcookie("tableID", $id, time() - 60 * 60 * 6, '/backend/database/customer.php');
-                    setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/backend/database/customer.php');
+                    setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/backend/database/customer.php');
 
-                    $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะ");
+                    $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะใหม่อีกครั้ง");
                 }
-                break;
+            } else {
+
+                setcookie("tableID", $id, time() - 60 * 60 * 6, '/pages/order');
+                setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/pages/order');
+
+                setcookie("tableID", $id, time() - 60 * 60 * 6, '/backend/database/customer.php');
+                setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/backend/database/customer.php');
+
+                $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะ");
             }
-        default: {
-                $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
-                break;
-            }
+            break;
+        }
+        default:
+        {
+            $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
+            break;
+        }
     }
 
     $redirect .= $_SERVER['HTTP_REFERER'];
