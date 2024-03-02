@@ -13,6 +13,58 @@ session_start(); ?>
 </head>
 
 <body>
+    <!--Pills navigation-->
+    <div class="flex items-start">
+        <ul class="mr-4 flex list-none flex-col flex-wrap pl-0" role="tablist" data-te-nav-ref>
+            
+            <!-- ข้อมูลส่วนตัว -->
+            <li role="presentation" class="flex-grow text-center">
+                <a href="#tabs-details" class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700" 
+                id="pills-home-tab03" 
+                data-te-toggle="pill" 
+                data-te-target="#tabs-details" 
+                data-te-nav-active role="tab" 
+                aria-controls="tabs-details" 
+                aria-selected="true">ข้อมูลส่วนตัว</a>
+            </li>
+
+            <!-- แก้ไขข้อมูลส่วนตัว -->
+            <li role="profile" class="flex-grow text-center">
+                <a href="#tabs-edit" class="my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" 
+                data-te-toggle="pill" 
+                data-te-target="#tabs-edit" 
+                role="tab" 
+                aria-controls="tabs-edit" 
+                aria-selected="false">แก้ไขข้อมูลส่วนตัว</a>
+            </li>
+
+            <!-- เปลี่ยนรหัสผ่าน -->
+            <li role="contact" class="flex-grow text-center">
+                <a href="#tabs-changePass" class="my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" 
+                data-te-toggle="pill" 
+                data-te-target="#tabs-changePass" 
+                role="tab" 
+                aria-controls="tabs-changePass" 
+                aria-selected="false">เปลี่ยนรหัสผ่าน</a>
+            </li>
+        </ul>
+
+        <!--Pills content-->
+        <div class="my-2">
+            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-details" role="tabpanel" aria-labelledby="tabs-detail-tab" data-te-tab-active>
+                Tab 1 content vertical
+            </div>
+            <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-edit" role="tabpanel" aria-labelledby="pills-profile-tab03">
+                Tab 2 content vertical
+            </div>
+            <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="pills-contact03" role="tabpanel" aria-labelledby="pills-contact-tab03">
+                Tab 3 content vertical
+            </div>
+            <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="pills-disabled03" role="tabpanel" aria-labelledby="pills-disabled-tab03">
+                Tab 4 disabled vertical
+            </div>
+        </div>
+    </div>
 
     <div class="m-5">
         <!-- เพิ่มโต๊ะ Manager -->
@@ -250,12 +302,12 @@ session_start(); ?>
             </thead>
             <tbody>
             EOF;
-            foreach ($database->getResult()['payload'] as $item){
+            foreach ($database->getResult()['payload'] as $item) {
                 // echo json_encode($item);
                 echo "<tr>";
-                foreach ($item as $key => $value){
-                    if ($key != "userID")echo "<td>{$value}</td>";
-                    else{
+                foreach ($item as $key => $value) {
+                    if ($key != "userID") echo "<td>{$value}</td>";
+                    else {
                         if ($item->status == "ACTIVE") echo "<td><button type='button' class='inline-block rounded bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]' onclick='change_status(this, {$item->userID})'>ระงับบัญชี</button></td>";
                         else echo "<td><button type='button' class='inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]' onclick='change_status(this, {$item->userID})'>เปิดใช้งาน</button></td>";
                         echo "<td><button type='button' class='inline-block rounded bg-info px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]' onclick='change_passwd(this, {$item->userID})'>รีเซ็ตรหัสผ่าน</button></td>";
@@ -421,18 +473,18 @@ session_start(); ?>
         }
     </script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/scripts/sweetalert.js"></script>
-<?php
-if (isset($_SESSION['result'])) { ?>
-    <script>
-        <?php $fire = false; ?>
-        <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "insertTable")) { ?>
-        Toast.fire({
-            icon: "success",
-            title: "<?php echo $_SESSION['result']['message']; ?>",
-        });
-        <?php $fire = true; ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/assets/scripts/sweetalert.js"></script>
+    <?php
+    if (isset($_SESSION['result'])) { ?>
+        <script>
+            <?php $fire = false; ?>
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "insertTable")) { ?>
+                Toast.fire({
+                    icon: "success",
+                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                });
+                <?php $fire = true; ?>
 
             <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "insertTable")) { ?>
                 Toast.fire({
@@ -507,14 +559,14 @@ if (isset($_SESSION['result'])) { ?>
             } ?>
 
 
-        <?php if ($fire)
-            unset($_SESSION['result']) ?>
-    </script>
+            <?php if ($fire)
+                unset($_SESSION['result']) ?>
+        </script>
     <?php
-} ?>
+    } ?>
 
-<?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 </body>
 

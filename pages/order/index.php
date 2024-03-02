@@ -90,7 +90,7 @@ session_start();
                     <ul class="mr-4 flex list-none sm:flex-col overflow-x-auto pl-0" id="bannerSel" role="tablist" data-te-nav-ref="">
                         <!-- Selector -->
                         <li role="presentation" class="flex-grow text-center">
-                            <a href="#allCoupon" class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" data-te-toggle="pill" data-te-target="#allCoupon" data-te-nav-active role="tab" aria-controls="allCoupon" aria-selected="true">All</a>
+                            <a href="#allCoupon" class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700" data-te-toggle="pill" data-te-target="#allCoupon" data-te-nav-active role="tab" aria-controls="allCoupon" aria-selected="true">All</a>
                         </li>
                     </ul>
                     <!-- Coupon Container -->
@@ -124,7 +124,7 @@ session_start();
                     selList.className = 'flex-grow text-center'
 
                     selector = document.createElement('a');
-                    selector.className = "my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+                    selector.className = "my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
                     selector.setAttribute('href', 'tab-' + menuObj['categoryID']);
                     selector.setAttribute('data-te-toggle', 'pill');
                     selector.setAttribute('data-te-target', '#' + 'tab-' + menuObj['categoryID']);
