@@ -52,11 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         $database->customResult(message: "สั่งอาหารสำเร็จ");
                     } else {
 
-                        setcookie("tableID", $id, time() - 60 * 60 * 6, '/pages/order');
-                        setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/pages/order');
+                        setcookie("tableID", $id, time() - 60 * 60 * 4, '/pages/order');
+                        setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/pages/order');
 
                         setcookie("tableID", $id, time() - 60 * 60 * 6, '/backend/database/customer.php');
-                        setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/backend/database/customer.php');
+                        setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/backend/database/customer.php');
 
                         $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะใหม่อีกครั้ง");
                     }
