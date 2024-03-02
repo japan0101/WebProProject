@@ -233,8 +233,8 @@ if (!$isAuth) { ?>
                 let col2 = document.createElement('td');
                 let col1 = document.createElement('td');
                 col3.innerHTML = '<form><button data-te-ripple-init data-te-ripple-color="light" class="px-3 py-2 rounded-lg bg-primary text-white" onclick="delque('+queueItem.queue_number+')">เรียกคิวแล้ว</button></form>'
-                col1.innerHTML = '<p scope="col" class="px-6 py-4">'+queueItem.queue_number+'</p>';
-                col2.innerHTML = '<p scope="col" class="px-6 py-4">'+queueItem.customer_amount+'</p>';
+                col1.innerHTML = '<p scope="col" class="px-6 py-4">'+queueItem.customer_amount+'</p>';
+                col2.innerHTML = '<p scope="col" class="px-6 py-4">'+queueItem.queue_number+'</p>';
                 let row = document.createElement('tr');
                 row.append(col1);
                 row.append(col2);
