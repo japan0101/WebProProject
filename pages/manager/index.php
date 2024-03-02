@@ -1,6 +1,8 @@
-<?php session_start();
+<?php
+session_start();
 if (isset($_SESSION['role'])) {
-    if ($_SESSION['role'] != "MANAGER") header("Location: ./../../");
+    if ($_SESSION['role'] != "MANAGER")
+        header("Location: ./../../");
 } else header("Location: ./../../");
 ?>
 
@@ -17,13 +19,12 @@ if (isset($_SESSION['role'])) {
 </head>
 
 <body>
-    <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
 
 
-
-    <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 </body>
 
 </html>

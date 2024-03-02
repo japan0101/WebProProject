@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($database->getResult()['result'])
                     $database->customResult(message: "คุณอยู่ที่โต๊ะ $id");
 
-                setcookie("tableID", $id, time()+60*60*6);
-                setcookie("tablecode", $_POST['code'], time()+60*60*6);
+                setcookie("tableID", $id, time() + 60 * 60 * 6);
+                setcookie("tablecode", $_POST['code'], time() + 60 * 60 * 6);
             } else {
 
                 $database->customResult(message: "ใส่โค้ดไม่ถูกต้อง");

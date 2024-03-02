@@ -9,7 +9,7 @@ class Database {
     private $conn;
 
     public function __construct() {
-        $this->hostname = "localhost";
+        $this->hostname = "127.0.0.1";
         $this->username = "bess1123";
         $this->password = "123456789";
         $this->database = "laewtaeapp";
