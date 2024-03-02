@@ -27,7 +27,7 @@ if (isset($_SESSION['role'])) {
     <main class="">
         <section class="body_container top-item flex flex-col gap-6">
             <!-- ตาราง Create -->
-            <div class="flex flex-row blur-effect container_rounded bg-white">
+            <div class="flex md:flex-row sm:flex-col flex-col blur-effect container_rounded bg-white gap-3">
                 <!-- Create Menu -->
                 <div class="flex-1">
                     <form class="" action="/backend/database/manager.php" method="post" enctype="multipart/form-data">
@@ -73,7 +73,7 @@ if (isset($_SESSION['role'])) {
 
                 <!-- Create Category Menu -->
                 <div class="flex-1">
-                    <form class="m-3" action="/backend/database/manager.php" method="post">
+                    <form action="/backend/database/manager.php" method="post">
                         <h2 class="text-2xl">Create Category Menu</h2>
 
                         <div class="relative mb-3" data-te-input-wrapper-init>
@@ -87,41 +87,45 @@ if (isset($_SESSION['role'])) {
                         </button>
                     </form>
 
+                </div>
+            </div>
 
+            <div class="flex flex-col gap-6">
+                
+                <div class="flex flex-col overflow-x-auto blur-effect container_rounded bg-white">
+                    <div class="sm:-mx-6 lg:-mx-8">
+                        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full text-left text-sm font-light" id="display2">
+                                    <thead class="border-b font-medium dark:border-neutral-500">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-4">ชื่อประเภท</th>
+                                            <th scope="col" class="px-6 py-4">ชื่อเมนู</th>
+                                            <th scope="col" class="px-6 py-4">ราคา</th>
+                                            <th scope="col" class="px-6 py-4">คำอธิบาย</th>
+                                            <th scope="col" class="px-6 py-4">รูปภาพเมนู</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-1 blur-effect container_rounded bg-white">
+                    <h2 class="text-2xl">Menu Category</h2>
                     <div class="m-3">
-                        <table class="min-w-full text-left text-sm font-light" id="display_category">
+                        <table class="table-auto text-left text-sm font-light" id="display_category">
                             <tr class="border-b font-medium dark:border-neutral-500">
                                 <th scope="col" class="px-6 py-4">ประเภทเมนู</th>
                             </tr>
                         </table>
                     </div>
-
                 </div>
             </div>
 
-            <div class="blur-effect container_rounded bg-white">
-                <h2 class="text-2xl">Menu</h2>
-                <table class="min-w-full text-left text-sm font-light" id="display2">
-                    <tr class="border-b font-medium dark:border-neutral-500">
-                        <th scope="col" class="px-6 py-4">ชื่อประเภท</th>
-                        <th scope="col" class="px-6 py-4">ชื่อเมนู</th>
-                        <th scope="col" class="px-6 py-4">ราคา</th>
-                        <th scope="col" class="px-6 py-4">คำอธิบาย</th>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="blur-effect container_rounded bg-white">
-                <h2 class="text-2xl">Menu</h2>
-                <table class="min-w-full text-left text-sm font-light" id="display2">
-                    <tr class="border-b font-medium dark:border-neutral-500">
-                        <th scope="col" class="px-6 py-4">ชื่อประเภท</th>
-                        <th scope="col" class="px-6 py-4">ชื่อเมนู</th>
-                        <th scope="col" class="px-6 py-4">ราคา</th>
-                        <th scope="col" class="px-6 py-4">คำอธิบาย</th>
-                    </tr>
-                </table>
-            </div>
         </section>
     </main>
 
@@ -154,9 +158,10 @@ if (isset($_SESSION['role'])) {
             console.log(payload)
             payload.forEach(item => {
                 let row = TBDisplay2.insertRow(-1)
+                row.className = "border-b dark:border-neutral-500"
 
                 let col = row.insertCell(-1)
-                col.className = "whitespace-nowrap px-6 py-4"
+                col.className = "whitespace-nowrap px-6 py-4 font-medium"
                 col.innerHTML = item['categoryName']
 
                 col = row.insertCell(-1)
