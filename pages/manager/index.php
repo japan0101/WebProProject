@@ -13,12 +13,15 @@ if (isset($_SESSION['role'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LaewTaeApp (Manager)</title>
+    <link rel="stylesheet" href="/assets/stylesheets/global.css">
+    <link rel="stylesheet" href="/assets/stylesheets/developers.css">
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/WebProProject/assets/scripts/tailwind.php") ?>
 </head>
 
-<body>
+<body style="background-color: red">
+
 <?php
 include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
 
