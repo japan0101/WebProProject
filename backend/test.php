@@ -164,12 +164,6 @@ session_start(); ?>
         Click me
     </button>
 
-    <script>
-        function fetch(id){
-            console.log(id)
-        }
-    </script>
-
     <!-- Fetch Table -->
     <script>
         const TBDisplay = document.getElementById("display1")

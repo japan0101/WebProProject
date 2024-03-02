@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="/assets/stylesheets/navbar.css">
 <link rel="stylesheet" href="/assets/stylesheets/global.css">
 <header>
-    <nav id="navbar" style=""
+    <nav id="navbar"
          class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
         <div id="navbar-body" class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
             <!-- Hamburger button for mobile view -->
