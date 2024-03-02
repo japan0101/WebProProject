@@ -24,6 +24,9 @@ if (isset($_SESSION['role'])) {
 
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/assets/scripts/sweetalert.js"></script>
+    
 </body>
 
 </html>
