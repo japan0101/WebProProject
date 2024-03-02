@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" || $isCookie) {
             $database->customResult(message: "เข้าสู่ระบบเสร็จสิ้น", type: "login");
             if ($_SESSION['role'] == 'STAFF') {
                 $redirect .= "./../../pages/staff";
-            } else if ($_SESSION['role'] == 'MANAGER'){
+            } else if ($_SESSION['role'] == 'MANAGER') {
                 $redirect .= "./../../pages/manager";
             } else {
                 $redirect .= $_SERVER['HTTP_REFERER'];
