@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($database->getResult()['result'])
                     $database->customResult(message: "คุณอยู่ที่โต๊ะ $id");
 
-                $_SESSION['tableID'] = $id;
-                $_SESSION['tablecode'] = $_POST['code'];
+                setcookie("tableID", $id, time()+60*60*6);
+                setcookie("tablecode", $_POST['code'], time()+60*60*6);
             } else {
 
                 $database->customResult(message: "ใส่โค้ดไม่ถูกต้อง");
@@ -37,13 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         case 'orderFood':
         {
             // ต้อง menu(array keyvalue)
-            if (isset($_SESSION['tableID']) && isset($_SESSION['tablecode'])) {
+            if (isset($_COOKIE['tableID']) && isset($_COOKIE['tablecode'])) {
 
-                $database->custom("SELECT tableID FROM tables WHERE tableID={$_SESSION['tableID']} AND code='{$_SESSION['tablecode']}'");
+                $database->custom("SELECT tableID FROM tables WHERE tableID={$_COOKIE['tableID']} AND code='{$_COOKIE['tablecode']}'");
                 if ($database->getResult()['result']) {
 
-                    foreach ($_POST['menu'] as $key => $value) {
-                        $database->insert("orders", array("tableID" => $_SESSION['tableID'], "menuID" => $key, "amount" => $value));
+                    foreach ($_POST['menu'] as $menuID => $amount) {
+                        $database->insert("orders", array("tableID" => $_COOKIE['tableID'], "menuID" => $menuID, "amount" => $amount));
                     }
                     $database->customResult(message: "สั่งอาหารสำเร็จ");
                 } else {

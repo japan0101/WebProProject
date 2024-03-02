@@ -13,59 +13,6 @@ session_start(); ?>
 </head>
 
 <body>
-    <!--Pills navigation-->
-    <div class="flex items-start">
-        <ul class="mr-4 flex list-none flex-col flex-wrap pl-0" role="tablist" data-te-nav-ref>
-            
-            <!-- ข้อมูลส่วนตัว -->
-            <li role="presentation" class="flex-grow text-center">
-                <a href="#tabs-details" class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700" 
-                id="pills-home-tab03" 
-                data-te-toggle="pill" 
-                data-te-target="#tabs-details" 
-                data-te-nav-active role="tab" 
-                aria-controls="tabs-details" 
-                aria-selected="true">ข้อมูลส่วนตัว</a>
-            </li>
-
-            <!-- แก้ไขข้อมูลส่วนตัว -->
-            <li role="profile" class="flex-grow text-center">
-                <a href="#tabs-edit" class="my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" 
-                data-te-toggle="pill" 
-                data-te-target="#tabs-edit" 
-                role="tab" 
-                aria-controls="tabs-edit" 
-                aria-selected="false">แก้ไขข้อมูลส่วนตัว</a>
-            </li>
-
-            <!-- เปลี่ยนรหัสผ่าน -->
-            <li role="contact" class="flex-grow text-center">
-                <a href="#tabs-changePass" class="my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" 
-                data-te-toggle="pill" 
-                data-te-target="#tabs-changePass" 
-                role="tab" 
-                aria-controls="tabs-changePass" 
-                aria-selected="false">เปลี่ยนรหัสผ่าน</a>
-            </li>
-        </ul>
-
-        <!--Pills content-->
-        <div class="my-2">
-            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-details" role="tabpanel" aria-labelledby="tabs-detail-tab" data-te-tab-active>
-                Tab 1 content vertical
-            </div>
-            <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-edit" role="tabpanel" aria-labelledby="pills-profile-tab03">
-                Tab 2 content vertical
-            </div>
-            <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="pills-contact03" role="tabpanel" aria-labelledby="pills-contact-tab03">
-                Tab 3 content vertical
-            </div>
-            <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="pills-disabled03" role="tabpanel" aria-labelledby="pills-disabled-tab03">
-                Tab 4 disabled vertical
-            </div>
-        </div>
-    </div>
-
     <div class="m-5">
         <!-- เพิ่มโต๊ะ Manager -->
         <h1 class="text-3xl">Manager</h1>
@@ -216,6 +163,12 @@ session_start(); ?>
     <button data-te-ripple-init data-te-ripple-color="light" hidden>
         Click me
     </button>
+
+    <script>
+        function fetch(id){
+            console.log(id)
+        }
+    </script>
 
     <!-- Fetch Table -->
     <script>
