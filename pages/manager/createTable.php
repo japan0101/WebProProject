@@ -19,12 +19,13 @@ if (isset($_SESSION['role'])) {
 </head>
 
 <body>
-<?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
 
+    
 
-<?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+    <?php
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 </body>
 
 </html>

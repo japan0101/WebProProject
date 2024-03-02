@@ -92,7 +92,7 @@ if (isset($_SESSION['role'])) {
 
             <div class="flex flex-col gap-6">
                 
-                <div class="flex flex-col overflow-x-auto blur-effect container_rounded bg-white">
+                <div class="flex flex-col blur-effect container_rounded bg-white relative overflow-hidden" data-te-perfect-scrollbar-init>
                     <div class="sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                             <div class="overflow-x-auto">
