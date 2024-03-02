@@ -59,7 +59,7 @@ session_start();
             </div>
             <div class="relative flex items-center">
                 <!--cart button -->
-                <button type="button" class="text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" data-te-toggle="modal" data-te-target="#incart" data-te-ripple-init data-te-ripple-color="light">
+                <button type="button" class="text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" data-te-toggle="modal" data-te-target="#incart">
 
                     <!-- end of cart button -->
                     <div class="relative inline-flex w-fit">
@@ -113,7 +113,6 @@ session_start();
             selectorContainer = document.getElementById('bannerSel');
             contentContainer = document.getElementById('contentHolder');
             allContainer = document.getElementById('allCouponContainer');
-            console.log(payload);
             category = []
             payload.forEach(menuObj => {
                 if (!category.includes(menuObj.category)) {
@@ -181,19 +180,16 @@ session_start();
 
                 addBtn = document.createElement('button');
                 addBtn.className = "p-2 place-self-center basis-1/8 mr-auto w-fit text-xl text-success"
-                addBtn.setAttribute('onclick', "addAmount('menu_amount_" + menuObj['menuID'] + "')");
                 addBtn.innerHTML = "+";
 
                 amountOrd = document.createElement('input');
                 amountOrd.className = "m-auto border rounded w-1/2 m-auto text-center"
-                amountOrd.setAttribute('id', 'menu_amount_' + menuObj['menuID']);
                 amountOrd.setAttribute('value', 0);
                 amountOrd.setAttribute('min', 0);
                 amountOrd.setAttribute('readonly', "");
 
                 remBtn = document.createElement('button');
                 remBtn.className = "p-2 place-self-center basis-1/8 mr-auto w-fit text-xl text-danger"
-                remBtn.setAttribute('onclick', "removeAmount('menu_amount_" + menuObj['menuID'] + "')");
                 remBtn.innerHTML = "-";
 
                 ordBtn = document.createElement('button');
@@ -201,7 +197,6 @@ session_start();
                 ordBtn.className = "inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                 ordBtn.setAttribute('data-te-ripple-init', '');
                 ordBtn.setAttribute('data-te-ripple-color', 'light');
-                ordBtn.setAttribute('onclick', 'orderFood(\'menu_amount_' + menuObj['menuID'] + '\', \'' + menuObj['menuID'] + '\')');
                 ordBtn.innerHTML = "สั่งอาหาร"
 
                 imageSection.appendChild(imagePart);
@@ -219,12 +214,12 @@ session_start();
                 addBtn.setAttribute('onclick', "addAmount(menu_all_amount_" + menuObj['menuID'] + ")");
                 amountOrd.setAttribute('id', 'menu_all_amount_' + menuObj['menuID']);
                 remBtn.setAttribute('onclick', "removeAmount(menu_all_amount_" + menuObj['menuID'] + ")");
-                ordBtn.setAttribute('onclick', 'orderFood(menu_all_amount_' + menuObj['menuID'] + '.value, \'' + menuObj['menuID'] + '\')');
+                ordBtn.setAttribute('onclick', 'orderFood(\'' + menuObj['menuName'] + '\', menu_all_amount_' + menuObj['menuID'] + '.value, ' + menuObj['price'] + ', ' + menuObj['menuID'] + ')');
                 allContainer.appendChild(card.cloneNode(true));
                 addBtn.setAttribute('onclick', "addAmount(menu_amount_" + menuObj['menuID'] + ")");
                 amountOrd.setAttribute('id', 'menu_amount_' + menuObj['menuID']);
                 remBtn.setAttribute('onclick', "removeAmount(menu_amount_" + menuObj['menuID'] + ")");
-                ordBtn.setAttribute('onclick', 'orderFood(menu_amount_' + menuObj['menuID'] + '.value, \'' + menuObj['menuID'] + '\')');
+                ordBtn.setAttribute('onclick', 'orderFood(\'' + menuObj['menuName'] + '\', menu_amount_' + menuObj['menuID'] + ', ' + menuObj['price'] + ')');
             });
         });
     </script>
@@ -251,8 +246,9 @@ session_start();
                 </div>
 
             <!--Modal body-->
-            <div class="relative flex-auto p-4 max-h-72 overscroll-contain overflow-y-auto" data-te-modal-body-ref id="order_show">
-                <ul class="">
+            <div class="relative flex-auto p-4 max-h-72 overscroll-contain overflow-y-auto" data-te-modal-body-ref>
+                <ul class="" id="order_show">
+
                     <li class="my-1 w-full rounded-lg bg-primary-100 p-4 text-primary-600 inline-flex">
                         <div class="self-center">{menu.name}</div>
                         <div class="self-center">
@@ -262,7 +258,9 @@ session_start();
                         </div>
                         <div class="self-center">{menu.price} บาท</div>
                     </li>
+
                 </ul>
+                <div class="self-center">ราคาทั้งหมด: <input class="m-auto border rounded w-1/5 text-center" id="total_price" value="0" min="0" readonly=""> บาท</div>
             </div>
 
                 <!--Modal footer-->
@@ -278,9 +276,50 @@ session_start();
         </div>
     </div>
     <script>
-        function orderFood(amount, menuName){
-            console.log(amount)
+        order_container = document.getElementById('order_show');
+        menu_order = JSON.parse(localStorage.getItem("orderList"));
+        if(menu_order == null)menu_order = [];
+        buildOrder(menu_order);
+        function orderFood(menuName, amount, price, menuId){
+            console.log(Number(amount))
             console.log(menuName)
+            console.log(price)
+            console.log(menuId)
+            menu_order = JSON.parse(localStorage.getItem("orderList"));
+            if(menu_order == null)menu_order = [];
+            item = {
+                "menuId": menuId,
+                "menuName": menuName,
+                "amount": Number(amount),
+                "price": price
+            }
+            if(amount > 0){
+                if(containsObject(item, menu_order)){
+                    console.log(menu_order);
+                    menu_order.forEach(menu => {
+                        if(menu.menuId == item.menuId){
+                            menu.amount += Number(item.amount);
+                        }
+                    });
+                    localStorage.setItem("orderList", JSON.stringify(menu_order));
+                }else{
+                    menu_order.push(item);
+                    console.log(menu_order);
+                    localStorage.setItem("orderList", JSON.stringify(menu_order));
+                }
+                buildOrder(menu_order);
+            }
+        }
+
+        function containsObject(obj, list) {
+            var i;
+            for (i = 0; i < list.length; i++) {
+                if (list[i].menuId === obj.menuId) {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         function addAmount(input){
@@ -291,12 +330,79 @@ session_start();
             if(Number(input.value) > 0)input.value = Number(input.value) - 1;
         }
 
-        function addOrderAmount(){
-            
+        function addOrderAmount(menuId, input){
+            if (Number(input.value) < 99){
+                menu_order = JSON.parse(localStorage.getItem("orderList"));
+                menu_order.forEach(menu => {
+                    if(menu.menuId == menuId){
+                        menu.amount += 1;
+                    }
+                });
+                localStorage.setItem("orderList", JSON.stringify(menu_order));
+                buildOrder(menu_order);
+            }
         }
 
-        function removeOrderAmount(){
-            
+        function removeOrderAmount(menuId, input){
+            if (Number(input.value) > 0){
+                menu_order = JSON.parse(localStorage.getItem("orderList"));
+                menu_order.forEach(menu => {
+                    if(menu.menuId == menuId){
+                        menu.amount -= 1;
+                        if(menu.amount < 1){
+                            menu_order.splice(menu_order.indexOf(menu), 1);
+                        }
+                    }
+                });
+                localStorage.setItem("orderList", JSON.stringify(menu_order));
+                buildOrder(menu_order);
+            }
+        }
+        function buildOrder(list){
+            order_container.innerHTML = ""
+            totalPrice = 0
+            list.forEach(element => {
+                card = document.createElement('li');
+                card.className = "my-1 w-full rounded-lg bg-primary-100 p-4 text-primary-600 inline-flex"
+
+                namepart = document.createElement('div');
+                namepart.className = "self-center";
+                namepart.innerHTML = element.menuName;
+
+                amountContainer = document.createElement("div");
+                amountContainer.className = "slef-center";
+
+                amountAdd = document.createElement("button");
+                amountAdd.className = "p-2 basis-1/8 mx-auto w-fit text-xl text-success";
+                amountAdd.setAttribute('onclick', 'addOrderAmount(' + element.menuId + ', order_amount_' + element.menuId + ')');
+                amountAdd.innerHTML = "+"
+                
+                amountNum = document.createElement("input");
+                amountNum.className = "m-auto border rounded w-1/5 text-center";
+                amountNum.id = "order_amount_" + element.menuId;
+                amountNum.setAttribute('value', element.amount);
+                amountNum.setAttribute('min', 0);
+                amountNum.setAttribute('readonly', '');
+
+                amountRemove = document.createElement("button");
+                amountRemove.className = "p-2 basis-1/8 mx-auto w-fit text-xl text-danger";
+                amountRemove.setAttribute('onclick', 'removeOrderAmount(' + element.menuId + ', order_amount_' + element.menuId + ')');
+                amountRemove.innerHTML = "-";
+
+                price = document.createElement('div');
+                price.className = "self-center";
+                price.innerHTML = (element.price * element.amount) + ' บาท';
+                totalPrice += element.price * element.amount;
+
+                card.appendChild(namepart);
+                card.appendChild(amountContainer);
+                amountContainer.appendChild(amountAdd);
+                amountContainer.appendChild(amountNum),
+                amountContainer.appendChild(amountRemove);
+                card.appendChild(price);
+                order_container.appendChild(card);
+            });
+            document.getElementById('total_price').value = totalPrice;
         }
     </script>
 </body>
