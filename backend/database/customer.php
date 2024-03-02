@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $id = $database->getResult()['payload'][0]->tableID;
 
                 // เช็คว่ามีคนแล้วหรือยัง
-                if (is_null($database->getResult()['payload'][0]->userID) && $_SESSION['userID'] != 'null'){
+                if (is_null($database->getResult()['payload'][0]->userID) && $_SESSION['userID'] != 'null') {
                     $database->update("tables", array("userID" => $_SESSION['userID']), "code='{$_POST['code']}'");
                 }
 

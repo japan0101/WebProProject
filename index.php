@@ -18,7 +18,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['memberName']))
 
 <body class="antialiased">
 <?php
-include($_SERVER['DOCUMENT_ROOT'] ."/assets/component/navCustomer.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navCustomer.php") ?>
 
 
 <!-- Jumbotron -->
@@ -68,7 +68,7 @@ include($_SERVER['DOCUMENT_ROOT'] ."/assets/component/navCustomer.php") ?>
     <section class="body_container">
         <section id="developers">
             <h1 class="headline text-center">Developers</h1>
-            <div id="mark" class="dev-box mt-6 flex flex-row-re container_rounded justify-center">
+            <div id="mark" class="dev-box mt-6 flex flex-row-re container_rounded bg-white justify-center">
                 <div class="flex flex-col" style="width: 100%">
                     <h3 class="blue-text">65070005 - Mr.Kanokpol Poykham</h3>
                     <h1 class="mt-3">Mark</h1>
@@ -100,7 +100,7 @@ include($_SERVER['DOCUMENT_ROOT'] ."/assets/component/navCustomer.php") ?>
                     <img alt="" src="/assets/images/developers/mark.webp" width="">
                 </div>
             </div>
-            <div id="best" class="dev-box mt-6 flex flex-row container_rounded justify-center">
+            <div id="best" class="dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
                 <div class="flex flex-col" style="width: 100%">
                     <h3 class="blue-text">65070028 - Mr.Kanisorn Somsriagsornsang</h3>
                     <h1 class="mt-3">Best</h1>
@@ -132,7 +132,7 @@ include($_SERVER['DOCUMENT_ROOT'] ."/assets/component/navCustomer.php") ?>
                     <img alt="" src="/assets/images/developers/best.webp" width="">
                 </div>
             </div>
-            <div id="japan" class="dev-box mt-6 flex flex-row container_rounded justify-center">
+            <div id="japan" class="dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
                 <div class="flex flex-col" style="width: 100%">
                     <h3 class="blue-text">65070064 - Mr.Napat Wetchapun</h3>
                     <h1 class="mt-3">Japan</h1>
@@ -164,7 +164,7 @@ include($_SERVER['DOCUMENT_ROOT'] ."/assets/component/navCustomer.php") ?>
                     <img alt="" src="/assets/images/developers/Japan.webp" width="">
                 </div>
             </div>
-            <div id="tae" class="dev-box mt-6 flex flex-row container_rounded justify-center">
+            <div id="tae" class="dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
                 <div class="flex flex-col" style="width: 100%">
                     <h3 class="blue-text">65070089 - Mr.Tanakrit Supprasit</h3>
                     <h1 class="mt-3">Tae</h1>

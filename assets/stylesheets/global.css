@@ -72,7 +72,7 @@ h2 {
     backdrop-filter: blur(22px) saturate(1.86);
     -webkit-backdrop-filter: blur(15px) saturate(86%);
     backface-visibility: hidden;
-    background: rgba(245, 245, 247, .82);
+    /*background: rgba(245, 245, 247, .82);*/
     opacity: 1;
 }
 
@@ -96,8 +96,18 @@ main {
     margin-top: 32px;
 }
 
+
+.top-item {
+    padding-top: 65px;
+}
+
+
+.bg-white-light {
+    background: rgba(245, 245, 247, .82) !important;
+}
+
 .container_rounded {
-    background-color: #fff;
+    /*background-color: #fff;*/
     border-radius: 22px;
     /*margin: 0 12px;*/
     min-height: 400px;
