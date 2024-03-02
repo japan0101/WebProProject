@@ -219,7 +219,7 @@ session_start();
                     addBtn.setAttribute('onclick', "addAmount(menu_amount_" + menuObj['menuID'] + ")");
                     amountOrd.setAttribute('id', 'menu_amount_' + menuObj['menuID']);
                     remBtn.setAttribute('onclick', "removeAmount(menu_amount_" + menuObj['menuID'] + ")");
-                    ordBtn.setAttribute('onclick', 'orderFood(\'' + menuObj['menuName'] + '\', menu_amount_' + menuObj['menuID'] + ', ' + menuObj['price'] + ')');
+                    ordBtn.setAttribute('onclick', 'orderFood(\'' + menuObj['menuName'] + '\', menu_amount_' + menuObj['menuID'] + '.value, ' + menuObj['price'] + ', ' + menuObj['menuID'] + ')');
                 });
             });
         </script>
