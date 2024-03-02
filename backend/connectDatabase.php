@@ -102,6 +102,4 @@ class Database {
         return $this->res;
     }
 }
-
-header('Content-Type: text/html; charset=utf-8');
 $database = new Database();

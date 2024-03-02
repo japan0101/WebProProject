@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
     switch ($_GET["case"]) {
         case 'table':
         {
-            $database->custom("SELECT tableID, code, phoneNumber, capacity, tables.status FROM tables LEFT JOIN users USING (userID);");
+            $database->custom("SELECT tableID, code, phoneNumber, capacity, tables.status FROM tables LEFT JOIN users USING (userID)");
             echo json_encode($database->getResult()['payload']);
             break;
         }
