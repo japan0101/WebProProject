@@ -101,6 +101,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             }
             break;
         }
+        case 'getrate':
+        {
+            if (isset($_SESSION['userID'])) {
+                $database->custom("SELECT gacha_item.gachaID, menus.menuName, gacha_item.rarity, gacha_item.discount FROM gacha_item INNER JOIN menus ON gacha_item.menuID = menus.menuID ORDER BY  gachaID ASC, rarity DESC");
+                echo json_encode($database->getResult()['payload']);
+                break;
+            }
+            break;
+        }
         default:
         {
         }
