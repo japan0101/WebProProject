@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $id = $database->getResult()['payload'][0]->tableID;
 
                 // เช็คว่ามีคนแล้วหรือยัง
-                if (is_null($database->getResult()['payload'][0]->userID) && $_SESSION['userID'] != 'null'){
+                if (is_null($database->getResult()['payload'][0]->userID) && $_SESSION['userID'] != 'null') {
                     $database->update("tables", array("userID" => $_SESSION['userID']), "code='{$_POST['code']}'");
                 }
 
@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 if ($database->getResult()['result'])
                     $database->customResult(message: "คุณอยู่ที่โต๊ะ $id");
 
-                setcookie("tableID", $id, time()+60*60*6, '/pages/order');
-                setcookie("tablecode", $_POST['code'], time()+60*60*6, '/pages/order');
+                setcookie("tableID", $id, time() + 60 * 60 * 6, '/pages/order');
+                setcookie("tablecode", $_POST['code'], time() + 60 * 60 * 6, '/pages/order');
             } else {
 
                 $database->customResult(message: "ใส่โค้ดไม่ถูกต้อง");
