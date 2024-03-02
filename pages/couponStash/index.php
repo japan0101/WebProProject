@@ -73,7 +73,7 @@ if (isset($_SESSION['memberName'])) { ?>
         // console.log(payload);
         category = []
         payload.forEach(couponObj => {
-            if (!category.includes(couponObj.category)) {
+            if (!category.includes(couponObj['name'])) {
                 //Rendering tabs for each new category
                 category.push(couponObj['name']);
                 selList = document.createElement('li');
