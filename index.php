@@ -31,7 +31,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navCustomer.php") ?>
         <div class="relative px-4 sm:px-6 lg:px-8">
             <div class="mx-auto max-w-4xl text-center text-lg">
                 <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                    <span class="mb-6 block">ร้านอาหารแล้วแต่แอป</span>
+                    <span class="mb-6 block text-6xl">ร้านอาหารแล้วแต่แอป</span>
                     <span class="block text-3xl">ยินดีต้อนรับ</span>
                 </h1>
 
