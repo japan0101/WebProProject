@@ -17,7 +17,7 @@
 <body>
 <div class="w-full bg-gray py-2 mx-1">
     <p class="text-4xl font-bold">Current order: <?php
-        $value ?></p>
+        $order_count ?></p>
 </div>
 <div class="flex flex-row snap-x scroll-smooth overflow-x-auto relative">
     <div class="h-full w-1/4 border bg-gray m-1 px-1 scroll-ml-6 flex-none">
@@ -45,7 +45,7 @@
                               style="fill: none; stroke: #000000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;"></path>
                     </g>
                 </svg>
-                <p class="text-center"> Done</p>
+                <p class="text-center">Done</p>
             </button>
         </div>
     </div>
