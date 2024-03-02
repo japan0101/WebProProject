@@ -103,7 +103,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
         }
         case 'cooking_order':
         {
-            
+            $order = [];
+            $database->custom("SELECT orderAt FROM orders WHERE status = 1 GROUP BY orderAt;");
+            foreach($database->getResult()['payload'] as $time){
+                $database->custom("SELECT tableID, menuName, amount, orderAt FROM orders join menus on menus.menuID = orders.menuID WHERE orderAt = '{$time->orderAt}';");
+                array_push($order, $database->getResult()['payload']);
+            }
+            echo json_encode($order);
+            break;
         }
         case '':
         {
@@ -125,4 +132,4 @@ $_SESSION['result']['message'] = $database->getResult()['message'];
 $_SESSION['result']['type'] = $database->getResult()['type'];
 
 unset($database);
-header($redirect);
+// header($redirect);
