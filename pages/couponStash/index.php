@@ -17,7 +17,7 @@ session_start() ?>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/assets/scripts/sweetalert.js"></script>
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/nav.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navCustomer.php") ?>
 <?php
 if (isset($_SESSION['userID'])) { ?>
     <span class="my-5">

@@ -18,7 +18,7 @@ if (isset($_COOKIE['token']) && !isset($_SESSION['userID']))
 
 <body class="antialiased">
 <?php
-include("./assets/component/nav.php") ?>
+include("./assets/component/navCustomer.php") ?>
 
 
 <!-- Jumbotron -->
