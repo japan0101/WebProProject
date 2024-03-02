@@ -382,7 +382,7 @@ session_start();
                 document.getElementById('total_price').value = totalPrice;
             }
 
-            function orderMenus(element){
+            function orderMenus(element) {
                 let case_ = document.createElement("input")
                 inp_case(case_, "orderFood", 'case')
 
@@ -405,7 +405,7 @@ session_start();
     if (!isset($_COOKIE['tableID'])) { ?>
 
 
-        <?php if (!isset($_SESSION['memberName'])) { ?>
+        <?php if (!isset($_SESSION['userID'])) { ?>
             <!-- Login Modal -->
             <div data-te-modal-init data-te-backdrop="false" class="fixed left-0 top-0 z-[1055] block h-full w-full overflow-y-auto overflow-x-hidden outline-none" id="loginModal" tabindex="-1" aria-labelledby="loginModalTitle" aria-hidden="true">
                 <div data-te-modal-dialog-ref class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
@@ -511,6 +511,64 @@ session_start();
 
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+
+    <script>
+        function wait(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function sleep(sec) {
+            for (let i = 0; i < sec; i++) {
+                console.log(`Waiting ${i} seconds...`);
+                await wait(i * 1000);
+            }
+            location.reload()
+        }
+
+    </script>
+
+    <?php
+    if (isset($_SESSION['result'])) { ?>
+        <script>
+            <?php $fire = false; ?>
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "tableCheck")) { ?>
+                Toast.fire({
+                    icon: "success",
+                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                });
+                <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "tableCheck")) { ?>
+                Toast.fire({
+                    icon: "error",
+                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                })
+                sleep(2);
+            <?php $fire = true;
+            } ?>
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "orderFood")) { ?>
+                Toast.fire({
+                    icon: "success",
+                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                });
+                <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "orderFood")) { ?>
+                Toast.fire({
+                    icon: "error",
+                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                });
+                sleep(2)
+            <?php $fire = true;
+            } ?>
+
+            <?php if ($fire)
+                unset($_SESSION['result']); ?>
+        </script>
+    <?php
+    } ?>
+
 </body>
 
 </html>

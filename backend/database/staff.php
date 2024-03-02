@@ -121,4 +121,4 @@ $_SESSION['result']['message'] = $database->getResult()['message'];
 $_SESSION['result']['type'] = $database->getResult()['type'];
 
 unset($database);
-// header($redirect);
+header($redirect);
