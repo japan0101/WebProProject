@@ -335,23 +335,24 @@ session_start() ?>
         });
       });
 
-      function randomRarity(){
+      function randomRarity() {
         number = Math.random();
-        if(number < 1 && number > 0.3){
+        if (number < 1 && number > 0.3) {
           return 'COMMON'
-        }else if(number > 0.15){
+        } else if (number > 0.15) {
           return 'UNCOMMON';
-        }else if(number > 0.04){
+        } else if (number > 0.04) {
           return 'RARE';
-        }else if(number > 0.006){
+        } else if (number > 0.006) {
           return 'EPIC';
-        }else if(number > 0.001){
+        } else if (number > 0.001) {
           return 'LEGENDARY';
-        }else{
+        } else {
           return 'MYTHIC';
         }
       }
-      function randomCoupon(banner_id){
+
+      function randomCoupon(banner_id) {
         rarity = randomRarity();
         Swal.fire({
           title: "คุณได้รับ",
@@ -368,7 +369,11 @@ session_start() ?>
                 icon: "info",
                 confirmButtonColor: "#3085d6",
                 confirmButtonText: "รับคูปอง"
-              });
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  
+                }
+              })
             });
           }
         });
