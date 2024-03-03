@@ -146,6 +146,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             echo json_encode($order);
             break;
         }
+        case 'couponUser' :
+        {
+            // ID
+
+            date_default_timezone_set("Asia/Bangkok");
+            $date=date_create();
+            $today = date_format($date,"Y-m-d H:i:s");
+
+            $database->custom("SELECT menuID, discount, code FROM user_discount WHERE expire >= '$today'");
+            echo json_encode($database->getResult()['payload']);
+        }
         case '':
         {
 
@@ -166,4 +177,4 @@ $_SESSION['result']['message'] = $database->getResult()['message'];
 $_SESSION['result']['type'] = $database->getResult()['type'];
 
 unset($database);
-header($redirect);
+// header($redirect);
