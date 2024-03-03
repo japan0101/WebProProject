@@ -22,21 +22,24 @@ if (isset($_SESSION['role'])) {
 </head>
 
 <body>
-    <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
-    <main class="">
-        <section class="body_container top-item flex flex-col gap-6">
-            <!-- ตาราง Create -->
-            <div class="flex md:flex-row sm:flex-col flex-col blur-effect rounded-lg p-8 bg-white gap-3">
-                <!-- Create Menu -->
-                <div class="flex-1">
-                    <form class="" action="/backend/database/manager.php" method="post" enctype="multipart/form-data">
-                        <h2 class="text-2xl  mt-0">สร้างเมนู</h2>
-                        <div class="relative mb-3" data-te-input-wrapper-init>
-                            <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="name" name="name" placeholder="ชื่อเมนู" required />
-                            <label for="name" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">ชื่อเมนู
-                            </label>
-                        </div>
+<?php
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
+<main class="">
+    <section class="body_container top-item flex flex-col gap-6">
+        <!-- ตาราง Create -->
+        <div class="flex md:flex-row sm:flex-col flex-col blur-effect rounded-lg p-8 bg-white gap-3">
+            <!-- Create Menu -->
+            <div class="flex-1">
+                <form class="" action="/backend/database/manager.php" method="post" enctype="multipart/form-data">
+                    <h2 class="text-2xl  mt-0">สร้างเมนู</h2>
+                    <div class="relative mb-3" data-te-input-wrapper-init>
+                        <input type="text"
+                               class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                               id="name" name="name" placeholder="ชื่อเมนู" required/>
+                        <label for="name"
+                               class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">ชื่อเมนู
+                        </label>
+                    </div>
 
                     <div class="relative mb-3">
                         <label for="select"></label><select data-te-select-init id="select" name="category">
@@ -80,10 +83,10 @@ if (isset($_SESSION['role'])) {
             </div>
 
 
-                <!-- Create Category Menu -->
-                <div class="flex-1">
-                    <form action="/backend/database/manager.php" method="post">
-                        <h2 class="text-2xl mt-0">สร้างประเภทเมนู</h2>
+            <!-- Create Category Menu -->
+            <div class="flex-1">
+                <form action="/backend/database/manager.php" method="post">
+                    <h2 class="text-2xl mt-0">สร้างประเภทเมนู</h2>
 
                     <div class="relative mb-3" data-te-input-wrapper-init>
                         <input type="text"
@@ -104,41 +107,42 @@ if (isset($_SESSION['role'])) {
             </div>
         </div>
 
-            <div class="flex flex-col gap-6">
-                <div class="flex flex-col blur-effect rounded-lg p-8 bg-white relative overflow-hidden" data-te-perfect-scrollbar-init>
-                    <h2 class="text-2xl mt-0">เมนูต่าง ๆ</h2>
-                    <div class="sm:-mx-6 lg:-mx-8">
-                        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                            <div class="overflow-x-auto">
-                                <table class="min-w-full text-left text-sm font-light" id="displayMenu">
-                                    <thead class="font-medium dark:border-neutral-500">
-                                        <tr class="border-b dark:border-neutral-500">
-                                            <th scope="col" class="px-6 py-4">ชื่อประเภท</th>
-                                            <th scope="col" class="px-6 py-4">ชื่อเมนู</th>
-                                            <th scope="col" class="px-6 py-4">ราคา</th>
-                                            <th scope="col" class="px-6 py-4">คำอธิบาย</th>
-                                            <th scope="col" class="px-6 py-4">รูปภาพเมนู</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                </table>
-                            </div>
+        <div class="flex flex-col gap-6">
+            <div class="flex flex-col blur-effect rounded-lg p-8 bg-white relative overflow-hidden"
+                 data-te-perfect-scrollbar-init>
+                <h2 class="text-2xl mt-0">เมนูต่าง ๆ</h2>
+                <div class="sm:-mx-6 lg:-mx-8">
+                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full text-left text-sm font-light" id="displayMenu">
+                                <thead class="font-medium dark:border-neutral-500">
+                                <tr class="border-b dark:border-neutral-500">
+                                    <th scope="col" class="px-6 py-4">ชื่อประเภท</th>
+                                    <th scope="col" class="px-6 py-4">ชื่อเมนู</th>
+                                    <th scope="col" class="px-6 py-4">ราคา</th>
+                                    <th scope="col" class="px-6 py-4">คำอธิบาย</th>
+                                    <th scope="col" class="px-6 py-4">รูปภาพเมนู</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="flex-1 blur-effect rounded-lg p-8 bg-white">
-                    <h2 class="text-2xl mt-0">ประเภทเมนูต่าง ๆ</h2>
-                    <div class="m-3">
-                        <table class="table-auto text-left text-sm font-light" id="display_category">
-                            <tr class="border-b font-medium dark:border-neutral-500">
-                                <th scope="col" class="px-6 py-4">ประเภทเมนู</th>
-                            </tr>
-                        </table>
-                    </div>
+            <div class="flex-1 blur-effect rounded-lg p-8 bg-white">
+                <h2 class="text-2xl mt-0">ประเภทเมนูต่าง ๆ</h2>
+                <div class="m-3">
+                    <table class="table-auto text-left text-sm font-light" id="display_category">
+                        <tr class="border-b font-medium dark:border-neutral-500">
+                            <th scope="col" class="px-6 py-4">ประเภทเมนู</th>
+                        </tr>
+                    </table>
                 </div>
             </div>
+        </div>
 
     </section>
 </main>
@@ -164,14 +168,14 @@ if (isset($_SESSION['role'])) {
     })
 </script>
 
-    <!-- Fetch Menus -->
-    <script>
-        // Customer
-        const tableMenu = document.getElementById("displayMenu")
-        fetch("/backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
-            payload.forEach(item => {
-                let row = tableMenu.insertRow(-1)
-                row.className = "border-b dark:border-neutral-500"
+<!-- Fetch Menus -->
+<script>
+    // Customer
+    const tableMenu = document.getElementById("displayMenu")
+    fetch("/backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
+        payload.forEach(item => {
+            let row = tableMenu.insertRow(-1)
+            row.className = "border-b dark:border-neutral-500"
 
             let col = row.insertCell(-1)
             col.className = "whitespace-nowrap px-6 py-4 font-medium"
@@ -185,10 +189,10 @@ if (isset($_SESSION['role'])) {
             col.className = "whitespace-nowrap px-6 py-4"
             col.innerHTML = item['price']
 
-                col = row.insertCell(-1)
-                col.className = "whitespace-nowrap px-6 py-4"
-                col.innerHTML = item['description'] == "" ? "ไม่มีคำอธิบาย" : item['description']
-                col.className += item['description'] == "" ? " opacity-50" : ""
+            col = row.insertCell(-1)
+            col.className = "whitespace-nowrap px-6 py-4"
+            col.innerHTML = item['description'] == "" ? "ไม่มีคำอธิบาย" : item['description']
+            col.className += item['description'] == "" ? " opacity-50" : ""
 
             col = row.insertCell(-1)
             col.className = "whitespace-nowrap px-6 py-4 m-4"

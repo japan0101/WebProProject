@@ -31,7 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             // tableID, orderAt
 
             $database->update("orders", array("status" => 2), "tableID={$_POST['tableID']} AND orderAt='{$_POST['orderAt']}' AND status='INCOMPLETE'");
-            if ($database->getResult()['result']) $database->customResult(message:"Order โต๊ะ {$_POST['tableID']} เสร็จสิ้น");
+            if ($database->getResult()['result'])
+                $database->customResult(message: "Order โต๊ะ {$_POST['tableID']} เสร็จสิ้น");
 
             break;
         }
@@ -41,7 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             // tableID, orderAt
 
             $database->update("orders", array("status" => 3), "tableID={$_POST['tableID']} AND orderAt='{$_POST['orderAt']}' AND status='INCOMPLETE'");
-            if ($database->getResult()['result']) $database->customResult(message:"Order โต๊ะ {$_POST['tableID']} ถูกยกเลิก");
+            if ($database->getResult()['result'])
+                $database->customResult(message: "Order โต๊ะ {$_POST['tableID']} ถูกยกเลิก");
 
             break;
         }
@@ -51,7 +53,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             // tableID, orderAt
 
             $database->update("orders", array("status" => 4), "tableID={$_POST['tableID']} AND orderAt='{$_POST['orderAt']}' AND status='COMPLETE'");
-            if ($database->getResult()['result']) $database->customResult(message:"เสริฟโต๊ะ {$_POST['tableID']} เสร็จสิ้น");
+            if ($database->getResult()['result'])
+                $database->customResult(message: "เสริฟโต๊ะ {$_POST['tableID']} เสร็จสิ้น");
 
             break;
         }
@@ -125,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
         {
             $order = [];
             $database->custom("SELECT orderAt FROM orders WHERE status = 1 GROUP BY orderAt;");
-            foreach($database->getResult()['payload'] as $time){
+            foreach ($database->getResult()['payload'] as $time) {
                 $database->custom("SELECT tableID, menuName, amount, orderAt FROM orders join menus on menus.menuID = orders.menuID WHERE orderAt = '{$time->orderAt}';");
                 array_push($order, $database->getResult()['payload']);
             }
@@ -136,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
         {
             $order = [];
             $database->custom("SELECT orderAt FROM orders WHERE status = 2 GROUP BY orderAt;");
-            foreach($database->getResult()['payload'] as $time){
+            foreach ($database->getResult()['payload'] as $time) {
                 $database->custom("SELECT tableID, menuName, amount, orderAt FROM orders join menus on menus.menuID = orders.menuID WHERE orderAt = '{$time->orderAt}';");
                 array_push($order, $database->getResult()['payload']);
             }
