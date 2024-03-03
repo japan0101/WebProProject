@@ -102,4 +102,5 @@ class Database {
         return $this->res;
     }
 }
+
 $database = new Database();
