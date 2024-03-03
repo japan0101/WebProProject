@@ -180,6 +180,31 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
                     $database->customResult(message: "ลบเมนูเสร็จสิ้น");
                 break;
             }
+        case 'modify_banner': {
+            //name, cost, description, ID
+            if (isset($_POST['description'])) $desc = $_POST['description'];
+            $expire = substr($_POST['expire'], 6, 4) . '-' . substr($_POST['expire'], 3, 2). '-' . substr($_POST['expire'], 0, 2). ' ' . ((substr($_POST['expire'], 18, 2) == 'PM') ? (int)substr($_POST['expire'], 12, 2) + 12 : substr($_POST['expire'], 12, 2)) . ':' . substr($_POST['expire'], 15, 2). ':00';
+            $update = array('name' => $_POST['name'], 'cost' => (int)$_POST['cost'], 'expire' => $expire);
+            if (!is_null($desc))$update['description'] = $desc;
+
+            $database->update("gacha_banner", $update, "gachaID={$_POST['ID']}");
+                if ($database->getResult()['result'])
+                    $database->customResult(message: "แก้ไขกล่องสุ่มเสร็จสิ้น");
+
+            break;
+        }
+        case 'create_banner': {
+            //name, description, cost, expire
+
+            if (isset($_POST['description'])) $desc = $_POST['description'];
+            $expire = substr($_POST['expire'], 6, 4) . '-' . substr($_POST['expire'], 3, 2). '-' . substr($_POST['expire'], 0, 2). ' ' . ((substr($_POST['expire'], 18, 2) == 'PM') ? (int)substr($_POST['expire'], 12, 2) + 12 : substr($_POST['expire'], 12, 2)) . ':' . substr($_POST['expire'], 15, 2). ':00';
+            $insert = array('name' => $_POST['name'], 'cost' => (int)$_POST['cost'], 'expire' => $expire);
+            if (!is_null($desc))$insert['description'] = $desc;
+            $database->insert("gacha_banner", $insert);
+            if ($database->getResult()['result'])
+                $database->customResult(message: "เพิ่มกล่องสุ่มเสร็จสิ้น");
+            break;
+        }
         default: {
                 $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
             }
