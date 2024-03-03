@@ -194,9 +194,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
         case 'modify_banner':
         {
             //name, cost, description, ID
-            if (isset($_POST['description'])) $desc = $_POST['description'];
-            $expire = substr($_POST['expire'], 6, 4) . '-' . substr($_POST['expire'], 3, 2). '-' . substr($_POST['expire'], 0, 2). ' ' .
-            ((substr($_POST['expire'], 18, 2) == 'PM') ? (((int)substr($_POST['expire'], 12, 2) + 12 < 24) ? (int)substr($_POST['expire'], 12, 2) + 12 : "12"): ((int)(substr($_POST['expire'], 12, 2) < 12) ? substr($_POST['expire'], 12, 2) : "00")) . ':' . substr($_POST['expire'], 15, 2). ':00';
+            if (isset($_POST['description']))
+                $desc = $_POST['description'];
+            $expire = substr($_POST['expire'], 6, 4) . '-' . substr($_POST['expire'], 3, 2) . '-' . substr($_POST['expire'], 0, 2) . ' ' .
+                ((substr($_POST['expire'], 18, 2) == 'PM') ? (((int)substr($_POST['expire'], 12, 2) + 12 < 24) ? (int)substr($_POST['expire'], 12, 2) + 12 : "12") : ((int)(substr($_POST['expire'], 12, 2) < 12) ? substr($_POST['expire'], 12, 2) : "00")) . ':' . substr($_POST['expire'], 15, 2) . ':00';
             $update = array('name' => $_POST['name'], 'cost' => (int)$_POST['cost'], 'expire' => $expire);
             if (!is_null($desc))
                 $update['description'] = $desc;
@@ -211,9 +212,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
         {
             //name, description, cost, expire
 
-            if (isset($_POST['description'])) $desc = $_POST['description'];
-            $expire = substr($_POST['expire'], 6, 4) . '-' . substr($_POST['expire'], 3, 2). '-' . substr($_POST['expire'], 0, 2). ' ' .
-            ((substr($_POST['expire'], 18, 2) == 'PM') ? (((int)substr($_POST['expire'], 12, 2) + 12 < 24) ? (int)substr($_POST['expire'], 12, 2) + 12 : "12"): ((int)(substr($_POST['expire'], 12, 2) < 12) ? substr($_POST['expire'], 12, 2) : "00")) . ':' . substr($_POST['expire'], 15, 2). ':00';
+            if (isset($_POST['description']))
+                $desc = $_POST['description'];
+            $expire = substr($_POST['expire'], 6, 4) . '-' . substr($_POST['expire'], 3, 2) . '-' . substr($_POST['expire'], 0, 2) . ' ' .
+                ((substr($_POST['expire'], 18, 2) == 'PM') ? (((int)substr($_POST['expire'], 12, 2) + 12 < 24) ? (int)substr($_POST['expire'], 12, 2) + 12 : "12") : ((int)(substr($_POST['expire'], 12, 2) < 12) ? substr($_POST['expire'], 12, 2) : "00")) . ':' . substr($_POST['expire'], 15, 2) . ':00';
             $insert = array('name' => $_POST['name'], 'cost' => (int)$_POST['cost'], 'expire' => $expire);
             if (!is_null($desc))
                 $insert['description'] = $desc;
@@ -222,7 +224,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
                 $database->customResult(message: "เพิ่มกล่องสุ่มเสร็จสิ้น");
             break;
         }
-        case 'addtobanner': {
+        case 'addtobanner':
+        {
             //gachaID, menuID, rarity, discount
             $insert = array('gachaID' => $_POST['gachaID'], 'menuID' => $_POST['menuID'], 'rarity' => $_POST['rarity'], 'discount' => $_POST['discount']);
             $database->insert("gacha_item", $insert);
@@ -230,24 +233,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
                 $database->customResult(message: "เพิ่มส่วนลดให้กล่องสุ่มเสร็จสิ้น");
             break;
         }
-        case 'delete_banner': {
-                // ID
+        case 'delete_banner':
+        {
+            // ID
 
-                $database->delete(tablename: "gacha_banner", where: "gachaID={$_POST['ID']}");
-                if ($database->getResult()['result'])
-                    $database->customResult(message: "ลบกล่องสุ่มเสร็จสิ้น");
-                break;
+            $database->delete(tablename: "gacha_banner", where: "gachaID={$_POST['ID']}");
+            if ($database->getResult()['result'])
+                $database->customResult(message: "ลบกล่องสุ่มเสร็จสิ้น");
+            break;
         }
-        case 'delfrombanner': {
-                // menuID, bannerID, rarity
-                $database->delete(tablename: "gacha_item", where: "menuID={$_POST['menuID']} AND gachaID={$_POST['gachaID']} AND rarity='{$_POST['rarity']}'");
-                if ($database->getResult()['result'])
-                    $database->customResult(message: "ลบออกจากกล่องเสร็จสิ้น");
-                break;
+        case 'delfrombanner':
+        {
+            // menuID, bannerID, rarity
+            $database->delete(tablename: "gacha_item", where: "menuID={$_POST['menuID']} AND gachaID={$_POST['gachaID']} AND rarity='{$_POST['rarity']}'");
+            if ($database->getResult()['result'])
+                $database->customResult(message: "ลบออกจากกล่องเสร็จสิ้น");
+            break;
         }
-        default: {
-                $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
-            }
+        default:
+        {
+            $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
+        }
     }
 
     $redirect .= $_SERVER['HTTP_REFERER'];

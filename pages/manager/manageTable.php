@@ -87,7 +87,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
                                         <td class="whitespace-nowrap px-6 py-4"><?php
                                             echo $item->status ?></td>
                                     </tr>
-                                <?php
+                                    <?php
                                 }
                                 unset($database);
                                 ?>

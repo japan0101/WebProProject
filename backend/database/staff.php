@@ -69,11 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             $insert = array("paymentMethod" => $_POST['paymentMethod'], 'total' => $_POST['total']);
             if (!is_null($userID))
                 $insert['userID'] = $userID;
-            if (isset($_POST['code'])){
+            if (isset($_POST['code'])) {
                 $insert['codeDiscount'] = $_POST['code'];
-                
+
                 // ลบโค้ดส่วนลดออกจาก Member 
-                $database->delete("user_discount", where:"userID={$userID}");
+                $database->delete("user_discount", where: "userID={$userID}");
             }
             $database->insert("bills", $insert);
 
@@ -81,18 +81,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
                 $database->custom("SELECT billID FROM bills ORDER BY billID DESC LIMIT 1");
                 $billID = $database->getResult()['payload'][0]->billID;
 
-                if ($database->getResult()['result'])$database->update("orders", array("billID" => $billID), "tableID={$_POST['tableID']} AND billID is null");
+                if ($database->getResult()['result'])
+                    $database->update("orders", array("billID" => $billID), "tableID={$_POST['tableID']} AND billID is null");
                 else break;
 
                 // **ยังไม่ได้คำนวณคะแนน**
                 $plus_point = floor($_POST['total'] * 0.1);
-                if ($database->getResult()['result'])$database->custom("UPDATE users SET points = points + {$plus_point} WHERE userID={$userID}");
+                if ($database->getResult()['result'])
+                    $database->custom("UPDATE users SET points = points + {$plus_point} WHERE userID={$userID}");
                 else break;
 
                 // เปลี่ยนค่าสถานะ table ให้เป็นเหมือนเดิม
-                if ($database->getResult()['result'])$database->update("tables", array('code' => null, 'userID' => null, 'status' => 1), "tableID={$_POST['tableID']}");
+                if ($database->getResult()['result'])
+                    $database->update("tables", array('code' => null, 'userID' => null, 'status' => 1), "tableID={$_POST['tableID']}");
                 else break;
-                $database->customResult(message:"จ่ายบิลสำเร็จ Point+{$plus_point}");
+                $database->customResult(message: "จ่ายบิลสำเร็จ Point+{$plus_point}");
             }
             break;
         }
@@ -159,8 +162,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             // ID
 
             date_default_timezone_set("Asia/Bangkok");
-            $date=date_create();
-            $today = date_format($date,"Y-m-d H:i:s");
+            $date = date_create();
+            $today = date_format($date, "Y-m-d H:i:s");
 
             $database->custom("SELECT menuID, discount, code FROM user_discount WHERE expire >= '$today'");
             echo json_encode($database->getResult()['payload']);

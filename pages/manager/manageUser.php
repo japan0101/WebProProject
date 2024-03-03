@@ -84,7 +84,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
                                                 </button>
                                             </td>
                                         </tr>
-                                    <?php
+                                        <?php
                                     }
                                     unset($database);
                                     ?>
