@@ -55,11 +55,11 @@ if (isset($_SESSION['role'])) {
                                 <table class="min-w-full text-left text-sm font-light" id="displayTable">
                                     <thead>
                                         <tr class="border-b font-medium dark:border-neutral-500">
-                                            <th scope="col" class="px-6 py-4">เลขโต๊ะ</th>
+                                            <th scope="col" class="px-6 py-4" data-te-sort="false">เลขโต๊ะ</th>
                                             <th scope="col" class="px-6 py-4">รหัสโต๊ะ</th>
-                                            <th scope="col" class="px-6 py-4">สมาชิก</th>
+                                            <th scope="col" class="px-6 py-4" data-te-sort="false">สมาชิก</th>
                                             <th scope="col" class="px-6 py-4">แต้มสะสม</th>
-                                            <th scope="col" class="px-6 py-4">ความจุ</th>
+                                            <th scope="col" class="px-6 py-4" data-te-sort="false">ความจุ</th>
                                             <th scope="col" class="px-6 py-4">สถานะ</th>
                                         </tr>
                                     </thead>
