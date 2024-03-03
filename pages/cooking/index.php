@@ -74,14 +74,14 @@
         <div class="mb-6">
             <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab" data-te-tab-active>
                 <div class="block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-                    <p class="text-5xl my-auto w-fit bold">จำนวนออเดอร์: <?php echo 5; ?></p>
+                    <p id="kitchen_sum" class="text-5xl my-auto w-fit bold">จำนวนออเดอร์: </p>
                 </div>
                 <div id="kitchen_order" class="flex flex-row overflow-x-auto block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                 </div>
             </div>
             <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
                 <div class="block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
-                    <p class="text-5xl my-auto w-fit bold">จำนวนออเดอร์: <?php echo 5; ?></p>
+                    <p id="order_sum" class="text-5xl my-auto w-fit bold">จำนวนออเดอร์: </p>
                 </div>
                 <div id="waiter_order" class="flex flex-row overflow-x-auto block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                     <!-- Order element -->
@@ -137,7 +137,9 @@
     <script>
         fetch("/backend/database/staff.php?case=cooking_order").then(e => e.json()).then(payload => {
             order_list = [];
+            order_sum = 0;
             payload.forEach(itemObj => {
+                order_sum++;
                 console.log(itemObj);
                 let order_div = document.getElementById('kitchen_order');
                 let container = document.createElement('div');
@@ -150,7 +152,7 @@
                 list_1_container.className = "max-h-96 min-h-96 overflow-y-auto menu-content px-3";
                 
                 let list_2_container = document.createElement('div');
-                list_2_container.className = "menu-content overflow-y-auto";
+                list_2_container.className = "menu-content overflow-y-auto min-h-96";
                 list_2_container.id = "order" + itemObj[0].orderAt;
 
                 list_1_container.append(list_2_container);
@@ -169,7 +171,7 @@
                 }
                 let button_container = document.createElement('div');
                 button_container.className = "flex justify-center p-1";
-                button_container.innerHTML = '<button class="inline-block rounded bg-success px-10 pb-1 pt-1 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]" name="'+itemObj[0].orderAt+'">' +
+                button_container.innerHTML = '<button class="inline-block rounded bg-success px-10 pb-1 pt-1 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]" name="group" value="'+itemObj[0].orderAt+'">' +
                                     '<svg fill="#000000" width="32px" height="32px" viewBox="-2.4 -2.4 28.80 28.80" id="check-mark-square-2" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line place-self-center" transform="matrix(1, 0, 0, 1, 0, 0)rotate(0)">'+
                                         '<g id="SVGRepo_bgCarrier" stroke-width="0"></g>'+
                                         '<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>'+
@@ -183,6 +185,7 @@
                 container.append(document.createElement('hr'));
                 container.append(button_container);
             })
+            document.getElementById('kitchen_sum').innerHTML = "จำนวนออเดอร์: " + order_sum;
         });
     </script>
 </body>
