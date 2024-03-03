@@ -56,10 +56,10 @@ if (isset($_SESSION['role'])) {
                                     <thead>
                                         <tr class="border-b font-medium dark:border-neutral-500">
                                             <th scope="col" class="px-6 py-4" data-te-sort="false">เลขโต๊ะ</th>
-                                            <th scope="col" class="px-6 py-4">รหัสโต๊ะ</th>
+                                            <th scope="col" class="px-6 py-4">โค้ดโต๊ะ</th>
                                             <th scope="col" class="px-6 py-4" data-te-sort="false">สมาชิก</th>
                                             <th scope="col" class="px-6 py-4">แต้มสะสม</th>
-                                            <th scope="col" class="px-6 py-4" data-te-sort="false">ความจุ</th>
+                                            <th scope="col" class="px-6 py-4" data-te-sort="false">ความจุที่นั่ง</th>
                                             <th scope="col" class="px-6 py-4">สถานะ</th>
                                         </tr>
                                     </thead>
