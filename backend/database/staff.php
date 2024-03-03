@@ -61,30 +61,38 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
 
         case 'payBill':
         {
-            // tableID, paymentMethod, total, couponCode(Optional)
+            // tableID, paymentMethod, total, code(Optional), userID 
 
             $database->custom("SELECT userID FROM tables WHERE tableID={$_POST['tableID']}");
             $userID = $database->getResult()['payload'][0]->userID;
-            // $database->custom("SELECT sum(cal_price) as total FROM (SELECT menuID, amount, menuName, price*amount as cal_price FROM orders LEFT JOIN menus USING (menuID) WHERE tableID={$_POST['tableID']} AND billID is null AND NOT status='CANCELLED') as orderMenu");
-            // $total = $database->getResult()['payload'][0]->total;
 
             $insert = array("paymentMethod" => $_POST['paymentMethod'], 'total' => $_POST['total']);
             if (!is_null($userID))
                 $insert['userID'] = $userID;
-            if (isset($_POST['couponCode']))
-                $insert['couponCode'] = $_POST['couponCode'];
+            if (isset($_POST['code'])){
+                $insert['codeDiscount'] = $_POST['code'];
+                
+                // ลบโค้ดส่วนลดออกจาก Member 
+                $database->delete("user_discount", where:"userID={$userID}");
+            }
             $database->insert("bills", $insert);
 
             if ($database->getResult()['result']) {
                 $database->custom("SELECT billID FROM bills ORDER BY billID DESC LIMIT 1");
                 $billID = $database->getResult()['payload'][0]->billID;
-                $database->update("orders", array("billID" => $billID), "tableID={$_POST['tableID']} AND billID is null");
+
+                if ($database->getResult()['result'])$database->update("orders", array("billID" => $billID), "tableID={$_POST['tableID']} AND billID is null");
+                else break;
 
                 // **ยังไม่ได้คำนวณคะแนน**
-
+                $plus_point = floor($_POST['total'] * 0.1);
+                if ($database->getResult()['result'])$database->custom("UPDATE users SET points = points + {$plus_point} WHERE userID={$userID}");
+                else break;
 
                 // เปลี่ยนค่าสถานะ table ให้เป็นเหมือนเดิม
-                $database->update("tables", array('code' => null, 'userID' => null, 'status' => 1), "tableID={$_POST['tableID']}");
+                if ($database->getResult()['result'])$database->update("tables", array('code' => null, 'userID' => null, 'status' => 1), "tableID={$_POST['tableID']}");
+                else break;
+                $database->customResult(message:"จ่ายบิลสำเร็จ Point+{$plus_point}");
             }
             break;
         }
@@ -177,4 +185,4 @@ $_SESSION['result']['message'] = $database->getResult()['message'];
 $_SESSION['result']['type'] = $database->getResult()['type'];
 
 unset($database);
-// header($redirect);
+header($redirect);
