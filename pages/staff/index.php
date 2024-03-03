@@ -98,6 +98,7 @@ if (isset($_SESSION['role'])) {
                 <a href="#tabs-queue" class="my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400" data-te-toggle="pill" data-te-target="#tabs-queue" role="tab" aria-controls="tabs-queue" aria-selected="false">คิวการรอ</a>
             </li>
         </ul>
+
         <!--Tabs content-->
         <div class="mb-6">
 
@@ -122,9 +123,11 @@ if (isset($_SESSION['role'])) {
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $data = array();
                                             include '../../backend/connectDatabase.php';
                                             $database->custom("SELECT tableID, code, phoneNumber, points, capacity, tables.status FROM tables LEFT JOIN users USING (userID)");
-                                            foreach ($database->getResult()['payload'] as $item) { ?>
+                                            foreach ($database->getResult()['payload'] as $item) {
+                                                array_push($data, $item); ?>
                                                 <tr class="border-b dark:border-neutral-500">
                                                     <td class="whitespace-nowrap px-6 py-4"><?php echo $item->tableID ?></td>
                                                     <td class="whitespace-nowrap px-6 py-4"><?php echo $item->code ?></td>
@@ -133,18 +136,17 @@ if (isset($_SESSION['role'])) {
                                                     <td class="whitespace-nowrap px-6 py-4"><?php echo $item->capacity ?></td>
                                                     <td class="whitespace-nowrap px-6 py-4"><?php echo $item->status ?></td>
                                                     <td class="whitespace-nowrap px-6 py-4"><?php
-                                                                                            if ($item->status == "UNAVAILABLE") echo "<button type='button' onclick=bill(this, {$item->tableID}) data-te-ripple-init data-te-ripple-color='light' class='inline-block rounded bg-danger px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] disabled:opacity-70'>จ่ายบิล</button>";
-                                                                                            else echo "<button type='button' onclick='bill(this, {$item->tableID})' data-te-ripple-init data-te-ripple-color='light' class='inline-block rounded bg-danger px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] disabled:opacity-70' disabled>จ่ายบิล</button>" ?>
+                                                                                            if ($item->status == "UNAVAILABLE") echo "<button type='button' data-te-toggle='modal' data-te-target='#bill{$item->tableID}' data-te-ripple-init data-te-ripple-color='light' class='inline-block rounded bg-danger px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] disabled:opacity-70'>จ่ายบิล</button>";
+                                                                                            else echo "<button type='button' data-te-ripple-init data-te-ripple-color='light' class='inline-block rounded bg-danger px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#dc4c64] transition duration-150 ease-in-out hover:bg-danger-600 hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:bg-danger-600 focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] focus:outline-none focus:ring-0 active:bg-danger-700 active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.3),0_4px_18px_0_rgba(220,76,100,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(220,76,100,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(220,76,100,0.2),0_4px_18px_0_rgba(220,76,100,0.1)] disabled:opacity-70' disabled>จ่ายบิล</button>" ?>
                                                     </td>
                                                     <td class="whitespace-nowrap px-6 py-4">
                                                         <?php
                                                         if ($item->status == "AVAILABLE") echo "<button type='button' onclick='randomCode(this, {$item->tableID})' data-te-ripple-init data-te-ripple-color='light' class='inline-block rounded bg-primary text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200 disabled:opacity-70'>สุ่มโค้ด</button>";
-                                                        else echo "<button type='button' onclick='randomCode(this, {$item->tableID})' data-te-ripple-init data-te-ripple-color='light' class='inline-block rounded bg-primary text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200 disabled:opacity-70' disabled>สุ่มโค้ด</button>";
+                                                        else echo "<button type='button' data-te-ripple-init data-te-ripple-color='light' class='inline-block rounded bg-primary text-white px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200 disabled:opacity-70' disabled>สุ่มโค้ด</button>";
                                                         ?>
                                                     </td>
                                                 </tr>
                                             <?php }
-                                            unset($database);
                                             ?>
                                         </tbody>
                                     </table>
@@ -154,6 +156,56 @@ if (isset($_SESSION['role'])) {
                     </div>
                 </form>
             </div>
+
+            <?php foreach ($data as $item) { ?>
+                <!--Vertically centered modal-->
+                <div data-te-modal-init class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none" id="bill<?php echo $item->tableID; ?>" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
+                    <div data-te-modal-dialog-ref class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
+                        <div class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
+                            <div class="flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                                <!--Modal title-->
+                                <h5 class="text-xl font-medium leading-normal text-neutral-800 dark:text-neutral-200" id="exampleModalCenterTitle">
+                                    บิลโต๊ะ <?php echo $item->tableID ?>
+                                </h5>
+                                <!--Close button-->
+                                <button type="button" class="box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 focus:shadow-none focus:outline-none" data-te-modal-dismiss aria-label="Close">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!--Modal body-->
+                            <div class="relative p-4">
+                                <p class="font-bold">รายการอาหารที่สั่ง</p>
+                                <div class="flex flex-col m-auto opacity-75">
+
+                                    <?php 
+                                    $database->custom("SELECT * FROM orders")
+                                    ?>
+                                    <div class="flex flex-row flex-1">
+                                        <div class="flex-1">อาหาร</div>
+                                        <div class="flex-1">X4</div>
+                                        <div class="flex-1 text-right">400 บาท</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--Modal footer-->
+                            <div class="flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
+                                <button type="button" class="inline-block rounded bg-success-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-success-700 transition duration-150 ease-in-out hover:bg-success-accent-100 focus:bg-success-accent-100 focus:outline-none focus:ring-0 active:bg-success-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
+                                    ยกเลิก
+                                </button>
+                                <button type="button" class="ml-1 inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]" data-te-ripple-init data-te-ripple-color="light">
+                                    ยืนยัน
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <?php } ?>
 
             <div class="bg-white rounded-lg shadow account-container p-5 w-fit m-auto hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-queue" role="tabpanel" aria-labelledby="tabs-queue-tab">
                 <div class="flex flex-col">
@@ -246,6 +298,22 @@ if (isset($_SESSION['role'])) {
                     <?php $fire = true; ?>
 
                 <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "randomTableCode")) { ?>
+                    Toast.fire({
+                        icon: "error",
+                        title: "<?php echo $_SESSION['result']['message']; ?>",
+                    });
+                <?php $fire = true;
+                } ?>
+
+
+                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "payBill")) { ?>
+                    Toast.fire({
+                        icon: "success",
+                        title: "<?php echo $_SESSION['result']['message']; ?>",
+                    });
+                    <?php $fire = true; ?>
+
+                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "payBill")) { ?>
                     Toast.fire({
                         icon: "error",
                         title: "<?php echo $_SESSION['result']['message']; ?>",

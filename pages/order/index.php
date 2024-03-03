@@ -553,8 +553,7 @@ if (!isset($_COOKIE['tableID'])) { ?>
                     input: 'text',
                     confirmButtonText: 'ตกลง'
                 });
-                // || code == ""
-                if (code ) {
+                if (code || code == "") {
                     let inp = document.createElement("input")
                     inp.name = "code"
                     inp.hidden = true
