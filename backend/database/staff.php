@@ -28,11 +28,30 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
 
         case 'orderComplete':
         {
-            // tableID, menuID, menuName, amount
+            // tableID, orderAt
 
-            $database->update("orders", array("status" => 2), "tableID={$_POST['tableID']} AND menuID={$_POST['menuID']} AND status='INCOMPLETE'");
-            if ($database->getResult()['result'])
-                $database->customResult("Order โต๊ะ {$_POST['tableID']} เมนู: {$_POST['menuName']} จำนวน: {$_POST['amount']} เสร็จสิ้น");
+            $database->update("orders", array("status" => 2), "tableID={$_POST['tableID']} AND orderAt='{$_POST['orderAt']}' AND status='INCOMPLETE'");
+            if ($database->getResult()['result']) $database->customResult(message:"Order โต๊ะ {$_POST['tableID']} เสร็จสิ้น");
+
+            break;
+        }
+
+        case 'orderCancel':
+        {
+            // tableID, orderAt
+
+            $database->update("orders", array("status" => 3), "tableID={$_POST['tableID']} AND orderAt='{$_POST['orderAt']}' AND status='INCOMPLETE'");
+            if ($database->getResult()['result']) $database->customResult(message:"Order โต๊ะ {$_POST['tableID']} ถูกยกเลิก");
+
+            break;
+        }
+
+        case 'orderServed':
+        {
+            // tableID, orderAt
+
+            $database->update("orders", array("status" => 4), "tableID={$_POST['tableID']} AND orderAt='{$_POST['orderAt']}' AND status='COMPLETE'");
+            if ($database->getResult()['result']) $database->customResult(message:"เสริฟโต๊ะ {$_POST['tableID']} เสร็จสิ้น");
 
             break;
         }
@@ -74,6 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
     }
     $redirect .= $_SERVER['HTTP_REFERER'];
     $database->customResult(type: $_POST['case']);
+
 } else if ($_SERVER['REQUEST_METHOD'] == "GET" && in_array($_SESSION['role'], array("STAFF", "MANAGER"))) {
     switch ($_GET["case"]) {
         case 'table':
@@ -105,6 +125,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
         {
             $order = [];
             $database->custom("SELECT orderAt FROM orders WHERE status = 1 GROUP BY orderAt;");
+            foreach($database->getResult()['payload'] as $time){
+                $database->custom("SELECT tableID, menuName, amount, orderAt FROM orders join menus on menus.menuID = orders.menuID WHERE orderAt = '{$time->orderAt}';");
+                array_push($order, $database->getResult()['payload']);
+            }
+            echo json_encode($order);
+            break;
+        }
+        case 'complete_order':
+        {
+            $order = [];
+            $database->custom("SELECT orderAt FROM orders WHERE status = 2 GROUP BY orderAt;");
             foreach($database->getResult()['payload'] as $time){
                 $database->custom("SELECT tableID, menuName, amount, orderAt FROM orders join menus on menus.menuID = orders.menuID WHERE orderAt = '{$time->orderAt}';");
                 array_push($order, $database->getResult()['payload']);

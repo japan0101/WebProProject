@@ -177,7 +177,7 @@ if (isset($_SESSION['role'])) {
                                             </div>
                                         </div>
                                     </form>
-                                    
+
                                 </div>
                                 <table class="min-w-full text-left text-sm font-light">
                                     <thead class="border-b font-medium dark:border-neutral-500">
@@ -230,6 +230,36 @@ if (isset($_SESSION['role'])) {
                 element.form.submit();
             }
         </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/assets/scripts/sweetalert.js"></script>
+        <?php
+        if (isset($_SESSION['result'])) { ?>
+            <script>
+                <?php $fire = false; ?>
+
+                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "randomTableCode")) { ?>
+                    Toast.fire({
+                        icon: "success",
+                        title: "<?php echo $_SESSION['result']['message']; ?>",
+                    });
+                    <?php $fire = true; ?>
+
+                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "randomTableCode")) { ?>
+                    Toast.fire({
+                        icon: "error",
+                        title: "<?php echo $_SESSION['result']['message']; ?>",
+                    });
+                <?php $fire = true;
+                } ?>
+
+
+                <?php if ($fire)
+                    unset($_SESSION['result']) ?>
+            </script>
+        <?php
+        } ?>
+
         <?php
         include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
         <script>
@@ -284,6 +314,7 @@ if (isset($_SESSION['role'])) {
                 }
             }
         </script>
+
 </body>
 
 </html>
