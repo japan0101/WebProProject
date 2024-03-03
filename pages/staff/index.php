@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['role'])) {
-    if ($_SESSION['role'] != "STAFF" || $_SESSION['role'] != "MANAGER" )
+    if ($_SESSION['role'] != "STAFF" && $_SESSION['role'] != "MANAGER" )
         header("Location: ./../../");
 } else header("Location: ./../../");
 ?>
