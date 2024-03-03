@@ -60,7 +60,8 @@ if (isset($_SESSION['role'])) {
                                     <label for="expire" class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">วันหมดอายุ</label>
                                 </div>
 
-                                <button name="case" value="create_banner" type="submit" data-te-ripple-init data-te-ripple-color="light" class="inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]">
+                                <button name="case" value="create_banner" type="submit" data-te-ripple-init data-te-ripple-color="light" class="inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]"
+                                onclick="">
                                     เพิ่มเมนู
                                 </button>
                             </form>
@@ -336,29 +337,14 @@ if (isset($_SESSION['role'])) {
             <?php $fire = true;
             } ?>
 
-            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "delete_menu")) { ?>
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "delete_banner")) { ?>
                 Toast.fire({
                     icon: "success",
                     title: "<?php echo $_SESSION['result']['message']; ?>",
                 });
                 <?php $fire = true; ?>
 
-            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "delete_menu")) { ?>
-                Toast.fire({
-                    icon: "error",
-                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                });
-            <?php $fire = true;
-            } ?>
-
-            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "delete_menu")) { ?>
-                Toast.fire({
-                    icon: "success",
-                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                });
-                <?php $fire = true; ?>
-
-            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "delete_menu")) { ?>
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "delete_banner")) { ?>
                 Toast.fire({
                     icon: "error",
                     title: "<?php echo $_SESSION['result']['message']; ?>",

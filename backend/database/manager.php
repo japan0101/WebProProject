@@ -205,6 +205,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
                 $database->customResult(message: "เพิ่มกล่องสุ่มเสร็จสิ้น");
             break;
         }
+        case 'delete_banner': {
+                // ID
+
+                $database->delete(tablename: "gacha_banner", where: "gachaID={$_POST['ID']}");
+                if ($database->getResult()['result'])
+                    $database->customResult(message: "ลบกล่องสุ่มเสร็จสิ้น");
+                break;
+            }
         default: {
                 $database->customResult(result: 0, message: "ไม่ได้ใส่สิ่งที่ต้องการ");
             }
