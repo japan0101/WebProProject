@@ -1,5 +1,10 @@
 <?php
-session_start(); ?>
+session_start();
+if (isset($_SESSION['role'])) {
+    if ($_SESSION['role'] != "STAFF" || $_SESSION['role'] != "MANAGER" )
+        header("Location: ./../../");
+} else header("Location: ./../../");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +12,7 @@ session_start(); ?>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Laew Tae App</title>
     <link rel="stylesheet" href="styles.css">
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
