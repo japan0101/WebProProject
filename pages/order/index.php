@@ -9,7 +9,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LaewTaeApp</title>
+    <title>Laew Tae App</title>
     <link link="stylesheet" href="style.css">
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
@@ -523,6 +523,16 @@ if (!isset($_COOKIE['tableID'])) { ?>
     <?php
     } else { ?>
 
+        <div class="flex flex-col h-screen w-screen content-center">
+            <div class="m-auto">
+                <div
+                class="inline-block h-96 w-96 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]"
+                role="status">
+                <span
+                    class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                </div>
+            </div>
+        </div>
         <form action="/backend/database/customer.php" method="post" id="form1">
             <input type="hidden" name="case" value="tableCheck">
         </form>
@@ -543,9 +553,11 @@ if (!isset($_COOKIE['tableID'])) { ?>
                     input: 'text',
                     confirmButtonText: 'ตกลง'
                 });
-                if (code) {
+                // || code == ""
+                if (code ) {
                     let inp = document.createElement("input")
                     inp.name = "code"
+                    inp.hidden = true
                     inp.value = code
                     form1.append(inp)
                     form1.submit()
@@ -571,7 +583,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
     async function sleep(sec) {
         for (let i = 0; i < sec; i++) {
-            console.log(`Waiting ${i} seconds...`);
+            // console.log(`Waiting ${i} seconds...`);
             await wait(i * 1000);
         }
         location.reload()

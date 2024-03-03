@@ -12,7 +12,7 @@ if (isset($_SESSION['role'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaewTaeApp (Manager)</title>
+    <title>Laew Tae App</title>
 
     <link rel="stylesheet" href="/assets/stylesheets/global.css">
     <link rel="stylesheet" href="/assets/stylesheets/developers.css">
@@ -39,11 +39,11 @@ if (isset($_SESSION['role'])) {
                                         <tr class="border-b font-medium dark:border-neutral-500">
                                             <th scope="col" class="px-6 py-4">ชื่อเมนู</th>
                                             <th scope="col" class="px-6 py-4">ราคา</th>
-                                            <th scope="col" class="px-6 py-4">คำอธิบาย</th>
+                                            <th scope="col" class="px-6 py-4" data-te-sort="false">คำอธิบาย</th>
                                             <th scope="col" class="px-6 py-4">ประเภทเมนู</th>
-                                            <th scope="col" class="px-6 py-4">รูป</th>
-                                            <th scope="col" class="px-6 py-4"></th>
-                                            <th scope="col" class="px-6 py-4"></th>
+                                            <th scope="col" class="px-6 py-4" data-te-sort="false">รูป</th>
+                                            <th scope="col" class="px-6 py-4" data-te-sort="false"></th>
+                                            <th scope="col" class="px-6 py-4" data-te-sort="false"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
