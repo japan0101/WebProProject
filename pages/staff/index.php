@@ -125,7 +125,7 @@ if (isset($_SESSION['role'])) {
                                             <?php
                                             $data = array();
                                             include '../../backend/connectDatabase.php';
-                                            $database->custom("SELECT tableID, code, phoneNumber, points, capacity, tables.status FROM tables LEFT JOIN users USING (userID)");
+                                            $database->custom("SELECT tableID, code, userID, phoneNumber, points, capacity, tables.status FROM tables LEFT JOIN users USING (userID)");
                                             foreach ($database->getResult()['payload'] as $item) {
                                                 array_push($data, $item); ?>
                                                 <tr class="border-b dark:border-neutral-500">
@@ -157,8 +157,12 @@ if (isset($_SESSION['role'])) {
                 </form>
             </div>
 
+            <script>
+                let select = "";
+            </script>
+
             <?php foreach ($data as $item) { ?>
-                <!--Vertically centered modal-->
+                <form action="" method="post"></form>
                 <div data-te-modal-init class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none" id="bill<?php echo $item->tableID; ?>" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog">
                     <div data-te-modal-dialog-ref class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
                         <div class="pointer-events-auto relative flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-lg outline-none dark:bg-neutral-600">
@@ -180,16 +184,48 @@ if (isset($_SESSION['role'])) {
                                 <p class="font-bold">รายการอาหารที่สั่ง</p>
                                 <div class="flex flex-col m-auto opacity-75">
 
-                                    <?php 
-                                    $database->custom("SELECT * FROM orders")
-                                    ?>
-                                    <div class="flex flex-row flex-1">
-                                        <div class="flex-1">อาหาร</div>
-                                        <div class="flex-1">X4</div>
-                                        <div class="flex-1 text-right">400 บาท</div>
+                                    <?php
+                                    $total = 0;
+                                    $total_item = array();
+
+                                    $discount = array();
+                                    $database->custom("SELECT menuID, SUM(amount) as amount, menuName, price FROM orders LEFT JOIN menus USING (menuID) WHERE status = 'SERVED' AND tableID={$item->tableID} GROUP BY menuID");
+                                    foreach ($database->getResult()['payload'] as $item2) {
+                                        $discount["{$item2->menuID}"] = "{$item2->menuName}";
+                                        $total += $item2->amount * $item2->price;
+                                        $total_item["{$item2->menuID}"] = $item2->amount * $item2->price; ?>
+
+                                        <div class="flex flex-row flex-1">
+                                            <div class="flex-1"><?php echo "{$item2->menuName} ({$item2->price})" ?></div>
+                                            <div class="flex-1"><?php echo "X{$item2->amount}" ?></div>
+                                            <div class="flex-1 text-right"><?php echo $item2->amount * $item2->price . " บาท" ?></div>
+                                        </div>
+
+                                    <?php } ?>
+
+                                    <hr>
+                                    <div class="flex flex-row flex-1 mt-1 text-red-400">
+                                        <div class="flex-1" id="discountName"></div>
+                                        <div class="flex-1"></div>
+                                        <div class="flex-1 text-right" id="discountPrice"></div>
+                                    </div>
+
+                                    <div class="flex flex-row flex-1 mt-1">
+                                        <div class="flex-1">ราคารวม</div>
+                                        <div class="flex-1"></div>
+                                        <div class="flex-1 text-right" id="priceSum"><?php echo $total . " บาท" ?></div>
                                     </div>
 
                                 </div>
+
+                                <div class="relative my-3">
+                                    <label for="select"></label>
+                                    <select data-te-select-init id="select_<?php echo $item->userID ?>" name="code" disabled>
+                                        <option value="" hidden select></option>
+                                    </select>
+                                    <label data-te-select-label-ref>โค้ดส่วนลด</label>
+                                </div>
+
                             </div>
 
                             <!--Modal footer-->
@@ -204,6 +240,45 @@ if (isset($_SESSION['role'])) {
                         </div>
                     </div>
                 </div>
+
+                <?php if (!is_null($item->userID)) { ?>
+                    <script>
+                        select = document.getElementById("<?php echo "select_" . $item->userID; ?>")
+                        let total_item = <?php echo json_encode($total_item) ?>;
+                        let menuDis = <?php echo json_encode($discount) ?>;
+
+                        fetch(`./../../backend/database/staff.php?case=couponUser&ID=<?php echo $item->userID ?>`).then(e => e.json()).then(payload => {
+
+                            payload.forEach(item => {
+                                if (menuDis[item['menuID']] != undefined) {
+                                    select.disabled = false
+
+                                    let opt = document.createElement("option")
+                                    opt.value = JSON.stringify({
+                                        code: item["code"],
+                                        discount: item['discount'],
+                                        menuID: item['menuID']
+                                    })
+                                    opt.append(document.createTextNode(item['code']))
+                                    opt.setAttribute("data-te-select-secondary-text", `${menuDis[item['menuID']]} ลด ${Number(item['discount'])*100}%`)
+                                    select.append(opt)
+                                }
+                            })
+                        })
+
+                        const discountName = document.getElementById("discountName")
+                        const discountPrice = document.getElementById("discountPrice")
+                        const priceSum = document.getElementById("priceSum")
+
+                        select.addEventListener("change", function() {
+                            let total = <?php echo $total;?>;
+                            let data = JSON.parse(this.value);
+                            discountName.innerHTML = menuDis[data['menuID']];
+                            discountPrice.innerHTML = "-" + (total_item[data['menuID']] * data['discount']) + " บาท"
+                            priceSum.innerHTML = `${total-total_item[data['menuID']] * data['discount']} บาท`;
+                        })
+                    </script>
+                <?php } ?>
 
             <?php } ?>
 
