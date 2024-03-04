@@ -103,7 +103,7 @@ if (isset($_SESSION['role'])) {
                                         <tr class="border-b font-medium dark:border-neutral-500">
                                             <th scope="col" class="px-6 py-4">ชื่อเมนู</th>
                                             <th scope="col" class="px-6 py-4">ราคา</th>
-                                            <th scope="col" class="px-6 py-4" data-te-sort="false">คำอธิบาย</th>
+                                            <th scope="col" class="px-6 py-4 truncate" data-te-width="400" data-te-sort="false">คำอธิบาย</th>
                                             <th scope="col" class="px-6 py-4">ประเภทเมนู</th>
                                             <th scope="col" class="px-6 py-4" data-te-sort="false">รูป</th>
                                         </tr>
