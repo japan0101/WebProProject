@@ -408,8 +408,8 @@ session_start();
     <script src="/assets/scripts/sweetalert.js"></script>
 
     <?php
-    if (!isset($_COOKIE['tableID'])) { ?>
-
+    if (!isset($_COOKIE['tableID'])) { 
+        if (isset($_SESSION['tablecode'])) header("Location: ./../../backend/checkTable.php")?>
 
         <?php
         if (!isset($_SESSION['userID'])) { ?>

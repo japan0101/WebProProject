@@ -19,6 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 $id = $database->getResult()['payload'][0]->tableID;
 
+                // อัพเดทเป็นสถานะว่ามีการ จองแล้ว
+                $database->update("tables", array("status" => 3), "code='{$_POST['code']}'");
+
                 // เช็คว่ามีคนแล้วหรือยัง
                 if (is_null($database->getResult()['payload'][0]->userID) && $_SESSION['userID'] != 'null') {
                     $database->update("tables", array("userID" => $_SESSION['userID']), "code='{$_POST['code']}'");
@@ -27,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 // เช็คว่าทำงานได้หรือไม่
                 if ($database->getResult()['result'])
                     $database->customResult(message: "คุณอยู่ที่โต๊ะ $id");
+
+                $_SESSION['tablecode'] = $_POST['code'];
 
                 setcookie("tableID", $id, time() + 60 * 60 * 6, '/pages/order');
                 setcookie("tablecode", $_POST['code'], time() + 60 * 60 * 6, '/pages/order');
@@ -55,29 +60,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $database->customResult(message: "สั่งอาหารสำเร็จ");
                 } else {
 
-                    setcookie("tableID", $id, time() - 60 * 60 * 4, '/pages/order');
-                    setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/pages/order');
-
-                    setcookie("tableID", $id, time() - 60 * 60 * 6, '/backend/database/customer.php');
-                    setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/backend/database/customer.php');
-
                     if (isset($_SESSION['memberName'])){
                         $database->custom("SELECT points FROM users WHERE userID={$_SESSION['userID']}");
                         $_SESSION['points'] = $database->getResult()['payload'][0]->points;
                     }
 
-                    $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะใหม่อีกครั้ง");
+                    $database->customResult(result: 0, message: "กรุณาใส่โค้ดของโต๊ะใหม่อีกครั้ง");
                 }
             } else {
 
-                setcookie("tableID", $id, time() - 60 * 60 * 6, '/pages/order');
-                setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/pages/order');
-
-                setcookie("tableID", $id, time() - 60 * 60 * 6, '/backend/database/customer.php');
-                setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/backend/database/customer.php');
-
                 $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะ");
             }
+            setcookie("tableID", $id, time() - 60 * 60 * 4, '/pages/order');
+            setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/pages/order');
+
+            setcookie("tableID", $id, time() - 60 * 60 * 6, '/backend/database/customer.php');
+            setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/backend/database/customer.php');
             break;
         }
 
