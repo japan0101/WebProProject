@@ -407,7 +407,7 @@ session_start() ?>
 
                 imagePart = document.createElement('img');
                 imagePart.className = "rounded-t-lg"
-                imagePart.setAttribute('src', 'https://tecdn.b-cdn.net/img/new/standard/nature/186.jpg')
+                imagePart.setAttribute('src', './../../assets/images/menus/' + couponObj['image'])
                 imagePart.setAttribute('alt', 'picture_of_' + couponObj['menuName'])
 
                 imageFunction = document.createElement('a');
