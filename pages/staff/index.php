@@ -143,7 +143,7 @@ if (isset($_SESSION['role'])) {
                                         $total_item = array();
 
                                         $discount = array();
-                                        $database->custom("SELECT menuID, SUM(amount) as amount, menuName, price FROM orders LEFT JOIN menus USING (menuID) WHERE status = 'SERVED' AND tableID={$item->tableID} GROUP BY menuID");
+                                        $database->custom("SELECT menuID, SUM(amount) as amount, menuName, price FROM orders LEFT JOIN menus USING (menuID) WHERE status = 'SERVED' AND tableID={$item->tableID} AND billID is null GROUP BY menuID");
                                         foreach ($database->getResult()['payload'] as $item2) {
                                             $discount["{$item2->menuID}"] = "{$item2->menuName}";
                                             $total += $item2->amount * $item2->price;
