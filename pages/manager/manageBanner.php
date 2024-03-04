@@ -369,13 +369,13 @@ foreach ($data as $item) { ?>
 
 <script>
     const menuList = []
-    fetch("/backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
+    fetch("./../../backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
         payload.forEach(menuItem => {
             menuList.push(menuItem);
         });
     })
     const itemList = [];
-    fetch("/backend/database/customer.php?case=getrate").then(e => e.json()).then(payload => {
+    fetch("./../../backend/database/customer.php?case=getrate").then(e => e.json()).then(payload => {
         payload.forEach(gachaItem => {
             //gachaID, menuName, rarity, discount, menuID
             itemList.push(gachaItem);

@@ -101,7 +101,7 @@ if (isset($_COOKIE['tableID'])) { ?>
             </div>
         </span>
     <script>
-        fetch("/backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
+        fetch("./../../backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
             selectorContainer = document.getElementById('bannerSel');
             contentContainer = document.getElementById('contentHolder');
             allContainer = document.getElementById('allCouponContainer');

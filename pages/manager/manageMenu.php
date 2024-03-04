@@ -267,7 +267,7 @@ foreach ($data as $item) { ?>
 ?>
 
 <script>
-    fetch("/backend/database/manager.php?case=menu_category").then(e => e.json()).then(payload => {
+    fetch("./../../backend/database/manager.php?case=menu_category").then(e => e.json()).then(payload => {
 
         select.forEach(obj => {
 

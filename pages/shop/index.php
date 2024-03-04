@@ -128,7 +128,7 @@ if (isset($_SESSION['result'])) { ?>
 } ?>
 
 <script>
-    fetch("/backend/database/customer.php?case=category").then(e => e.json()).then(payload => {
+    fetch("./../../backend/database/customer.php?case=category").then(e => e.json()).then(payload => {
         selectorContainer = document.getElementById('bannerSel');
         contentContainer = document.getElementById('contentHolder');
         allContainer = document.getElementById('allMenuContainer');

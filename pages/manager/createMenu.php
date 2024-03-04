@@ -153,7 +153,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
     const select = document.getElementById("select")
     // Category
     const display_category = document.getElementById("display_category")
-    fetch("/backend/database/manager.php?case=menu_category").then(e => e.json()).then(payload => {
+    fetch("./../../backend/database/manager.php?case=menu_category").then(e => e.json()).then(payload => {
         payload.forEach(item => {
             let row = display_category.insertRow(-1)
             let col = row.insertCell(-1)
@@ -172,7 +172,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
 <script>
     // Customer
     const tableMenu = document.getElementById("displayMenu")
-    fetch("/backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
+    fetch("./../../backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
         payload.forEach(item => {
             let row = tableMenu.insertRow(-1)
             row.className = "border-b dark:border-neutral-500"

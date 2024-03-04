@@ -150,7 +150,7 @@ if (isset($_SESSION['memberName'])) { ?>
         <input type="hidden" name="case" value="generateCoupon">
     </form>
     <script>
-        fetch("/backend/database/customer.php?case=banner").then(e => e.json()).then(payload => {
+        fetch("./../../backend/database/customer.php?case=banner").then(e => e.json()).then(payload => {
             selectorContainer = document.getElementById('bannerSel');
             contentContainer = document.getElementById('contentHolder');
             payload.forEach(bannerObj => {
@@ -321,7 +321,7 @@ if (isset($_SESSION['memberName'])) { ?>
                 table.appendChild(tableBody);
                 document.body.appendChild(modalContainer1)
             });
-            fetch("/backend/database/customer.php?case=getrate").then(e => e.json()).then(payload => {
+            fetch("./../../backend/database/customer.php?case=getrate").then(e => e.json()).then(payload => {
                 payload.forEach(itemObj => {
                     table = document.getElementById("table_body_" + itemObj['gachaID']);
 
@@ -401,7 +401,7 @@ if (isset($_SESSION['memberName'])) { ?>
                                 allowOutsideClick: false
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    fetch("/backend/database/customer.php?case=getgachaitem&banner_id=" + banner_id + "&rarity='" + rarity + "'").then(e => e.json()).then(payload => {
+                                    fetch("./../../backend/database/customer.php?case=getgachaitem&banner_id=" + banner_id + "&rarity='" + rarity + "'").then(e => e.json()).then(payload => {
                                         recieved = payload[Math.floor(Math.random() * payload.length)];
                                         Swal.fire({
                                             title: "คูปองของคุณ",

@@ -123,7 +123,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
 include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 <script>
     // Chef Content
-    fetch("/backend/database/staff.php?case=cooking_order").then(e => e.json()).then(payload => {
+    fetch("./../../backend/database/staff.php?case=cooking_order").then(e => e.json()).then(payload => {
         order_list = [];
         order_sum = 0;
 
@@ -226,7 +226,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 
     // Waiter Content
-    fetch("/backend/database/staff.php?case=complete_order").then(e => e.json()).then(payload => {
+    fetch("./../../backend/database/staff.php?case=complete_order").then(e => e.json()).then(payload => {
         order_list = [];
         order_sum = 0;
 
