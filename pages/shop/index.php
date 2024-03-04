@@ -10,6 +10,9 @@ session_start() ?>
 
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
+    
+    <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
+    <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
 
 </head>
 
