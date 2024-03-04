@@ -94,7 +94,7 @@ if (isset($_SESSION['role'])) {
 
             <div class="flex flex-col gap-6">
                 <div class="flex flex-col blur-effect rounded-lg p-8 bg-white relative overflow-hidden" data-te-perfect-scrollbar-init>
-                    <h2 class="text-2xl mt-0">เมนูต่าง ๆ</h2>
+                    <h2 class="text-2xl mt-0">เมนูต่าง ๆ <span id="countMenu">(0)</span></h2>
                     <div class="sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8" data-te-datatable-init data-te-max-height="580" data-te-fixed-header="true">
                             <div class="overflow-x-auto">
@@ -112,7 +112,7 @@ if (isset($_SESSION['role'])) {
                                         <?php
                                         include '../../backend/connectDatabase.php';
                                         $data = array();
-                                        $database->custom("SELECT menuID, menuName, price, description, name as `categoryName`, image FROM menus LEFT JOIN menu_category USING (categoryID)");
+                                        $database->custom("SELECT menuID, menuName, price, description, name as `categoryName`, image FROM menus LEFT JOIN menu_category USING (categoryID) ORDER BY categoryID");
                                         foreach ($database->getResult()['payload'] as $item) {
                                             array_push($data, $item); ?>
                                             <tr class="border-b dark:border-neutral-500">
@@ -154,6 +154,11 @@ if (isset($_SESSION['role'])) {
         </section>
     </main>
 
+
+    <script>
+        const countMenu = document.getElementById("countMenu")
+        countMenu.innerHTML = "(<?php echo count($data)?>)";
+    </script>
 
     <script>
         // Select Category
