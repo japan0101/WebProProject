@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_COOKIE['token']) && !isset($_SESSION['memberName']))
-    header("Location: backend/account/read_user.php");
+    header("Location: ./backend/account/read_user.php");
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == "STAFF")
         header("Location: ./pages/staff");
@@ -42,7 +42,7 @@ if (isset($_SESSION['role'])) {
                 <!-- Collapsible navigation container -->
                 <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent1" data-te-collapse-item>
                     <!-- Logo -->
-                    <a class="mb-4 ml-2 mr-5 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0" href="./../../">
+                    <a class="mb-4 ml-2 mr-5 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0" href="./">
                         <img src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp" style="height: 15px" alt="TE Logo" loading="lazy" />
                     </a>
                     <?php
@@ -52,19 +52,19 @@ if (isset($_SESSION['role'])) {
                         <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
                             <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                                 <!-- Home -->
-                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400" href="./../../" data-te-nav-link-ref>หน้าหลัก</a>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400" href="./" data-te-nav-link-ref>หน้าหลัก</a>
                             </li>
                             <!-- Redeem Points -->
                             <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/shop/" data-te-nav-link-ref>แลกแต้ม</a>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./pages/shop/" data-te-nav-link-ref>แลกแต้ม</a>
                             </li>
                             <!-- Banner -->
                             <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/banner/" data-te-nav-link-ref>กล่องสุ่ม</a>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./pages/banner/" data-te-nav-link-ref>กล่องสุ่ม</a>
                             </li>
                             <!-- Stash -->
                             <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/couponStash/" data-te-nav-link-ref>คูปองของฉัน</a>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./pages/couponStash/" data-te-nav-link-ref>คูปองของฉัน</a>
                             </li>
                         </ul>
                 </div>
@@ -80,10 +80,10 @@ if (isset($_SESSION['role'])) {
                     <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block" aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
                         <!-- Second dropdown menu items -->
                         <li>
-                            <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
+                            <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="./pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
                         </li>
                         <li>
-                            <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="./../../backend/account/logout_user.php" data-te-dropdown-item-ref>ออกจากระบบ</a>
+                            <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="./backend/account/logout_user.php" data-te-dropdown-item-ref>ออกจากระบบ</a>
                         </li>
                     </ul>
                 </div>

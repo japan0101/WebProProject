@@ -1,7 +1,6 @@
 <?php
 echo <<<EOF
 <!-- Roboto font -->
-<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
 <!-- TW Elements styles -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />

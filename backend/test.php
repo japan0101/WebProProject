@@ -187,7 +187,7 @@ session_start(); ?>
 <script>
     const TBDisplay = document.getElementById("display1")
     // ดึงข้อมูลจาก Database ผ่าน GET
-    fetch("/backend/database/staff.php?case=table").then(e => e.json()).then(payload => {
+    fetch("./../backend/database/staff.php?case=table").then(e => e.json()).then(payload => {
         payload.forEach(item => {
             let isAvaliable = true
             let row = TBDisplay.insertRow(-1)
@@ -219,7 +219,7 @@ session_start(); ?>
     const TBModifymenu = document.getElementById("modify_menu")
     // Customer
     const TBDisplay2 = document.getElementById("display2")
-    fetch("/backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
+    fetch("./../backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
         payload.forEach(item => {
             let row = TBDisplay2.insertRow(-1)
 
@@ -347,7 +347,7 @@ session_start(); ?>
     const select = document.getElementById("select")
     // Category
     const display_category = document.getElementById("display_category")
-    fetch("/backend/database/manager.php?case=menu_category").then(e => e.json()).then(payload => {
+    fetch("./../backend/database/manager.php?case=menu_category").then(e => e.json()).then(payload => {
         payload.forEach(item => {
             let row = display_category.insertRow(-1)
             let col = row.insertCell(-1)
