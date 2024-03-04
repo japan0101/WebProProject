@@ -27,7 +27,8 @@ if (isset($_SESSION['role'])) {
     <?php
     if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
         <!--Tabs navigation-->
-        <ul class="place-content-center mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0 mt-12" role="tablist" data-te-nav-ref>
+        <br><br>
+        <ul class="place-content-center mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0" role="tablist" data-te-nav-ref>
             <li role="presentation">
                 <a href="#tabs-table" class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700" data-te-toggle="pill" data-te-target="#tabs-table" data-te-nav-active role="tab" aria-controls="tabs-table" aria-selected="true">โต๊ะ</a>
             </li>
