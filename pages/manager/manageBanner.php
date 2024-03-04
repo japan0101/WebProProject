@@ -16,7 +16,7 @@ if (isset($_SESSION['role'])) {
 
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
-    
+
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/developers.css">
@@ -133,7 +133,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
                                             </button>
                                         </td>
                                     </tr>
-                                <?php
+                                    <?php
                                 }
                                 ?>
                                 </tbody>
@@ -253,7 +253,7 @@ foreach ($data as $item) { ?>
                                             echo $gachaitem->discount * 100 ?> %
                                         </td>
                                     </tr>
-                                <?php
+                                    <?php
                                 }
                             } ?>
                             </tbody>

@@ -12,10 +12,10 @@ if (isset($_SESSION['memberName']))
     <title>Laew Tae App</title>
 
     <?php
-        include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
-        
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
+
     <link rel="stylesheet" href="./../assets/stylesheets/account.css">
-    
+
 </head>
 
 <body class="grey-background">

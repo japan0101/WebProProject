@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     $database->customResult(message: "สั่งอาหารสำเร็จ");
                 } else {
 
-                    if (isset($_SESSION['memberName'])){
+                    if (isset($_SESSION['memberName'])) {
                         $database->custom("SELECT points FROM users WHERE userID={$_SESSION['userID']}");
                         $_SESSION['points'] = $database->getResult()['payload'][0]->points;
                     }
