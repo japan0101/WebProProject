@@ -10,7 +10,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Laew Tae App</title>
-    <link link="stylesheet" href="style.css">
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 
@@ -66,8 +65,8 @@ if (isset($_COOKIE['tableID'])) { ?>
 
     <!-- end of nav bar -->
 
-    <link rel="stylesheet" href="/assets/stylesheets/navbar.css">
-    <link rel="stylesheet" href="/assets/stylesheets/global.css">
+    <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
+    <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
 
     <span class="my-5">
             <div class="rounded-lg border dark:border-neutral-600 mt-7">

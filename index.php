@@ -14,8 +14,8 @@ if (isset($_SESSION['role'])){
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Laew Tae App</title>
-    <link rel="stylesheet" href="/assets/stylesheets/global.css">
-    <link rel="stylesheet" href="/assets/stylesheets/developers.css">
+    <link rel="stylesheet" href="./assets/stylesheets/global.css">
+    <link rel="stylesheet" href="./assets/stylesheets/developers.css">
     <?php
     include("./assets/scripts/tailwind.php") ?>
 </head>

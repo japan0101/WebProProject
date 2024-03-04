@@ -6,7 +6,7 @@ echo <<<EOF
 <!-- TW Elements styles -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
 <!-- Tailwind CSS config -->
-<link rel="stylesheet" href="/assets/stylesheets/global.css">
+<link rel="stylesheet" href="./../stylesheets/global.css">
 <script src="https://cdn.tailwindcss.com/3.3.0"></script>
 EOF;
 

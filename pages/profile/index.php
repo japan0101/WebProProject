@@ -287,7 +287,7 @@ if (isset($_SESSION['memberName'])) { ?>
                             text: "คุณยังไม่ได้เข้าสู่ระบบ",
                         }).then(result => {
                             if (result.isConfirmed) {
-                                location.href = "/index.php"
+                                location.href = "./../../index.php"
                             }
                         });
                     </script>

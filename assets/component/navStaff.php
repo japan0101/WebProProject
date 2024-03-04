@@ -10,47 +10,41 @@
                     aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
                 <!-- Hamburger icon -->
                 <span class="[&>svg]:w-7">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7">
-            <path fill-rule="evenodd"
-                  d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
-                  clip-rule="evenodd"/>
-          </svg>
-        </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7">
+                        <path fill-rule="evenodd"
+                              d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                </span>
             </button>
+
             <!-- Collapsible navigation container -->
             <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
                  id="navbarSupportedContent1" data-te-collapse-item>
                 <!-- Logo -->
                 <a class="mb-4 ml-2 mr-5 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
-                   href="./../../">
+                   href="./../../pages/manager">
                     <img src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp" style="height: 15px"
                          alt="TE Logo" loading="lazy"/>
                 </a>
                 <?php
                 $isAuth = isset($_SESSION['memberName']);
-                if ($isAuth) { ?>
+                if ($isAuth && $_SESSION['role'] == "STAFF") { ?>
                 <!-- Left navigation links -->
                 <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
+
+                    <!-- หน้าจัดการโต๊ะคิว -->
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                        <!-- Home -->
+                        <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                           href="./../../pages/staff/" data-te-nav-link-ref>จัดการโต๊ะคิว</a>
+                    </li>
+                    <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+
+                        <!-- หน้าจัดการออเดอร์อาหาร -->
                         <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-                           href="./../../" data-te-nav-link-ref>หน้าหลัก</a>
+                           href="./../../pages/cooking/" data-te-nav-link-ref>จัดการออเดอร์อาหาร</a>
                     </li>
-                    <!-- Redeem Points -->
-                    <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                        <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                           href="./../../pages/shop/" data-te-nav-link-ref>แลกแต้ม</a>
-                    </li>
-                    <!-- Banner -->
-                    <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                        <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                           href="./../../pages/banner/" data-te-nav-link-ref>กล่องสุ่ม</a>
-                    </li>
-                    <!-- Stash -->
-                    <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                        <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                           href="./../../pages/couponStash/" data-te-nav-link-ref>คูปองของฉัน</a>
-                    </li>
+
                 </ul>
             </div>
 
@@ -77,26 +71,6 @@
                 </ul>
             </div>
             <?php
-            } else { ?>
-        </div>
-        <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
-            <button type="button"
-                    class="inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                    data-te-ripple-init data-te-toggle="modal" data-te-target="#regisModal">
-                สมัครสมาชิก
-            </button>
-            <button type="button"
-                    class="inline-block rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-800 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-800 focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 dark:border-neutral-900 dark:text-neutral-900 dark:hover:border-neutral-900 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10 dark:hover:text-neutral-900 dark:focus:border-neutral-900 dark:focus:text-neutral-900 dark:active:border-neutral-900 dark:active:text-neutral-900"
-                    data-te-ripple-init data-te-toggle="modal" data-te-target="#loginModal">
-                เข้าสู่ระบบ
-            </button>
-        </div>
-        <?php
-        } ?>
+            } ?>
     </nav>
 </header>
-
-<?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
-<?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>

@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/assets/stylesheets/navbar.css">
-<link rel="stylesheet" href="/assets/stylesheets/global.css">
+<link rel="stylesheet" href="./assets/stylesheets/navbar.css">
+<link rel="stylesheet" href="./assets/stylesheets/global.css">
 <header>
     <nav id="navbar"
          class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
@@ -23,7 +23,7 @@
                  id="navbarSupportedContent1" data-te-collapse-item>
                 <!-- Logo -->
                 <a class="mb-4 ml-2 mr-5 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
-                   href="/pages/manager">
+                   href="./../../pages/manager">
                     <img src="https://tecdn.b-cdn.net/img/logo/te-transparent-noshadows.webp" style="height: 15px"
                          alt="TE Logo" loading="lazy"/>
                 </a>
@@ -36,28 +36,28 @@
                     <!-- หน้าสร้างโต๊ะ -->
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                         <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                           href="/pages/manager/manageTable.php" data-te-nav-link-ref>จัดการโต๊ะ</a>
+                           href="./../../pages/manager/manageTable.php" data-te-nav-link-ref>จัดการโต๊ะ</a>
                     </li>
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
 
                         <!-- หน้าสร้างเมนู -->
                         <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-                           href="/pages/manager/createMenu.php" data-te-nav-link-ref>สร้างเมนู</a>
+                           href="./../../pages/manager/createMenu.php" data-te-nav-link-ref>สร้างเมนู</a>
                     </li>
                     <!-- หน้าจัดการเมนู -->
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                         <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                           href="/pages/manager/manageMenu.php" data-te-nav-link-ref>จัดการเมนู</a>
+                           href="./../../pages/manager/manageMenu.php" data-te-nav-link-ref>จัดการเมนู</a>
                     </li>
                     <!-- หน้าจัดการสมาชิก -->
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                         <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                           href="/pages/manager/manageUser.php" data-te-nav-link-ref>จัดการสมาชิก</a>
+                           href="./../../pages/manager/manageUser.php" data-te-nav-link-ref>จัดการสมาชิก</a>
                     </li>
                     <!-- หน้าจัดการ Banner -->
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
                         <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                           href="/pages/manager/manageBanner.php" data-te-nav-link-ref>จัดการอาหารสุ่ม</a>
+                           href="./../../pages/manager/manageBanner.php" data-te-nav-link-ref>จัดการอาหารสุ่ม</a>
                     </li>
                 </ul>
             </div>
@@ -76,11 +76,11 @@
                     <!-- Second dropdown menu items -->
                     <li>
                         <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                           href="/pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
+                           href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
                     </li>
                     <li>
                         <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                           href="/backend/account/logout_user.php" data-te-dropdown-item-ref>ออกจากระบบ</a>
+                           href="./../../backend/account/logout_user.php" data-te-dropdown-item-ref>ออกจากระบบ</a>
                     </li>
                 </ul>
             </div>

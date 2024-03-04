@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laew Tae App</title>
 
-    <link rel="stylesheet" href="/assets/stylesheets/account.css">
+    <link rel="stylesheet" href="./../assets/stylesheets/account.css">
     <?php
     include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 </head>
