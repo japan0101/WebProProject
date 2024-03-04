@@ -7,7 +7,7 @@
     <title>Laew Tae App</title>
 
     <?php
-    include("./../assets/scripts/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
     
     <link rel="stylesheet" href="./../assets/stylesheets/account.css">
 </head>
@@ -98,7 +98,7 @@
 </section>
 
 <?php
-include("./../assets/scripts/tw_element.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 </body>
 

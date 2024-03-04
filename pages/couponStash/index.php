@@ -9,7 +9,7 @@ session_start() ?>
     <title>Laew Tae App</title>
 
     <?php
-    include("./../../assets/scripts/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -19,7 +19,7 @@ session_start() ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/assets/scripts/sweetalert.js"></script>
     <?php
-    include("./../../assets/component/navCustomer.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navCustomer.php") ?>
     <?php
     if (isset($_SESSION['memberName'])) { ?>
         <span class="my-5">
@@ -159,7 +159,7 @@ session_start() ?>
         }
     </script>
     <?php
-    include("./../../assets/scripts/tw_element.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 
 </body>
 

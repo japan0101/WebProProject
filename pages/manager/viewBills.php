@@ -15,7 +15,7 @@ if (isset($_SESSION['role'])) {
     <title>Laew Tae App</title>
 
     <?php
-    include("./../../assets/scripts/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
     
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -24,7 +24,7 @@ if (isset($_SESSION['role'])) {
 
 <body>
 <?php
-include("./../../assets/component/navManager.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
 <main class="">
     <section class="body_container top-item flex flex-col gap-6">
 
@@ -127,7 +127,7 @@ if (isset($_SESSION['result'])) { ?>
 } ?>
 
 <?php
-include("./../../assets/scripts/tw_element.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
 </body>
 
 </html>

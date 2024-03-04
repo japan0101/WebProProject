@@ -14,7 +14,7 @@ if (isset($_SESSION['role'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laew Tae App</title>
     <?php
-    include("./../../assets/scripts/tailwind.php") ?>
+    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -394,7 +394,7 @@ if (isset($_SESSION['role'])) {
         } ?>
 
         <?php
-        include("./../../assets/scripts/tw_element.php") ?>
+        include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
         <script>
             var current_queue;
 

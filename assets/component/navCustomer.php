@@ -95,6 +95,6 @@
 </header>
 
 <?php
-include("loginModal.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/loginModal.php") ?>
 <?php
-include("regisModal.php") ?>
+include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/regisModal.php") ?>
