@@ -17,7 +17,7 @@ session_start() ?>
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/assets/scripts/sweetalert.js"></script>
+    <script src="./../../assets/scripts/sweetalert.js"></script>
     <?php
     include("./../../assets/component/navCustomer.php") ?>
     <?php

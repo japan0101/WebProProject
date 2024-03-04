@@ -453,7 +453,7 @@ session_start() ?>
     <?php
     } else { ?>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="/assets/scripts/sweetalert.js"></script>
+        <script src="./../../assets/scripts/sweetalert.js"></script>
         <script>
             Warning.fire({
                 icon: "warning",

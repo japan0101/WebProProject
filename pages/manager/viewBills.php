@@ -98,7 +98,7 @@ include("./../../assets/component/navManager.php") ?>
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/scripts/sweetalert.js"></script>
+<script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>

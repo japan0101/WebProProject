@@ -65,7 +65,7 @@ include("./../../assets/component/navManager.php") ?>
                                         <td class="whitespace-nowrap px-6 py-4"><?php
                                             echo $item->categoryName ?></td>
                                         <td class="whitespace-nowrap px-6 py-4"><img class="md:w-full sm:w-0 w-0"
-                                                                                     src="/assets/images/menus/<?php
+                                                                                     src="./../../assets/images/menus/<?php
                                                                                      echo $item->image ?>" alt=""></td>
                                         <td class="whitespace-nowrap px-6 py-4">
                                             <button data-te-toggle="modal" data-te-target="#<?php
@@ -302,7 +302,7 @@ foreach ($data as $item) { ?>
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/scripts/sweetalert.js"></script>
+<script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>

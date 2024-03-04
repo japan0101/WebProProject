@@ -200,7 +200,7 @@ session_start() ?>
                         </div>
                     </div>
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                    <script src="/assets/scripts/sweetalert.js"></script>
+                    <script src="./../../assets/scripts/sweetalert.js"></script>
                 <?php
             } else { ?>
                     <script>
@@ -224,7 +224,7 @@ session_start() ?>
         include("./../../assets/scripts/tw_element.php") ?>
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="/assets/scripts/sweetalert.js"></script>
+        <script src="./../../assets/scripts/sweetalert.js"></script>
 
         <?php
         if (isset($_SESSION['result'])) { ?>
