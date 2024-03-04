@@ -31,7 +31,7 @@ include("./../../assets/component/navManager.php") ?>
         <div class="flex md:flex-row sm:flex-col flex-col blur-effect rounded-lg p-8 bg-white gap-3">
             <!-- Create Menu -->
             <div class="flex-1">
-                <form class="" action="/backend/database/manager.php" method="post" enctype="multipart/form-data">
+                <form class="" action="./../../backend/database/manager.php" method="post" enctype="multipart/form-data">
                     <h2 class="text-2xl  mt-0">สร้างโต๊ะ</h2>
                     <div class="relative mb-3" data-te-input-wrapper-init>
                         <input type="number"
@@ -125,7 +125,7 @@ include("./../../assets/component/navManager.php") ?>
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/scripts/sweetalert.js"></script>
+<script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>

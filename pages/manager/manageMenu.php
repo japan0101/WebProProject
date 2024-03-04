@@ -130,7 +130,7 @@ foreach ($data as $item) { ?>
                 </div>
 
                 <!--Modal body-->
-                <form class="p-5" action="/backend/database/manager.php" method="post" enctype="multipart/form-data">
+                <form class="p-5" action="./../../backend/database/manager.php" method="post" enctype="multipart/form-data">
                     <div class="relative mb-3" data-te-input-wrapper-init>
                         <input type="text"
                                class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
@@ -229,7 +229,7 @@ foreach ($data as $item) { ?>
                 </div>
 
                 <!--Modal body-->
-                <form action="/backend/database/manager.php" method="post">
+                <form action="./../../backend/database/manager.php" method="post">
                     <div class="relative p-4">
                         <p>ต้องการลบเมนูทิ้งใช่หรือไม่?</p>
                     </div>
@@ -302,7 +302,7 @@ foreach ($data as $item) { ?>
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/scripts/sweetalert.js"></script>
+<script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>

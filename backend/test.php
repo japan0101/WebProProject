@@ -17,7 +17,7 @@ session_start(); ?>
 <div class="m-5">
     <!-- เพิ่มโต๊ะ Manager -->
     <h1 class="text-3xl">Manager</h1>
-    <form class="m-3" action="/backend/database/manager.php" method="post">
+    <form class="m-3" action="./../backend/database/manager.php" method="post">
         <h2 class="">Create Table</h2>
         <label for="">Capacity: </label>
         <input class="bg-slate-300 p-2" type="number" name="capacity" id="" min="1" value="1" required>
@@ -28,7 +28,7 @@ session_start(); ?>
     <div class="flex flex-row">
         <!-- Create Menu -->
         <div class="flex-1">
-            <form class="" action="/backend/database/manager.php" method="post">
+            <form class="" action="./../backend/database/manager.php" method="post">
                 <h2 class="text-2xl">Create Menu</h2>
                 <div class="relative mb-3" data-te-input-wrapper-init>
                     <input type="text"
@@ -84,7 +84,7 @@ session_start(); ?>
 
         <!-- Create Category Menu -->
         <div class="flex-1">
-            <form class="m-3" action="/backend/database/manager.php" method="post">
+            <form class="m-3" action="./../backend/database/manager.php" method="post">
                 <h2 class="text-2xl">Create Category Menu</h2>
                 <div class="relative mb-3" data-te-input-wrapper-init>
                     <input type="text"
@@ -118,7 +118,7 @@ session_start(); ?>
 
     <!-- Modify Menu -->
     <div>
-        <form class="m-3" action='/backend/database/manager.php' method='post'>
+        <form class="m-3" action='./../backend/database/manager.php' method='post'>
             <h2 class="text-2xl">Modify Menus</h2>
             <table class="min-w-full text-left text-sm font-light" id="modify_menu">
                 <tr class="border-b font-medium dark:border-neutral-500">
@@ -137,7 +137,7 @@ session_start(); ?>
 <!-- สุ่มโค้ด Staff | Manager -->
 <div class="m-5">
     <h1 class="text-3xl">Staff</h1>
-    <form class="m-3" action='/backend/database/staff.php' method='post'>
+    <form class="m-3" action='./../backend/database/staff.php' method='post'>
         <h2 class="text-2xl">List Tables</h2>
         <table class="min-w-full text-left text-sm font-light" id="display1">
             <tr class="border-b font-medium dark:border-neutral-500">
@@ -155,7 +155,7 @@ session_start(); ?>
 
 <div class="m-5">
     <h1 class="text-3xl">Customer</h1>
-    <form class="m-3" action="/backend/database/customer.php" method="post">
+    <form class="m-3" action="./../backend/database/customer.php" method="post">
         <h2 class="text-2xl">Reservation Table</h2>
         <label for="">Table Code: </label>
         <input type="text" class="bg-slate-300 p-2 rounded" name="code">
@@ -244,7 +244,7 @@ session_start(); ?>
 </script>
 
 <!-- ตาราง Users -->
-<form class="m-3" action="/backend/database/manager.php" method="post">
+<form class="m-3" action="./../backend/database/manager.php" method="post">
     <h2 class="text-2xl">List Users</h2>
     <!-- data-te-datatable-init -->
     <!-- ตาราง Users -->
@@ -442,7 +442,7 @@ session_start(); ?>
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/scripts/sweetalert.js"></script>
+<script src="./../assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>

@@ -33,7 +33,7 @@ include("./../../assets/component/navManager.php") ?>
         <!-- ตาราง Create -->
         <div class="flex flex-col gap-6">
 
-            <form action="/backend/database/manager.php" method="post">
+            <form action="./../../backend/database/manager.php" method="post">
 
                 <div class="flex flex-col blur-effect rounded-lg p-8 bg-white relative overflow-hidden"
                      data-te-perfect-scrollbar-init>
@@ -139,7 +139,7 @@ include("./../../assets/component/navManager.php") ?>
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="/assets/scripts/sweetalert.js"></script>
+<script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>
