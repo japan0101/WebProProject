@@ -15,6 +15,8 @@
 </head>
 
 <body>
+<?php include("./../../assets/component/navStaff.php")?>
+
 <?php
 
 $isAuth = isset($_SESSION['memberName']);
