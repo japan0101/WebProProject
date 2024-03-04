@@ -133,7 +133,7 @@ session_start() ?>
                 </div>
             </div>
         </div>
-        <form action="./../../backend/database/customer.php" method="post" id="getCoupon">
+        <form action="/backend/database/customer.php" method="post" id="getCoupon">
             <input type="hidden" name="case" value="generateCoupon">
         </form>
         <script>

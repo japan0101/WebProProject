@@ -32,7 +32,7 @@ include("./../../assets/component/navManager.php") ?>
         <!-- ตาราง Create -->
         <div class="flex flex-col gap-6">
 
-            <form action="./../../backend/database/manager.php" method="post">
+            <form action="/backend/database/manager.php" method="post">
 
                 <div class="flex flex-col blur-effect rounded-lg p-8 bg-white relative overflow-hidden"
                      data-te-perfect-scrollbar-init>
