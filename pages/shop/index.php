@@ -9,7 +9,7 @@ session_start() ?>
     <title>Laew Tae App</title>
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
+    include("./../../assets/scripts/tailwind.php") ?>
     
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -19,7 +19,7 @@ session_start() ?>
 <body>
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navCustomer.php") ?>
+include("./../../assets/component/navCustomer.php") ?>
 <?php
 if (isset($_SESSION['memberName'])) { ?>
     <span class="my-5">
@@ -224,7 +224,7 @@ if (isset($_SESSION['result'])) { ?>
     });
 </script>
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+include("./../../assets/scripts/tw_element.php") ?>
 
 </body>
 

@@ -25,7 +25,7 @@ if (isset($_SESSION['role'])) {
 
 <body class="antialiased">
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navCustomer.php") ?>
+    include("./assets/component/navCustomer.php") ?>
 
 
     <!-- Jumbotron -->

@@ -15,7 +15,7 @@ if (isset($_SESSION['role'])) {
     <title>Laew Tae App</title>
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
+    include("./../../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -25,7 +25,7 @@ if (isset($_SESSION['role'])) {
 <body class="bg-gray-200">
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
+    include("./../../assets/component/navManager.php") ?>
 
     <main>
         <div data-te-animation-init data-te-animation-start="onLoad" data-te-animation-reset="true" data-te-animation="[fade-in-down_1s_ease-out]" class="relative mb-16 flex items-center justify-center bg-gray-50 py-16 sm:py-24 lg:py-32">
@@ -201,7 +201,7 @@ if (isset($_SESSION['role'])) {
     </section>
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+    include("./../../assets/scripts/tw_element.php") ?>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/assets/scripts/sweetalert.js"></script>
 

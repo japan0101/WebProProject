@@ -9,7 +9,7 @@ session_start(); ?>
     <title>Laew Tae App</title>
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
+    include("./../assets/scripts/tailwind.php") ?>
 </head>
 
 <body>
@@ -533,7 +533,7 @@ if (isset($_SESSION['result'])) { ?>
 } ?>
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+include("./../assets/scripts/tw_element.php") ?>
 
 </body>
 
