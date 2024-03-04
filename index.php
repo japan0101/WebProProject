@@ -18,6 +18,7 @@ if (isset($_SESSION['role'])) {
     <?php
     include("./assets/scripts/tailwind.php") ?>
 
+    <link rel="stylesheet" href="./../../assets/stylesheets/developers.css">
     <link rel="stylesheet" href="./assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./assets/stylesheets/global.css">
 </head>
