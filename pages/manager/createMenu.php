@@ -96,7 +96,7 @@ if (isset($_SESSION['role'])) {
                 <div class="flex flex-col blur-effect rounded-lg p-8 bg-white relative overflow-hidden" data-te-perfect-scrollbar-init>
                     <h2 class="text-2xl mt-0">เมนูต่าง ๆ</h2>
                     <div class="sm:-mx-6 lg:-mx-8">
-                        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8" data-te-datatable-init data-te-max-height="460" data-te-fixed-header="true">
+                        <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8" data-te-datatable-init data-te-max-height="580" data-te-fixed-header="true">
                             <div class="overflow-x-auto">
                                 <table class="min-w-full text-left text-sm font-light" id="displayTable">
                                     <thead>
