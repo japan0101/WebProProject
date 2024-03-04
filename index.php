@@ -18,7 +18,7 @@ if (isset($_SESSION['role'])) {
     <?php
     include("./assets/scripts/tailwind.php") ?>
 
-    <link rel="stylesheet" href="./assets/stylesheets/developers.css">
+    <link rel="stylesheet" href="./../../assets/stylesheets/developers.css">
     <link rel="stylesheet" href="./assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./assets/stylesheets/global.css">
 </head>
@@ -79,25 +79,25 @@ if (isset($_SESSION['role'])) {
                         </p>
                         <div class="flex flex-row gap-3 justify-between mt-5">
                             <div id="mark-facebook" class="flex flex-col social-media-small-box facebook text-white">
-                                <img src="./assets/icon/facebook.svg" alt="Facebook">
+                                <img src="/assets/icon/facebook.svg" alt="Facebook">
                                 <h5 class="text-white">Facebook</h5>
                             </div>
                             <div id="mark-dis" class="flex flex-col social-media-small-box discord">
-                                <img src="./assets/icon/discord.svg" alt="Discord">
+                                <img src="/assets/icon/discord.svg" alt="Discord">
                                 <h5 class="text-white">Discord</h5>
                             </div>
                             <div id="mark-git" class="flex flex-col social-media-small-box github">
-                                <img src="./assets/icon/github.svg" alt="Github">
+                                <img src="/assets/icon/github.svg" alt="Github">
                                 <h5 class="">GitHub</h5>
                             </div>
                             <div id="mark-none" class="flex flex-col social-media-small-box">
-                                <img alt="" src="./assets/icon/microsoft-edge.webp">
+                                <img alt="" src="/assets/icon/microsoft-edge.webp">
                                 <h5>Something else...</h5>
                             </div>
                         </div>
                     </div>
                     <div class="object-contain flex flex-col self-center" style="width: 90%;">
-                        <img alt="" src="./assets/images/developers/mark.webp" width="">
+                        <img alt="" src="/assets/images/developers/mark.webp" width="">
                     </div>
                 </div>
                 <div id="best" class="dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
@@ -111,25 +111,25 @@ if (isset($_SESSION['role'])) {
                         </p>
                         <div class="flex flex-row gap-3 justify-between mt-5">
                             <div id="best-facebook" class="flex flex-col social-media-small-box facebook text-white">
-                                <img src="./assets/icon/facebook.svg" alt="Facebook">
+                                <img src="/assets/icon/facebook.svg" alt="Facebook">
                                 <h5 class="text-white">Facebook</h5>
                             </div>
                             <div id="best-dis" class="flex flex-col social-media-small-box discord">
-                                <img src="./assets/icon/discord.svg" alt="Discord">
+                                <img src="/assets/icon/discord.svg" alt="Discord">
                                 <h5 class="text-white">Discord</h5>
                             </div>
                             <div id="best-git" class="flex flex-col social-media-small-box github">
-                                <img src="./assets/icon/github.svg" alt="Github">
+                                <img src="/assets/icon/github.svg" alt="Github">
                                 <h5 class="">GitHub</h5>
                             </div>
                             <div id="best-none" class="flex flex-col social-media-small-box">
-                                <img alt="" src="./assets/icon/microsoft-edge.webp">
+                                <img alt="" src="/assets/icon/microsoft-edge.webp">
                                 <h5>Something else...</h5>
                             </div>
                         </div>
                     </div>
                     <div class="object-contain flex flex-col self-center" style="width: 90%;">
-                        <img alt="" src="./assets/images/developers/best.webp" width="">
+                        <img alt="" src="/assets/images/developers/best.webp" width="">
                     </div>
                 </div>
                 <div id="japan" class="dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
@@ -143,25 +143,25 @@ if (isset($_SESSION['role'])) {
                         </p>
                         <div class="flex flex-row gap-3 justify-between mt-5">
                             <div id="japan-facebook" class="flex flex-col social-media-small-box facebook text-white">
-                                <img src="./assets/icon/facebook.svg" alt="Facebook">
+                                <img src="/assets/icon/facebook.svg" alt="Facebook">
                                 <h5 class="text-white">Facebook</h5>
                             </div>
                             <div id="japan-dis" class="flex flex-col social-media-small-box discord">
-                                <img src="./assets/icon/discord.svg" alt="Discord">
+                                <img src="/assets/icon/discord.svg" alt="Discord">
                                 <h5 class="text-white">Discord</h5>
                             </div>
                             <div id="japan-git" class="flex flex-col social-media-small-box github">
-                                <img src="./assets/icon/github.svg" alt="Github">
+                                <img src="/assets/icon/github.svg" alt="Github">
                                 <h5 class="">GitHub</h5>
                             </div>
                             <div id="japan-none" class="flex flex-col social-media-small-box">
-                                <img alt="" src="./assets/icon/microsoft-edge.webp">
+                                <img alt="" src="/assets/icon/microsoft-edge.webp">
                                 <h5>Something else...</h5>
                             </div>
                         </div>
                     </div>
                     <div class="object-contain flex flex-col self-center" style="width: 90%;">
-                        <img alt="" src="./assets/images/developers/Japan.webp" width="">
+                        <img alt="" src="/assets/images/developers/Japan.webp" width="">
                     </div>
                 </div>
                 <div id="tae" class="dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
@@ -175,28 +175,28 @@ if (isset($_SESSION['role'])) {
                         </p>
                         <div class="flex flex-row gap-3 justify-between mt-5">
                             <div id="tae-facebook" class="flex flex-col social-media-small-box facebook text-white">
-                                <img src="./assets/icon/facebook.svg" alt="Facebook">
+                                <img src="/assets/icon/facebook.svg" alt="Facebook">
                                 <h5 class="text-white">Facebook</h5>
                             </div>
                             <div id="tae-dis" class="flex flex-col social-media-small-box discord">
-                                <img src="./assets/icon/discord.svg" alt="Discord">
+                                <img src="/assets/icon/discord.svg" alt="Discord">
                                 <h5 class="text-white">Discord</h5>
                             </div>
                             <div id="tae-git" class="flex flex-col social-media-small-box github">
-                                <img src="./assets/icon/github.svg" alt="Github">
+                                <img src="/assets/icon/github.svg" alt="Github">
                                 <h5 class="">GitHub</h5>
                             </div>
                             <div id="tae-none" class="flex flex-col social-media-small-box">
-                                <img alt="" src="./assets/icon/microsoft-edge.webp">
+                                <img alt="" src="/assets/icon/microsoft-edge.webp">
                                 <h5>Something else...</h5>
                             </div>
                         </div>
                     </div>
                     <div class="object-contain flex flex-col self-center" style="width: 90%;">
-                        <img alt="" src="./assets/images/developers/tae_prepro.webp" width="">
+                        <img alt="" src="/assets/images/developers/tae_prepro.webp" width="">
                     </div>
                 </div>
-                <script src="./assets/scripts/developer.js"></script>
+                <script src="/assets/scripts/developer.js"></script>
             </section>
         </section>
 
@@ -207,8 +207,8 @@ if (isset($_SESSION['role'])) {
 <?php
 include("./assets/scripts/tw_element.php") ?>
 
-<script src=".https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="./assets/scripts/sweetalert.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>

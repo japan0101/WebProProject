@@ -23,7 +23,7 @@ if (isset($_SESSION['memberName']))
     <!-- Left column container with background-->
     <div class="g-6  flex h-full flex-wrap items-center justify-center lg:justify-between account-container">
         <div class="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
-            <img src="./../assets/images/account/draw2.webp"
+            <img src="/assets/images/account/draw2.webp"
                  class="account-img" alt="Sample image"/>
         </div>
 
@@ -86,7 +86,7 @@ if (isset($_SESSION['memberName']))
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="./../assets/scripts/sweetalert.js"></script>
+<script src="/assets/scripts/sweetalert.js"></script>
 <?php
 if (isset($_SESSION['result'])) { ?>
     <script>

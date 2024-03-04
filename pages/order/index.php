@@ -405,7 +405,7 @@ session_start();
     } ?>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./../../assets/scripts/sweetalert.js"></script>
+    <script src="/assets/scripts/sweetalert.js"></script>
 
     <?php
     if (!isset($_COOKIE['tableID'])) { 
