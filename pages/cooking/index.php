@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laew Tae App</title>
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
+    include("./../../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -125,7 +125,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
 
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+include("./../../assets/scripts/tw_element.php") ?>
 <script>
     // Chef Content
     fetch("./../../backend/database/staff.php?case=cooking_order").then(e => e.json()).then(payload => {

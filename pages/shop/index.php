@@ -9,7 +9,7 @@ session_start() ?>
     <title>Laew Tae App</title>
 
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
+    include("./../../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -448,7 +448,7 @@ session_start() ?>
         });
     </script>
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+    include("./../../assets/scripts/tw_element.php") ?>
 
 </body>
 

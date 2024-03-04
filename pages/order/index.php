@@ -11,7 +11,7 @@ session_start();
 
     <title>Laew Tae App</title>
     <?php
-    include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tailwind.php") ?>
+    include("./../../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -574,7 +574,7 @@ if (!isset($_COOKIE['tableID'])) {
 } ?>
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/scripts/tw_element.php") ?>
+include("./../../assets/scripts/tw_element.php") ?>
 
 <script>
     function wait(ms) {
