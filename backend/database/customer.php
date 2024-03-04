@@ -71,10 +71,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 setcookie("tableID", $id, time() - 60 * 60 * 6, '/backend/database/customer.php');
                 setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 6, '/backend/database/customer.php');
 
+                if (isset($_SESSION['memberName'])){
+                    $database->custom("SELECT points FROM users WHERE userID={$_SESSION['userID']}");
+                    $_SESSION['points'] = $database->getResult()['payload'][0]->points;
+                }
+
                 $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะ");
             }
             break;
         }
+
         case 'generateCoupon':
         {
             $_SESSION['points'] = $_SESSION['points'] - (int)$_POST['cost'];
