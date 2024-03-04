@@ -51,7 +51,7 @@ if (isset($_SESSION['memberName'])) { ?>
                 </div>
             </div>
         </span>
-    <form action="/backend/database/customer.php" method="post" id="buyCoupon">
+    <form action="./../../backend/database/customer.php" method="post" id="buyCoupon">
         <input type="hidden" name="case" value="buycoupon">
     </form>
     <script>

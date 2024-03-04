@@ -116,7 +116,7 @@ session_start() ?>
 
                                             <!--Modal footer-->
                                             <div class="flex flex-shrink-0 flex-wrap items-center justify-center rounded-b-md border-t-2 border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50">
-                                                <form action="/backend/account/cancelMem_user.php" method="post">
+                                                <form action="./../../backend/account/cancelMem_user.php" method="post">
                                                     <button type="submit" class="inline-block rounded bg-primary-100 px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200" data-te-modal-dismiss data-te-ripple-init data-te-ripple-color="light">
                                                         ยืนยัน
                                                     </button>
@@ -153,7 +153,7 @@ session_start() ?>
                                     </div>
                                 </div>
 
-                                <form action="/backend/account/update_user.php" method="post">
+                                <form action="./../../backend/account/update_user.php" method="post">
                                     <!-- MemberName -->
                                     <div class="relative mb-6" data-te-input-wrapper-init>
                                         <input type="text" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="name" name="name" aria-describedby="name" placeholder="ชื่อสมาชิก" value="<?php
@@ -169,7 +169,7 @@ session_start() ?>
                             </div>
                             <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="tabs-changePass" role="tabpanel" aria-labelledby="tabs-changePass-tab">
                                 <!-- Change Password -->
-                                <form action="/backend/account/changePassword_user.php" method="post">
+                                <form action="./../../backend/account/changePassword_user.php" method="post">
                                     <!-- Old Password -->
                                     <div class="relative mb-6" data-te-input-wrapper-init>
                                         <input type="password" class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0" id="passwd" name="oldpasswd" aria-describedby="password" placeholder="รหัสผ่านเดิม" pattern=".{8,}" title='กรุณาใส่รหัสผ่านเดิม' required />

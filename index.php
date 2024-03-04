@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_COOKIE['token']) && !isset($_SESSION['memberName']))
-    header("Location: backend/account/read_user.php");
+    header("Location: ./backend/account/read_user.php");
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] == "STAFF") header("Location: ./pages/staff");
     if ($_SESSION['role'] == "MANAGER") header("Location: ./pages/manager");
