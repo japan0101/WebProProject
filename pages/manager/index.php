@@ -25,7 +25,7 @@ if (isset($_SESSION['role'])) {
 <body class="bg-gray-200">
 
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
+include("./../../assets/component/navManager.php") ?>
 
 <main>
     <div data-te-animation-init data-te-animation-start="onLoad" data-te-animation-reset="true"

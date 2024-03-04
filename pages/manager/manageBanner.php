@@ -24,7 +24,8 @@ if (isset($_SESSION['role'])) {
 
 <body>
 <?php
-include($_SERVER['DOCUMENT_ROOT'] . "/assets/component/navManager.php") ?>
+include("./../../assets/component/navManager.php") ?>
+
 <main class="">
     <section class="body_container top-item flex flex-col gap-6">
 
