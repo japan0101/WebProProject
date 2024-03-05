@@ -1,5 +1,5 @@
 <?php
-global $database;
+
 session_start();
 
 include './connectDatabase.php';

@@ -1,5 +1,4 @@
 <?php
-global $isAuth, $database;
 session_start();
 if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] != "STAFF" && $_SESSION['role'] != "MANAGER")
