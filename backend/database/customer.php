@@ -35,11 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 $_SESSION['tablecode'] = $_POST['code'];
 
-                setcookie("tableID", $id, time() + 60 * 60 * 6, './../../pages/order');
-                setcookie("tablecode", $_POST['code'], time() + 60 * 60 * 6, './../../pages/order');
-
-                setcookie("tableID", $id, time() + 60 * 60 * 6, './../../backend/database/customer.php');
-                setcookie("tablecode", $_POST['code'], time() + 60 * 60 * 6, './../../backend/database/customer.php');
+                setcookie("tableID", $id, time() + 60 * 60 * 6, '/');
+                setcookie("tablecode", $_POST['code'], time() + 60 * 60 * 6, '/');
             } else {
 
                 $database->customResult(message: "ใส่โค้ดไม่ถูกต้อง");
@@ -73,11 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 $database->customResult(message: "กรุณาใส่โค้ดของโต๊ะ");
             }
-            setcookie("tableID", $id, time() - 60 * 60 * 4, './../../pages/order');
-            setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, './../../pages/order');
-
-            setcookie("tableID", $id, time() - 60 * 60 * 6, './../../backend/database/customer.php');
-            setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, './../../backend/database/customer.php');
+            setcookie("tableID", $id, time() - 60 * 60 * 4, '/');
+            setcookie("tablecode", $_POST['code'], time() - 60 * 60 * 4, '/');
             break;
         }
 
