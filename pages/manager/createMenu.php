@@ -137,7 +137,7 @@ include("./../../assets/component/navManager.php") ?>
                                 $data = array();
                                 $database->custom("SELECT menuID, menuName, price, description, name as `categoryName`, image FROM menus LEFT JOIN menu_category USING (categoryID) ORDER BY categoryID");
                                 foreach ($database->getResult()['payload'] as $item) {
-                                    array_push($data, $item); ?>
+                                    $data[] = $item; ?>
                                     <tr class="border-b dark:border-neutral-500">
                                         <td class="whitespace-nowrap px-6 py-4"><?php
                                             echo $item->menuName ?></td>

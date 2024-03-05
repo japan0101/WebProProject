@@ -79,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
             $target_file = $target_dir . basename($_FILES["image"]["name"]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-            // Check if image file is a actual image or fake image
+            // Check if image file is an actual image or fake image
             if (isset($_POST["submit"])) {
                 $check = getimagesize($_FILES["image"]["tmp_name"]);
                 if ($check !== false) {
@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
                 $target_file = $target_dir . basename($_FILES["image"]["name"]);
                 $uploadOk = 1;
                 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                // Check if image file is a actual image or fake image
+                // Check if image file is an actual image or fake image
                 if (isset($_POST["submit"])) {
                     $check = getimagesize($_FILES["image"]["tmp_name"]);
                     if ($check !== false) {

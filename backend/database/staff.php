@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             $database->custom("SELECT orderAt FROM orders WHERE status = 1 GROUP BY orderAt;");
             foreach ($database->getResult()['payload'] as $time) {
                 $database->custom("SELECT tableID, menuName, amount, orderAt FROM orders join menus on menus.menuID = orders.menuID WHERE orderAt = '{$time->orderAt}';");
-                array_push($order, $database->getResult()['payload']);
+                $order[] = $database->getResult()['payload'];
             }
             echo json_encode($order);
             break;
@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             $database->custom("SELECT orderAt FROM orders WHERE status = 2 GROUP BY orderAt;");
             foreach ($database->getResult()['payload'] as $time) {
                 $database->custom("SELECT tableID, menuName, amount, orderAt FROM orders join menus on menus.menuID = orders.menuID WHERE orderAt = '{$time->orderAt}';");
-                array_push($order, $database->getResult()['payload']);
+                $order[] = $database->getResult()['payload'];
             }
             echo json_encode($order);
             break;

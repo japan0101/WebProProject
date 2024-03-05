@@ -108,7 +108,7 @@ include("./../../assets/component/navManager.php") ?>
                                 $data = array();
                                 $database->custom("SELECT * FROM `gacha_banner`");
                                 foreach ($database->getResult()['payload'] as $item) {
-                                    array_push($data, $item); ?>
+                                    $data[] = $item; ?>
                                     <tr class="border-b dark:border-neutral-500">
                                         <td class="whitespace-nowrap px-6 py-4"><?php
                                             echo $item->name ?></td>
@@ -157,7 +157,7 @@ include("./../../assets/component/navManager.php") ?>
 $gacha_item = array();
 $database->custom("SELECT gacha_item.gachaID, menus.menuName, gacha_item.rarity, gacha_item.discount, menus.menuID FROM `gacha_banner` RIGHT JOIN gacha_item ON gacha_banner.gachaID = gacha_item.gachaID LEFT JOIN menus USING (menuID) ORDER BY  gachaID ASC, rarity DESC");
 foreach ($database->getResult()['payload'] as $menu_item) {
-    array_push($gacha_item, $menu_item);
+    $gacha_item[] = $menu_item;
 }
 unset($database);
 ?>

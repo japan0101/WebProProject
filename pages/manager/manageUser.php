@@ -61,7 +61,7 @@ include("./../../assets/component/navManager.php") ?>
                                     $data = array();
                                     $database->custom("SELECT phoneNumber, memberName, email, status, points, role, userID FROM users WHERE NOT userID={$_SESSION['userID']} ORDER BY role");
                                     foreach ($database->getResult()['payload'] as $item) {
-                                        array_push($data, $item); ?>
+                                        $data[] = $item; ?>
                                         <tr class="border-b dark:border-neutral-500">
                                             <td class="whitespace-nowrap px-6 py-4"><?php
                                                 echo $item->phoneNumber ?></td>

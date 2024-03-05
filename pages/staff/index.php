@@ -74,7 +74,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
                                 include '../../backend/connectDatabase.php';
                                 $database->custom("SELECT tableID, code, userID, phoneNumber, points, capacity, tables.status FROM tables LEFT JOIN users USING (userID)");
                                 foreach ($database->getResult()['payload'] as $item) {
-                                    array_push($data, $item); ?>
+                                    $data[] = $item; ?>
                                     <tr class="border-b dark:border-neutral-500">
                                         <td class="whitespace-nowrap px-6 py-4"><?php
                                             echo $item->tableID ?></td>

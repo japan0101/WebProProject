@@ -32,7 +32,7 @@ class Database {
             if (str_starts_with($sql, "SELECT")) {
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_object())
-                        array_push($this->res['payload'], $row);
+                        $this->res['payload'][] = $row;
                     $this->res['result'] = 1;
                     $this->res['message'] = "Successful";
                 } else {
