@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+global$database; <!DOCTYPE html>
 <html lang="en">
 <?php
 session_start(); ?>
