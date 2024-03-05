@@ -377,7 +377,7 @@ if (isset($_COOKIE['tableID'])) { ?>
                 namepart.innerHTML = element.menuName;
 
                 amountContainer = document.createElement("div");
-                amountContainer.className = "slef-center";
+                amountContainer.className = "self-center";
 
                 amountAdd = document.createElement("button");
                 amountAdd.className = "p-2 basis-1/8 mx-auto w-fit text-xl text-success";
@@ -397,7 +397,7 @@ if (isset($_COOKIE['tableID'])) { ?>
                 amountRemove.innerHTML = "-";
 
                 price = document.createElement('div');
-                price.className = "self-center";
+                price.className = "self-center ml-auto";
                 price.innerHTML = (element.price * element.amount) + ' บาท';
                 totalPrice += element.price * element.amount;
 

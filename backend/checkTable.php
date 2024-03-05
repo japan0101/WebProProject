@@ -12,6 +12,7 @@ if ($database->getResult()['result']) {
     setcookie("tableID", $database->getResult()['payload'][0]->tableID, time() - 60 * 60 * 4, '/');
     setcookie("tablecode", $_SESSION['tablecode'], time() - 60 * 60 * 4, '/');
     unset($_SESSION['tablecode']);
+    header("Location: ./../");
 }
 
 unset($database);
