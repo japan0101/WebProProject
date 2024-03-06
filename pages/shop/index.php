@@ -437,7 +437,7 @@ if (isset($_SESSION['result'])) { ?>
         // console.log(payload);
         category = []
         payload.forEach(couponObj => {
-            if (!category.includes(couponObj['name'])) {
+            if (!category.includes(couponObj['category'])) {
                 //Rendering tabs for each new category
                 category.push(couponObj['category']);
                 selList = document.createElement('li');
