@@ -300,7 +300,6 @@ if (isset($_COOKIE['tableID'])) { ?>
             }
             if (amount > 0) {
                 if (containsObject(item, menu_order)) {
-                    console.log(menu_order);
                     menu_order.forEach(menu => {
                         if (menu.menuId == item.menuId) {
                             menu.amount += Number(item.amount);
