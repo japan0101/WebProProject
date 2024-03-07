@@ -1,5 +1,6 @@
 <?php
 
+global $database;
 session_start();
 header('Content-Type: application/json');
 
