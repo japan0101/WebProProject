@@ -35,7 +35,7 @@ session_start() ?>
                 <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent1" data-te-collapse-item>
                     <!-- Logo -->
                     <a class="mb-4 ml-2 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0" href="./../../">
-                        <img src="./assets/icon/favicon.svg" class="h-8" alt="" loading="lazy" />
+                        <img src="./../../assets/icon/favicon.svg" class="h-8" alt="" loading="lazy" />
                     </a>
                     <?php
                     $isAuth = isset($_SESSION['memberName']);

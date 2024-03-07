@@ -301,7 +301,6 @@ if (isset($_SESSION['role'])) {
 
         <section class="body_container">
             <section id="developers">
-                <h1 class="headline text-center">Functional</h1>
                 <div id="mark" class="dev-box mt-6 flex flex-row-re container_rounded bg-white justify-center">
                     <div class="flex flex-col" style="width: 100%">
                         <h1 class="mt-3">แลกแต้ม</h1>
