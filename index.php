@@ -376,7 +376,7 @@ if (isset($_SESSION['result'])) { ?>
     <section class="body_container">
         <section id="developers">
             <div class="flex flex-row flex-grow gap-6">
-                <div id="mark" class="flex-1 dev-box mt-6 flex flex-row-re container_rounded bg-white justify-center">
+                <div id="point_reward" class="flex-1 dev-box mt-6 flex flex-row-re container_rounded bg-white justify-center">
                     <div class="flex flex-col" style="width: 100%">
                         <h1 class="mt-3">แลกแต้ม</h1>
                         <p class="">
@@ -384,7 +384,7 @@ if (isset($_SESSION['result'])) { ?>
                         </p>
                     </div>
                 </div>
-                <div id="japan" class="flex-1 dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
+                <div id="coupon" class="flex-1 dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
                     <div class="flex flex-col" style="width: 100%">
                         <h1 class="mt-3">คูปองของฉัน</h1>
                         <p class="">
@@ -393,7 +393,7 @@ if (isset($_SESSION['result'])) { ?>
                     </div>
                 </div>
             </div>
-            <div id="best" class=" dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
+            <div id="random_box" class=" dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
                 <div class="flex flex-col" style="width: 100%">
                     <h1 class="mt-3">กล่องสุ่ม</h1>
                     <p class="">
