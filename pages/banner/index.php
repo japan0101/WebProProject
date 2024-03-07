@@ -612,13 +612,6 @@ session_start() ?>
                                 confirmButtonText: "เปิดดู",
                                 allowOutsideClick: false
                             }).then((result) => {
-                                Swal.fire({
-                                    title: "คุณได้รับ",
-                                    text: "คูปองระดับ " + rarity,
-                                    confirmButtonColor: "#3085d6",
-                                    confirmButtonText: "เปิดดู",
-                                    allowOutsideClick: false
-                                }).then((result) => {
                                     if (result.isConfirmed) {
                                         fetch("./../../backend/database/customer.php?case=getgachaitem&banner_id=" + banner_id + "&rarity='" + rarity + "'").then(e => e.json()).then(payload => {
                                             recieved = payload[Math.floor(Math.random() * payload.length)];
@@ -653,7 +646,6 @@ session_start() ?>
                                         });
                                     }
                                 });
-                            })
                         }
                     })
                 }
