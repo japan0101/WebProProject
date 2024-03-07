@@ -375,15 +375,25 @@ if (isset($_SESSION['result'])) { ?>
 
     <section class="body_container">
         <section id="developers">
-            <div id="mark" class="dev-box mt-6 flex flex-row-re container_rounded bg-white justify-center">
-                <div class="flex flex-col" style="width: 100%">
-                    <h1 class="mt-3">แลกแต้ม</h1>
-                    <p class="">
-                        รับแต้มทุกครั้งที่ซื้ออาหาร และนำแต้มสะสมไปแลกส่วนลดสุดพิเศษของเรา
-                    </p>
+            <div class="flex flex-row flex-grow gap-6">
+                <div id="mark" class="flex-1 dev-box mt-6 flex flex-row-re container_rounded bg-white justify-center">
+                    <div class="flex flex-col" style="width: 100%">
+                        <h1 class="mt-3">แลกแต้ม</h1>
+                        <p class="">
+                            รับแต้มทุกครั้งที่ซื้ออาหาร และนำแต้มสะสมไปแลกส่วนลดสุดพิเศษของเรา
+                        </p>
+                    </div>
+                </div>
+                <div id="japan" class="flex-1 dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
+                    <div class="flex flex-col" style="width: 100%">
+                        <h1 class="mt-3">คูปองของฉัน</h1>
+                        <p class="">
+                            นำคูปองไปใช้ลดราคาอาหารที่สั่งได้
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div id="best" class="dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
+            <div id="best" class=" dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
                 <div class="flex flex-col" style="width: 100%">
                     <h1 class="mt-3">กล่องสุ่ม</h1>
                     <p class="">
@@ -391,14 +401,7 @@ if (isset($_SESSION['result'])) { ?>
                     </p>
                 </div>
             </div>
-            <div id="japan" class="dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
-                <div class="flex flex-col" style="width: 100%">
-                    <h1 class="mt-3">คูปองของฉัน</h1>
-                    <p class="">
-                        นำคูปองไปใช้ลดราคาอาหารที่สั่งได้
-                    </p>
-                </div>
-            </div>
+
         </section>
     </section>
 
