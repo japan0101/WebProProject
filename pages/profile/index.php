@@ -18,81 +18,160 @@ session_start() ?>
 </head>
 
 <body>
-    <header>
-        <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
-            <div id="navbar-body" class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
-                <!-- Hamburger button for mobile view -->
-                <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden" type="button" data-te-collapse-init data-te-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
-                    <!-- Hamburger icon -->
-                    <span class="[&>svg]:w-7">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7">
-                            <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
-                        </svg>
-                    </span>
-                </button>
-                <!-- Collapsible navigation container -->
-                <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent1" data-te-collapse-item>
-                    <!-- Logo -->
-                    <a class="mb-4 ml-2 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0" href="./../../">
-                        <img src="./../../assets/icon/favicon.svg" class="h-8" alt="" loading="lazy" />
-                    </a>
-                    <?php
-                    $isAuth = isset($_SESSION['memberName']);
-                    if ($isAuth) { ?>
-                        <!-- Left navigation links -->
-                        <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
-                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                <!-- Home -->
-                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400" href="./../../" data-te-nav-link-ref>หน้าหลัก</a>
+    <?php if ($_SESSION['role'] == "MANAGER") { ?>
+        <header>
+            <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
+                <div id="navbar-body" class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
+                    <!-- Hamburger button for mobile view -->
+                    <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden" type="button" data-te-collapse-init data-te-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                        <!-- Hamburger icon -->
+                        <span class="[&>svg]:w-7">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7">
+                                <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </button>
+
+                    <!-- Collapsible navigation container -->
+                    <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent1" data-te-collapse-item>
+                        <!-- Logo -->
+                        <a class="mb-4 ml-2 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0" href="./../../pages/manager/">
+                            <img src="./../../assets/icon/favicon.svg" class="h-8" alt="" loading="lazy" />
+                        </a>
+                        <?php
+                        $isAuth = isset($_SESSION['memberName']);
+                        if ($isAuth && $_SESSION['role'] == "MANAGER") { ?>
+                            <!-- Left navigation links -->
+                            <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
+
+                                <!-- หน้าสร้างโต๊ะ -->
+                                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/manager/manageTable.php" data-te-nav-link-ref>จัดการโต๊ะ</a>
+                                </li>
+                                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+
+                                    <!-- หน้าสร้างเมนู -->
+                                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400" href="./../../pages/manager/createMenu.php" data-te-nav-link-ref>สร้างเมนู</a>
+                                </li>
+                                <!-- หน้าจัดการเมนู -->
+                                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/manager/manageMenu.php" data-te-nav-link-ref>จัดการเมนู</a>
+                                </li>
+                                <!-- หน้าจัดการสมาชิก -->
+                                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/manager/manageUser.php" data-te-nav-link-ref>จัดการสมาชิก</a>
+                                </li>
+                                <!-- หน้าจัดการ Banner -->
+                                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/manager/manageBanner.php" data-te-nav-link-ref>จัดการอาหารสุ่ม</a>
+                                </li>
+                                <!-- หน้าดูยอดบิล -->
+                                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/manager/viewBills.php" data-te-nav-link-ref>ดูยอดบิล</a>
+                                </li>
+                            </ul>
+                    </div>
+
+                    <!-- Second dropdown container -->
+                    <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
+                        <!-- Second dropdown trigger -->
+                        <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="#" id="dropdownMenuButton2" role="button" data-te-dropdown-toggle-ref aria-expanded="false">
+                            <!-- User avatar -->
+                            ผู้ใช้
+                        </a>
+                        <!-- Second dropdown menu -->
+                        <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block" aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+                            <!-- Second dropdown menu items -->
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
                             </li>
-                            <!-- Redeem Points -->
-                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/shop/" data-te-nav-link-ref>แลกแต้ม</a>
-                            </li>
-                            <!-- Banner -->
-                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/banner/" data-te-nav-link-ref>กล่องสุ่ม</a>
-                            </li>
-                            <!-- Stash -->
-                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/couponStash/" data-te-nav-link-ref>คูปองของฉัน</a>
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="./../../backend/account/logout_user.php" data-te-dropdown-item-ref>ออกจากระบบ</a>
                             </li>
                         </ul>
-                </div>
+                    </div>
+                <?php
+                        } ?>
+            </nav>
+        </header>
+    <?php } else { ?>
 
-                <!-- Second dropdown container -->
+        <header>
+            <nav id="navbar" class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
+                <div id="navbar-body" class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
+                    <!-- Hamburger button for mobile view -->
+                    <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden" type="button" data-te-collapse-init data-te-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation">
+                        <!-- Hamburger icon -->
+                        <span class="[&>svg]:w-7">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7">
+                                <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </button>
+                    <!-- Collapsible navigation container -->
+                    <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto" id="navbarSupportedContent1" data-te-collapse-item>
+                        <!-- Logo -->
+                        <a class="mb-4 ml-2 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0" href="./../../">
+                            <img src="./../../assets/icon/favicon.svg" class="h-8" alt="" loading="lazy" />
+                        </a>
+                        <?php
+                        $isAuth = isset($_SESSION['memberName']);
+                        if ($isAuth) { ?>
+                            <!-- Left navigation links -->
+                            <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
+                                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                    <!-- Home -->
+                                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400" href="./../../" data-te-nav-link-ref>หน้าหลัก</a>
+                                </li>
+                                <!-- Redeem Points -->
+                                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/shop/" data-te-nav-link-ref>แลกแต้ม</a>
+                                </li>
+                                <!-- Banner -->
+                                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/banner/" data-te-nav-link-ref>กล่องสุ่ม</a>
+                                </li>
+                                <!-- Stash -->
+                                <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="./../../pages/couponStash/" data-te-nav-link-ref>คูปองของฉัน</a>
+                                </li>
+                            </ul>
+                    </div>
+
+                    <!-- Second dropdown container -->
+                    <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
+                        <!-- Second dropdown trigger -->
+                        <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="#" id="dropdownMenuButton2" role="button" data-te-dropdown-toggle-ref aria-expanded="false">
+                            <!-- User avatar -->
+                            ผู้ใช้
+                        </a>
+                        <!-- Second dropdown menu -->
+                        <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block" aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+                            <!-- Second dropdown menu items -->
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
+                            </li>
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="./../../backend/account/logout_user.php" data-te-dropdown-item-ref>ออกจากระบบ</a>
+                            </li>
+                        </ul>
+                    </div>
+                <?php
+                        } else { ?>
+                </div>
                 <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
-                    <!-- Second dropdown trigger -->
-                    <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400" href="#" id="dropdownMenuButton2" role="button" data-te-dropdown-toggle-ref aria-expanded="false">
-                        <!-- User avatar -->
-                        ผู้ใช้
-                    </a>
-                    <!-- Second dropdown menu -->
-                    <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block" aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
-                        <!-- Second dropdown menu items -->
-                        <li>
-                            <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
-                        </li>
-                        <li>
-                            <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30" href="./../../backend/account/logout_user.php" data-te-dropdown-item-ref>ออกจากระบบ</a>
-                        </li>
-                    </ul>
+                    <button type="button" class="inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-toggle="modal" data-te-target="#regisModal">
+                        สมัครสมาชิก
+                    </button>
+                    <button type="button" class="inline-block rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-800 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-800 focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 dark:border-neutral-900 dark:text-neutral-900 dark:hover:border-neutral-900 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10 dark:hover:text-neutral-900 dark:focus:border-neutral-900 dark:focus:text-neutral-900 dark:active:border-neutral-900 dark:active:text-neutral-900" data-te-ripple-init data-te-toggle="modal" data-te-target="#loginModal">
+                        เข้าสู่ระบบ
+                    </button>
                 </div>
             <?php
-                    } else { ?>
-            </div>
-            <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
-                <button type="button" class="inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]" data-te-ripple-init data-te-toggle="modal" data-te-target="#regisModal">
-                    สมัครสมาชิก
-                </button>
-                <button type="button" class="inline-block rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-800 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-800 focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 dark:border-neutral-900 dark:text-neutral-900 dark:hover:border-neutral-900 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10 dark:hover:text-neutral-900 dark:focus:border-neutral-900 dark:focus:text-neutral-900 dark:active:border-neutral-900 dark:active:text-neutral-900" data-te-ripple-init data-te-toggle="modal" data-te-target="#loginModal">
-                    เข้าสู่ระบบ
-                </button>
-            </div>
-        <?php
-                    } ?>
-        </nav>
-    </header>
+                        } ?>
+            </nav>
+        </header>
+    <?php } ?>
     <!-- Login Modal -->
     <div data-te-modal-init class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none" id="loginModal" tabindex="-1" aria-labelledby="loginModalTitle" aria-modal="true" role="dialog">
         <div data-te-modal-dialog-ref class="pointer-events-none relative flex min-h-[calc(100%-1rem)] w-auto translate-y-[-50px] items-center opacity-0 transition-all duration-300 ease-in-out min-[576px]:mx-auto min-[576px]:mt-7 min-[576px]:min-h-[calc(100%-3.5rem)] min-[576px]:max-w-[500px]">
