@@ -383,6 +383,10 @@ if (isset($_SESSION['result'])) { ?>
                         <h6 class="font-normal">
                             รับแต้มทุกครั้งที่ซื้ออาหาร และนำแต้มสะสมไปแลกส่วนลดสุดพิเศษของเรา
                         </h6>
+                        <div class="p-12">
+                            <img src="assets/icon/reward.webp" alt="">
+                        </div>
+
                     </div>
                 </div>
                 <div id="coupon" class="flex-1 dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
@@ -391,6 +395,9 @@ if (isset($_SESSION['result'])) { ?>
                         <h6 class="font-normal">
                             นำคูปองไปใช้ลดราคาอาหารที่สั่งได้
                         </h6>
+                        <div class="p-12">
+                            <img src="assets/icon/coupon.webp" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
