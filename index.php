@@ -305,9 +305,7 @@ if (isset($_SESSION['role'])) {
                     <div class="flex flex-col" style="width: 100%">
                         <h1 class="mt-3">แลกแต้ม</h1>
                         <p class="">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut, ea illo laboriosam nam natus
-                            nemo nobis, nulla qui ratione sint tempore voluptatem? Aspernatur consectetur laborum magni
-                            perferendis quasi repellat!
+                            รับแต้มทุกครั้งที่ซื้ออาหาร และนำแต้มสะสมไปแลกส่วนลดสุดพิเศษของเรา
                         </p>
                     </div>
                 </div>
@@ -315,9 +313,7 @@ if (isset($_SESSION['role'])) {
                     <div class="flex flex-col" style="width: 100%">
                         <h1 class="mt-3">กล่องสุ่ม</h1>
                         <p class="">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut, ea illo laboriosam nam natus
-                            nemo nobis, nulla qui ratione sint tempore voluptatem? Aspernatur consectetur laborum magni
-                            perferendis quasi repellat!
+                            สุ่มส่วนลดพิเศษด้วยแต้มของคุณ สูงสุด50%
                         </p>
                     </div>
                 </div>
@@ -325,9 +321,7 @@ if (isset($_SESSION['role'])) {
                     <div class="flex flex-col" style="width: 100%">
                         <h1 class="mt-3">คูปองของฉัน</h1>
                         <p class="">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aut, ea illo laboriosam nam natus
-                            nemo nobis, nulla qui ratione sint tempore voluptatem? Aspernatur consectetur laborum magni
-                            perferendis quasi repellat!
+                            นำคูปองไปใช้ลดราคาอาหารที่สั่งได้
                         </p>
                     </div>
                 </div>
