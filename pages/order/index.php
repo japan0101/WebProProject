@@ -47,22 +47,24 @@ if (isset($_COOKIE['tableID'])) { ?>
                 <button type="button"
                         class="text-neutral-600 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
                         data-te-toggle="modal" data-te-target="#incart">
+                    Cart
+                </button>
 
-                    <!-- end of cart button -->
-                    <div class="relative inline-flex w-fit">
-                        <div class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 skew-x-0 mr-5 skew-y-0 scale-x-100 scale-y-100 whitespace-nowrap rounded-full bg-indigo-700 px-2 py-1 text-center align-baseline text-xs font-bold leading-none text-white font-mono"
-                             id="cart_menu">
-                            0
-                        </div>
-                        <div class="flex items-center justify-center rounded-lg bg-pink-500 text-center text-white shadow-lg dark:text-gray-200 mr-5">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                 class="w-8 h-8">
-                                <path fill-rule="evenodd"
-                                      d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z"
-                                      clip-rule="evenodd"/>
-                            </svg>
-                        </div>
+                <!-- end of cart button -->
+                <div class="relative inline-flex w-fit">
+                    <div class="absolute bottom-auto left-auto right-0 top-0 z-10 inline-block -translate-y-1/2 translate-x-2/4 rotate-0 skew-x-0 mr-5 skew-y-0 scale-x-100 scale-y-100 whitespace-nowrap rounded-full bg-indigo-700 px-2 py-1 text-center align-baseline text-xs font-bold leading-none text-white font-mono"
+                         id="cart_menu">
+                        0
                     </div>
+                    <div class="flex items-center justify-center rounded-lg bg-pink-500 text-center text-white shadow-lg dark:text-gray-200 mr-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                             class="w-8 h-8">
+                            <path fill-rule="evenodd"
+                                  d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z"
+                                  clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>

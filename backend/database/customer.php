@@ -1,4 +1,5 @@
 <?php
+global $database;
 session_start();
 header('Content-Type: application/json');
 
@@ -125,11 +126,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $database->customResult(type: $_POST['case']);
 } else if ($_SERVER['REQUEST_METHOD'] == "GET") {
     switch ($_GET['case']) {
-
         case 'allmenus':
         {
             // ดึงข้อมูลเมนู
-            $database->custom("SELECT menuName, mc.name AS `categoryName`, price, description, image, menuID, categoryID FROM menus LEFT JOIN menu_category AS `mc` USING (categoryID)");
+            $database->custom("SELECT menuName, mc.name AS `categoryName`, price, description,
+                                    image, menuID, categoryID FROM menus LEFT JOIN menu_category AS `mc` USING (categoryID)");
             echo json_encode($database->getResult()['payload']);
             break;
         }
@@ -141,7 +142,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         }
         case 'category':
         {
-            $database->custom("SELECT menu_category.categoryID, menus.menuID, menu_category.name as `category`, menus.menuName, coupon.discount, coupon.cost, menus.image FROM menu_category INNER JOIN menus ON menu_category.categoryID = menus.categoryID INNER JOIN coupon ON menus.menuID = coupon.menuID");
+            $database->custom("SELECT menu_category.categoryID, menus.menuID, menu_category.name as `category`, 
+                                menus.menuName, coupon.discount, coupon.cost, menus.image FROM menu_category INNER JOIN menus 
+                                ON menu_category.categoryID = menus.categoryID INNER JOIN coupon ON menus.menuID = coupon.menuID");
             echo json_encode($database->getResult()['payload']);
             break;
         }
@@ -151,7 +154,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $date = date_create();
             $today = date_format($date, "Y-m-d H:i:s");
             if (isset($_SESSION['memberName'])) {
-                $database->custom("SELECT menu_category.categoryID, menus.menuID, menus.menuName, menu_category.name, user_discount.code, user_discount.discount, user_discount.expire, menus.image FROM menu_category INNER JOIN menus ON menu_category.categoryID = menus.categoryID INNER JOIN user_discount ON user_discount.menuID = menus.menuID WHERE userID = {$_SESSION['userID']} AND user_discount.expire >= '{$today}' ORDER BY user_discount.expire ASC");
+                $database->custom("SELECT menu_category.categoryID, menus.menuID, menus.menuName, menu_category.name, 
+                                    user_discount.code, user_discount.discount, user_discount.expire, menus.image FROM menu_category INNER JOIN menus 
+                                    ON menu_category.categoryID = menus.categoryID INNER JOIN user_discount ON user_discount.menuID = menus.menuID 
+                                    WHERE userID = {$_SESSION['userID']} AND user_discount.expire >= '{$today}' 
+                                    ORDER BY user_discount.expire ASC");
                 echo json_encode($database->getResult()['payload']);
                 break;
             }
