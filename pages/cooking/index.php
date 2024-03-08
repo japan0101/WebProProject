@@ -45,7 +45,7 @@ if (!$isAuth) { ?>
 
     <!--Checkbox-->
     <div class="mb-6 block min-h-[1.5rem] pl-[1.5rem]">
-        <input class="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[""]
+        <input class='relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[""]
         checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute
         checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem]
         checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0
@@ -63,7 +63,7 @@ if (!$isAuth) { ?>
         checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600
         dark:checked:border-primary dark:checked:bg-primary
         dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)]
-        dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]" type="checkbox" value="1" id="token" name="token"
+        dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]' type="checkbox" value="1" id="token" name="token"
         />
         <label class="inline-block pl-[0.15rem] hover:cursor-pointer" for="checkboxDefault">
             จดจำบัญชีนี้ไว้
