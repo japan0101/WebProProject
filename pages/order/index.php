@@ -58,7 +58,7 @@ session_start();
                             </div>
                         </div>
                     </button>
-                    
+
                 </div>
             </div>
         </nav>
@@ -485,8 +485,10 @@ session_start();
 
             <div class="flex flex-col h-screen w-screen content-center">
                 <div class="m-auto">
-                    <div class="inline-block h-96 w-96 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]" role="status">
-                        <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                    <div class="inline-block h-96 w-96 animate-[spinner-grow_0.75s_linear_infinite] rounded-full bg-current 
+                    align-[-0.125em] opacity-0 motion-reduce:animate-[spinner-grow_1.5s_linear_infinite]" role="status">
+                        <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 
+                        ![clip:rect(0,0,0,0)]">Loading...</span>
                     </div>
                 </div>
             </div>
