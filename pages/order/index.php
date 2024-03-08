@@ -72,16 +72,16 @@ session_start();
             <div class="rounded-lg border dark:border-neutral-600 mt-7">
                 <div class="p-4">
                     <div class="sm:flex sm:items-start">
-                        <ul class="mr-4 flex list-none sm:flex-col overflow-x-auto pl-0" id="bannerSel" role="tablist" data-te-nav-ref="">
+                        <ul class="mr-4 flex list-none sm:flex-col overflow-x-auto pl-0" id="categorySel" role="tablist" data-te-nav-ref="">
                             <!-- Selector -->
                             <li role="presentation" class="flex-grow text-center">
-                                <a href="#allCoupon" class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700" data-te-toggle="pill" data-te-target="#allCoupon" data-te-nav-active role="tab" aria-controls="allCoupon" aria-selected="true">All</a>
+                                <a href="#allMenu" class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700" data-te-toggle="pill" data-te-target="#allMenu" data-te-nav-active role="tab" aria-controls="allMenu" aria-selected="true">All</a>
                             </li>
                         </ul>
                         <!-- Coupon Container -->
                         <div class="my-2 grow" id="contentHolder">
-                            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="allCoupon" role="tab" aria-labelledby="allCoupon" data-te-tab-active="">
-                                <div class="flex flex-wrap justify-center items-center max-w-[110rem]" id="allCouponContainer">
+                            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block" id="allMenu" role="tab" aria-labelledby="allMenu" data-te-tab-active="">
+                                <div class="flex flex-wrap justify-center items-center max-w-[110rem]" id="allMenuContainer">
 
                                     <!-- rendered here -->
 
@@ -95,9 +95,9 @@ session_start();
         </span>
         <script>
             fetch("./../../backend/database/customer.php?case=allmenus").then(e => e.json()).then(payload => {
-                selectorContainer = document.getElementById('bannerSel');
+                selectorContainer = document.getElementById('categorySel');
                 contentContainer = document.getElementById('contentHolder');
-                allContainer = document.getElementById('allCouponContainer');
+                allContainer = document.getElementById('allMenuContainer');
                 category = []
                 payload.forEach(menuObj => {
                     if (!category.includes(menuObj['categoryName'])) {
