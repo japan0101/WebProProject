@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
                     $database->update("orders", array("billID" => $billID), "tableID={$_POST['tableID']} AND billID is null");
                 else break;
 
-                // **ยังไม่ได้คำนวณคะแนน**
+                // คำนวณคะแนน
                 $plus_point = floor($_POST['total'] * 0.1);
                 if ($database->getResult()['result'])
                     $database->custom("UPDATE users SET points = points + {$plus_point} WHERE userID={$userID}");
