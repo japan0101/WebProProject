@@ -332,7 +332,7 @@ foreach ($data as $item) { ?>
                 <!--Modal body-->
                 <form action="./../../backend/database/manager.php" method="post">
                     <div class="relative p-4">
-                        <p>ต้องการลบเมนูทิ้งใช่หรือไม่?</p>
+                        <p>ต้องการลบกล่องนี้ทิ้งใช่หรือไม่?</p>
                     </div>
 
                     <input type="hidden" name="case" value="delete_banner">
