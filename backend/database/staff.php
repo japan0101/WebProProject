@@ -71,9 +71,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             if (!is_null($userID))
                 $insert['userID'] = $userID;
             if (isset($_POST['code'])) {
-                $insert['codeDiscount'] = $_POST['code'];
-
-                // ลบโค้ดส่วนลดออกจาก Member 
+                $insert['codeDiscount'] = json_decode($_POST['code'])->code;
+                // ลบโค้ดส่วนลดออกจาก Member
                 $database->delete("user_discount", where: "userID={$userID}");
             }
             $database->insert("bills", $insert);
@@ -86,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
                     $database->update("orders", array("billID" => $billID), "tableID={$_POST['tableID']} AND billID is null");
                 else break;
 
-                // **ยังไม่ได้คำนวณคะแนน**
+                // คำนวณคะแนน
                 $plus_point = floor($_POST['total'] * 0.1);
                 if ($database->getResult()['result'])
                     $database->custom("UPDATE users SET points = points + {$plus_point} WHERE userID={$userID}");

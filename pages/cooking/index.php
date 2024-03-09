@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./../../assets/icon/favicon.svg">
-    
+
     <title>Laew Tae App</title>
     <?php
     include("./../../assets/scripts/tailwind.php") ?>
@@ -45,7 +45,7 @@ if (!$isAuth) { ?>
 
     <!--Checkbox-->
     <div class="mb-6 block min-h-[1.5rem] pl-[1.5rem]">
-        <input class="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[""]
+        <input class='relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[""]
         checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute
         checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem]
         checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0
@@ -63,7 +63,7 @@ if (!$isAuth) { ?>
         checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600
         dark:checked:border-primary dark:checked:bg-primary
         dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)]
-        dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]" type="checkbox" value="1" id="token" name="token"
+        dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]' type="checkbox" value="1" id="token" name="token"
         />
         <label class="inline-block pl-[0.15rem] hover:cursor-pointer" for="checkboxDefault">
             จดจำบัญชีนี้ไว้
@@ -87,7 +87,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
             <a href="#tabs-profile"
                class="my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
                data-te-toggle="pill" data-te-target="#tabs-profile" role="tab" aria-controls="tabs-profile"
-               aria-selected="false">พนักงานเสิร์ฟ</a>
+               aria-selected="false">พนักงานเสริฟ</a>
         </li>
     </ul>
 
