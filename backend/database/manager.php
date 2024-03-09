@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && $_SESSION['role'] == "MANAGER") {
         }
         case 'create_menu':
         {
-            // name, category, price, description(Optional), image(Optional)
+            // name, category, price, image, description(Optional)
 
             $target_dir = "../../assets/images/menus/";
             $_FILES["image"]["name"] = time() . ".webp";
