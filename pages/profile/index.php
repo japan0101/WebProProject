@@ -115,7 +115,7 @@ if ($_SESSION['role'] == "MANAGER") { ?>
         </nav>
     </header>
 
-<?php
+    <?php
 } else if ($_SESSION['role'] == "STAFF") { ?>
 
     <header>
