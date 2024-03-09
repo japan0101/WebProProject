@@ -490,6 +490,9 @@ foreach ($data as $item) { ?>
                 +
                 `</select> `,
             focusConfirm: false,
+            confirmButtonText: "ลบเลย",
+            showDenyButton: true,
+            denyButtonText: "ยกเลิก",
             preConfirm: () => {
                 return [
                     document.getElementById("menuID").value.split(', ')
