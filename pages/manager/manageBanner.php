@@ -332,7 +332,7 @@ foreach ($data as $item) { ?>
                 <!--Modal body-->
                 <form action="./../../backend/database/manager.php" method="post">
                     <div class="relative p-4">
-                        <p>ต้องการลบกล่องนี้ทิ้งใช่หรือไม่?</p>
+                        <p>ต้องการลบเมนูทิ้งใช่หรือไม่?</p>
                     </div>
 
                     <input type="hidden" name="case" value="delete_banner">
@@ -410,7 +410,7 @@ foreach ($data as $item) { ?>
         const {
             value: formValues
         } = await Swal.fire({
-            title: "เพิ่มส่วนลด",
+            title: "Multiple inputs",
             html: `<p class="text-xl my-2">โปรดใส่ข้อมูลดังนี้</p>` +
                 ` <label data-te-select-label-ref class="text-l my-2">เมนูที่ลด</label>
                 <input type="hidden" name="gachaID" id="gachaID" value="` + bannerID + `">
@@ -490,9 +490,6 @@ foreach ($data as $item) { ?>
                 +
                 `</select> `,
             focusConfirm: false,
-            confirmButtonText: "ลบเลย",
-            showDenyButton: true,
-            denyButtonText: "ยกเลิก",
             preConfirm: () => {
                 return [
                     document.getElementById("menuID").value.split(', ')

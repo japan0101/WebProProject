@@ -375,44 +375,30 @@ if (isset($_SESSION['result'])) { ?>
 
     <section class="body_container">
         <section id="developers">
-            <div class="flex flex-row flex-grow gap-6">
-                <div id="point_reward"
-                     class="flex-1 dev-box mt-6 flex flex-row-re container_rounded bg-white justify-center">
-                    <div class="flex flex-col" style="width: 100%">
-                        <h1 class="mt-3">แลกแต้ม</h1>
-                        <h6 class="font-normal">
-                            รับแต้มทุกครั้งที่ซื้ออาหาร และนำแต้มสะสมไปแลกส่วนลดสุดพิเศษของเรา
-                        </h6>
-                        <div class="p-12">
-                            <img src="assets/icon/reward.webp" alt="">
-                        </div>
-
-                    </div>
-                </div>
-                <div id="coupon" class="flex-1 dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
-                    <div class="flex flex-col" style="width: 100%">
-                        <h1 class="mt-3">คูปองของฉัน</h1>
-                        <h6 class="font-normal">
-                            นำคูปองไปใช้ลดราคาอาหารที่สั่งได้
-                        </h6>
-                        <div class="p-12">
-                            <img src="assets/icon/coupon.webp" alt="">
-                        </div>
-                    </div>
+            <div id="mark" class="dev-box mt-6 flex flex-row-re container_rounded bg-white justify-center">
+                <div class="flex flex-col" style="width: 100%">
+                    <h1 class="mt-3">แลกแต้ม</h1>
+                    <p class="">
+                        รับแต้มทุกครั้งที่ซื้ออาหาร และนำแต้มสะสมไปแลกส่วนลดสุดพิเศษของเรา
+                    </p>
                 </div>
             </div>
-            <div id="random_box" class=" dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
+            <div id="best" class="dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
                 <div class="flex flex-col" style="width: 100%">
                     <h1 class="mt-3">กล่องสุ่ม</h1>
-                    <h6 class="font-normal">
-                        สุ่มส่วนลดพิเศษด้วยแต้มของคุณ สูงสุด 50%
-                    </h6>
-                </div>
-                <div class="flex flex-col items-center h">
-                    <img class="m-auto" src="/assets/icon/mystery_box.webp" alt="mystery box">
+                    <p class="">
+                        สุ่มส่วนลดพิเศษด้วยแต้มของคุณ สูงสุด50%
+                    </p>
                 </div>
             </div>
-
+            <div id="japan" class="dev-box mt-6 flex flex-row container_rounded bg-white justify-center">
+                <div class="flex flex-col" style="width: 100%">
+                    <h1 class="mt-3">คูปองของฉัน</h1>
+                    <p class="">
+                        นำคูปองไปใช้ลดราคาอาหารที่สั่งได้
+                    </p>
+                </div>
+            </div>
         </section>
     </section>
 
