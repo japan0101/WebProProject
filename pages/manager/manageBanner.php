@@ -410,7 +410,7 @@ foreach ($data as $item) { ?>
         const {
             value: formValues
         } = await Swal.fire({
-            title: "Multiple inputs",
+            title: "เพิ่มส่วนลด",
             html: `<p class="text-xl my-2">โปรดใส่ข้อมูลดังนี้</p>` +
                 ` <label data-te-select-label-ref class="text-l my-2">เมนูที่ลด</label>
                 <input type="hidden" name="gachaID" id="gachaID" value="` + bannerID + `">
