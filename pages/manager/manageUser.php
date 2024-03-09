@@ -1,10 +1,10 @@
 <?php
 
-session_start();
-if (isset($_SESSION['role'])) {
-    if ($_SESSION['role'] != "MANAGER")
-        header("Location: ./../../");
-} else header("Location: ./../../");
+    session_start();
+    if (isset($_SESSION['role'])) {
+        if ($_SESSION['role'] != "MANAGER")
+            header("Location: ./../../");
+    } else header("Location: ./../../");
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ if (isset($_SESSION['role'])) {
     <title>Laew Tae App</title>
 
     <?php
-    include("./../../assets/scripts/tailwind.php") ?>
+        include("./../../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -28,7 +28,7 @@ if (isset($_SESSION['role'])) {
 
 <body>
 <?php
-include("./../../assets/component/navManager.php") ?>
+    include("./../../assets/component/navManager.php") ?>
 
 <main class="">
     <section class="body_container top-item flex flex-col gap-6">
@@ -59,40 +59,41 @@ include("./../../assets/component/navManager.php") ?>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    include '../../backend/connectDatabase.php';
-                                    $data = array();
-                                    $database->custom("SELECT phoneNumber, memberName, email, status, points, role, userID FROM users WHERE NOT userID={$_SESSION['userID']} ORDER BY role");
-                                    foreach ($database->getResult()['payload'] as $item) {
-                                        $data[] = $item; ?>
-                                        <tr class="border-b dark:border-neutral-500">
-                                            <td class="whitespace-nowrap px-6 py-4"><?php
-                                                echo $item->phoneNumber ?></td>
-                                            <td class="whitespace-nowrap px-6 py-4"><?php
-                                                echo $item->memberName ?></td>
-                                            <td class="whitespace-nowrap px-6 py-4"><?php
-                                                echo $item->email ?></td>
-                                            <td class="whitespace-nowrap px-6 py-4"><?php
-                                                echo $item->role ?></td>
-                                            <td class="whitespace-nowrap px-6 py-4"><?php
-                                                echo $item->status ?></td>
-                                            <td class="whitespace-nowrap px-6 py-4"><?php
-                                                echo $item->points ?></td>
-                                            <td class="whitespace-nowrap px-6 py-4">
-                                                <?php
-                                                if ($item->status == "ACTIVE")
-                                                    echo "<button type='button' class='inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]' onclick='change_status(this, {$item->userID})'>ระงับบัญชี</button>";
-                                                else echo "<button type='button' class='inline-block rounded-full bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]' onclick='change_status(this, {$item->userID})'>เปิดใช้งาน</button>"; ?>
-                                            </td>
-                                            <td class="whitespace-nowrap px-6 py-4">
-                                                <button type='button'
-                                                        class='inline-block rounded-full bg-info px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]' <?php
-                                                echo "onclick='change_passwd(this, {$item->userID})'"; ?>>รีเซ็ตรหัสผ่าน
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                    }
-                                    unset($database);
+                                        include '../../backend/connectDatabase.php';
+                                        $data = array();
+                                        $database->custom("SELECT phoneNumber, memberName, email, status, points, role, userID FROM users WHERE NOT userID={$_SESSION['userID']} ORDER BY role");
+                                        foreach ($database->getResult()['payload'] as $item) {
+                                            $data[] = $item; ?>
+                                            <tr class="border-b dark:border-neutral-500">
+                                                <td class="whitespace-nowrap px-6 py-4"><?php
+                                                        echo $item->phoneNumber ?></td>
+                                                <td class="whitespace-nowrap px-6 py-4"><?php
+                                                        echo $item->memberName ?></td>
+                                                <td class="whitespace-nowrap px-6 py-4"><?php
+                                                        echo $item->email ?></td>
+                                                <td class="whitespace-nowrap px-6 py-4"><?php
+                                                        echo $item->role ?></td>
+                                                <td class="whitespace-nowrap px-6 py-4"><?php
+                                                        echo $item->status ?></td>
+                                                <td class="whitespace-nowrap px-6 py-4"><?php
+                                                        echo $item->points ?></td>
+                                                <td class="whitespace-nowrap px-6 py-4">
+                                                    <?php
+                                                        if ($item->status == "ACTIVE")
+                                                            echo "<button type='button' class='inline-block rounded-full bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]' onclick='change_status(this, {$item->userID})'>ระงับบัญชี</button>";
+                                                        else echo "<button type='button' class='inline-block rounded-full bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]' onclick='change_status(this, {$item->userID})'>เปิดใช้งาน</button>"; ?>
+                                                </td>
+                                                <td class="whitespace-nowrap px-6 py-4">
+                                                    <button type='button'
+                                                            class='inline-block rounded-full bg-info px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]' <?php
+                                                        echo "onclick='change_passwd(this, {$item->userID})'"; ?>>
+                                                        รีเซ็ตรหัสผ่าน
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        unset($database);
                                     ?>
                                     </tbody>
                                 </table>
@@ -144,51 +145,51 @@ include("./../../assets/component/navManager.php") ?>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
-if (isset($_SESSION['result'])) { ?>
-    <script>
-        <?php $fire = false; ?>
+    if (isset($_SESSION['result'])) { ?>
+        <script>
+            <?php $fire = false; ?>
 
-        <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "change_status")) { ?>
-        Toast.fire({
-            icon: "success",
-            title: "<?php echo $_SESSION['result']['message']; ?>",
-        });
-        <?php $fire = true; ?>
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "change_status")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
 
-        <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "change_status")) { ?>
-        Toast.fire({
-            icon: "error",
-            title: "<?php echo $_SESSION['result']['message']; ?>",
-        });
-        <?php $fire = true;
-        } ?>
-
-
-
-        <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "change_passwd")) { ?>
-        LongToast.fire({
-            icon: "success",
-            title: "<?php echo $_SESSION['result']['message']; ?>",
-        });
-        <?php $fire = true; ?>
-
-        <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "change_passwd")) { ?>
-        LongToast.fire({
-            icon: "error",
-            title: "<?php echo $_SESSION['result']['message']; ?>",
-        });
-        <?php $fire = true;
-        } ?>
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "change_status")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
 
 
-        <?php if ($fire)
-            unset($_SESSION['result']) ?>
-    </script>
-    <?php
-} ?>
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "change_passwd")) { ?>
+            LongToast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "change_passwd")) { ?>
+            LongToast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+
+            <?php if ($fire)
+                unset($_SESSION['result']) ?>
+        </script>
+        <?php
+    } ?>
 
 <?php
-include("./../../assets/scripts/tw_element.php") ?>
+    include("./../../assets/scripts/tw_element.php") ?>
 </body>
 
 </html>
