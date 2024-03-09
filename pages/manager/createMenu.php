@@ -107,7 +107,7 @@ if (isset($_SESSION['role'])) {
             </div>
 
             <div class="flex flex-col gap-6">
-                <div class="flex flex-col blur-effect rounded-lg p-8 bg-white relative overflow-hidden">
+                <div class="flex flex-col blur-effect rounded-lg p-8 bg-white relative overflow-hidden" data-te-perfect-scrollbar-init>
                     <h2 class="text-2xl mt-0">เมนูต่าง ๆ <span id="countMenu">(0)</span></h2>
                     <div class="sm:-mx-6 lg:-mx-8">
                         <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8" data-te-datatable-init data-te-max-height="580" data-te-fixed-header="true">
