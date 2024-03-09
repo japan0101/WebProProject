@@ -69,42 +69,42 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/assets/scripts/sweetalert.js"></script>
 <?php
-    if (isset($_SESSION['result'])) { ?>
-        <script>
-            <?php $fire = false; ?>
-            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
-            Toast.fire({
-                icon: "success",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true; ?>
-
-            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
-            Toast.fire({
-                icon: "error",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true;
-            } ?>
-
-
-            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
-            Toast.fire({
-                icon: "success",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true; ?>
-
-            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "register")) { ?>
-            Toast.fire({
-                icon: "error",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true;
-            } ?>
-
-            <?php if ($fire)
-                unset($_SESSION['result']) ?>
-        </script>
-        <?php
-    } ?>
+                              if (isset($_SESSION['result'])) { ?>
+                                  <script>
+                                                                <?php $fire = false; ?>
+                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
+                                                                Toast.fire({
+                                                                    icon: "success",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true; ?>
+                                                                
+                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
+                                                                Toast.fire({
+                                                                    icon: "error",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true;
+                                                                } ?>
+                                                                
+                                                                
+                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
+                                                                Toast.fire({
+                                                                    icon: "success",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true; ?>
+                                                                
+                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "register")) { ?>
+                                                                Toast.fire({
+                                                                    icon: "error",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true;
+                                                                } ?>
+                                                                
+                                                                <?php if ($fire)
+                                                                                              unset($_SESSION['result']) ?>
+                                  </script>
+                                                            <?php
+                              } ?>

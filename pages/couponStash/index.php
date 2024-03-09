@@ -1,5 +1,5 @@
 <?php
-    session_start() ?>
+                              session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -9,9 +9,9 @@
     <link rel="icon" type="image/x-icon" href="./../../assets/icon/favicon.svg">
 
     <title>Laew Tae App</title>
-
-    <?php
-        include("./../../assets/scripts/tailwind.php") ?>
+                              
+                              <?php
+                                                            include("./../../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -44,9 +44,9 @@
                    href="./../../">
                     <img src="./../../assets/icon/favicon.svg" class="h-8" alt="" loading="lazy"/>
                 </a>
-                <?php
-                    $isAuth = isset($_SESSION['memberName']);
-                    if ($isAuth) { ?>
+                                          <?php
+                                                                        $isAuth = isset($_SESSION['memberName']);
+                                                                        if ($isAuth) { ?>
                 <!-- Left navigation links -->
                 <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
                     <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
@@ -94,8 +94,8 @@
                     </li>
                 </ul>
             </div>
-            <?php
-                } else { ?>
+                                      <?php
+                                                                    } else { ?>
         </div>
         <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
             <button type="button"
@@ -109,8 +109,8 @@
                 เข้าสู่ระบบ
             </button>
         </div>
-        <?php
-            } ?>
+                                  <?php
+                                                                } ?>
     </nav>
 </header>
 <!-- Login Modal -->
@@ -279,53 +279,53 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
-    if (isset($_SESSION['result'])) { ?>
-        <script>
-            <?php $fire = false; ?>
-            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
-            Toast.fire({
-                icon: "success",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true; ?>
-
-            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
-            Toast.fire({
-                icon: "error",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true;
-            } ?>
-
-
-            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
-            Toast.fire({
-                icon: "success",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true; ?>
-
-            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "register")) { ?>
-            Toast.fire({
-                icon: "error",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true;
-            } ?>
-
-            <?php if ($fire)
-                unset($_SESSION['result']) ?>
-        </script>
-        <?php
-    } ?>
+                              if (isset($_SESSION['result'])) { ?>
+                                  <script>
+                                                                <?php $fire = false; ?>
+                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
+                                                                Toast.fire({
+                                                                    icon: "success",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true; ?>
+                                                                
+                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
+                                                                Toast.fire({
+                                                                    icon: "error",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true;
+                                                                } ?>
+                                                                
+                                                                
+                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
+                                                                Toast.fire({
+                                                                    icon: "success",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true; ?>
+                                                                
+                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "register")) { ?>
+                                                                Toast.fire({
+                                                                    icon: "error",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true;
+                                                                } ?>
+                                                                
+                                                                <?php if ($fire)
+                                                                                              unset($_SESSION['result']) ?>
+                                  </script>
+                                                            <?php
+                              } ?>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./../../assets/scripts/sweetalert.js"></script>
 
 
 <?php
-    if (isset($_SESSION['memberName'])) { ?>
-        <span class="my-5">
+                              if (isset($_SESSION['memberName'])) { ?>
+                                  <span class="my-5">
             <div class="rounded-lg border dark:border-neutral-600 mt-7">
                 <div class="p-4">
                     <div class="sm:flex sm:items-start">
@@ -354,19 +354,19 @@
                 </div>
             </div>
         </span>
+                              
+                              <?php
+                                                            } else { ?>
 
-    <?php
-        } else { ?>
-
-        <script>
-            Warning.fire({
-                icon: "warning",
-                title: "คำเตือน",
-                text: "คุณยังไม่ได้เข้าสู่ระบบ"
-            });
-        </script>
-        <?php
-    } ?>
+                                  <script>
+                                      Warning.fire({
+                                          icon: "warning",
+                                          title: "คำเตือน",
+                                          text: "คุณยังไม่ได้เข้าสู่ระบบ"
+                                      });
+                                  </script>
+                                                            <?php
+                              } ?>
 <script>
     fetch("./../../backend/database/customer.php?case=mycoupon").then(e => e.json()).then(payload => {
         selectorContainer = document.getElementById('bannerSel');
@@ -468,7 +468,7 @@
     }
 </script>
 <?php
-    include("./../../assets/scripts/tw_element.php") ?>
+                              include("./../../assets/scripts/tw_element.php") ?>
 
 </body>
 

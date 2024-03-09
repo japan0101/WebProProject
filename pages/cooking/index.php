@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <?php
-        session_start(); ?>
+                              <?php
+                                                            session_start(); ?>
 
     </script>
     <meta charset="UTF-8">
@@ -11,8 +11,8 @@
     <link rel="icon" type="image/x-icon" href="./../../assets/icon/favicon.svg">
 
     <title>Laew Tae App</title>
-    <?php
-        include("./../../assets/scripts/tailwind.php") ?>
+                              <?php
+                                                            include("./../../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -20,118 +20,139 @@
 
 <body>
 <?php
-    include("./../../assets/component/navStaff.php") ?>
+                              include("./../../assets/component/navStaff.php") ?>
 
 <?php
+                              
+                              $isAuth = isset($_SESSION['memberName']);
+                              if (!$isAuth) { ?>
+                                  <div class="relative mb-5" data-te-input-wrapper-init>
+                                      <input type="text"
+                                             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                             name="credential" id="loginEmail" aria-describedby="emailHelp"
+                                             placeholder="Enter email"/>
+                                      <label for="loginEmail"
+                                             class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์</label>
+                                  </div>
 
-    $isAuth = isset($_SESSION['memberName']);
-    if (!$isAuth) { ?>
-        <div class="relative mb-5" data-te-input-wrapper-init>
-            <input type="text"
-                   class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                   name="credential" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email"/>
-            <label for="loginEmail"
-                   class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์</label>
-        </div>
+                                  <!--Password input-->
+                                  <div class="relative mb-2" data-te-input-wrapper-init>
+                                      <input type="password"
+                                             class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                             name="passwd" id="loginPassword" placeholder="Password"/>
+                                      <label for="loginPassword"
+                                             class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">รหัสผ่าน</label>
+                                  </div>
 
-        <!--Password input-->
-        <div class="relative mb-2" data-te-input-wrapper-init>
-            <input type="password"
-                   class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
-                   name="passwd" id="loginPassword" placeholder="Password"/>
-            <label for="loginPassword"
-                   class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">รหัสผ่าน</label>
-        </div>
+                                  <!--Checkbox-->
+                                  <div class="mb-6 block min-h-[1.5rem] pl-[1.5rem]">
+                                      <input class="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[""]
+                                      checked:border-primary checked:bg-primary checked:before:opacity-[0.16]
+                                      checked:after:absolute
+                                      checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block
+                                      checked:after:h-[0.8125rem]
+                                      checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem]
+                                      checked:after:border-l-0
+                                      checked:after:border-t-0 checked:after:border-solid checked:after:border-white
+                                      checked:after:bg-transparent
+                                      checked:after:content-[""] hover:cursor-pointer hover:before:opacity-[0.04]
+                                      hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none
+                                      focus:transition-[border-color_0.2s]
+                                      focus:before:scale-100 focus:before:opacity-[0.12]
+                                      focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)]
+                                      focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute
+                                      focus:after:z-[1]
+                                      focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem]
+                                      focus:after:rounded-[0.125rem]
+                                      focus:after:content-[""] checked:focus:before:scale-100
+                                      checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]
+                                      checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s]
+                                      checked:focus:after:-mt-px
+                                      checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem]
+                                      checked:focus:after:w-[0.375rem]
+                                      checked:focus:after:rotate-45 checked:focus:after:rounded-none
+                                      checked:focus:after:border-[0.125rem]
+                                      checked:focus:after:border-l-0 checked:focus:after:border-t-0
+                                      checked:focus:after:border-solid
+                                      checked:focus:after:border-white checked:focus:after:bg-transparent
+                                      dark:border-neutral-600
+                                      dark:checked:border-primary dark:checked:bg-primary
+                                      dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)]
+                                      dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]" type="checkbox"
+                                      value="1" id="token"
+                                      name="token"
+                                      />
+                                      <label class="inline-block pl-[0.15rem] hover:cursor-pointer"
+                                             for="checkboxDefault">
+                                          จดจำบัญชีนี้ไว้
+                                      </label>
+                                  </div>';
+                                                            <?php
+                              }
+                              if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
+                                  <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
+                                  <!--Tabs navigation-->
+                                  <br><br>
+                                  <ul class="place-content-center mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0"
+                                      role="tablist"
+                                      data-te-nav-ref>
+                                      <li role="presentation">
+                                          <a href="#tabs-home"
+                                             class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700"
+                                             data-te-toggle="pill" data-te-target="#tabs-home" data-te-nav-active
+                                             role="tab"
+                                             aria-controls="tabs-home"
+                                             aria-selected="true">ห้องครัว</a>
+                                      </li>
+                                      <li role="presentation">
+                                          <a href="#tabs-profile"
+                                             class="my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
+                                             data-te-toggle="pill" data-te-target="#tabs-profile" role="tab"
+                                             aria-controls="tabs-profile"
+                                             aria-selected="false">พนักงานเสิร์ฟ</a>
+                                      </li>
+                                  </ul>
 
-        <!--Checkbox-->
-        <div class="mb-6 block min-h-[1.5rem] pl-[1.5rem]">
-            <input class="relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[""]
-            checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute
-            checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem]
-            checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0
-            checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent
-            checked:after:content-[""] hover:cursor-pointer hover:before:opacity-[0.04]
-            hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none
-            focus:transition-[border-color_0.2s]
-            focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)]
-            focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1]
-            focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem]
-            focus:after:content-[""] checked:focus:before:scale-100
-            checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]
-            checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px
-            checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem]
-            checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem]
-            checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid
-            checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600
-            dark:checked:border-primary dark:checked:bg-primary
-            dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)]
-            dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]" type="checkbox" value="1" id="token"
-            name="token"
-            />
-            <label class="inline-block pl-[0.15rem] hover:cursor-pointer" for="checkboxDefault">
-                จดจำบัญชีนี้ไว้
-            </label>
-        </div>';
-        <?php
-    }
-    if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
-        <!-- TW Elements is free under AGPL, with commercial license required for specific uses. See more details: https://tw-elements.com/license/ and contact us for queries at tailwind@mdbootstrap.com -->
-        <!--Tabs navigation-->
-        <br><br>
-        <ul class="place-content-center mb-5 flex list-none flex-row flex-wrap border-b-0 pl-0" role="tablist"
-            data-te-nav-ref>
-            <li role="presentation">
-                <a href="#tabs-home"
-                   class="my-2 block px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:bg-gray-100 data-[te-nav-active]:text-primary data-[te-nav-active]:border-b-2 border-primary dark:bg-neutral-700 dark:text-white dark:data-[te-nav-active]:text-primary-700"
-                   data-te-toggle="pill" data-te-target="#tabs-home" data-te-nav-active role="tab"
-                   aria-controls="tabs-home"
-                   aria-selected="true">ห้องครัว</a>
-            </li>
-            <li role="presentation">
-                <a href="#tabs-profile"
-                   class="my-2 block border-x-0 border-t-0 px-7 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:bg-neutral-100 focus:isolate data-[te-nav-active]:border-b-2 border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
-                   data-te-toggle="pill" data-te-target="#tabs-profile" role="tab" aria-controls="tabs-profile"
-                   aria-selected="false">พนักงานเสิร์ฟ</a>
-            </li>
-        </ul>
+                                  <!--Tabs content-->
+                                  <div class="mb-6">
 
-        <!--Tabs content-->
-        <div class="mb-6">
+                                      <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+                                           id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab"
+                                           data-te-tab-active>
 
-            <div class="hidden opacity-100 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-                 id="tabs-home" role="tabpanel" aria-labelledby="tabs-home-tab" data-te-tab-active>
+                                          <!-- Waiter Content -->
+                                          <div class="block rounded-lg bg-white p-6 dark:bg-neutral-700">
+                                              <p id="kitchen_sum" class="text-5xl my-auto w-fit bold">
+                                                  จำนวนออเดอร์ที่รอ: </p>
+                                          </div>
 
-                <!-- Waiter Content -->
-                <div class="block rounded-lg bg-white p-6 dark:bg-neutral-700">
-                    <p id="kitchen_sum" class="text-5xl my-auto w-fit bold">จำนวนออเดอร์ที่รอ: </p>
-                </div>
-
-                <!-- Chef Content -->
-                <div id="kitchen_order"
-                     class="flex flex-row overflow-x-auto block rounded-lg bg-white p-6 dark:bg-neutral-700 gap-3">
-                </div>
+                                          <!-- Chef Content -->
+                                          <div id="kitchen_order"
+                                               class="flex flex-row overflow-x-auto block rounded-lg bg-white p-6 dark:bg-neutral-700 gap-3">
+                                          </div>
 
 
-            </div>
+                                      </div>
 
-            <!-- Waiter Content -->
-            <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
-                 id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
-                <div class="block rounded-lg bg-white p-6 dark:bg-neutral-700">
-                    <p id="waiter_sum" class="text-5xl my-auto w-fit bold">จำนวนออเดอร์ที่เสร็จ: </p>
-                </div>
-                <div id="waiter_order"
-                     class="flex flex-row overflow-x-auto block rounded-lg bg-white p-6 dark:bg-neutral-700 gap-3">
-                </div>
-            </div>
+                                      <!-- Waiter Content -->
+                                      <div class="hidden opacity-0 transition-opacity duration-150 ease-linear data-[te-tab-active]:block"
+                                           id="tabs-profile" role="tabpanel" aria-labelledby="tabs-profile-tab">
+                                          <div class="block rounded-lg bg-white p-6 dark:bg-neutral-700">
+                                              <p id="waiter_sum" class="text-5xl my-auto w-fit bold">
+                                                  จำนวนออเดอร์ที่เสร็จ: </p>
+                                          </div>
+                                          <div id="waiter_order"
+                                               class="flex flex-row overflow-x-auto block rounded-lg bg-white p-6 dark:bg-neutral-700 gap-3">
+                                          </div>
+                                      </div>
 
-        </div>
-        <?php
-    } ?>
+                                  </div>
+                                                            <?php
+                              } ?>
 
 
 <?php
-    include("./../../assets/scripts/tw_element.php") ?>
+                              include("./../../assets/scripts/tw_element.php") ?>
 <script>
     // Chef Content
     fetch("./../../backend/database/staff.php?case=cooking_order").then(e => e.json()).then(payload => {
@@ -312,63 +333,63 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
-    if (isset($_SESSION['result'])) { ?>
-        <script>
-            <?php $fire = false; ?>
-
-            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "orderComplete")) { ?>
-            Toast2.fire({
-                icon: "success",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true; ?>
-
-            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "orderComplete")) { ?>
-            Toast2.fire({
-                icon: "error",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true;
-            } ?>
-
-
-            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "orderServed")) { ?>
-            Toast2.fire({
-                icon: "success",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true; ?>
-
-            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "orderServed")) { ?>
-            Toast2.fire({
-                icon: "error",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true;
-            } ?>
-
-
-            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "orderCancel")) { ?>
-            Toast2.fire({
-                icon: "success",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true; ?>
-
-            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "orderCancel")) { ?>
-            Toast2.fire({
-                icon: "error",
-                title: "<?php echo $_SESSION['result']['message']; ?>",
-            });
-            <?php $fire = true;
-            } ?>
-
-
-            <?php if ($fire)
-                unset($_SESSION['result']) ?>
-        </script>
-        <?php
-    } ?>
+                              if (isset($_SESSION['result'])) { ?>
+                                  <script>
+                                                                <?php $fire = false; ?>
+                                                                
+                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "orderComplete")) { ?>
+                                                                Toast2.fire({
+                                                                    icon: "success",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true; ?>
+                                                                
+                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "orderComplete")) { ?>
+                                                                Toast2.fire({
+                                                                    icon: "error",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true;
+                                                                } ?>
+                                                                
+                                                                
+                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "orderServed")) { ?>
+                                                                Toast2.fire({
+                                                                    icon: "success",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true; ?>
+                                                                
+                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "orderServed")) { ?>
+                                                                Toast2.fire({
+                                                                    icon: "error",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true;
+                                                                } ?>
+                                                                
+                                                                
+                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "orderCancel")) { ?>
+                                                                Toast2.fire({
+                                                                    icon: "success",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true; ?>
+                                                                
+                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "orderCancel")) { ?>
+                                                                Toast2.fire({
+                                                                    icon: "error",
+                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
+                                                                });
+                                                                <?php $fire = true;
+                                                                } ?>
+                                                                
+                                                                
+                                                                <?php if ($fire)
+                                                                                              unset($_SESSION['result']) ?>
+                                  </script>
+                                                            <?php
+                              } ?>
 
 </body>
 
