@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-                              
-                              session_start(); ?>
+
+    session_start(); ?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laew Tae App</title>
-                              
-                              <?php
-                                                            include("./../assets/scripts/tailwind.php") ?>
+
+    <?php
+        include("./../assets/scripts/tailwind.php") ?>
     <link rel="stylesheet" href="./../assets/stylesheets/global.css">
 </head>
 
@@ -250,10 +250,10 @@
     <!-- data-te-datatable-init -->
     <!-- ตาราง Users -->
     <div id="divdp3" data-te-datatable-init>
-                                  <?php
-                                                                include 'connectDatabase.php';
-                                                                $database->custom("SELECT phoneNumber, memberName, email, status, points, role, userID FROM users WHERE NOT userID={$_SESSION['userID']} ORDER BY role");
-                                                                echo <<<EOF
+        <?php
+            include 'connectDatabase.php';
+            $database->custom("SELECT phoneNumber, memberName, email, status, points, role, userID FROM users WHERE NOT userID={$_SESSION['userID']} ORDER BY role");
+            echo <<<EOF
             <table class="min-w-full text-left text-sm font-light">
             <thead>
                 <tr class="border-b font-medium dark:border-neutral-500">
@@ -269,24 +269,24 @@
             </thead>
             <tbody>
             EOF;
-                                                                foreach ($database->getResult()['payload'] as $item) {
-                                                                                              // echo json_encode($item);
-                                                                                              echo "<tr>";
-                                                                                              foreach ($item as $key => $value) {
-                                                                                                                            if ($key != "userID")
-                                                                                                                                                          echo "<td>{$value}</td>";
-                                                                                                                            else {
-                                                                                                                                                          if ($item->status == "ACTIVE")
-                                                                                                                                                                                        echo "<td><button type='button' class='inline-block rounded bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]' onclick='change_status(this, {$item->userID})'>ระงับบัญชี</button></td>";
-                                                                                                                                                          else echo "<td><button type='button' class='inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]' onclick='change_status(this, {$item->userID})'>เปิดใช้งาน</button></td>";
-                                                                                                                                                          echo "<td><button type='button' class='inline-block rounded bg-info px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]' onclick='change_passwd(this, {$item->userID})'>รีเซ็ตรหัสผ่าน</button></td>";
-                                                                                                                            }
-                                                                                              }
-                                                                                              echo "</tr>";
-                                                                }
-                                                                echo "</tbody>";
-                                                                unset($database)
-                                  ?>
+            foreach ($database->getResult()['payload'] as $item) {
+                // echo json_encode($item);
+                echo "<tr>";
+                foreach ($item as $key => $value) {
+                    if ($key != "userID")
+                        echo "<td>{$value}</td>";
+                    else {
+                        if ($item->status == "ACTIVE")
+                            echo "<td><button type='button' class='inline-block rounded bg-warning px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#e4a11b] transition duration-150 ease-in-out hover:bg-warning-600 hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:bg-warning-600 focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] focus:outline-none focus:ring-0 active:bg-warning-700 active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.3),0_4px_18px_0_rgba(228,161,27,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(228,161,27,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(228,161,27,0.2),0_4px_18px_0_rgba(228,161,27,0.1)]' onclick='change_status(this, {$item->userID})'>ระงับบัญชี</button></td>";
+                        else echo "<td><button type='button' class='inline-block rounded bg-success px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#14a44d] transition duration-150 ease-in-out hover:bg-success-600 hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:bg-success-600 focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] focus:outline-none focus:ring-0 active:bg-success-700 active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.3),0_4px_18px_0_rgba(20,164,77,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(20,164,77,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(20,164,77,0.2),0_4px_18px_0_rgba(20,164,77,0.1)]' onclick='change_status(this, {$item->userID})'>เปิดใช้งาน</button></td>";
+                        echo "<td><button type='button' class='inline-block rounded bg-info px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:bg-info-600 hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(84,180,211,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.2),0_4px_18px_0_rgba(84,180,211,0.1)]' onclick='change_passwd(this, {$item->userID})'>รีเซ็ตรหัสผ่าน</button></td>";
+                    }
+                }
+                echo "</tr>";
+            }
+            echo "</tbody>";
+            unset($database)
+        ?>
     </div>
 </form>
 
@@ -445,97 +445,97 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./../assets/scripts/sweetalert.js"></script>
 <?php
-                              if (isset($_SESSION['result'])) { ?>
-                                  <script>
-                                                                <?php $fire = false; ?>
-                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "insertTable")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "success",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true; ?>
-                                                                
-                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "insertTable")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "error",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true;
-                                                                } ?>
-                                                                
-                                                                
-                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "randomTableCode")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "success",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true; ?>
-                                                                
-                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "randomTableCode")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "error",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true;
-                                                                } ?>
-                                                                
-                                                                
-                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "change_status")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "success",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true; ?>
-                                                                
-                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "change_status")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "error",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true;
-                                                                } ?>
-                                                                
-                                                                
-                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "change_passwd")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "success",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true; ?>
-                                                                
-                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "change_passwd")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "error",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true;
-                                                                } ?>
-                                                                
-                                                                
-                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "create_category")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "success",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true; ?>
-                                                                
-                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "create_category")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "error",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true;
-                                                                } ?>
-                                                                
-                                                                
-                                                                <?php if ($fire)
-                                                                                              unset($_SESSION['result']) ?>
-                                  </script>
-                                                            <?php
-                              } ?>
+    if (isset($_SESSION['result'])) { ?>
+        <script>
+            <?php $fire = false; ?>
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "insertTable")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "insertTable")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "randomTableCode")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "randomTableCode")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "change_status")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "change_status")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "change_passwd")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "change_passwd")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "create_category")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "create_category")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+
+            <?php if ($fire)
+                unset($_SESSION['result']) ?>
+        </script>
+        <?php
+    } ?>
 
 <?php
-                              include("./../assets/scripts/tw_element.php") ?>
+    include("./../assets/scripts/tw_element.php") ?>
 
 </body>
 

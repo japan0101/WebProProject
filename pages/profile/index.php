@@ -1,5 +1,5 @@
 <?php
-                              session_start() ?>
+    session_start() ?>
 <!doctype html>
 <html lang="en">
 
@@ -9,9 +9,9 @@
     <link rel="icon" type="image/x-icon" href="./../../assets/icon/favicon.svg">
 
     <title>Laew Tae App</title>
-                              
-                              <?php
-                                                            include("./../../assets/scripts/tailwind.php") ?>
+
+    <?php
+        include("./../../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -19,20 +19,18 @@
 
 <body>
 <?php
-                              if ($_SESSION['role'] == "MANAGER") { ?>
-                                  <header>
-                                      <nav id="navbar"
-                                           class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
-                                          <div id="navbar-body"
-                                               class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
-                                              <!-- Hamburger button for mobile view -->
-                                              <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
-                                                      type="button" data-te-collapse-init
-                                                      data-te-target="#navbarSupportedContent1"
-                                                      aria-controls="navbarSupportedContent1" aria-expanded="false"
-                                                      aria-label="Toggle navigation">
-                                                  <!-- Hamburger icon -->
-                                                  <span class="[&>svg]:w-7">
+    if ($_SESSION['role'] == "MANAGER") { ?>
+        <header>
+            <nav id="navbar"
+                 class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
+                <div id="navbar-body" class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
+                    <!-- Hamburger button for mobile view -->
+                    <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+                            type="button" data-te-collapse-init data-te-target="#navbarSupportedContent1"
+                            aria-controls="navbarSupportedContent1" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <!-- Hamburger icon -->
+                        <span class="[&>svg]:w-7">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                  class="h-7 w-7">
                                 <path fill-rule="evenodd"
@@ -40,111 +38,100 @@
                                       clip-rule="evenodd"/>
                             </svg>
                         </span>
-                                              </button>
+                    </button>
 
-                                              <!-- Collapsible navigation container -->
-                                              <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
-                                                   id="navbarSupportedContent1" data-te-collapse-item>
-                                                  <!-- Logo -->
-                                                  <a class="mb-4 ml-2 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
-                                                     href="./../../pages/manager/">
-                                                      <img src="./../../assets/icon/favicon.svg" class="h-8" alt=""
-                                                           loading="lazy"/>
-                                                  </a>
-                                                                            <?php
-                                                                                                          $isAuth = isset($_SESSION['memberName']);
-                                                                                                          if ($isAuth && $_SESSION['role'] == "MANAGER") { ?>
-                                                  <!-- Left navigation links -->
-                                                  <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
-                                                      data-te-navbar-nav-ref>
+                    <!-- Collapsible navigation container -->
+                    <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
+                         id="navbarSupportedContent1" data-te-collapse-item>
+                        <!-- Logo -->
+                        <a class="mb-4 ml-2 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
+                           href="./../../pages/manager/">
+                            <img src="./../../assets/icon/favicon.svg" class="h-8" alt="" loading="lazy"/>
+                        </a>
+                        <?php
+                            $isAuth = isset($_SESSION['memberName']);
+                            if ($isAuth && $_SESSION['role'] == "MANAGER") { ?>
+                        <!-- Left navigation links -->
+                        <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
 
-                                                      <!-- หน้าสร้างโต๊ะ -->
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                             href="./../../pages/manager/manageTable.php"
-                                                             data-te-nav-link-ref>จัดการโต๊ะ</a>
-                                                      </li>
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                            <!-- หน้าสร้างโต๊ะ -->
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                                   href="./../../pages/manager/manageTable.php" data-te-nav-link-ref>จัดการโต๊ะ</a>
+                            </li>
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
 
-                                                          <!-- หน้าสร้างเมนู -->
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-                                                             href="./../../pages/manager/createMenu.php"
-                                                             data-te-nav-link-ref>สร้างเมนู</a>
-                                                      </li>
-                                                      <!-- หน้าจัดการเมนู -->
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                             href="./../../pages/manager/manageMenu.php"
-                                                             data-te-nav-link-ref>จัดการเมนู</a>
-                                                      </li>
-                                                      <!-- หน้าจัดการสมาชิก -->
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                             href="./../../pages/manager/manageUser.php"
-                                                             data-te-nav-link-ref>จัดการสมาชิก</a>
-                                                      </li>
-                                                      <!-- หน้าจัดการ Banner -->
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                             href="./../../pages/manager/manageBanner.php"
-                                                             data-te-nav-link-ref>จัดการอาหารสุ่ม</a>
-                                                      </li>
-                                                      <!-- หน้าดูยอดบิล -->
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                             href="./../../pages/manager/viewBills.php"
-                                                             data-te-nav-link-ref>ดูยอดบิล</a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
+                                <!-- หน้าสร้างเมนู -->
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+                                   href="./../../pages/manager/createMenu.php" data-te-nav-link-ref>สร้างเมนู</a>
+                            </li>
+                            <!-- หน้าจัดการเมนู -->
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                                   href="./../../pages/manager/manageMenu.php" data-te-nav-link-ref>จัดการเมนู</a>
+                            </li>
+                            <!-- หน้าจัดการสมาชิก -->
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                                   href="./../../pages/manager/manageUser.php" data-te-nav-link-ref>จัดการสมาชิก</a>
+                            </li>
+                            <!-- หน้าจัดการ Banner -->
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                                   href="./../../pages/manager/manageBanner.php"
+                                   data-te-nav-link-ref>จัดการอาหารสุ่ม</a>
+                            </li>
+                            <!-- หน้าดูยอดบิล -->
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                                   href="./../../pages/manager/viewBills.php" data-te-nav-link-ref>ดูยอดบิล</a>
+                            </li>
+                        </ul>
+                    </div>
 
-                                              <!-- Second dropdown container -->
-                                              <div class="relative" data-te-dropdown-ref
-                                                   data-te-dropdown-alignment="end">
-                                                  <!-- Second dropdown trigger -->
-                                                  <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                     href="#" id="dropdownMenuButton2" role="button"
-                                                     data-te-dropdown-toggle-ref
-                                                     aria-expanded="false">
-                                                      <!-- User avatar -->
-                                                      ผู้ใช้
-                                                  </a>
-                                                  <!-- Second dropdown menu -->
-                                                  <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
-                                                      aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
-                                                      <!-- Second dropdown menu items -->
-                                                      <li>
-                                                          <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                                                             href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
-                                                      </li>
-                                                      <li>
-                                                          <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                                                             href="./../../backend/account/logout_user.php"
-                                                             data-te-dropdown-item-ref>ออกจากระบบ</a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
-                                                                        <?php
-                                                                                                      } ?>
-                                      </nav>
-                                  </header>
-                                                            
-                                                            <?php
-                              } else if ($_SESSION['role'] == "STAFF") { ?>
+                    <!-- Second dropdown container -->
+                    <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
+                        <!-- Second dropdown trigger -->
+                        <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                           href="#" id="dropdownMenuButton2" role="button" data-te-dropdown-toggle-ref
+                           aria-expanded="false">
+                            <!-- User avatar -->
+                            ผู้ใช้
+                        </a>
+                        <!-- Second dropdown menu -->
+                        <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+                            <!-- Second dropdown menu items -->
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                                   href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
+                            </li>
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                                   href="./../../backend/account/logout_user.php"
+                                   data-te-dropdown-item-ref>ออกจากระบบ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <?php
+                        } ?>
+            </nav>
+        </header>
 
-                                  <header>
-                                      <nav id="navbar"
-                                           class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
-                                          <div id="navbar-body"
-                                               class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
-                                              <!-- Hamburger button for mobile view -->
-                                              <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
-                                                      type="button" data-te-collapse-init
-                                                      data-te-target="#navbarSupportedContent1"
-                                                      aria-controls="navbarSupportedContent1" aria-expanded="false"
-                                                      aria-label="Toggle navigation">
-                                                  <!-- Hamburger icon -->
-                                                  <span class="[&>svg]:w-7">
+        <?php
+    } else if ($_SESSION['role'] == "STAFF") { ?>
+
+        <header>
+            <nav id="navbar"
+                 class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
+                <div id="navbar-body" class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
+                    <!-- Hamburger button for mobile view -->
+                    <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+                            type="button" data-te-collapse-init data-te-target="#navbarSupportedContent1"
+                            aria-controls="navbarSupportedContent1" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <!-- Hamburger icon -->
+                        <span class="[&>svg]:w-7">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                  class="h-7 w-7">
                                 <path fill-rule="evenodd"
@@ -152,86 +139,80 @@
                                       clip-rule="evenodd"/>
                             </svg>
                         </span>
-                                              </button>
+                    </button>
 
-                                              <!-- Collapsible navigation container -->
-                                              <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
-                                                   id="navbarSupportedContent1" data-te-collapse-item>
-                                                  <!-- Logo -->
-                                                  <a class="mb-4 ml-2 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
-                                                     href="./../../pages/staff/">
-                                                      <img src="./../../assets/icon/favicon.svg" class="h-8" alt=""
-                                                           loading="lazy"/>
-                                                  </a>
-                                                                            <?php
-                                                                                                          $isAuth = isset($_SESSION['memberName']);
-                                                                                                          if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
-                                                  <!-- Left navigation links -->
-                                                  <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
-                                                      data-te-navbar-nav-ref>
+                    <!-- Collapsible navigation container -->
+                    <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
+                         id="navbarSupportedContent1" data-te-collapse-item>
+                        <!-- Logo -->
+                        <a class="mb-4 ml-2 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
+                           href="./../../pages/staff/">
+                            <img src="./../../assets/icon/favicon.svg" class="h-8" alt="" loading="lazy"/>
+                        </a>
+                        <?php
+                            $isAuth = isset($_SESSION['memberName']);
+                            if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER")) { ?>
+                        <!-- Left navigation links -->
+                        <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
 
-                                                      <!-- หน้าจัดการโต๊ะคิว -->
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                             href="./../../pages/staff/" data-te-nav-link-ref>จัดการโต๊ะคิว</a>
-                                                      </li>
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                            <!-- หน้าจัดการโต๊ะคิว -->
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                                   href="./../../pages/staff/" data-te-nav-link-ref>จัดการโต๊ะคิว</a>
+                            </li>
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
 
-                                                          <!-- หน้าจัดการออเดอร์อาหาร -->
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-                                                             href="./../../pages/cooking/" data-te-nav-link-ref>จัดการออเดอร์อาหาร</a>
-                                                      </li>
+                                <!-- หน้าจัดการออเดอร์อาหาร -->
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+                                   href="./../../pages/cooking/" data-te-nav-link-ref>จัดการออเดอร์อาหาร</a>
+                            </li>
 
-                                                  </ul>
-                                              </div>
+                        </ul>
+                    </div>
 
-                                              <!-- Second dropdown container -->
-                                              <div class="relative" data-te-dropdown-ref
-                                                   data-te-dropdown-alignment="end">
-                                                  <!-- Second dropdown trigger -->
-                                                  <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                     href="#" id="dropdownMenuButton2" role="button"
-                                                     data-te-dropdown-toggle-ref
-                                                     aria-expanded="false">
-                                                      <!-- User avatar -->
-                                                      ผู้ใช้
-                                                  </a>
-                                                  <!-- Second dropdown menu -->
-                                                  <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
-                                                      aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
-                                                      <!-- Second dropdown menu items -->
-                                                      <li>
-                                                          <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                                                             href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
-                                                      </li>
-                                                      <li>
-                                                          <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                                                             href="./../../backend/account/logout_user.php"
-                                                             data-te-dropdown-item-ref>ออกจากระบบ</a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
-                                                                        <?php
-                                                                                                      } ?>
-                                      </nav>
-                                  </header>
-                                                            
-                                                            <?php
-                              } else { ?>
+                    <!-- Second dropdown container -->
+                    <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
+                        <!-- Second dropdown trigger -->
+                        <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                           href="#" id="dropdownMenuButton2" role="button" data-te-dropdown-toggle-ref
+                           aria-expanded="false">
+                            <!-- User avatar -->
+                            ผู้ใช้
+                        </a>
+                        <!-- Second dropdown menu -->
+                        <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+                            <!-- Second dropdown menu items -->
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                                   href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
+                            </li>
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                                   href="./../../backend/account/logout_user.php"
+                                   data-te-dropdown-item-ref>ออกจากระบบ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <?php
+                        } ?>
+            </nav>
+        </header>
 
-                                  <header>
-                                      <nav id="navbar"
-                                           class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
-                                          <div id="navbar-body"
-                                               class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
-                                              <!-- Hamburger button for mobile view -->
-                                              <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
-                                                      type="button" data-te-collapse-init
-                                                      data-te-target="#navbarSupportedContent1"
-                                                      aria-controls="navbarSupportedContent1" aria-expanded="false"
-                                                      aria-label="Toggle navigation">
-                                                  <!-- Hamburger icon -->
-                                                  <span class="[&>svg]:w-7">
+        <?php
+    } else { ?>
+
+        <header>
+            <nav id="navbar"
+                 class="fixed top-0 left-0 w-full z-50 flex-no-wrap relative flex items-center justify-between bg-[#FBFBFB] py-2 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4 z-40 shadow-none">
+                <div id="navbar-body" class="blur-effect flex w-full flex-wrap items-center justify-between px-3">
+                    <!-- Hamburger button for mobile view -->
+                    <button class="block border-0 bg-transparent px-2 text-neutral-500 hover:no-underline hover:shadow-none focus:no-underline focus:shadow-none focus:outline-none focus:ring-0 dark:text-neutral-200 lg:hidden"
+                            type="button" data-te-collapse-init data-te-target="#navbarSupportedContent1"
+                            aria-controls="navbarSupportedContent1" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <!-- Hamburger icon -->
+                        <span class="[&>svg]:w-7">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                  class="h-7 w-7">
                                 <path fill-rule="evenodd"
@@ -239,95 +220,88 @@
                                       clip-rule="evenodd"/>
                             </svg>
                         </span>
-                                              </button>
-                                              <!-- Collapsible navigation container -->
-                                              <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
-                                                   id="navbarSupportedContent1" data-te-collapse-item>
-                                                  <!-- Logo -->
-                                                  <a class="mb-4 ml-2 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
-                                                     href="./../../">
-                                                      <img src="./../../assets/icon/favicon.svg" class="h-8" alt=""
-                                                           loading="lazy"/>
-                                                  </a>
-                                                                            <?php
-                                                                                                          $isAuth = isset($_SESSION['memberName']);
-                                                                                                          if ($isAuth) { ?>
-                                                  <!-- Left navigation links -->
-                                                  <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row"
-                                                      data-te-navbar-nav-ref>
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                                          <!-- Home -->
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
-                                                             href="./../../" data-te-nav-link-ref>หน้าหลัก</a>
-                                                      </li>
-                                                      <!-- Redeem Points -->
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                             href="./../../pages/shop/" data-te-nav-link-ref>แลกแต้ม</a>
-                                                      </li>
-                                                      <!-- Banner -->
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                             href="./../../pages/banner/"
-                                                             data-te-nav-link-ref>กล่องสุ่ม</a>
-                                                      </li>
-                                                      <!-- Stash -->
-                                                      <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
-                                                          <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                             href="./../../pages/couponStash/" data-te-nav-link-ref>คูปองของฉัน</a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
+                    </button>
+                    <!-- Collapsible navigation container -->
+                    <div class="!visible hidden flex-grow basis-[100%] items-center lg:!flex lg:basis-auto"
+                         id="navbarSupportedContent1" data-te-collapse-item>
+                        <!-- Logo -->
+                        <a class="mb-4 ml-2 mr-2 mt-3 flex items-center text-neutral-900 hover:text-neutral-900 focus:text-neutral-900 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400 lg:mb-0 lg:mt-0"
+                           href="./../../">
+                            <img src="./../../assets/icon/favicon.svg" class="h-8" alt="" loading="lazy"/>
+                        </a>
+                        <?php
+                            $isAuth = isset($_SESSION['memberName']);
+                            if ($isAuth) { ?>
+                        <!-- Left navigation links -->
+                        <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                <!-- Home -->
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-zinc-400"
+                                   href="./../../" data-te-nav-link-ref>หน้าหลัก</a>
+                            </li>
+                            <!-- Redeem Points -->
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                                   href="./../../pages/shop/" data-te-nav-link-ref>แลกแต้ม</a>
+                            </li>
+                            <!-- Banner -->
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                                   href="./../../pages/banner/" data-te-nav-link-ref>กล่องสุ่ม</a>
+                            </li>
+                            <!-- Stash -->
+                            <li class="mb-4 lg:mb-0 lg:pr-2" data-te-nav-item-ref>
+                                <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                                   href="./../../pages/couponStash/" data-te-nav-link-ref>คูปองของฉัน</a>
+                            </li>
+                        </ul>
+                    </div>
 
-                                              <!-- Second dropdown container -->
-                                              <div class="relative" data-te-dropdown-ref
-                                                   data-te-dropdown-alignment="end">
-                                                  <!-- Second dropdown trigger -->
-                                                  <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                                                     href="#" id="dropdownMenuButton2" role="button"
-                                                     data-te-dropdown-toggle-ref
-                                                     aria-expanded="false">
-                                                      <!-- User avatar -->
-                                                      ผู้ใช้
-                                                  </a>
-                                                  <!-- Second dropdown menu -->
-                                                  <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
-                                                      aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
-                                                      <!-- Second dropdown menu items -->
-                                                      <li>
-                                                          <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                                                             href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
-                                                      </li>
-                                                      <li>
-                                                          <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
-                                                             href="./../../backend/account/logout_user.php"
-                                                             data-te-dropdown-item-ref>ออกจากระบบ</a>
-                                                      </li>
-                                                  </ul>
-                                              </div>
-                                                                        <?php
-                                                                                                      } else { ?>
-                                          </div>
-                                          <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
-                                              <button type="button"
-                                                      class="inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
-                                                      data-te-ripple-init data-te-toggle="modal"
-                                                      data-te-target="#regisModal">
-                                                  สมัครสมาชิก
-                                              </button>
-                                              <button type="button"
-                                                      class="inline-block rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-800 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-800 focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 dark:border-neutral-900 dark:text-neutral-900 dark:hover:border-neutral-900 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10 dark:hover:text-neutral-900 dark:focus:border-neutral-900 dark:focus:text-neutral-900 dark:active:border-neutral-900 dark:active:text-neutral-900"
-                                                      data-te-ripple-init data-te-toggle="modal"
-                                                      data-te-target="#loginModal">
-                                                  เข้าสู่ระบบ
-                                              </button>
-                                          </div>
-                                                                    <?php
-                                                                                                  } ?>
-                                      </nav>
-                                  </header>
-                                                            <?php
-                              } ?>
+                    <!-- Second dropdown container -->
+                    <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
+                        <!-- Second dropdown trigger -->
+                        <a class="text-neutral-500 transition duration-200 hover:text-neutral-700 hover:ease-in-out focus:text-neutral-700 disabled:text-black/30 motion-reduce:transition-none dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 lg:px-2 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                           href="#" id="dropdownMenuButton2" role="button" data-te-dropdown-toggle-ref
+                           aria-expanded="false">
+                            <!-- User avatar -->
+                            ผู้ใช้
+                        </a>
+                        <!-- Second dropdown menu -->
+                        <ul class="absolute z-[1000] float-left m-0 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block"
+                            aria-labelledby="dropdownMenuButton2" data-te-dropdown-menu-ref>
+                            <!-- Second dropdown menu items -->
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                                   href="./../../pages/profile" data-te-dropdown-item-ref>ข้อมูลผู้ใช้</a>
+                            </li>
+                            <li>
+                                <a class="block w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400 dark:text-neutral-200 dark:hover:bg-white/30"
+                                   href="./../../backend/account/logout_user.php"
+                                   data-te-dropdown-item-ref>ออกจากระบบ</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <?php
+                        } else { ?>
+                </div>
+                <div class="relative" data-te-dropdown-ref data-te-dropdown-alignment="end">
+                    <button type="button"
+                            class="inline-block rounded-full bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
+                            data-te-ripple-init data-te-toggle="modal" data-te-target="#regisModal">
+                        สมัครสมาชิก
+                    </button>
+                    <button type="button"
+                            class="inline-block rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-neutral-800 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-neutral-800 focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 dark:border-neutral-900 dark:text-neutral-900 dark:hover:border-neutral-900 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10 dark:hover:text-neutral-900 dark:focus:border-neutral-900 dark:focus:text-neutral-900 dark:active:border-neutral-900 dark:active:text-neutral-900"
+                            data-te-ripple-init data-te-toggle="modal" data-te-target="#loginModal">
+                        เข้าสู่ระบบ
+                    </button>
+                </div>
+                <?php
+                    } ?>
+            </nav>
+        </header>
+        <?php
+    } ?>
 <!-- Login Modal -->
 <div data-te-modal-init
      class="fixed left-0 top-0 z-[1055] hidden h-full w-full overflow-y-auto overflow-x-hidden outline-none"
@@ -494,50 +468,50 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
-                              if (isset($_SESSION['result'])) { ?>
-                                  <script>
-                                                                <?php $fire = false; ?>
-                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "success",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true; ?>
-                                                                
-                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "error",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true;
-                                                                } ?>
-                                                                
-                                                                
-                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "success",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true; ?>
-                                                                
-                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "register")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "error",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true;
-                                                                } ?>
-                                                                
-                                                                <?php if ($fire)
-                                                                                              unset($_SESSION['result']) ?>
-                                  </script>
-                                                            <?php
-                              } ?>
+    if (isset($_SESSION['result'])) { ?>
+        <script>
+            <?php $fire = false; ?>
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "login")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "login")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "register")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "register")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+            <?php if ($fire)
+                unset($_SESSION['result']) ?>
+        </script>
+        <?php
+    } ?>
 
 
 
 <?php
-                              if (isset($_SESSION['memberName'])) { ?>
+    if (isset($_SESSION['memberName'])) { ?>
 <span class="my-5">
             <div class="border dark:border-neutral-600 shadow mt-7">
                 <div class="m-4">
@@ -582,8 +556,7 @@
                                         <input type="text"
                                                class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                id="email" value="<?php
-                                                                      echo $_SESSION['email'] ?>"
-                                               aria-label="readonly input example" readonly/>
+                                            echo $_SESSION['email'] ?>" aria-label="readonly input example" readonly/>
                                         <label for="email"
                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">อีเมล
                                         </label>
@@ -594,8 +567,7 @@
                                         <input type="text"
                                                class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                id="phoneNumber" value="<?php
-                                                                      echo $_SESSION['phoneNumber'] ?>"
-                                               aria-label="readonly input example"
+                                            echo $_SESSION['phoneNumber'] ?>" aria-label="readonly input example"
                                                readonly/>
                                         <label for="phoneNumber"
                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์
@@ -608,8 +580,7 @@
                                     <input type="text"
                                            class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                            id="memberName" value="<?php
-                                                                  echo $_SESSION['memberName'] ?>"
-                                           aria-label="readonly input example" readonly/>
+                                        echo $_SESSION['memberName'] ?>" aria-label="readonly input example" readonly/>
                                     <label for="memberName"
                                            class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">ชื่อสมาชิก
                                     </label>
@@ -620,8 +591,7 @@
                                     <input type="text"
                                            class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                            id="points" value="<?php
-                                                                  echo $_SESSION['points'] ?>"
-                                           aria-label="readonly input example" readonly/>
+                                        echo $_SESSION['points'] ?>" aria-label="readonly input example" readonly/>
                                     <label for="points"
                                            class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">แต้มสะสม
                                     </label>
@@ -706,8 +676,7 @@
                                         <input type="text"
                                                class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                id="email" value="<?php
-                                                                      echo $_SESSION['email'] ?>"
-                                               aria-label="readonly input example" readonly/>
+                                            echo $_SESSION['email'] ?>" aria-label="readonly input example" readonly/>
                                         <label for="email"
                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">อีเมล
                                         </label>
@@ -718,8 +687,7 @@
                                         <input type="text"
                                                class="peer block min-h-[auto] w-full rounded border-0 bg-neutral-100 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:bg-neutral-700 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                id="phoneNumber" value="<?php
-                                                                      echo $_SESSION['phoneNumber'] ?>"
-                                               aria-label="readonly input example"
+                                            echo $_SESSION['phoneNumber'] ?>" aria-label="readonly input example"
                                                readonly/>
                                         <label for="phoneNumber"
                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">หมายเลขโทรศัพท์
@@ -734,8 +702,7 @@
                                                class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                id="name" name="name" aria-describedby="name" placeholder="ชื่อสมาชิก"
                                                value="<?php
-                                                                             echo $_SESSION['memberName'] ?>"
-                                               pattern=".{4,}"
+                                                   echo $_SESSION['memberName'] ?>" pattern=".{4,}"
                                                title='ต้องมีอักษร 4 ตัวขึ้นไป' required/>
                                         <label for="name"
                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary">ชื่อสมาชิก
@@ -802,7 +769,7 @@
                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                     <script src="./../../assets/scripts/sweetalert.js"></script>
                 <?php
-                                              } else { ?>
+                    } else { ?>
                     <script>
                         Warning.fire({
                             icon: "warning",
@@ -814,58 +781,58 @@
                             }
                         });
                     </script>
-                                              <?php
+                    <?php
                 } ?>
                 </div>
             </div>
         </span>
 
 <?php
-                              include("./../../assets/scripts/tw_element.php") ?>
+    include("./../../assets/scripts/tw_element.php") ?>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./../../assets/scripts/sweetalert.js"></script>
 
 <?php
-                              if (isset($_SESSION['result'])) { ?>
-                                  <script>
-                                                                <?php $fire = false; ?>
-                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "update_user")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "success",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true; ?>
-                                                                
-                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "update_user")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "error",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true;
-                                                                } ?>
-                                                                
-                                                                
-                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "chapass_user")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "success",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true; ?>
-                                                                
-                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "chapass_user")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "error",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true;
-                                                                } ?>
-                                                                
-                                                                <?php if ($fire)
-                                                                                              unset($_SESSION['result']) ?>
-                                  </script>
-                                                            <?php
-                              } ?>
+    if (isset($_SESSION['result'])) { ?>
+        <script>
+            <?php $fire = false; ?>
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "update_user")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "update_user")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "chapass_user")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "chapass_user")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+            <?php if ($fire)
+                unset($_SESSION['result']) ?>
+        </script>
+        <?php
+    } ?>
 
 </body>
 

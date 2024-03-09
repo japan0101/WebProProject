@@ -1,10 +1,10 @@
 <?php
-                              
-                              session_start();
-                              if (isset($_SESSION['role'])) {
-                                                            if ($_SESSION['role'] != "MANAGER")
-                                                                                          header("Location: ./../../");
-                              } else header("Location: ./../../");
+
+    session_start();
+    if (isset($_SESSION['role'])) {
+        if ($_SESSION['role'] != "MANAGER")
+            header("Location: ./../../");
+    } else header("Location: ./../../");
 ?>
 
 <!DOCTYPE html>
@@ -16,9 +16,9 @@
     <link rel="icon" type="image/x-icon" href="./../../assets/icon/favicon.svg">
 
     <title>Laew Tae App</title>
-                              
-                              <?php
-                                                            include("./../../assets/scripts/tailwind.php") ?>
+
+    <?php
+        include("./../../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -27,7 +27,7 @@
 
 <body>
 <?php
-                              include("./../../assets/component/navManager.php") ?>
+    include("./../../assets/component/navManager.php") ?>
 
 <main class="">
     <section class="body_container top-item flex flex-col gap-6">
@@ -51,24 +51,24 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                                              include '../../backend/connectDatabase.php';
-                                                              $database->custom("SELECT phoneNumber, codeDiscount, paymentMethod, total, billAt FROM bills LEFT JOIN users USING (userID) ORDER BY billAt DESC");
-                                                              foreach ($database->getResult()['payload'] as $item) { ?>
-                                                                  <tr class="border-b dark:border-neutral-500">
-                                                                      <td class="whitespace-nowrap px-6 py-4"><?php
-                                                                                                                                  echo $item->phoneNumber ?></td>
-                                                                      <td class="whitespace-nowrap px-6 py-4"><?php
-                                                                                                                                  echo $item->codeDiscount ?></td>
-                                                                      <td class="whitespace-nowrap px-6 py-4"><?php
-                                                                                                                                  echo $item->paymentMethod ?></td>
-                                                                      <td class="whitespace-nowrap px-6 py-4"><?php
-                                                                                                                                  echo $item->total ?></td>
-                                                                      <td class="whitespace-nowrap px-6 py-4"><?php
-                                                                                                                                  echo $item->billAt ?></td>
-                                                                  </tr>
-                                                                                            <?php
-                                                              }
-                                                              unset($database);
+                                    include '../../backend/connectDatabase.php';
+                                    $database->custom("SELECT phoneNumber, codeDiscount, paymentMethod, total, billAt FROM bills LEFT JOIN users USING (userID) ORDER BY billAt DESC");
+                                    foreach ($database->getResult()['payload'] as $item) { ?>
+                                        <tr class="border-b dark:border-neutral-500">
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->phoneNumber ?></td>
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->codeDiscount ?></td>
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->paymentMethod ?></td>
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->total ?></td>
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->billAt ?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    unset($database);
                                 ?>
                                 </tbody>
                             </table>
@@ -104,34 +104,34 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
-                              if (isset($_SESSION['result'])) { ?>
-                                  <script>
-                                                                <?php $fire = false; ?>
-                                                                
-                                                                <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "insertTable")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "success",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true; ?>
-                                                                
-                                                                <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "insertTable")) { ?>
-                                                                Toast.fire({
-                                                                    icon: "error",
-                                                                    title: "<?php echo $_SESSION['result']['message']; ?>",
-                                                                });
-                                                                <?php $fire = true;
-                                                                } ?>
-                                                                
-                                                                
-                                                                <?php if ($fire)
-                                                                                              unset($_SESSION['result']) ?>
-                                  </script>
-                                                            <?php
-                              } ?>
+    if (isset($_SESSION['result'])) { ?>
+        <script>
+            <?php $fire = false; ?>
+
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "insertTable")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
+
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "insertTable")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
+
+
+            <?php if ($fire)
+                unset($_SESSION['result']) ?>
+        </script>
+        <?php
+    } ?>
 
 <?php
-                              include("./../../assets/scripts/tw_element.php") ?>
+    include("./../../assets/scripts/tw_element.php") ?>
 </body>
 
 </html>

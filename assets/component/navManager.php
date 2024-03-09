@@ -24,9 +24,9 @@
                    href="./../../pages/manager/">
                     <img src="./../../assets/icon/favicon.svg" class="h-8" alt="" loading="lazy"/>
                 </a>
-                                          <?php
-                                                                        $isAuth = isset($_SESSION['memberName']);
-                                                                        if ($isAuth && $_SESSION['role'] == "MANAGER") { ?>
+                <?php
+                    $isAuth = isset($_SESSION['memberName']);
+                    if ($isAuth && $_SESSION['role'] == "MANAGER") { ?>
                 <!-- Left navigation links -->
                 <ul class="list-style-none mr-auto flex flex-col pl-0 lg:flex-row" data-te-navbar-nav-ref>
 
@@ -86,7 +86,7 @@
                     </li>
                 </ul>
             </div>
-                                      <?php
-                                                                    } ?>
+            <?php
+                } ?>
     </nav>
 </header>
