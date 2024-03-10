@@ -12,3 +12,5 @@ Role: Manager
 username: manager@mail.com
 password: 12345678
 
+URL ของระบบ
+http://10.0.15.21/it/65070028/G-03-Project/
