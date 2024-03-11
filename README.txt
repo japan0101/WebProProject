@@ -1,7 +1,8 @@
-การตั้งค่าเว็บ
-เปิด xxamp และ start Apache & MySQL
+การตั้งค่าระบบ
+Import .ova เข้า VMware
+เปิด Xampp และ start Apache & MySQL
 เปิด Terminal ของ VScode
-run command: "npm run dev"
+run command: npm run dev
 
 
 Account ที่ใช้สำหรับเข้าสู่ระบบ
@@ -19,4 +20,4 @@ username: manager@mail.com
 password: 12345678
 
 URL ของระบบ
-http://10.0.15.21/it/65070028/G-03-Project/
+http://127.0.0.1:3000/
