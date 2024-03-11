@@ -1,3 +1,9 @@
+การตั้งค่าเว็บ
+เปิด xxamp และ start Apache & MySQL
+เปิด Terminal ของ VScode
+run command: "npm run dev"
+
+
 Account ที่ใช้สำหรับเข้าสู่ระบบ
 
 Role: Member
