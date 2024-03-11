@@ -1,6 +1,9 @@
 การตั้งค่าระบบ
 Import .ova เข้า VMware
 เปิด Xampp และ start Apache & MySQL
+
+เข้า VScode
+เปิด Folder C:\Users\LaewTaeApp\Desktop\LaewTaeApp\WebProProject
 เปิด Terminal ของ VScode
 run command: npm run dev
 
