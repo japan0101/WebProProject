@@ -109,7 +109,14 @@
                         เพิ่มประเภทเมนู
                     </button>
                 </form>
-
+                <h2 class="text-2xl mt-3">ประเภทเมนูต่าง ๆ</h2>
+                <div class="m-3 max-h-52 overflow-y-auto">
+                    <table class="table-auto text-center text-sm font-light min-w-full" id="display_category">
+                        <tr class="border-b font-medium dark:border-neutral-500">
+                            <th scope="col" class="px-6 py-4">ประเภทเมนู</th>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -163,17 +170,6 @@
                     </div>
                 </div>
 
-            </div>
-
-            <div class="flex-1 blur-effect rounded-lg p-8 bg-white">
-                <h2 class="text-2xl mt-0">ประเภทเมนูต่าง ๆ</h2>
-                <div class="m-3">
-                    <table class="table-auto text-left text-sm font-light" id="display_category">
-                        <tr class="border-b font-medium dark:border-neutral-500">
-                            <th scope="col" class="px-6 py-4">ประเภทเมนู</th>
-                        </tr>
-                    </table>
-                </div>
             </div>
         </div>
 
