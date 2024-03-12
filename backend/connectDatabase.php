@@ -31,7 +31,7 @@ class Database
     private function query(string $sql)
     {
         try {
-            echo $sql." ";
+            // echo $sql." ";
             $result = $this->conn->query($sql);
             $this->res = array("payload" => array(), "result" => 0, "message" => 'Default', "type" => "");
             // payload  = ข้อมูลที่เราดึง
