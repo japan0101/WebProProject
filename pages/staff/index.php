@@ -116,6 +116,12 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
 
     <script>
         let select = "";
+        let total_item = "";
+        let menuDis = "";
+        let discountName = "";
+        let discountPrice = "";
+        let priceSum = "";
+        let inp_total = "";
     </script>
 
     <?php
@@ -181,15 +187,15 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
 
                                 <hr>
                                 <div class="flex flex-row flex-1 mt-1 text-red-400">
-                                    <div class="flex-1" id="discountName"></div>
+                                    <div class="flex-1" id="discountName_<?php echo $item->tableID?>"></div>
                                     <div class="flex-1"></div>
-                                    <div class="flex-1 text-right" id="discountPrice"></div>
+                                    <div class="flex-1 text-right" id="discountPrice_<?php echo $item->tableID?>"></div>
                                 </div>
 
                                 <div class="flex flex-row flex-1">
                                     <div class="flex-1">ราคารวม</div>
                                     <div class="flex-1"></div>
-                                    <div class="flex-1 text-right" id="priceSum"><?php
+                                    <div class="flex-1 text-right" id="priceSum_<?php echo $item->tableID?>"><?php
                                         echo $total . " บาท" ?></div>
                                 </div>
 
@@ -219,7 +225,7 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
 
                             <input type="hidden" name="tableID" value="<?php
                             echo $item->tableID ?>">
-                            <input type="hidden" name="total" id="total" value="<?php
+                            <input type="hidden" name="total" id="total_<?php echo $item->tableID?>" value="<?php
                             echo $total ?>">
                             <input type="hidden" name="case" value="payBill">
 
@@ -248,8 +254,8 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
 
         <script>
             select = document.getElementById("<?php echo "select_" . $item->userID; ?>")
-            let total_item = <?php echo json_encode($total_item) ?>;
-            let menuDis = <?php echo json_encode($discount) ?>;
+            total_item = <?php echo json_encode($total_item) ?>;
+            menuDis = <?php echo json_encode($discount) ?>;
 
             fetch(`./../../backend/database/staff.php?case=couponUser&ID=<?php echo $item->userID ?>`).then(e => e.json()).then(payload => {
 
@@ -270,11 +276,11 @@ if ($isAuth && ($_SESSION['role'] == "STAFF" || $_SESSION['role'] == "MANAGER"))
                 })
             })
 
-            const discountName = document.getElementById("discountName")
-            const discountPrice = document.getElementById("discountPrice")
-            const priceSum = document.getElementById("priceSum")
+            discountName = document.getElementById("discountName_<?php echo $item->tableID?>")
+            discountPrice = document.getElementById("discountPrice_<?php echo $item->tableID?>")
+            priceSum = document.getElementById("priceSum_<?php echo $item->tableID?>")
 
-            const inp_total = document.getElementById("total")
+            inp_total = document.getElementById("total_<?php echo $item->tableID?>")
 
             select.addEventListener("change", function () {
                 let total = <?php echo $total; ?>;

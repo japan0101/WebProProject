@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && in_array($_SESSION['role'], array("S
             if (isset($_POST['code'])) {
                 $insert['codeDiscount'] = json_decode($_POST['code'])->code;
                 // ลบโค้ดส่วนลดออกจาก Member
-                $database->delete("user_discount", where: "userID={$userID}");
+                $database->delete("user_discount", where: "userID={$userID}, AND code='".json_decode($_POST['code'])->code."'");
             }
             $database->insert("bills", $insert);
 
