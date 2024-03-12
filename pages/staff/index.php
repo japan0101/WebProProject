@@ -46,6 +46,16 @@
     </li>
 </ul>
 
+<script>
+    let select = "";
+    let total_item = "";
+    let menuDis = "";
+    let discountName = "";
+    let discountPrice = "";
+    let priceSum = "";
+    let inp_total = "";
+</script>
+
 <!--Tabs content-->
 <div class="mb-6">
 
@@ -114,15 +124,6 @@
         </form>
     </div>
 
-    <script>
-        let select = "";
-        let total_item = "";
-        let menuDis = "";
-        let discountName = "";
-        let discountPrice = "";
-        let priceSum = "";
-        let inp_total = "";
-    </script>
 
     <?php
         foreach ($data as $item) { ?>
@@ -254,15 +255,12 @@
             if (!is_null($item->userID)) { ?>
 
         <script>
-            select = document.getElementById("<?php echo "select_" . $item->userID; ?>")
-            total_item = <?php echo json_encode($total_item) ?>;
-            menuDis = <?php echo json_encode($discount) ?>;
 
                 fetch(`./../../backend/database/staff.php?case=couponUser&ID=<?php echo $item->userID ?>`).then(e => e.json()).then(payload => {
 
                     payload.forEach(item => {
-                        if (menuDis[item['menuID']] != undefined) {
-                            select.disabled = false
+                        if (<?php echo json_encode($discount) ?>[item['menuID']] != undefined) {
+                            document.getElementById("<?php echo "select_" . $item->userID; ?>").disabled = false
 
                             let opt = document.createElement("option")
                             opt.value = JSON.stringify({
@@ -271,26 +269,20 @@
                                 menuID: item['menuID']
                             })
                             opt.append(document.createTextNode(item['code']))
-                            opt.setAttribute("data-te-select-secondary-text", `${menuDis[item['menuID']]} ลด ${Number(item['discount']) * 100}%`)
-                            select.append(opt)
+                            opt.setAttribute("data-te-select-secondary-text", `${<?php echo json_encode($discount) ?>[item['menuID']]} ลด ${Number(item['discount']) * 100}%`)
+                            document.getElementById("<?php echo "select_" . $item->userID; ?>").append(opt)
                         }
                     })
                 })
 
-            discountName = document.getElementById("discountName_<?php echo $item->tableID?>")
-            discountPrice = document.getElementById("discountPrice_<?php echo $item->tableID?>")
-            priceSum = document.getElementById("priceSum_<?php echo $item->tableID?>")
-
-            inp_total = document.getElementById("total_<?php echo $item->tableID?>")
-
-                select.addEventListener("change", function () {
+                document.getElementById("<?php echo "select_" . $item->userID; ?>").addEventListener("change", function () {
                     let total = <?php echo $total; ?>;
                     let data = JSON.parse(this.value);
-                    discountName.innerHTML = menuDis[data['menuID']];
-                    discountPrice.innerHTML = "-" + (total_item[data['menuID']] * data['discount']) + " บาท"
-                    priceSum.innerHTML = `${total - total_item[data['menuID']] * data['discount']} บาท`;
+                    document.getElementById("discountName_<?php echo $item->tableID?>").innerHTML = <?php echo json_encode($discount) ?>[data['menuID']];
+                    document.getElementById("discountPrice_<?php echo $item->tableID?>").innerHTML = "-" + (<?php echo json_encode($total_item) ?>[data['menuID']] * data['discount']) + " บาท"
+                    document.getElementById("priceSum_<?php echo $item->tableID?>").innerHTML = `${total - <?php echo json_encode($total_item) ?>[data['menuID']] * data['discount']} บาท`;
 
-                    inp_total.value = total - total_item[data['menuID']] * data['discount']
+                    document.getElementById("total_<?php echo $item->tableID?>").value = total - <?php echo json_encode($total_item) ?>[data['menuID']] * data['discount']
                 })
             </script>
 
