@@ -9,7 +9,7 @@
     <title>Laew Tae App</title>
 
     <?php
-    include("./../assets/scripts/tailwind.php") ?>
+        include("./../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../assets/stylesheets/global.css">
     <link rel="stylesheet" href="./../assets/stylesheets/account.css">
@@ -100,7 +100,7 @@
 </section>
 
 <?php
-include("./../assets/scripts/tw_element.php") ?>
+    include("./../assets/scripts/tw_element.php") ?>
 
 </body>
 

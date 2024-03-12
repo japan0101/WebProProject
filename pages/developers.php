@@ -1,5 +1,5 @@
 <?php
-echo <<<EOF
+    echo <<<EOF
     <div>
     
 </div>

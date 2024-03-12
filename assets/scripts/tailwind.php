@@ -1,5 +1,5 @@
 <?php
-echo <<<EOF
+    echo <<<EOF
 <!-- Roboto font -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
 <!-- TW Elements styles -->
@@ -9,7 +9,7 @@ echo <<<EOF
 EOF;
 
 
-echo <<<EOF
+    echo <<<EOF
 
 <script>
 tailwind.config = {

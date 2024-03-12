@@ -1,10 +1,10 @@
 <?php
 
-session_start();
-if (isset($_SESSION['role'])) {
-    if ($_SESSION['role'] != "MANAGER")
-        header("Location: ./../../");
-} else header("Location: ./../../");
+    session_start();
+    if (isset($_SESSION['role'])) {
+        if ($_SESSION['role'] != "MANAGER")
+            header("Location: ./../../");
+    } else header("Location: ./../../");
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ if (isset($_SESSION['role'])) {
     <title>Laew Tae App</title>
 
     <?php
-    include("./../../assets/scripts/tailwind.php") ?>
+        include("./../../assets/scripts/tailwind.php") ?>
 
     <link rel="stylesheet" href="./../../assets/stylesheets/navbar.css">
     <link rel="stylesheet" href="./../../assets/stylesheets/global.css">
@@ -27,7 +27,7 @@ if (isset($_SESSION['role'])) {
 
 <body>
 <?php
-include("./../../assets/component/navManager.php") ?>
+    include("./../../assets/component/navManager.php") ?>
 <main class="">
     <section class="body_container top-item flex flex-col gap-6">
         <!-- ตาราง Create -->
@@ -76,26 +76,26 @@ include("./../../assets/component/navManager.php") ?>
                                 </thead>
                                 <tbody>
                                 <?php
-                                include '../../backend/connectDatabase.php';
-                                $database->custom("SELECT tableID, code, phoneNumber, points, capacity, tables.status FROM tables LEFT JOIN users USING (userID)");
-                                foreach ($database->getResult()['payload'] as $item) { ?>
-                                    <tr class="border-b dark:border-neutral-500">
-                                        <td class="whitespace-nowrap px-6 py-4"><?php
-                                            echo $item->tableID ?></td>
-                                        <td class="whitespace-nowrap px-6 py-4"><?php
-                                            echo $item->code ?></td>
-                                        <td class="whitespace-nowrap px-6 py-4"><?php
-                                            echo $item->phoneNumber ?></td>
-                                        <td class="whitespace-nowrap px-6 py-4"><?php
-                                            echo $item->points ?></td>
-                                        <td class="whitespace-nowrap px-6 py-4"><?php
-                                            echo $item->capacity ?></td>
-                                        <td class="whitespace-nowrap px-6 py-4"><?php
-                                            echo $item->status ?></td>
-                                    </tr>
-                                    <?php
-                                }
-                                unset($database);
+                                    include '../../backend/connectDatabase.php';
+                                    $database->custom("SELECT tableID, code, phoneNumber, points, capacity, tables.status FROM tables LEFT JOIN users USING (userID)");
+                                    foreach ($database->getResult()['payload'] as $item) { ?>
+                                        <tr class="border-b dark:border-neutral-500">
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->tableID ?></td>
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->code ?></td>
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->phoneNumber ?></td>
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->points ?></td>
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->capacity ?></td>
+                                            <td class="whitespace-nowrap px-6 py-4"><?php
+                                                    echo $item->status ?></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    unset($database);
                                 ?>
                                 </tbody>
                             </table>
@@ -131,34 +131,34 @@ include("./../../assets/component/navManager.php") ?>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="./../../assets/scripts/sweetalert.js"></script>
 <?php
-if (isset($_SESSION['result'])) { ?>
-    <script>
-        <?php $fire = false; ?>
+    if (isset($_SESSION['result'])) { ?>
+        <script>
+            <?php $fire = false; ?>
 
-        <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "insertTable")) { ?>
-        Toast.fire({
-            icon: "success",
-            title: "<?php echo $_SESSION['result']['message']; ?>",
-        });
-        <?php $fire = true; ?>
+            <?php if (($_SESSION['result']['result'] == 1) && ($_SESSION['result']['type'] == "insertTable")) { ?>
+            Toast.fire({
+                icon: "success",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true; ?>
 
-        <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "insertTable")) { ?>
-        Toast.fire({
-            icon: "error",
-            title: "<?php echo $_SESSION['result']['message']; ?>",
-        });
-        <?php $fire = true;
-        } ?>
+            <?php } else if (($_SESSION['result']['result'] == 0) && ($_SESSION['result']['type'] == "insertTable")) { ?>
+            Toast.fire({
+                icon: "error",
+                title: "<?php echo $_SESSION['result']['message']; ?>",
+            });
+            <?php $fire = true;
+            } ?>
 
 
-        <?php if ($fire)
-            unset($_SESSION['result']) ?>
-    </script>
-    <?php
-} ?>
+            <?php if ($fire)
+                unset($_SESSION['result']) ?>
+        </script>
+        <?php
+    } ?>
 
 <?php
-include("./../../assets/scripts/tw_element.php") ?>
+    include("./../../assets/scripts/tw_element.php") ?>
 </body>
 
 </html>

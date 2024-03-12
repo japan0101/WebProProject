@@ -1,18 +1,18 @@
 <?php
 
-session_start();
+    session_start();
 
-include './../connectDatabase.php';
+    include './../connectDatabase.php';
 
-if ($_SERVER['REQUEST_METHOD'] == "POST" || $_SESSION['role'] == "MANAGER") {
+    if ($_SERVER['REQUEST_METHOD'] == "POST" || $_SESSION['role'] == "MANAGER") {
 
-    // ต้องการ userID
+        // ต้องการ userID
 
-    if (isset($_POST['userID']))
-        $database->update("users", array("status" => 2), "userID={$_POST['userID']}");
-    else $database->update("users", array("status" => 2), "userID={$_SESSION['userID']}");
-}
+        if (isset($_POST['userID']))
+            $database->update("users", array("status" => 2), "userID={$_POST['userID']}");
+        else $database->update("users", array("status" => 2), "userID={$_SESSION['userID']}");
+    }
 
-unset($database);
+    unset($database);
 
-header("Location: ./logout_user.php");
+    header("Location: ./logout_user.php");
