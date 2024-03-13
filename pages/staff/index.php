@@ -187,19 +187,22 @@
                                             <?php
                                         } ?>
 
-                                <hr>
-                                <div class="flex flex-row flex-1 mt-1 text-red-400">
-                                    <div class="flex-1" id="discountName_<?php echo $item->tableID?>"></div>
-                                    <div class="flex-1"></div>
-                                    <div class="flex-1 text-right" id="discountPrice_<?php echo $item->tableID?>"></div>
-                                </div>
+                                    <hr>
+                                    <div class="flex flex-row flex-1 mt-1 text-red-400">
+                                        <div class="flex-1" id="discountName_<?php
+                                            echo $item->tableID ?>"></div>
+                                        <div class="flex-1"></div>
+                                        <div class="flex-1 text-right" id="discountPrice_<?php
+                                            echo $item->tableID ?>"></div>
+                                    </div>
 
-                                <div class="flex flex-row flex-1">
-                                    <div class="flex-1">ราคารวม</div>
-                                    <div class="flex-1"></div>
-                                    <div class="flex-1 text-right" id="priceSum_<?php echo $item->tableID?>"><?php
-                                        echo $total . " บาท" ?></div>
-                                </div>
+                                    <div class="flex flex-row flex-1">
+                                        <div class="flex-1">ราคารวม</div>
+                                        <div class="flex-1"></div>
+                                        <div class="flex-1 text-right" id="priceSum_<?php
+                                            echo $item->tableID ?>"><?php
+                                                echo $total . " บาท" ?></div>
+                                    </div>
 
                                 </div>
 
@@ -225,11 +228,12 @@
                                     </div>
                                 </div>
 
-                            <input type="hidden" name="tableID" value="<?php
-                            echo $item->tableID ?>">
-                            <input type="hidden" name="total" id="total_<?php echo $item->tableID?>" value="<?php
-                            echo $total ?>">
-                            <input type="hidden" name="case" value="payBill">
+                                <input type="hidden" name="tableID" value="<?php
+                                    echo $item->tableID ?>">
+                                <input type="hidden" name="total" id="total_<?php
+                                    echo $item->tableID ?>" value="<?php
+                                    echo $total ?>">
+                                <input type="hidden" name="case" value="payBill">
 
                             </div>
 
@@ -254,7 +258,7 @@
         <?php
             if (!is_null($item->userID)) { ?>
 
-        <script>
+            <script>
 
                 fetch(`./../../backend/database/staff.php?case=couponUser&ID=<?php echo $item->userID ?>`).then(e => e.json()).then(payload => {
 

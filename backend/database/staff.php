@@ -67,15 +67,15 @@
                     $database->custom("SELECT userID FROM tables WHERE tableID={$_POST['tableID']}");
                     $userID = $database->getResult()['payload'][0]->userID;
 
-            $insert = array("paymentMethod" => $_POST['paymentMethod'], 'total' => $_POST['total']);
-            if (!is_null($userID))
-                $insert['userID'] = $userID;
-            if (isset($_POST['code'])) {
-                $insert['codeDiscount'] = json_decode($_POST['code'])->code;
-                // ลบโค้ดส่วนลดออกจาก Member
-                $database->delete("user_discount", where: "userID={$userID} AND code='".json_decode($_POST['code'])->code."'");
-            }
-            $database->insert("bills", $insert);
+                    $insert = array("paymentMethod" => $_POST['paymentMethod'], 'total' => $_POST['total']);
+                    if (!is_null($userID))
+                        $insert['userID'] = $userID;
+                    if (isset($_POST['code'])) {
+                        $insert['codeDiscount'] = json_decode($_POST['code'])->code;
+                        // ลบโค้ดส่วนลดออกจาก Member
+                        $database->delete("user_discount", where: "userID={$userID} AND code='" . json_decode($_POST['code'])->code . "'");
+                    }
+                    $database->insert("bills", $insert);
 
                     if ($database->getResult()['result']) {
                         $database->custom("SELECT billID FROM bills ORDER BY billID DESC LIMIT 1");
