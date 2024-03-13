@@ -1,6 +1,8 @@
 การตั้งค่าระบบ
 Import .ova เข้า VMware
-เปิด Xampp และ start Apache & MySQL
+
+เปิด Search Bar ใน Window ที่อยู่ใน VM พิมพ์ค้นหา "Xampp Control Panel"
+เปิด Xampp Control Panel และ start Apache & MySQL
 
 2 วิธีในการเปิดใช้งานระบบ LaewTaeApp
 1. Visual Studio Code
@@ -25,6 +27,8 @@ password: 12345678
 Role: Manager
 username: manager@mail.com
 password: 12345678
+
+กรณีที่ต้องการเพิ่มเมนู ให้ใส่รูป Hamburger.webp โดยอยู่ที่หน้า Desktop ของ VM แล้วเรียบร้อยครับ
 
 URL ของระบบ
 http://127.0.0.1:3000/
